@@ -1,0 +1,258 @@
+﻿
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.img-box {
+    width: 125px;
+    border: 4px solid #333;
+}
+
+.img-box img {
+    display: block;
+}
+
+.container-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.forgot-wrapper {
+    text-align: right;
+    margin-bottom: 18px;
+}
+
+.forgot-link {
+    font-size: 13px;
+    color: #7dc3dc;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.forgot-link:hover {
+    color: #00d4ff;
+    text-decoration: underline;
+}
+
+/* REMOVE WHITE BACKGROUND AUTOFILL */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    caret-color: #ffffff;
+    transition: background-color 9999s ease-in-out 0s;
+}
+
+
+/* FULL SCREEN WRAPPER */
+.login-fullscreen {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+/* LEFT */
+.login-left {
+    flex: 1;
+    background: linear-gradient( 135deg, rgba(0, 26, 51, 0.9), rgba(0, 51, 102, 0.75) ), url('/content/img/NSI-background001.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #11b73d;
+    /*#c9c9c9;*/
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-left h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+    .login-left p {
+        margin-top: 0px;
+        font-size: 22px;
+        color: #e4ed69;
+        /*color: #c9c9c9;*/ /*lightgray*/
+    }
+
+.brand-desc {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #cfefff;
+}
+
+/* RIGHT */
+.login-right {
+    flex: 0.5;
+    background: rgba(0, 15, 30, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    position: relative; /* WAJIB */
+}
+
+/* TOASTR INSIDE RIGHT PANEL */
+.login-right #toast-container {
+    position: absolute !important;
+    top: 24px;
+    left: 24px;
+    right: 24px;
+    width: auto !important;
+}
+
+
+/* Biar toast ikut lebar container */
+.login-right .toast {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+
+
+/* INPUT */
+.input-group {
+    position: relative;
+    margin-bottom: 22px;
+}
+
+/*.input-group input {
+                width: 100%;
+                padding: 14px 16px 14px 44px;
+                border-radius: 30px;
+                border: 1px solid #00d4ff;
+                background: transparent;
+                color: #fff;
+                font-size: 15px;
+            }*/
+
+.input-group input {
+    width: 100%;
+    height: 52px;
+    padding: 0 18px 0 44px;
+    border-radius: 30px;
+    border: 1px solid #00d4ff;
+    background: transparent;
+    color: #fff;
+    font-size: 15px;
+}
+
+.input-group input::placeholder {
+    color: #7dc3dc;
+}
+
+.input-group .icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00d4ff;
+}
+
+/* BUTTON */
+/* .btn-login {
+                    width: 100%;
+                    padding: 14px;
+                    border-radius: 30px;
+                    border: none;
+                    background: #00d4ff;
+                    color: #002233;
+                    font-size: 15px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }*/
+
+.btn-login {
+    width: 100%;
+    height: 52px;
+    margin-top: 18px;
+    border-radius: 30px;
+    border: 1px solid #00d4ff; /* samakan border */
+    background: #00d4ff;
+    color: #002233;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.input-group,
+.btn-login {
+    display: block;
+}
+
+.btn-login:hover {
+    background: #00a0d1;
+    color: #fff;
+}
+
+/* FOOTER */
+/*.footer {
+                    margin-top: 30px;
+                    font-size: 11px;
+                    color: #aaa;
+                    text-align: center;
+                }*/
+
+.footer {
+    margin-top: 50px; /* ⭐set auto KUNCI UTAMA jika mau bottom*/
+    font-size: 11px;
+    color: #aaa;
+    text-align: center;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .login-fullscreen {
+        flex-direction: column;
+    }
+
+    .login-left {
+        height: 35%;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .login-right {
+        height: 65%;
+        padding: 30px;
+    }
+}
+
+.signin-title {
+    font-size: 30px;
+    font-weight: 900;
+    color: #9bdaf0;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.login-logo {
+    width: 300px; /* aman untuk corporate */
+    height:200px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-content: center;
+    padding-right: 10px;
+}
+
+.brand-horizontal {
+    display: flex;
+    align-items: center;
+    gap: 18px; /* jarak logo & teks */
+}

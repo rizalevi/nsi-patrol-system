@@ -1,0 +1,232 @@
+﻿
+
+/* CARD */
+.card {
+    background: white;
+/*    border-radius: 12px;*/
+    padding: 15px;
+    box-shadow: 0 2px 2px rgba(1, 1, 1, .20);
+    height:100%;
+}
+
+.card-header-label {
+    padding: 2px;
+    box-shadow: 0 4px 12px rgba(1, 1, 1, .30);
+}
+
+/* BUTTON */
+.action-bar {
+    padding: 20px;
+    text-align: right;
+}
+
+
+.card-tab {
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(1, 1, 1, .30);
+    min-width: 400px;
+}
+.chart-title {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 0px;
+    color: #333;
+}
+
+.chart-subtitle {
+    text-align: center;
+    font-size: 11px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.chk-select {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filter-row {
+    display: flex;
+    gap: 20px;
+}
+
+.filter-row.single {
+    flex-direction: column;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 auto; /* ✅ biar tidak melebar */
+    padding-bottom:2px;
+}
+
+.filter-item label {
+    width: 100px;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.filter-item select {
+    width: 180px;
+}
+
+.filter-item input {
+    width: 220px;
+}
+
+.filter-item.full {
+    width: 100%;
+}
+
+#tableID th, #tableID td {
+    white-space: nowrap !important;
+}
+
+.panel-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 0px;
+    padding: 8px 20px;
+    height: 48px;
+}
+
+
+/**chart*/
+.chart-wrapper {
+    display: flex;
+    justify-content: center; /* 🔥 horizontal center */
+    align-items: center; /* 🔥 vertical center (optional) */
+    width: 100%;
+    height: 100%;
+}
+
+.linechart-wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bs-component-bg) !important;
+}
+
+/* Card biar ga full lebar */
+.chart-card {
+    width: 100%; /* 🔥 atur lebar chart */
+    background-color: var(--bs-component-bg) !important;
+    height:100%;
+}
+
+.linechart-card {
+    width: 100%; /* 🔥 atur lebar chart */
+    background-color: var(--bs-component-bg) !important;
+    height: 100%;
+    /* max-width: 1000px;*/
+}
+.linechart-container {
+    position: relative;
+    width: 100%;
+    background-color: var(--bs-component-bg) !important;
+    height: 40vh;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+/* Container chart */
+.chart-container {
+    position: relative;
+    width: 100%;
+    background-color: var(--bs-component-bg) !important;
+    height: 40vh;
+}
+div.dataTables_wrapper div.dataTables_length,
+div.dataTables_wrapper div.dataTables_info,
+div.dataTables_wrapper div.dataTables_paginate {
+    font-size: 9px !important;
+}
+/* Responsive (biar mobile enak) */
+/*@media (max-width: 768px) {
+    .chart-container {
+        height: 280px;
+    }
+}
+*/
+/*.dataTables_scrollBody {*/
+    /*height: 30vh !important;
+    margin-top: -20px;
+    
+    background-color: white;
+      min-width: 1650px;*/
+    /*overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    width: 95% !important;
+}*/
+
+.table > :not(caption) > * > * {
+    padding: .2rem .1rem;
+    color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color)));
+    background-color: var(--bs-table-bg);
+    box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg)));
+    vertical-align: middle;
+    padding-left: 5px !important;
+}
+
+div.dataTables_scrollBody {
+    border: 1px solid lightgray !important;
+    width: 100%;
+   
+}
+
+.select2-selection__clear {
+    display: none !important;
+}
+
+.select2.select2-container .selection .select2-selection.select2-selection--multiple, .select2.select2-container .selection .select2-selection.select2-selection--single {
+    border-color: var(--bs-component-border-color);
+    border: 1px solid lightgray !important;
+    outline: 0;
+    height: calc(1.5em + .875rem + 2px);
+    display: flex;
+    align-items: center;
+    border-radius: 5px !important;
+}
+
+
+.sWidth-ddl {
+    width: 150px !important;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.text-right{
+    text-align:right !important;
+    vertical-align:middle;
+}

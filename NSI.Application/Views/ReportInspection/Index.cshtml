@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Inspection Report</title>
+
+```
+<style>
+    body {
+        font-family: 'Trebuchet MS', Arial;
+        margin: 0;
+    }
+
+    .toolbar {
+        padding: 10px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+    }
+
+    .btn-print { background: #dc3545; }
+    .btn-pdf { background: #28a745; }
+
+    /* REPORT STYLE */
+    .report {
+        width: 1000px;
+        margin: auto;
+        border: 1px solid black;
+        padding: 10px;
+    }
+
+    .header {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .sub-header {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .flex {
+        display: flex;
+        gap: 10px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 11px;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 4px;
+        text-align: center;
+    }
+
+    th {
+        background: #f0f0f0;
+    }
+
+    /* PRINT STYLE */
+    @@media print {
+        .toolbar {
+            display: none;
+        }
+
+        @@page {
+            size: A4;
+            margin: 10mm;
+        }
+
+        .report {
+            width: 100%;
+            border: none;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+<div class="toolbar">
+    <button class="btn btn-print" onclick="printReport()">Print</button>
+    <button class="btn btn-pdf" onclick="downloadPDF()">Export PDF</button>
+</div>
+
+<div id="report" class="report">
+
+```
+<div class="header">
+    FIELD AND OCS RECORD<br/>
+    SHIFT YARD PATROL
+</div>
+
+<div class="sub-header">
+    Inspection Date : 01 Apr 2026 ~ 02 Apr 2026
+</div>
+
+<div class="flex">
+
+    <!-- LEFT TABLE -->
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Inspection Item</th>
+            <th>Result</th>
+        </tr>
+
+        <!-- LOOP DATA -->
+        <tr><td>1</td><td>Check Valve</td><td>OK</td></tr>
+        <tr><td>2</td><td>Oil Level</td><td>OK</td></tr>
+        <tr><td>3</td><td>Pressure</td><td>NG</td></tr>
+    </table>
+
+    <!-- RIGHT TABLE -->
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Inspection Item</th>
+            <th>Result</th>
+        </tr>
+
+        <tr><td>31</td><td>Temperature</td><td>OK</td></tr>
+        <tr><td>32</td><td>Flow</td><td>OK</td></tr>
+        <tr><td>33</td><td>Leak Check</td><td>NG</td></tr>
+    </table>
+
+</div>
+```
+
+</div>
+
+<!-- LIBRARY PDF -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+    function printReport() {
+        window.print();
+    }
+
+    function downloadPDF() {
+        const element = document.getElementById("report");
+
+        html2pdf().set({
+            margin: 5,
+            filename: 'Inspection_Report.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        }).from(element).save();
+    }
+</script>
+
+</body>
+</html>

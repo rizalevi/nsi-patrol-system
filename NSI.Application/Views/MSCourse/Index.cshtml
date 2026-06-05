@@ -1,0 +1,258 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Course Master";
+}
+
+
+<div class="panel panel-inverse" style="min-height:86vh;">
+	<div class="panel-heading theme-color">
+		<h4 class="panel-title fs-5"><i class="bi bi-sign-stop"></i> [@ViewBag.Permission.MenuId] - @ViewBag.Permission.MenuName</h4>
+		<div class="panel-heading-btn">
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-default panel-border-white" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-success panel-border-white" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-warning panel-border-white" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+		</div>
+	</div>
+
+	<div class="panel-body">
+		<div class="panel-heading col-12">
+
+			<div class="d-flex flex-column gap-2 w-50">
+
+				<!-- Cluster -->
+				<div class="filter-group">
+
+					<div class="d-flex align-items-center flex-wrap gap-2">
+
+						<label class="mb-0 text-dark text-nowrap filter-label">
+							Cluster
+						</label>
+
+						<div class="filter-ddl pe-3">
+							<select id="ClusterCodeFilter" name="ClusterCodeFilter" class="form-select fs-13px">
+							</select>
+						</div>
+						<input id="ClusterNameFilter" name="ClusterNameFilter" class="form-control input-desc fs-13px" type="text" readonly placeholder="Cluster Name" />
+
+					</div>
+
+				</div>
+
+				<!-- Plant -->
+				<div class="filter-group">
+					<div class="d-flex align-items-center flex-wrap gap-2">
+						<label class="mb-0 text-dark text-nowrap filter-label">
+							Plant
+						</label>
+
+						<div class="filter-ddl pe-3">
+							<select id="PlantCodeFilter" name="PlantCodeFilter" class="form-select fs-13px"></select>
+						</div>
+
+						<input id="PlantNameFilter" name="PlantNameFilter" class="form-control input-desc fs-13px" type="text" readonly placeholder="Plant Name" />
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+		<div class="btn-common-panel">
+			<div style="display:flex; gap:10px;">
+				@if (ViewBag.Permission.AllowUpdate == "0")
+				{
+
+					<button id="btnadd" class="btn btn btn-success btn-sm fs-11px btn-add" type="button" onclick="AddNewData(0)" disabled><i class="fa fa-plus"></i> New</button>
+				}
+				else
+				{
+					<button id="btnadd" class="btn btn btn-success btn-sm fs-11px btn-add" type="button" onclick="AddNewData(0)"><i class="fa fa-plus"></i> New</button>
+				}
+				<button class="btn btn-primary btn-sm fs-11px btn-search"><i class="fa fa-search"></i> Browse</button>
+				<button class="btn btn-secondary btn-sm fs-11px btn-clear" type="button"><i class="fa fa-refresh"></i> Clear</button>
+			</div>
+
+			<div class="smart-search">
+				<i class="fa fa-search"></i>
+				<input type="text" class="dt-search" data-table="#tableID" placeholder="Search..." />
+			</div>
+		</div>
+
+
+		<div class="table-responsive">
+			<table id="tableID" class="table table-striped table-bordered w-100 fs-13px">
+				<thead>
+					<tr role="row">
+						<th style="text-align:center;width:130px">Action</th>
+						<th style="text-align:center;width:150px">Course</th>
+						<th style="text-align:center;">Title</th>
+						<th style="text-align:center;width:180px">Document Number</th>
+						<th style="text-align:center;width:150px">Frequency</th>
+						<th style="text-align:center;width:150px">Register Date</th>
+						<th style="text-align:center;width:150px">Register User</th>
+						<th style="text-align:center;width:150px">Last Update</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+
+			<div class="modal fade" id="MyModal" data-bs-backdrop="static" data-bs-keyboard="false">
+				<div class="modal-dialog modal-dialog-centered" style="--bs-modal-width:700px !important;">
+					<div class="modal-content">
+
+						<div class="modal-header  theme-color">
+							<h5 class="modal-title" id="ModalTitle">Add New Course</h5>
+							<button type="button" class="btn-close bg-white-200" data-bs-dismiss="modal"></button>
+						</div>
+
+						<div class="modal-body" >
+							<div class="panel-body">
+								<form id="form">
+
+									<!-- PLANT -->
+									<div class="d-flex align-items-center mb-2">
+
+										<label class="form-label text-nowrap me-2" style="width:120px;">
+											Plant <span class="text-danger">*</span>
+										</label>
+
+										<select id="PlantCode" name="PlantCode" class="form-select fs-13px me-42 sWidth-ddl"></select>
+										<input id="PlantName" name="PlantName" class="form-control input-desc  fs-13px" style="margin-left:10px;width:250px" type="text" readonly placeholder="Plant Name" />
+									
+									</div>
+
+									<!-- COURSE CODE -->
+									<div class="d-flex align-items-center mb-2">
+
+										<label class="form-label text-nowrap me-2" style="width:120px;">
+											Course Code <span class="text-danger">*</span>
+										</label>
+
+										<input id="CourseCode" name="CourseCode"  class="form-control fs-13px" style="width:150px;" maxlength="15" autocomplete="off"  placeholder="Course Code" required />
+									</div>
+									<!-- TITLE (FULL ROW) -->
+									<div class="d-flex align-items-center mb-2">
+
+										<label class="form-label text-nowrap me-2" style="width:120px;">
+											Title <span class="text-danger">*</span>
+										</label>
+
+										<input id="Title" name="Title" class="form-control fs-13px" maxlength="50" autocomplete="off" placeholder="Course Title"  required />
+									</div>
+									<!-- DOC NO -->
+									<div class="d-flex align-items-center mb-2">
+
+										<label class="form-label text-nowrap me-2" style="width:120px;">
+											Document No <span class="text-danger">*</span>
+										</label>
+
+										<input id="DocNo" name="DocNo" class="form-control fs-13px"	maxlength="35" autocomplete="off" placeholder="DOC-XXX" required />
+									</div>
+
+
+									<!-- FREQUENCY -->
+									<div class="d-flex align-items-center mb-2">
+
+										<label class="form-label text-nowrap me-2" style="width:120px;">
+											Frequency<span class="text-danger">*</span>
+										</label>
+
+										<select id="FrequencyModal" name="Frequency" class="form-select fs-13px me-2 sWidth-ddl"></select>
+										<input id="Description" name="Description" class="form-control input-desc  fs-13px" style="margin-left:10px;width:250px" type="text" readonly placeholder="Frequency Name" />
+
+									</div>
+
+
+								</form>
+							</div>
+						</div>
+
+						<div class="modal-footer">
+							@if (ViewBag.Permission.AllowUpdate == "0")
+							{
+								<button type="button" class="btn btn-primary" id="InsertData" disabled="disabled">Save</button>
+								<button type="button" class="btn btn-primary" id="UpdateData" disabled="disabled" style="display:none;">Update</button>
+							}
+							else
+							{
+								<button type="button" class="btn btn-primary" id="InsertData">Save</button>
+								<button type="button" class="btn btn-primary" id="UpdateData" style="display:none;">Update</button>
+							}
+
+							<button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+<style>
+
+
+	.filter-label {
+		width: 70px;
+		flex: 0 0 auto;
+	}
+
+
+	.input-desc {
+		flex: 1 1 250px auto;
+		max-width:250px !important
+	}
+    .table > thead {
+        vertical-align: bottom;
+        line-height: 2;
+    }
+
+    .table > :not(caption) > * > * {
+        padding: .2rem .1rem;
+        color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color)));
+        background-color: var(--bs-table-bg);
+        box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg)));
+        vertical-align: middle;
+        padding-left: 5px !important;
+    }
+
+	div.dataTables_scrollBody {
+		border: 1px solid lightgray !important;
+    }
+
+    .select2-selection__clear {
+        display: none !important;
+    }
+
+    .select2.select2-container .selection .select2-selection.select2-selection--multiple, .select2.select2-container .selection .select2-selection.select2-selection--single
+    {
+        border-color: var(--bs-component-border-color);
+        border:1px solid lightgray !important;
+        outline: 0;
+        height: calc(1.5em + .875rem + 2px);
+        display: flex;
+        align-items: center;
+        border-radius: 5px !important;
+		min-width: 130px !important;
+    }
+
+
+	.sWidth-ddl{
+		width: 130px !important;
+	}
+
+   
+   
+</style>
+@section Scripts {
+    <script asp-append-version="true">
+        window.userPermission = {
+            statusAdmin: @(ViewBag.Permission?.StatusAdmin),
+            allowUpdate: @(ViewBag.Permission?.AllowUpdate),
+            allowDelete: @(ViewBag.Permission?.AllowDelete),
+            allowApprove: @(ViewBag.Permission?.AllowApprove)
+        };
+    </script>
+    <script src="~/assets/js/pages/MSCourse.js" asp-append-version="true"></script>
+}

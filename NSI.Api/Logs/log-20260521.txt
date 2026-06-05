@@ -1,0 +1,740 @@
+2026-05-21 07:38:23.300 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 242.8758 ms
+2026-05-21 07:38:41.471 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 1756.6651 ms
+2026-05-21 07:38:42.050 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 262.2424 ms
+2026-05-21 07:38:42.406 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 12.5434 ms
+2026-05-21 08:19:25.743 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 337.8504 ms
+2026-05-21 08:36:43.500 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 193.2270 ms
+2026-05-21 08:36:58.942 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 1737.9930 ms
+2026-05-21 08:37:01.831 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 166.3489 ms
+2026-05-21 08:37:02.293 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 269.6159 ms
+2026-05-21 08:37:02.684 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 17.5567 ms
+2026-05-21 08:37:03.791 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 12.4716 ms
+2026-05-21 08:37:03.854 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 33.2294 ms
+2026-05-21 08:37:05.353 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 1443.1641 ms
+2026-05-21 08:37:05.380 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 1431.1524 ms
+2026-05-21 08:37:08.243 +07:00 [INF] HTTP POST /api/dashboard/overview responded 200 in 4509.1048 ms
+2026-05-21 08:37:35.831 +07:00 [INF] HTTP POST /api/dashboard/overview responded 200 in 1819.5293 ms
+2026-05-21 08:38:05.850 +07:00 [INF] HTTP POST /api/dashboard/overview responded 200 in 1851.9975 ms
+2026-05-21 08:38:25.605 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 10.9627 ms
+2026-05-21 08:38:25.695 +07:00 [INF] HTTP POST /api/notification/mark-all-read responded 200 in 59.9768 ms
+2026-05-21 08:38:35.584 +07:00 [INF] HTTP POST /api/dashboard/overview responded 200 in 1885.2679 ms
+2026-05-21 08:38:41.461 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 54.0384 ms
+2026-05-21 08:38:41.514 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 12.1552 ms
+2026-05-21 08:38:41.690 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 16.3107 ms
+2026-05-21 08:38:41.914 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 98031.7996 ms
+2026-05-21 08:38:42.028 +07:00 [INF] HTTP POST /api/msdevice/get-plant responded 200 in 41.5736 ms
+2026-05-21 08:38:42.070 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 1.0366 ms
+2026-05-21 08:38:42.130 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 1.3554 ms
+2026-05-21 08:38:42.138 +07:00 [INF] HTTP POST /api/msdevice/list responded 200 in 70.6018 ms
+2026-05-21 08:38:42.138 +07:00 [INF] HTTP POST /api/msdevice/list responded 200 in 49.9143 ms
+2026-05-21 08:38:42.186 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 40.7047 ms
+2026-05-21 08:38:42.273 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 10.6284 ms
+2026-05-21 08:38:44.287 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 13.1020 ms
+2026-05-21 08:38:44.537 +07:00 [INF] HTTP POST /api/tasklist/getusergroup responded 200 in 55.6382 ms
+2026-05-21 08:38:44.603 +07:00 [INF] HTTP POST /api/tasklist/summary responded 200 in 139.5756 ms
+2026-05-21 08:38:44.619 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 2476.9888 ms
+2026-05-21 08:38:44.647 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.1145 ms
+2026-05-21 08:38:44.665 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 1.1013 ms
+2026-05-21 08:38:44.682 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 9.6012 ms
+2026-05-21 08:38:44.686 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 14.5700 ms
+2026-05-21 08:38:45.411 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 8.2867 ms
+2026-05-21 08:38:45.447 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 8.7921 ms
+2026-05-21 08:38:45.576 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 879.5751 ms
+2026-05-21 08:38:45.632 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.4003 ms
+2026-05-21 08:38:45.698 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 19.3513 ms
+2026-05-21 08:38:45.698 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 22.5754 ms
+2026-05-21 08:38:45.843 +07:00 [INF] HTTP POST /api/tasklist/list responded 200 in 1179.1009 ms
+2026-05-21 08:38:45.765 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 52.6910 ms
+2026-05-21 08:38:48.034 +07:00 [INF] HTTP POST /api/dashboard/overview responded 200 in 2367.1465 ms
+2026-05-21 08:38:51.277 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 15.6540 ms
+2026-05-21 08:38:51.326 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 11.4880 ms
+2026-05-21 08:38:51.422 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 12.3749 ms
+2026-05-21 08:38:51.588 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 5721.3793 ms
+2026-05-21 08:38:51.636 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.0961 ms
+2026-05-21 08:38:51.654 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 1.0859 ms
+2026-05-21 08:38:51.690 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 18.2249 ms
+2026-05-21 08:38:51.691 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 19.2254 ms
+2026-05-21 08:38:51.770 +07:00 [INF] HTTP POST /api/usersetup/list responded 200 in 128.1990 ms
+2026-05-21 08:38:57.720 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 6050.7238 ms
+2026-05-21 09:06:38.773 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 168.9445 ms
+2026-05-21 09:13:09.073 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 114.1595 ms
+2026-05-21 10:55:14.910 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 287.4180 ms
+2026-05-21 10:58:00.313 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 1958.2353 ms
+2026-05-21 10:58:00.860 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 256.5395 ms
+2026-05-21 10:58:01.278 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 24.0007 ms
+2026-05-21 10:58:02.243 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 9.6117 ms
+2026-05-21 10:58:02.291 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 26.8977 ms
+2026-05-21 10:58:02.755 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 390.3183 ms
+2026-05-21 10:58:02.786 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 401.6805 ms
+2026-05-21 10:58:06.438 +07:00 [INF] HTTP POST /api/dashboard/overview responded 200 in 4148.1510 ms
+2026-05-21 10:58:13.167 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 15.9879 ms
+2026-05-21 10:58:13.325 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 11002.9147 ms
+2026-05-21 10:58:13.427 +07:00 [INF] HTTP POST /api/tasklist/getusergroup responded 200 in 54.6561 ms
+2026-05-21 10:58:13.512 +07:00 [INF] HTTP POST /api/tasklist/summary responded 200 in 145.8964 ms
+2026-05-21 10:58:13.516 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.1298 ms
+2026-05-21 10:58:13.545 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 1.1813 ms
+2026-05-21 10:58:13.613 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 41.8874 ms
+2026-05-21 10:58:13.635 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 62.7883 ms
+2026-05-21 10:58:14.830 +07:00 [INF] HTTP POST /api/tasklist/list responded 200 in 1283.3567 ms
+2026-05-21 10:58:22.415 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 61.3151 ms
+2026-05-21 10:58:22.592 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 12.3446 ms
+2026-05-21 10:58:22.727 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 9157.8732 ms
+2026-05-21 10:58:22.810 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.1331 ms
+2026-05-21 10:58:22.845 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 3.5179 ms
+2026-05-21 10:58:22.904 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 21.5604 ms
+2026-05-21 10:58:22.952 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 9.4752 ms
+2026-05-21 10:58:22.958 +07:00 [INF] HTTP POST /api/inspectiondata/frequency-ddl responded 200 in 141.4412 ms
+2026-05-21 10:58:22.958 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 132.4260 ms
+2026-05-21 10:58:23.161 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 52.3981 ms
+2026-05-21 10:58:23.210 +07:00 [INF] HTTP POST /api/inspectiondatacheck/list responded 200 in 183.8920 ms
+2026-05-21 10:58:23.265 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 26.6614 ms
+2026-05-21 10:58:23.376 +07:00 [INF] HTTP POST /api/inspectiondata/group-ddl responded 200 in 40.4192 ms
+2026-05-21 10:58:23.408 +07:00 [INF] HTTP POST /api/inspectiondatacheck/list responded 200 in 32.4042 ms
+2026-05-21 10:58:31.067 +07:00 [INF] HTTP POST /api/inspectiondatacheck/list responded 200 in 42.8271 ms
+2026-05-21 10:58:34.905 +07:00 [INF] HTTP POST /api/inspectiondatacheck/list-detail responded 200 in 82.8088 ms
+2026-05-21 10:59:05.608 +07:00 [INF] HTTP POST /api/inspectiondatacheck/approve-detail responded 200 in 160.5683 ms
+2026-05-21 10:59:28.472 +07:00 [INF] HTTP POST /api/notification/leader-submit responded 200 in 9523.2535 ms
+2026-05-21 10:59:29.959 +07:00 [INF] HTTP POST /api/inspectiondatacheck/list responded 200 in 7.2203 ms
+2026-05-21 10:59:58.863 +07:00 [INF] HTTP POST /api/inspectiondatacheck/list responded 200 in 10.3532 ms
+2026-05-21 11:00:25.738 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 6.6756 ms
+2026-05-21 11:00:25.797 +07:00 [INF] HTTP POST /api/notification/mark-all-read responded 200 in 36.4038 ms
+2026-05-21 11:00:32.281 +07:00 [INF] HTTP POST /api/inspectiondatacheck/list responded 200 in 13.1645 ms
+2026-05-21 11:00:35.113 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 12.7232 ms
+2026-05-21 11:00:35.158 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 132262.8312 ms
+2026-05-21 11:00:35.318 +07:00 [INF] HTTP POST /api/tasklist/summary responded 200 in 28.2056 ms
+2026-05-21 11:00:35.467 +07:00 [INF] HTTP POST /api/tasklist/getusergroup responded 200 in 12.0360 ms
+2026-05-21 11:00:35.540 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.1525 ms
+2026-05-21 11:00:35.626 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 48.1298 ms
+2026-05-21 11:00:35.703 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 77.7706 ms
+2026-05-21 11:00:35.972 +07:00 [INF] HTTP POST /api/tasklist/list responded 200 in 398.0650 ms
+2026-05-21 11:00:36.017 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 10.8462 ms
+2026-05-21 11:01:10.744 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 54.2259 ms
+2026-05-21 11:01:10.818 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 12.1847 ms
+2026-05-21 11:01:10.977 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 35046.4768 ms
+2026-05-21 11:01:11.058 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 21.1402 ms
+2026-05-21 11:01:11.067 +07:00 [INF] HTTP POST /api/inspectiondata/frequency-ddl responded 200 in 9.9213 ms
+2026-05-21 11:01:11.093 +07:00 [INF] HTTP POST /api/inspectiondatacheck/list responded 200 in 36.1495 ms
+2026-05-21 11:01:11.135 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.1019 ms
+2026-05-21 11:01:11.158 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 1.0509 ms
+2026-05-21 11:01:11.198 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 9.8762 ms
+2026-05-21 11:01:11.200 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 12.5893 ms
+2026-05-21 11:01:11.274 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 26.7447 ms
+2026-05-21 11:01:11.321 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 8.8229 ms
+2026-05-21 11:01:11.400 +07:00 [INF] HTTP POST /api/inspectiondata/group-ddl responded 200 in 34.0909 ms
+2026-05-21 11:01:11.548 +07:00 [INF] HTTP POST /api/inspectiondatacheck/list responded 200 in 12.5220 ms
+2026-05-21 11:01:15.622 +07:00 [INF] HTTP POST /api/inspectiondatacheck/list-detail responded 200 in 14.4288 ms
+2026-05-21 11:01:29.106 +07:00 [INF] HTTP POST /api/inspectiondatacheck/approve-detail responded 200 in 28.4759 ms
+2026-05-21 11:01:36.994 +07:00 [INF] HTTP POST /api/notification/leader-submit responded 200 in 3710.3499 ms
+2026-05-21 11:01:40.513 +07:00 [INF] HTTP POST /api/inspectiondatacheck/list responded 200 in 2242.2895 ms
+2026-05-21 11:28:07.772 +07:00 [INF] HTTP POST /api/inspectiondatacheck/list responded 200 in 29.7206 ms
+2026-05-21 11:28:34.393 +07:00 [INF] HTTP POST /api/notification/mark-all-read responded 200 in 28.3521 ms
+2026-05-21 11:28:34.480 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 34.5226 ms
+2026-05-21 11:28:38.634 +07:00 [INF] HTTP POST /api/auth/logout responded 200 in 14.9433 ms
+2026-05-21 11:28:38.693 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 1647485.6513 ms
+2026-05-21 11:28:46.910 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 41.1650 ms
+2026-05-21 11:28:46.981 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 5.9312 ms
+2026-05-21 11:28:47.028 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 9.5618 ms
+2026-05-21 11:28:47.198 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.2246 ms
+2026-05-21 11:28:47.322 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 40.6693 ms
+2026-05-21 11:28:47.341 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 59.4599 ms
+2026-05-21 11:28:47.526 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 244.7477 ms
+2026-05-21 11:28:51.100 +07:00 [INF] HTTP POST /api/dashboard/overview responded 200 in 3568.0062 ms
+2026-05-21 11:28:57.827 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 5.5384 ms
+2026-05-21 11:28:57.975 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 10538.8095 ms
+2026-05-21 11:28:58.095 +07:00 [INF] HTTP POST /api/tasklist/summary responded 200 in 51.2879 ms
+2026-05-21 11:28:58.119 +07:00 [INF] HTTP POST /api/tasklist/getusergroup responded 200 in 25.0076 ms
+2026-05-21 11:28:58.335 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.2978 ms
+2026-05-21 11:28:58.481 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 129.5885 ms
+2026-05-21 11:28:58.646 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 294.2740 ms
+2026-05-21 11:28:58.661 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 1.3921 ms
+2026-05-21 11:28:58.677 +07:00 [INF] HTTP POST /api/tasklist/list responded 200 in 442.1538 ms
+2026-05-21 11:29:07.559 +07:00 [INF] HTTP POST /api/notification/mark-all-read responded 200 in 19.8540 ms
+2026-05-21 11:29:07.567 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 27.0922 ms
+2026-05-21 11:29:12.881 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 7.9703 ms
+2026-05-21 11:29:13.000 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 14293.6015 ms
+2026-05-21 11:29:13.050 +07:00 [INF] HTTP POST /api/tasklist/getusergroup responded 200 in 14.3428 ms
+2026-05-21 11:29:13.057 +07:00 [INF] HTTP POST /api/tasklist/summary responded 200 in 20.8111 ms
+2026-05-21 11:29:13.168 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.1632 ms
+2026-05-21 11:29:13.190 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.8450 ms
+2026-05-21 11:29:13.430 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 205.8545 ms
+2026-05-21 11:29:13.640 +07:00 [INF] HTTP POST /api/tasklist/list responded 200 in 502.7143 ms
+2026-05-21 11:29:13.431 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 207.3840 ms
+2026-05-21 11:29:25.698 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 17.3527 ms
+2026-05-21 11:29:25.782 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 10.5757 ms
+2026-05-21 11:29:25.870 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 12199.4842 ms
+2026-05-21 11:29:25.972 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.0804 ms
+2026-05-21 11:29:26.018 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 29.3867 ms
+2026-05-21 11:29:26.070 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 33.7801 ms
+2026-05-21 11:29:26.098 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.5979 ms
+2026-05-21 11:29:26.004 +07:00 [INF] HTTP POST /api/inspectiondata/frequency-ddl responded 200 in 16.1065 ms
+2026-05-21 11:29:26.189 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 35.1141 ms
+2026-05-21 11:29:26.407 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 47.0134 ms
+2026-05-21 11:29:26.493 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list responded 200 in 297.0069 ms
+2026-05-21 11:29:26.514 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 10.5200 ms
+2026-05-21 11:29:26.559 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list responded 200 in 30.3191 ms
+2026-05-21 11:29:35.788 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list responded 200 in 37.0032 ms
+2026-05-21 11:31:28.926 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list-detail responded 200 in 389.5930 ms
+2026-05-21 11:31:54.597 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Procedure or function sp_WEB_InspectionData_Approval_ApproveDetail has too many arguments specified.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 662
+   at NSI.Infra.Datas.DbExecutor.ExecuteAsync(String sql, Object param, CommandType commandType, Int32 commandTimeout) in D:\RizalFahlevi\Project\@NSI\NSI WebBase\Trial .NetCore\NSI Patrol System ColorAdmin\NSI.Infra\Datas\DbExecutor.cs:line 106
+   at NSI.Infra.Repositories.Inspection.InspectionDataApprovalRepository.ApproveDetail(InspectionDataApproveDetail model, String userId) in D:\RizalFahlevi\Project\@NSI\NSI WebBase\Trial .NetCore\NSI Patrol System ColorAdmin\NSI.Infra\Repositories\Inspection\InspectionDataApprovalRepository.cs:line 55
+   at NSI.Api.Controllers.InspectionDataApprovalController.ApproveDetail(InspectionDataApproveDetail payload) in D:\RizalFahlevi\Project\@NSI\NSI WebBase\Trial .NetCore\NSI Patrol System ColorAdmin\NSI.Api\Controllers\InspectionDataApprovalController.cs:line 59
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+ClientConnectionId:30941882-1fc6-427a-8e15-40101023c923
+Error Number:8144,State:2,Class:16
+2026-05-21 11:31:54.823 +07:00 [INF] HTTP POST /api/inspectiondataapproval/approve-detail responded 302 in 405.5322 ms
+2026-05-21 11:31:54.845 +07:00 [INF] HTTP GET /Error/ServerError responded 404 in 0.1380 ms
+2026-05-21 11:32:21.130 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Procedure or function 'sp_WEB_InspectionDataApproval_SendNotification_Detail' expects parameter '@Type', which was not supplied.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 662
+   at NSI.Infra.Datas.DbExecutor.ExecuteAsync(String sql, Object param, CommandType commandType, Int32 commandTimeout) in D:\RizalFahlevi\Project\@NSI\NSI WebBase\Trial .NetCore\NSI Patrol System ColorAdmin\NSI.Infra\Datas\DbExecutor.cs:line 106
+   at NSI.Infra.Repositories.Tasklist.NotificationRepository.SendNotifSupervisorDetail(InspectionDataApproveDetail model, String userId) in D:\RizalFahlevi\Project\@NSI\NSI WebBase\Trial .NetCore\NSI Patrol System ColorAdmin\NSI.Infra\Repositories\Tasklist\NotificationRepository.cs:line 130
+   at NSI.Api.Controllers.NotificationController.CheckSupervisorSubmitDetail(InspectionDataApproveDetail payload) in D:\RizalFahlevi\Project\@NSI\NSI WebBase\Trial .NetCore\NSI Patrol System ColorAdmin\NSI.Api\Controllers\NotificationController.cs:line 110
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+ClientConnectionId:30941882-1fc6-427a-8e15-40101023c923
+Error Number:201,State:4,Class:16
+2026-05-21 11:32:21.195 +07:00 [INF] HTTP POST /api/notification/supervisor-submit responded 302 in 3358.3457 ms
+2026-05-21 11:32:21.202 +07:00 [INF] HTTP GET /Error/ServerError responded 404 in 0.1243 ms
+2026-05-21 11:32:43.620 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list responded 200 in 57.5909 ms
+2026-05-21 11:32:47.237 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 9.7870 ms
+2026-05-21 11:32:47.324 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 10.1472 ms
+2026-05-21 11:32:47.423 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 201201.2827 ms
+2026-05-21 11:32:47.569 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.2626 ms
+2026-05-21 11:32:47.707 +07:00 [INF] HTTP POST /api/inspectiondata/frequency-ddl responded 200 in 57.6977 ms
+2026-05-21 11:32:47.739 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.9277 ms
+2026-05-21 11:32:47.965 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 13.2121 ms
+2026-05-21 11:32:48.101 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 80.6554 ms
+2026-05-21 11:32:48.128 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 107.8172 ms
+2026-05-21 11:32:48.132 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list responded 200 in 112.1048 ms
+2026-05-21 11:32:48.370 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 144.3630 ms
+2026-05-21 11:32:48.371 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list responded 200 in 96.9367 ms
+2026-05-21 11:32:48.717 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 73.8737 ms
+2026-05-21 11:33:15.505 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list responded 200 in 11.0792 ms
+2026-05-21 11:33:17.374 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list responded 200 in 9.8647 ms
+2026-05-21 11:34:47.612 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list-detail responded 200 in 117.2126 ms
+2026-05-21 11:34:55.059 +07:00 [INF] HTTP POST /api/inspectiondataapproval/approve-detail responded 200 in 31.1400 ms
+2026-05-21 11:34:55.686 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Procedure or function 'sp_WEB_InspectionDataApproval_SendNotification_Detail' expects parameter '@Type', which was not supplied.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 662
+   at NSI.Infra.Datas.DbExecutor.ExecuteAsync(String sql, Object param, CommandType commandType, Int32 commandTimeout) in D:\RizalFahlevi\Project\@NSI\NSI WebBase\Trial .NetCore\NSI Patrol System ColorAdmin\NSI.Infra\Datas\DbExecutor.cs:line 106
+   at NSI.Infra.Repositories.Tasklist.NotificationRepository.SendNotifSupervisorDetail(InspectionDataApproveDetail model, String userId) in D:\RizalFahlevi\Project\@NSI\NSI WebBase\Trial .NetCore\NSI Patrol System ColorAdmin\NSI.Infra\Repositories\Tasklist\NotificationRepository.cs:line 130
+   at NSI.Api.Controllers.NotificationController.CheckSupervisorSubmitDetail(InspectionDataApproveDetail payload) in D:\RizalFahlevi\Project\@NSI\NSI WebBase\Trial .NetCore\NSI Patrol System ColorAdmin\NSI.Api\Controllers\NotificationController.cs:line 110
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+ClientConnectionId:743513c4-5c0a-4ee5-856e-4356d131c275
+Error Number:201,State:4,Class:16
+2026-05-21 11:34:55.740 +07:00 [INF] HTTP POST /api/notification/supervisor-submit responded 302 in 639.9457 ms
+2026-05-21 11:34:55.759 +07:00 [INF] HTTP GET /Error/ServerError responded 404 in 0.0860 ms
+2026-05-21 11:34:55.854 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list responded 200 in 8.9674 ms
+2026-05-21 11:35:02.028 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 8.0445 ms
+2026-05-21 11:35:02.062 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 6.1760 ms
+2026-05-21 11:35:02.170 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 134272.4593 ms
+2026-05-21 11:35:02.268 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 9.5087 ms
+2026-05-21 11:35:02.292 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.1549 ms
+2026-05-21 11:35:02.374 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list responded 200 in 18.1796 ms
+2026-05-21 11:35:02.382 +07:00 [INF] HTTP POST /api/inspectiondata/frequency-ddl responded 200 in 6.5111 ms
+2026-05-21 11:35:02.404 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 1.0676 ms
+2026-05-21 11:35:02.479 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 10.1795 ms
+2026-05-21 11:35:02.461 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 29.1992 ms
+2026-05-21 11:35:02.565 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 28.1747 ms
+2026-05-21 11:35:02.725 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 11.7260 ms
+2026-05-21 11:35:02.863 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list responded 200 in 35.4160 ms
+2026-05-21 11:35:04.819 +07:00 [INF] HTTP POST /api/notification/mark-all-read responded 200 in 10.7635 ms
+2026-05-21 11:35:04.819 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 10.0312 ms
+2026-05-21 11:35:05.744 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 20.7357 ms
+2026-05-21 11:35:05.757 +07:00 [INF] HTTP POST /api/notification/mark-all-read responded 200 in 22.6568 ms
+2026-05-21 11:35:06.085 +07:00 [INF] HTTP POST /api/notification/mark-all-read responded 200 in 7.8454 ms
+2026-05-21 11:35:06.114 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 36.0790 ms
+2026-05-21 11:35:13.840 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 15.3050 ms
+2026-05-21 11:35:13.840 +07:00 [INF] HTTP POST /api/notification/mark-all-read responded 200 in 15.4770 ms
+2026-05-21 11:37:09.203 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 7.3377 ms
+2026-05-21 11:37:09.248 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 14.5656 ms
+2026-05-21 11:37:09.306 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 126785.2468 ms
+2026-05-21 11:37:09.436 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.2677 ms
+2026-05-21 11:37:09.520 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 1.9397 ms
+2026-05-21 11:37:09.582 +07:00 [INF] HTTP POST /api/inspectiondata/frequency-ddl responded 200 in 21.0229 ms
+2026-05-21 11:37:09.673 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list responded 200 in 8.3194 ms
+2026-05-21 11:37:09.762 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 20.1972 ms
+2026-05-21 11:37:09.770 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 14.0165 ms
+2026-05-21 11:37:09.811 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 39.5786 ms
+2026-05-21 11:37:09.975 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 14.8460 ms
+2026-05-21 11:37:09.984 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list responded 200 in 8.3104 ms
+2026-05-21 11:37:10.098 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 19.2045 ms
+2026-05-21 11:38:12.789 +07:00 [INF] HTTP POST /api/notification/mark-all-read responded 200 in 16.3102 ms
+2026-05-21 11:38:12.806 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 28.2580 ms
+2026-05-21 11:44:32.217 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 59.3400 ms
+2026-05-21 11:44:32.342 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 28.1805 ms
+2026-05-21 11:44:32.458 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 442913.8093 ms
+2026-05-21 11:44:32.608 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.4091 ms
+2026-05-21 11:44:32.684 +07:00 [INF] HTTP POST /api/inspectiondata/frequency-ddl responded 200 in 11.5335 ms
+2026-05-21 11:44:32.696 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.5389 ms
+2026-05-21 11:44:32.911 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 45.2375 ms
+2026-05-21 11:44:33.147 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 97.2306 ms
+2026-05-21 11:44:33.238 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 83.3214 ms
+2026-05-21 11:44:33.316 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list responded 200 in 52.0960 ms
+2026-05-21 11:44:33.418 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list responded 200 in 80.8966 ms
+2026-05-21 11:44:33.435 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 169.9025 ms
+2026-05-21 11:44:33.638 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 11.4262 ms
+2026-05-21 11:44:34.056 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 39.1816 ms
+2026-05-21 11:44:34.111 +07:00 [INF] HTTP POST /api/notification/mark-all-read responded 200 in 95.6717 ms
+2026-05-21 11:44:38.642 +07:00 [INF] HTTP POST /api/notification/mark-all-read responded 200 in 22.7179 ms
+2026-05-21 11:44:38.643 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 23.5236 ms
+2026-05-21 11:44:40.630 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 9.6040 ms
+2026-05-21 11:44:40.639 +07:00 [INF] HTTP POST /api/notification/mark-all-read responded 200 in 18.0243 ms
+2026-05-21 11:44:41.459 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 8.6709 ms
+2026-05-21 11:44:41.489 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 8738.5034 ms
+2026-05-21 11:44:41.665 +07:00 [INF] HTTP POST /api/tasklist/summary responded 200 in 49.7012 ms
+2026-05-21 11:44:41.666 +07:00 [INF] HTTP POST /api/tasklist/getusergroup responded 200 in 49.5375 ms
+2026-05-21 11:44:41.770 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.0806 ms
+2026-05-21 11:44:41.831 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.7295 ms
+2026-05-21 11:44:41.902 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 65.4168 ms
+2026-05-21 11:44:42.159 +07:00 [INF] HTTP POST /api/tasklist/list responded 200 in 402.0530 ms
+2026-05-21 11:44:41.998 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 93.2658 ms
+2026-05-21 11:44:44.092 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 1943.0659 ms
+2026-05-21 11:50:04.758 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 605.6851 ms
+2026-05-21 11:51:04.065 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 1959.6089 ms
+2026-05-21 11:51:04.739 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 315.4063 ms
+2026-05-21 11:51:05.110 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 21.6243 ms
+2026-05-21 11:51:06.124 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 12.0804 ms
+2026-05-21 11:51:06.210 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 37.1067 ms
+2026-05-21 11:51:07.434 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 824.1343 ms
+2026-05-21 11:51:07.436 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 683.8743 ms
+2026-05-21 11:51:10.253 +07:00 [INF] HTTP POST /api/dashboard/overview responded 200 in 4031.4781 ms
+2026-05-21 11:51:11.694 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 16.7640 ms
+2026-05-21 11:51:11.895 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 5667.1818 ms
+2026-05-21 11:51:12.006 +07:00 [INF] HTTP POST /api/tasklist/getusergroup responded 200 in 79.5330 ms
+2026-05-21 11:51:12.123 +07:00 [INF] HTTP POST /api/tasklist/summary responded 200 in 198.0833 ms
+2026-05-21 11:51:12.148 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.4593 ms
+2026-05-21 11:51:12.251 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 1.0072 ms
+2026-05-21 11:51:12.325 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 17.5295 ms
+2026-05-21 11:51:12.324 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 34.5923 ms
+2026-05-21 11:51:12.828 +07:00 [INF] HTTP POST /api/tasklist/list responded 200 in 548.1301 ms
+2026-05-21 11:51:46.117 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 16.5005 ms
+2026-05-21 11:51:46.188 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 33612.6835 ms
+2026-05-21 11:51:46.305 +07:00 [INF] HTTP POST /api/tasklist/getusergroup responded 200 in 22.3946 ms
+2026-05-21 11:51:46.386 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.1546 ms
+2026-05-21 11:51:46.501 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 55.7014 ms
+2026-05-21 11:51:46.560 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 113.6466 ms
+2026-05-21 11:51:46.791 +07:00 [INF] HTTP POST /api/tasklist/list responded 200 in 401.1596 ms
+2026-05-21 11:51:46.564 +07:00 [INF] HTTP POST /api/tasklist/summary responded 200 in 286.6839 ms
+2026-05-21 11:51:46.920 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 40.1631 ms
+2026-05-21 11:51:56.952 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 67.3168 ms
+2026-05-21 11:51:57.079 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 27.3174 ms
+2026-05-21 11:51:57.227 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 12.3134 ms
+2026-05-21 11:51:57.453 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 10653.6926 ms
+2026-05-21 11:51:57.568 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.3111 ms
+2026-05-21 11:51:57.619 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 4.1712 ms
+2026-05-21 11:51:57.638 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 18.7132 ms
+2026-05-21 11:51:57.708 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 73.1377 ms
+2026-05-21 11:51:57.676 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 30.3591 ms
+2026-05-21 11:51:57.797 +07:00 [INF] HTTP POST /api/inspectiondata/frequency-ddl responded 200 in 116.5717 ms
+2026-05-21 11:51:58.076 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 38.1220 ms
+2026-05-21 11:51:58.233 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 49.0828 ms
+2026-05-21 11:51:58.237 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 239.1141 ms
+2026-05-21 11:51:59.567 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 12.3357 ms
+2026-05-21 11:52:07.255 +07:00 [INF] HTTP POST /api/inspectiondata/group-ddl responded 200 in 24.6047 ms
+2026-05-21 11:52:07.325 +07:00 [INF] HTTP POST /api/inspectiondata/inspectionpoint-ddl responded 200 in 27.4755 ms
+2026-05-21 11:52:07.380 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 18.6589 ms
+2026-05-21 11:52:10.500 +07:00 [INF] HTTP POST /api/inspectiondata/inspectionpoint-ddl responded 200 in 23.6827 ms
+2026-05-21 11:52:10.590 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 17.4840 ms
+2026-05-21 11:52:10.685 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 15.6522 ms
+2026-05-21 11:52:11.973 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 11.6160 ms
+2026-05-21 11:52:20.012 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 26.0131 ms
+2026-05-21 11:52:31.751 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 13.0026 ms
+2026-05-21 11:52:33.888 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 23.3320 ms
+2026-05-21 11:52:34.873 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 15.1617 ms
+2026-05-21 11:52:36.262 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 15.4065 ms
+2026-05-21 11:52:39.162 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 16.1853 ms
+2026-05-21 11:52:40.199 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 12.1622 ms
+2026-05-21 11:52:40.715 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 25.4315 ms
+2026-05-21 11:52:41.086 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 21.9079 ms
+2026-05-21 11:52:41.306 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 13.7860 ms
+2026-05-21 11:52:41.480 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 9.5337 ms
+2026-05-21 11:52:41.766 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 70.4613 ms
+2026-05-21 11:52:41.870 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 25.8273 ms
+2026-05-21 11:52:42.065 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 12.2363 ms
+2026-05-21 11:52:42.257 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 17.7753 ms
+2026-05-21 11:52:42.498 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 13.3383 ms
+2026-05-21 11:52:42.635 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 10.5119 ms
+2026-05-21 11:52:42.883 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 10.0659 ms
+2026-05-21 11:52:43.048 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 21.1266 ms
+2026-05-21 11:52:43.262 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 10.7515 ms
+2026-05-21 11:52:43.477 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 19.2347 ms
+2026-05-21 11:52:43.660 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 25.9661 ms
+2026-05-21 11:52:43.913 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 47.7303 ms
+2026-05-21 11:52:44.047 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 14.6976 ms
+2026-05-21 11:52:44.289 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 21.3484 ms
+2026-05-21 11:52:44.464 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 23.0031 ms
+2026-05-21 11:52:44.662 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 23.5151 ms
+2026-05-21 11:52:44.852 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 17.5049 ms
+2026-05-21 11:52:46.221 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 17.5373 ms
+2026-05-21 11:52:47.259 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 13.5601 ms
+2026-05-21 11:52:47.431 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 15.7214 ms
+2026-05-21 11:52:47.665 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 27.0839 ms
+2026-05-21 11:52:47.842 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 23.5399 ms
+2026-05-21 11:52:48.049 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 23.3063 ms
+2026-05-21 11:52:48.224 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 11.2886 ms
+2026-05-21 11:52:48.418 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 42.6920 ms
+2026-05-21 11:52:48.529 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 10.8862 ms
+2026-05-21 11:52:50.882 +07:00 [INF] HTTP POST /api/inspectiondata/group-ddl responded 200 in 42.6349 ms
+2026-05-21 11:52:50.978 +07:00 [INF] HTTP POST /api/inspectiondata/inspectionpoint-ddl responded 200 in 16.0230 ms
+2026-05-21 11:52:51.024 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 10.5914 ms
+2026-05-21 11:52:54.052 +07:00 [INF] HTTP POST /api/inspectiondata/inspectionpoint-ddl responded 200 in 44.1274 ms
+2026-05-21 11:52:54.203 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 36.8456 ms
+2026-05-21 11:52:54.243 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 76.5733 ms
+2026-05-21 11:52:55.459 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 49.4982 ms
+2026-05-21 11:55:52.845 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/report-allshift responded 200 in 483.1565 ms
+2026-05-21 11:56:06.176 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 11.9341 ms
+2026-05-21 11:56:06.253 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 23.0071 ms
+2026-05-21 11:56:06.340 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 248633.6213 ms
+2026-05-21 11:56:06.485 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.2031 ms
+2026-05-21 11:56:06.559 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.9562 ms
+2026-05-21 11:56:06.596 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 15.2264 ms
+2026-05-21 11:56:06.791 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 35.4100 ms
+2026-05-21 11:56:06.876 +07:00 [INF] HTTP POST /api/usersetup/get-profile responded 200 in 100.8815 ms
+2026-05-21 11:56:12.414 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 5754.0867 ms
+2026-05-21 15:49:08.168 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 170.5109 ms
+2026-05-21 15:49:16.596 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 761.7972 ms
+2026-05-21 15:49:16.826 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 90.1463 ms
+2026-05-21 15:49:16.955 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 7.1741 ms
+2026-05-21 15:49:17.425 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 4.4205 ms
+2026-05-21 15:49:17.448 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 14.7696 ms
+2026-05-21 15:49:17.637 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 169.8748 ms
+2026-05-21 15:49:17.637 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 165.1142 ms
+2026-05-21 15:49:19.075 +07:00 [INF] HTTP POST /api/dashboard/overview responded 200 in 1650.2714 ms
+2026-05-21 15:49:45.855 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 20.1055 ms
+2026-05-21 15:49:45.884 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 5.5762 ms
+2026-05-21 15:49:45.946 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 8.5902 ms
+2026-05-21 15:49:46.050 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 28581.9440 ms
+2026-05-21 15:49:46.120 +07:00 [INF] HTTP POST /api/inspectionresultanalysis/get-userplant responded 200 in 17.1408 ms
+2026-05-21 15:49:46.178 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.2111 ms
+2026-05-21 15:49:46.193 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 4.2920 ms
+2026-05-21 15:49:46.286 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 27.6547 ms
+2026-05-21 15:49:46.293 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 34.2017 ms
+2026-05-21 15:49:46.300 +07:00 [INF] HTTP POST /api/inspectionresultanalysis/get-data responded 200 in 113.5706 ms
+2026-05-21 15:49:46.313 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 137.0516 ms
+2026-05-21 15:49:46.365 +07:00 [INF] HTTP POST /api/inspectionresultanalysis/get-chart responded 200 in 178.2554 ms
+2026-05-21 15:49:49.243 +07:00 [INF] HTTP POST /api/inspectiondata/inspectionpoint-chart-ddl responded 200 in 11.1220 ms
+2026-05-21 15:49:50.926 +07:00 [INF] HTTP POST /api/inspectionresultanalysis/get-data responded 200 in 7.5914 ms
+2026-05-21 15:49:51.301 +07:00 [INF] HTTP POST /api/inspectionresultanalysis/get-chart responded 200 in 382.2980 ms
+2026-05-21 15:49:51.348 +07:00 [INF] HTTP POST /api/inspectionresultanalysis/get-unitname responded 200 in 14.4463 ms
+2026-05-21 15:50:02.401 +07:00 [INF] HTTP POST /api/inspectionresultanalysis/get-data responded 200 in 18.8972 ms
+2026-05-21 15:50:02.496 +07:00 [INF] HTTP POST /api/inspectionresultanalysis/get-chart responded 200 in 114.1039 ms
+2026-05-21 15:50:02.519 +07:00 [INF] HTTP POST /api/inspectionresultanalysis/get-unitname responded 200 in 4.8129 ms
+2026-05-21 15:50:07.317 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 5.4366 ms
+2026-05-21 15:50:07.339 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 4.6389 ms
+2026-05-21 15:50:07.376 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 5.9726 ms
+2026-05-21 15:50:07.647 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 15.3320 ms
+2026-05-21 15:50:07.677 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.4867 ms
+2026-05-21 15:50:07.688 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.5817 ms
+2026-05-21 15:50:07.699 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 7.9741 ms
+2026-05-21 15:50:07.707 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 7.9704 ms
+2026-05-21 15:50:07.717 +07:00 [INF] HTTP POST /api/inspectionresultbygroup/get-data responded 200 in 57.9125 ms
+2026-05-21 15:50:07.759 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 8.8184 ms
+2026-05-21 15:50:17.790 +07:00 [INF] HTTP POST /api/inspectionresultbygroup/get-data responded 200 in 195.0653 ms
+2026-05-21 15:50:32.812 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 5.8903 ms
+2026-05-21 15:50:32.833 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 4.2203 ms
+2026-05-21 15:50:32.873 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 4.6209 ms
+2026-05-21 15:50:33.135 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-userplant responded 200 in 12.2501 ms
+2026-05-21 15:50:33.157 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 4.8270 ms
+2026-05-21 15:50:33.216 +07:00 [INF] HTTP POST /api/inspectiondata/group-ddl responded 200 in 14.6617 ms
+2026-05-21 15:50:33.225 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.0933 ms
+2026-05-21 15:50:33.233 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.6504 ms
+2026-05-21 15:50:33.234 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 47.2191 ms
+2026-05-21 15:50:33.247 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 7.3193 ms
+2026-05-21 15:50:33.247 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 7.3101 ms
+2026-05-21 15:50:35.685 +07:00 [INF] HTTP POST /api/inspectiondata/group-ddl responded 200 in 6.3697 ms
+2026-05-21 15:50:36.872 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 4.1862 ms
+2026-05-21 15:50:45.538 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 10.8400 ms
+2026-05-21 15:50:49.065 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 13.6021 ms
+2026-05-21 15:50:49.870 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 9.2932 ms
+2026-05-21 15:50:50.352 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 18.1619 ms
+2026-05-21 15:50:50.769 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 7.0178 ms
+2026-05-21 15:50:51.236 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 4.5524 ms
+2026-05-21 15:50:51.570 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 8.5762 ms
+2026-05-21 15:50:51.759 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 7.9741 ms
+2026-05-21 15:50:52.476 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 5.5068 ms
+2026-05-21 15:50:52.679 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 6.1928 ms
+2026-05-21 15:50:53.258 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 5.1168 ms
+2026-05-21 15:50:53.984 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 8.9035 ms
+2026-05-21 15:50:55.683 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 9.0658 ms
+2026-05-21 15:50:58.502 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 9.1938 ms
+2026-05-21 15:51:00.719 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 5.9248 ms
+2026-05-21 15:51:01.179 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 4.9827 ms
+2026-05-21 15:51:02.417 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 3.8440 ms
+2026-05-21 15:51:08.136 +07:00 [INF] HTTP POST /api/inspectiondata/group-ddl responded 200 in 2.9780 ms
+2026-05-21 15:51:09.763 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 6.3808 ms
+2026-05-21 15:51:10.671 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 9.7766 ms
+2026-05-21 15:51:11.187 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 6.3891 ms
+2026-05-21 15:51:11.649 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 6.1188 ms
+2026-05-21 15:51:12.053 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 6.7416 ms
+2026-05-21 15:51:12.629 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 4.3903 ms
+2026-05-21 15:51:13.112 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 5.5387 ms
+2026-05-21 15:51:13.612 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 4.3911 ms
+2026-05-21 15:51:14.905 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 4.0081 ms
+2026-05-21 15:51:15.089 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 5.4578 ms
+2026-05-21 15:51:15.268 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 5.9616 ms
+2026-05-21 15:51:15.836 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 4.2292 ms
+2026-05-21 15:51:16.303 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 4.5256 ms
+2026-05-21 15:51:16.687 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 6.3103 ms
+2026-05-21 15:51:17.087 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 5.5865 ms
+2026-05-21 15:51:17.550 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 4.9629 ms
+2026-05-21 15:51:20.364 +07:00 [INF] HTTP POST /api/inspectiondata/group-ddl responded 200 in 3.7369 ms
+2026-05-21 15:51:21.937 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 6.0562 ms
+2026-05-21 15:51:24.580 +07:00 [INF] HTTP POST /api/inspectiondata/group-ddl responded 200 in 12.0170 ms
+2026-05-21 15:52:03.628 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 6.2118 ms
+2026-05-21 15:52:04.560 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 5.6505 ms
+2026-05-21 15:52:14.224 +07:00 [INF] HTTP POST /api/inspectiondata/group-ddl responded 200 in 3.5368 ms
+2026-05-21 15:52:15.780 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 5.7555 ms
+2026-05-21 15:52:16.424 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 6.2072 ms
+2026-05-21 15:53:04.091 +07:00 [INF] HTTP POST /api/inspectiondata/group-ddl responded 200 in 4.1742 ms
+2026-05-21 15:53:05.342 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 5.2384 ms
+2026-05-21 15:53:08.859 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 13.1843 ms
+2026-05-21 15:53:11.211 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 20.6471 ms
+2026-05-21 15:53:11.858 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 10.1025 ms
+2026-05-21 15:53:12.293 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 45.6314 ms
+2026-05-21 15:53:12.554 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 10.3068 ms
+2026-05-21 15:53:13.137 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 22.5167 ms
+2026-05-21 15:55:36.157 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 8.9814 ms
+2026-05-21 15:55:36.898 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 5.2200 ms
+2026-05-21 15:55:37.551 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 8.4824 ms
+2026-05-21 15:55:37.767 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 27.0265 ms
+2026-05-21 15:55:37.939 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 10.6098 ms
+2026-05-21 15:55:38.600 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 24.2105 ms
+2026-05-21 15:55:39.372 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 16.1867 ms
+2026-05-21 15:55:39.681 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 21.8948 ms
+2026-05-21 15:55:40.078 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 13.7349 ms
+2026-05-21 15:55:40.260 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 9.3893 ms
+2026-05-21 15:55:40.983 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 11.3952 ms
+2026-05-21 15:55:41.596 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 27.3063 ms
+2026-05-21 15:55:49.341 +07:00 [INF] HTTP POST /api/inspectionresultbyitem/get-data responded 200 in 207.7683 ms
+2026-05-21 15:59:54.329 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 2.8817 ms
+2026-05-21 15:59:54.344 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 3.1169 ms
+2026-05-21 15:59:54.372 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 3.5331 ms
+2026-05-21 15:59:54.473 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 561225.8713 ms
+2026-05-21 15:59:54.507 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 3.2584 ms
+2026-05-21 15:59:54.564 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.1160 ms
+2026-05-21 15:59:54.574 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 1.5062 ms
+2026-05-21 15:59:54.580 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 10.1910 ms
+2026-05-21 15:59:54.619 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 10.0006 ms
+2026-05-21 15:59:54.640 +07:00 [INF] HTTP POST /api/topplanabnormality/getdatacourse responded 200 in 104.3068 ms
+2026-05-21 15:59:54.647 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 5.5781 ms
+2026-05-21 15:59:54.648 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 5.5615 ms
+2026-05-21 15:59:56.443 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 5.4425 ms
+2026-05-21 15:59:56.455 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 2.6674 ms
+2026-05-21 15:59:56.466 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 3.0600 ms
+2026-05-21 15:59:56.481 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 1893.6570 ms
+2026-05-21 15:59:56.545 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 3.6272 ms
+2026-05-21 15:59:56.573 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.0939 ms
+2026-05-21 15:59:56.579 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.5264 ms
+2026-05-21 15:59:56.589 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 4.2196 ms
+2026-05-21 15:59:56.593 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 4.4261 ms
+2026-05-21 15:59:56.609 +07:00 [INF] HTTP POST /api/topplanabnormality/getdatacourse responded 200 in 42.9454 ms
+2026-05-21 15:59:56.628 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 5.3107 ms
+2026-05-21 15:59:56.654 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 4.4938 ms
+2026-05-21 15:59:59.108 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 4.6461 ms
+2026-05-21 16:00:15.973 +07:00 [INF] HTTP POST /api/topplanabnormality/getdatacourse responded 200 in 474.0110 ms
+2026-05-21 16:00:15.978 +07:00 [INF] HTTP POST /api/topplanabnormality/getchart-bycourse responded 200 in 459.2448 ms
+2026-05-21 16:02:07.307 +07:00 [INF] HTTP POST /api/auth/logout responded 200 in 8.4010 ms
+2026-05-21 16:02:07.403 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 130792.9511 ms
+2026-05-21 16:09:34.229 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 60.8447 ms
+2026-05-21 16:09:34.332 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 9.6778 ms
+2026-05-21 16:09:34.379 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 11.0205 ms
+2026-05-21 16:09:34.644 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.2981 ms
+2026-05-21 16:09:34.662 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.5695 ms
+2026-05-21 16:09:34.911 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 34.9008 ms
+2026-05-21 16:09:34.929 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 30.5476 ms
+2026-05-21 16:09:36.561 +07:00 [INF] HTTP POST /api/dashboard/overview responded 200 in 1953.1087 ms
+2026-05-21 16:10:06.515 +07:00 [INF] HTTP POST /api/dashboard/overview responded 200 in 1892.2552 ms
+2026-05-21 16:10:36.564 +07:00 [INF] HTTP POST /api/dashboard/overview responded 200 in 1933.6605 ms
+2026-05-21 16:11:06.478 +07:00 [INF] HTTP POST /api/dashboard/overview responded 200 in 1856.7929 ms
+2026-05-21 16:11:07.884 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 8.3882 ms
+2026-05-21 16:11:07.930 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 10.7267 ms
+2026-05-21 16:11:08.049 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 9.3769 ms
+2026-05-21 16:11:08.186 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 93475.0862 ms
+2026-05-21 16:11:08.353 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 8.6324 ms
+2026-05-21 16:11:08.409 +07:00 [INF] HTTP POST /api/inspectiondata/frequency-ddl responded 200 in 21.6655 ms
+2026-05-21 16:11:08.441 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 5.1293 ms
+2026-05-21 16:11:08.447 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.1204 ms
+2026-05-21 16:11:08.462 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.6073 ms
+2026-05-21 16:11:08.649 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 14.5337 ms
+2026-05-21 16:11:08.702 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 48.1988 ms
+2026-05-21 16:11:08.713 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 10.9807 ms
+2026-05-21 16:11:08.769 +07:00 [INF] HTTP POST /api/inspectiondata/group-ddl responded 200 in 14.1062 ms
+2026-05-21 16:11:08.771 +07:00 [INF] HTTP POST /api/inspectiondatacheck/list responded 200 in 288.2299 ms
+2026-05-21 16:11:10.655 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 10.3664 ms
+2026-05-21 16:11:10.766 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 2272.7240 ms
+2026-05-21 16:11:10.898 +07:00 [INF] HTTP POST /api/tasklist/getusergroup responded 200 in 39.6162 ms
+2026-05-21 16:11:10.998 +07:00 [INF] HTTP POST /api/tasklist/summary responded 200 in 140.0509 ms
+2026-05-21 16:11:11.008 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.1837 ms
+2026-05-21 16:11:11.034 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 3.1775 ms
+2026-05-21 16:11:11.044 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 4.0271 ms
+2026-05-21 16:11:11.054 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 10.3465 ms
+2026-05-21 16:11:11.120 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 5.5951 ms
+2026-05-21 16:11:11.153 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 7.6169 ms
+2026-05-21 16:11:11.255 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 211.6084 ms
+2026-05-21 16:11:11.339 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.3258 ms
+2026-05-21 16:11:11.440 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 78.1009 ms
+2026-05-21 16:11:11.452 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 12.2032 ms
+2026-05-21 16:11:11.464 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.9516 ms
+2026-05-21 16:11:12.501 +07:00 [INF] HTTP POST /api/tasklist/list responded 200 in 1500.7196 ms
+2026-05-21 16:11:13.509 +07:00 [INF] HTTP POST /api/dashboard/overview responded 200 in 2227.4307 ms
+2026-05-21 16:11:25.635 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 10.1587 ms
+2026-05-21 16:11:25.844 +07:00 [INF] HTTP POST /api/tasklist/getusergroup responded 200 in 18.6749 ms
+2026-05-21 16:11:25.845 +07:00 [INF] HTTP POST /api/tasklist/summary responded 200 in 19.7045 ms
+2026-05-21 16:11:25.947 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 14309.2549 ms
+2026-05-21 16:11:25.961 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.0860 ms
+2026-05-21 16:11:26.178 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 127.2520 ms
+2026-05-21 16:11:26.194 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.8541 ms
+2026-05-21 16:11:26.178 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 78.1052 ms
+2026-05-21 16:11:26.237 +07:00 [INF] HTTP POST /api/tasklist/list responded 200 in 284.1851 ms
+2026-05-21 16:11:35.818 +07:00 [INF] HTTP POST /api/auth/logout responded 200 in 2.3340 ms
+2026-05-21 16:11:35.949 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 9705.5675 ms
+2026-05-21 16:26:09.513 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 73.1525 ms
+2026-05-21 16:26:09.631 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 9.1127 ms
+2026-05-21 16:26:09.669 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 9.6349 ms
+2026-05-21 16:26:09.912 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 21.4152 ms
+2026-05-21 16:26:10.088 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.7725 ms
+2026-05-21 16:26:10.477 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 260.5729 ms
+2026-05-21 16:26:10.493 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 277.4251 ms
+2026-05-21 16:26:11.777 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 23.2262 ms
+2026-05-21 16:26:11.989 +07:00 [INF] HTTP POST /api/tasklist/summary responded 200 in 15.8351 ms
+2026-05-21 16:26:11.989 +07:00 [INF] HTTP POST /api/tasklist/getusergroup responded 200 in 15.7945 ms
+2026-05-21 16:26:12.026 +07:00 [INF] HTTP POST /api/dashboard/overview responded 200 in 2184.4384 ms
+2026-05-21 16:26:12.095 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 1670.6237 ms
+2026-05-21 16:26:12.155 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.1007 ms
+2026-05-21 16:26:12.339 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 107.8408 ms
+2026-05-21 16:26:12.347 +07:00 [INF] HTTP POST /api/tasklist/list responded 200 in 289.5408 ms
+2026-05-21 16:26:12.355 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.7252 ms
+2026-05-21 16:26:12.340 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 44.4656 ms
+2026-05-21 16:26:23.909 +07:00 [INF] HTTP POST /api/auth/logout responded 200 in 0.8693 ms
+2026-05-21 16:26:24.004 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 11600.9984 ms
+2026-05-21 16:26:35.935 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 22.8141 ms
+2026-05-21 16:26:36.013 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 8.0025 ms
+2026-05-21 16:26:36.056 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 11.2790 ms
+2026-05-21 16:26:36.176 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.0757 ms
+2026-05-21 16:26:36.340 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 70.6532 ms
+2026-05-21 16:26:36.398 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 58.2577 ms
+2026-05-21 16:26:36.476 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.6421 ms
+2026-05-21 16:26:38.190 +07:00 [INF] HTTP POST /api/dashboard/overview responded 200 in 2021.0615 ms
+2026-05-21 16:26:41.169 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 9.0307 ms
+2026-05-21 16:26:41.270 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 4746.6972 ms
+2026-05-21 16:26:41.312 +07:00 [INF] HTTP POST /api/tasklist/getusergroup responded 200 in 6.1843 ms
+2026-05-21 16:26:41.317 +07:00 [INF] HTTP POST /api/tasklist/summary responded 200 in 10.7337 ms
+2026-05-21 16:26:41.376 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.0762 ms
+2026-05-21 16:26:41.412 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.3654 ms
+2026-05-21 16:26:41.583 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 148.8500 ms
+2026-05-21 16:26:41.586 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 118.0436 ms
+2026-05-21 16:26:41.710 +07:00 [INF] HTTP POST /api/tasklist/list responded 200 in 349.5900 ms
+2026-05-21 16:30:19.919 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 8.7874 ms
+2026-05-21 16:30:19.956 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 8.4210 ms
+2026-05-21 16:30:19.996 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 10.9665 ms
+2026-05-21 16:30:20.137 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 218480.2948 ms
+2026-05-21 16:30:20.233 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 9.9720 ms
+2026-05-21 16:30:20.257 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.2340 ms
+2026-05-21 16:30:20.274 +07:00 [INF] HTTP POST /api/inspectiondata/frequency-ddl responded 200 in 16.6461 ms
+2026-05-21 16:30:20.308 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.6066 ms
+2026-05-21 16:30:20.324 +07:00 [INF] HTTP POST /api/inspectiondatacheck/list responded 200 in 15.0510 ms
+2026-05-21 16:30:20.360 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 5.1475 ms
+2026-05-21 16:30:20.429 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 57.3246 ms
+2026-05-21 16:30:20.451 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 24.9237 ms
+2026-05-21 16:30:20.555 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 7.5327 ms
+2026-05-21 16:30:20.607 +07:00 [INF] HTTP POST /api/inspectiondata/group-ddl responded 200 in 9.1103 ms
+2026-05-21 16:30:24.984 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 13.1404 ms
+2026-05-21 16:30:25.164 +07:00 [INF] HTTP POST /api/tasklist/getusergroup responded 200 in 16.2033 ms
+2026-05-21 16:30:25.164 +07:00 [INF] HTTP POST /api/tasklist/summary responded 200 in 16.9005 ms
+2026-05-21 16:30:25.267 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 4924.3586 ms
+2026-05-21 16:30:25.284 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.1416 ms
+2026-05-21 16:30:25.505 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 54.2805 ms
+2026-05-21 16:30:25.517 +07:00 [INF] HTTP POST /api/tasklist/list responded 200 in 246.3896 ms
+2026-05-21 16:30:25.511 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 21.1657 ms
+2026-05-21 16:30:25.508 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 40.4125 ms
+2026-05-21 16:30:27.088 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 10.1793 ms
+2026-05-21 16:30:27.135 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 9.7717 ms
+2026-05-21 16:30:27.277 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 1741.5774 ms
+2026-05-21 16:30:27.336 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 11.6881 ms
+2026-05-21 16:30:27.336 +07:00 [INF] HTTP POST /api/inspectiondata/frequency-ddl responded 200 in 11.5467 ms
+2026-05-21 16:30:27.340 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.1217 ms
+2026-05-21 16:30:27.367 +07:00 [INF] HTTP POST /api/inspectiondatacheck/list responded 200 in 26.0071 ms
+2026-05-21 16:30:27.389 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.9392 ms
+2026-05-21 16:30:27.435 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 32.3570 ms
+2026-05-21 16:30:27.445 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 10.1986 ms
+2026-05-21 16:30:27.481 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 6.9129 ms
+2026-05-21 16:30:27.529 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 7.8300 ms
+2026-05-21 16:30:27.577 +07:00 [INF] HTTP POST /api/inspectiondata/group-ddl responded 200 in 6.8286 ms
+2026-05-21 16:30:27.883 +07:00 [INF] HTTP POST /api/inspectiondatacheck/list responded 200 in 36.4980 ms
+2026-05-21 16:36:30.202 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 2803989.3604 ms
+2026-05-21 16:36:30.202 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 362787.6613 ms
+2026-05-21 16:36:30.207 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 2782425.0737 ms

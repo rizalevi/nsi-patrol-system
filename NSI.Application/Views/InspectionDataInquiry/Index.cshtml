@@ -1,0 +1,379 @@
+﻿@{
+	Layout = "_Layout";
+
+}
+<div class="panel panel-inverse" style="min-height:86vh;">
+	<div class="panel-heading theme-color">
+		<h4 class="panel-title fs-5"><i class="bi bi-sign-stop"></i> [@ViewBag.Permission.MenuId] - @ViewBag.Permission.MenuName</h4>
+		<div class="panel-heading-btn">
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-default panel-border-white" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-success panel-border-white" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-warning panel-border-white" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+		</div>
+	</div>
+	<div class="panel-body">
+		<div class="panel-heading col-md-12">
+			<div class="filter-container">
+
+				<!-- Row 1 -->
+				<div class="filter-row">
+					<!-- Cluster -->
+					<div class="filter-item">
+						<label>Cluster</label>
+						<select id="ClusterCode" name="ClusterCode" class="form-select fs-13px">
+							<option value="">Fill a Cluster</option>
+						</select>
+						<input id="ClusterName" class="form-control input-desc fs-13px" type="text" readonly />
+					</div>
+					<!-- Frequency -->
+					<div class="filter-item">
+						<label>Frequency</label>
+						<select id="Frequency" name="Frequency" class="form-select fs-13px">
+							<option value="">Fill a Frequency</option>
+						</select>
+						<input id="FrequencyName" name="FrequencyName" class="form-control input-desc fs-13px" type="text" readonly />
+					</div>
+
+					<div class="filter-item">
+
+						<label>Inspection Date</label>
+						<div class="datepicker-wrapper">
+							<input id="InspectionDateFrom" name="InspectionDateFrom" type="text" maxlength="13" class="form-control datepicker" autocomplete="off" />
+							<span class="datepicker-icon">
+								<i class="fa fa-calendar"></i>
+							</span>
+						</div>
+						<span>~</span>
+						<div class="datepicker-wrapper">
+							<input id="InspectionDateTo" name="InspectionDateTo" type="text" maxlength="13" class="form-control datepicker" autocomplete="off" />
+							<span class="datepicker-icon">
+								<i class="fa fa-calendar"></i>
+							</span>
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Row 2 -->
+				<div class="filter-row">
+					<!-- Plant -->
+					<div class="filter-item">
+						<label>Plant</label>
+						<select id="PlantCode" name="PlantCode" class="form-select fs-13px">
+							<option value="">Fill a Plant</option>
+						</select>
+						<input id="PlantName" class="form-control input-desc fs-13px" type="text" readonly />
+					</div>
+					<!--group-->
+					<div class="filter-item">
+						<label>Group</label>
+						<select id="GroupCode" name="GroupCode" class="form-select fs-13px">
+							<option value="">Fill a Group</option>
+						</select>
+						<input id="GroupName" class="form-control input-desc fs-13px" type="text" readonly />
+					</div>
+
+
+
+				</div>
+
+				<!-- Row 3 -->
+				<div class="filter-row">
+					<div class="filter-item">
+						<label>Course</label>
+						<select id="CourseCode" name="CourseCode" class="form-select fs-13px">
+							<option value="">Fill a Course</option>
+						</select>
+						<input id="CourseName" class="form-control input-desc fs-13px" type="text" readonly />
+
+					</div>
+
+					<!-- Inspection Point -->
+					<div class="filter-item">
+						<label>Inspection Point</label>
+						<select id="InspectionPointCode" name="InspectionPointCode" class="form-select fs-13px">
+							<option value="">Fill a Inspection Point</option>
+						</select>
+						<input id="InspectionPointName" class="form-control input-desc fs-13px" type="text" readonly />
+						
+					</div>
+					<div class="filter-item">
+						<!-- NAV PREV NEXT BUTTON -->
+						@Html.Partial("~/Views/PartialView/_NavButtons.cshtml")
+
+					</div>
+
+				</div>
+
+
+				<!-- Row 4 -->
+				@*  <div class="filter-row single">
+
+                            <!--inspection date from-->
+                            <div class="filter-item">
+                                <label>Inspection Date</label>
+                                <input id="InspectionDateFrom" name="InspectionDateFrom" type="text" maxlength="11" class="form-control datepicker" autocomplete="off" />
+                                <span>~</span>
+                                <input id="InspectionDateTo" name="InspectionDateTo" type="text" maxlength="11" class="form-control datepicker" autocomplete="off" />
+
+                            </div>
+                        </div> *@
+
+			</div>
+
+		</div>
+
+		<div class="btn-common-panel">
+			<div style="display:flex; gap:10px;">
+				<button class="btn btn-primary btn-sm  btn-search"><i class="fa fa-search"></i> Browse</button>
+				<button class="btn btn-secondary btn-sm btn-clear"><i class="fa fa-refresh"></i> Clear</button>
+				<button class="btn btn-danger btn-sm btn-print"><i class="fa fa-print"></i> Print</button>
+				<button class="btn btn-success btn-sm btn-excel"><i class="fa fa-excel"></i> Excel</button>
+			</div>
+			<!-- RIGHT: SEARCH -->
+			<div class="smart-search">
+				<i class="fa fa-search"></i>
+				<input type="text" class="dt-search" data-table="#tableID" placeholder="Search..." />
+			</div>
+
+		</div>
+
+		<!-- PANEL BODY -->
+		<div class="table-responsive">
+			<table id="tableID" class="table table-striped table-bordered w-100 fs-13px" style="min-width:2000px">
+				<thead>
+					<tr role="row">
+						<th rowspan="2" style="text-align:center;width:80px">
+
+						</th>
+						<th rowspan="2" style="text-align:center;min-width:120px">
+							Date
+						</th>
+						<th rowspan="2" style="text-align:center;width:150px;">
+							Frequency
+						</th>
+						<th rowspan="2" style="text-align:center;width:120px">
+							Plant
+						</th>
+						<th rowspan="2" style="text-align:center;width:180px">
+							Course
+						</th>
+						<th rowspan="2" style="text-align:center;width:200px">
+							Equipment Group
+						</th>
+						<th rowspan="2" style="text-align:center;width:200px">
+							Inspection Point
+						</th>
+						<th rowspan="2" style="text-align:center;width:120px">
+							Unit
+						</th>
+						<th colspan="2" style="text-align:center;max-width:150px">
+							Range
+						</th>
+
+						<th rowspan="2" style="text-align:center;width:150px">
+							Inspection Result
+						</th>
+						<th rowspan="2" style="text-align:center;width:120px">
+							Status
+						</th>
+						<th rowspan="2" style="text-align:center;width:150px">
+							Group
+							Selection
+						</th>
+						<th rowspan="2" style="text-align:center;width:110px">
+							Inspection
+							User
+						</th>
+						<th rowspan="2" style="text-align:center;min-width:150px">
+							Notes
+						</th>
+					</tr>
+					<tr>
+						<th style="text-align:center;max-width:75px;">
+							Min
+						</th>
+						<th style="text-align:center;max-width:75px">
+							Max
+						</th>
+					</tr>
+				</thead>
+
+				<tbody></tbody>
+
+			</table>
+
+		</div>
+	</div>
+
+	<div id="modalReport" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false">
+		<div class="modal-dialog modal-dialog-centered" style="--bs-modal-width:1500px !important;height:85vh !important;">
+			<div class="modal-content">
+
+				<div class="modal-header theme-color">
+					<h5 class="modal-title">Inspection Report</h5>
+					<button type="button" class="btn-close bg-white-200" data-bs-dismiss="modal"></button>
+				</div>
+
+				<div class="modal-body p-0">
+					<iframe id="reportFrame"
+							style="width:100%;height:85vh;border:none;">
+					</iframe>
+				</div>
+
+				<div class="modal-footer">
+					@*  <button class="btn btn-primary" onclick="printReport()">🖨 Print</button> *@
+					<button class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<style>
+	.filter-container {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.filter-row {
+		display: flex;
+		gap: 20px;
+	}
+
+		.filter-row.single {
+			flex-direction: column;
+		}
+
+	.filter-item {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		flex: 0 0 auto; /* ✅ biar tidak melebar */
+	}
+
+		.filter-item label {
+			width: 100px;
+			margin-bottom: 0;
+			font-weight: 500;
+		}
+
+		.filter-item select {
+			width: 180px;
+		}
+
+		.filter-item input {
+			width: 220px;
+		}
+
+		.filter-item.full {
+			width: 100%;
+		}
+
+	#tableID th, #tableID td {
+		white-space: nowrap !important;
+	}
+
+/* 
+	.dataTables_scrollHead table.dataTable thead th {
+		padding: 6px 10px !important;
+		white-space: nowrap;
+	}
+ */
+	/*fixed columns style*/
+	table.dataTable th,
+	table.dataTable td {
+		white-space: nowrap;
+	}
+/* 
+	.dtfc-fixed-start,
+	.dtfc-fixed-left {
+		background-color: rgb(50, 118, 177) !important;
+		z-index: 3 !important;
+	} */
+
+	.row-abnormal {
+		background-color: yellow !important;
+	}
+
+	.text-abnormal td {
+		color: #ff4a56 !important;
+		font-weight: 800;
+		font-weight:bolder;
+	}
+	/* Header fixed column tetap mengikuti warna header utama */
+	/* table.dataTable thead .dtfc-fixed-start,
+	table.dataTable thead .dtfc-fixed-left {
+		background-color: rgb(50, 118, 177) !important;
+		color: #fff;
+	}*/
+
+	/*Baris abnormal pada kolom fixed */
+	/* table.dataTable tbody tr.row-abnormal .dtfc-fixed-start,
+	table.dataTable tbody tr.row-abnormal .dtfc-fixed-left {
+		background-color: yellow !important;
+	} */
+
+
+	.filter-label {
+		width: 70px;
+		flex: 0 0 auto;
+	}
+
+
+	.input-desc {
+		flex: 1 1 250px;
+		max-width: 250px !important
+	}
+
+	.table > thead {
+		vertical-align: bottom;
+		line-height: 1.5;
+	}
+
+	.table > :not(caption) > * > * {
+		padding: .2rem .1rem;
+		color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color)));
+		background-color: var(--bs-table-bg);
+		box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg)));
+		vertical-align: middle;
+		padding-left: 5px !important;
+	}
+
+	div.dataTables_scrollBody {
+		border: 1px solid lightgray !important;
+	}
+
+	.select2-selection__clear {
+		display: none !important;
+	}
+
+	.select2.select2-container .selection .select2-selection.select2-selection--multiple, .select2.select2-container .selection .select2-selection.select2-selection--single {
+		border-color: var(--bs-component-border-color);
+		border: 1px solid lightgray !important;
+		outline: 0;
+		height: calc(1.5em + .875rem + 2px);
+		display: flex;
+		align-items: center;
+		border-radius: 5px !important;
+	}
+
+
+	.sWidth-ddl {
+		width: 150px !important;
+	}
+
+
+</style>
+@section Scripts {
+	<script asp-append-version="true">
+		window.userPermission = {
+			statusAdmin: @(ViewBag.Permission?.StatusAdmin),
+			allowUpdate: @(ViewBag.Permission?.AllowUpdate),
+			allowDelete: @(ViewBag.Permission?.AllowDelete),
+			allowApprove: @(ViewBag.Permission?.AllowApprove)
+		};
+	</script>
+	<script src="~/assets/js/pages/InspectionDataInquiry.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,381 @@
+﻿@{
+	Layout = "_Layout";
+
+}
+
+<div class="panel panel-inverse" style="min-height:86vh;">
+	<div class="panel-heading theme-color">
+		<h4 class="panel-title fs-5"><i class="bi bi-sign-stop"></i> [@ViewBag.Permission.MenuId] - @ViewBag.Permission.MenuName</h4>
+		<div class="panel-heading-btn">
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-default panel-border-white" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-success panel-border-white" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-warning panel-border-white" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+		</div>
+	</div>
+
+
+	<div class="panel-body">
+		<div class="btn-common-panel">
+
+			<div>
+				@if (ViewBag.Permission.AllowUpdate == "0")
+				{
+					<button class="btn btn-success btn-sm fs-13px btn-add" disabled><i class="fa fa-plus"></i> New</button>
+				}
+				else
+				{
+					<button class="btn btn-success btn-sm fs-13px btn-add"><i class="fa fa-plus"></i> New</button>
+				}
+			</div>
+			<!--search wajib-->
+			<!-- RIGHT: SEARCH -->
+			<div class="smart-search">
+				<i class="fa fa-search"></i>
+				<input type="text" class="dt-search" data-table="#tableID" placeholder="Search..." />
+			</div>
+		</div>
+
+		<!-- PANEL BODY -->
+		<div class="table-responsive">
+			<table id="tableID" class="table table-striped table-bordered w-100" border="1" style="min-width:1800px">
+				<thead>
+					<tr role="row">
+						<th style="text-align:center;width:170px">
+							Action
+						</th>
+						<th style="text-align:center;width:140px">
+							User ID
+						</th>
+						<th style="text-align:center;width:250px">
+							User Name
+						</th>
+						<th style="text-align:center;width:200px">
+							User Group
+						</th>
+
+						<th style="text-align:center;width:120px">
+							Send Email
+						</th>
+						<th style="text-align:center;width:150px">
+							Email
+						</th>
+						<th style="text-align:center;width:120px">
+							Cluster
+						</th>
+						<th style="text-align:center;width:120px">
+							Status Admin
+						</th>
+						<th style="text-align:center;width:120px">
+							Locked Status
+						</th>
+						<th style="text-align:center;width:100px">
+							Password Expired
+						</th>
+						<th style="text-align:center;width:150px">
+							Register Date
+						</th>
+						<th style="text-align:center;width:150px">
+							Register User
+						</th>
+						<th style="text-align:center;width:150px">
+							Last Update
+						</th>
+						<th style="text-align:center;width:150px">
+							Last User
+						</th>
+
+					</tr>
+				</thead>
+
+				<tbody></tbody>
+
+			</table>
+
+			<div class="modal fade" id="MyModal" data-bs-backdrop="static" data-bs-keyboard="false">
+				<div class="modal-dialog modal-dialog-centered" style="--bs-modal-width:700px !important;">
+					>
+					<div class="modal-content" >
+						<div class="modal-header  theme-color" >
+							<h5 class="modal-title" id="ModalTitle">Add New User</h5>
+							<button type="button" class="btn-close bg-white-200" data-bs-dismiss="modal"></button>
+						</div>
+						<div class="modal-body" >
+							<div class="panel-body" >
+								<form id="form">
+									<!-- USER ID -->
+									<div class="d-flex align-items-center mb-3">
+
+										<label class="form-label text-nowrap me-2" style="width:110px;">
+											User ID <span class="text-danger">*</span>
+										</label>
+
+										<input id="UserID" name="UserID" class="form-control fs-13px" style="width:150px;" maxlength="15" autocomplete="off" placeholder="User ID" />
+									</div>
+
+									<!-- USER NAME -->
+									<div class="d-flex align-items-center mb-3">
+
+										<label class="form-label text-nowrap me-2" style="width:110px;">
+											User Name <span class="text-danger">*</span>
+										</label>
+
+										<input id="UserName" name="UserName" class="form-control fs-13px" style="width:250px;" maxlength="50" autocomplete="off" placeholder="User Name" />
+									</div>
+									<!-- password -->
+									<div class="d-flex align-items-center mb-3">
+
+										<label class="form-label text-nowrap me-1" style="width:115px;">
+											Password <span class="text-danger">*</span>
+										</label>
+
+										<input id="Password" name="Password" class="form-control fs-13px" maxlength="15" autocomplete="off" />
+									</div>
+									<!-- confirm password -->
+									<div class="d-flex align-items-center mb-3">
+
+										<label class="form-label text-nowrap me-1" style="width:115px;">
+											Confirm Password <span class="text-danger">*</span>
+										</label>
+
+										<input id="ConfirmPassword" name="ConfirmPassword" class="form-control fs-13px" maxlength="15" autocomplete="off" />
+									</div>
+									<!-- USER GROUP -->
+									<div class="d-flex align-items-center mb-2">
+
+										<label class="form-label text-nowrap me-1" style="width:115px;">
+											User Group <span class="text-danger">*</span>
+										</label>
+
+										<select id="UserGroup" name="UserGroup" class="form-select fs-13px me-2 sWidth-ddl"></select>
+										<input id="UserGroupName" name="UserGroupName" class="form-control input-desc fs-13px" style="margin-left:10px;width:250px" type="text" readonly placeholder="User Group Name" />
+
+									</div>
+									<!-- USER SEND EMAIL -->
+									<div class="d-flex align-items-center mb-3">
+
+										<label class="form-label text-nowrap me-2" style="width:115px;">
+											Send Email <span class="text-danger">*</span>
+										</label>
+										<input id="IsSendEmail" name="IsSendEmail" type="checkbox" />
+										<span id="spanSendEmail" class="status-label no" style="padding-left:5px">NO</span>
+									</div>
+									<!-- USER EMAIL -->
+									<div class="d-flex align-items-center mb-3">
+
+										<label class="form-label text-nowrap me-2" style="width:115px;">
+											User Email <span class="text-danger">*</span>
+										</label>
+										<input type="email" id="Email" name="Email" class="form-control fs-13px" maxlength="50" autocomplete="off" placeholder="user@nsi.co.id" />
+									</div>
+
+									<div class="form-row div-email hidden">
+										<small id="emailError" class="validation-message">
+											Please input valid email!
+										</small>
+									</div>
+
+									<!-- CLUSTER -->
+									<div class="d-flex align-items-center mb-3">
+										<label class="form-label text-nowrap me-2" style="width:115px;">Cluster</label>
+										<div style="display:flex; align-items:center; flex-wrap:wrap; gap:10px;">
+											<input id="ClusterCode" name="ClusterCode" class="form-control input-desc fs-13px" maxlength="5" readonly />
+											<input id="ClusterName" name="ClusterName" class="form-control input-desc fs-13px" maxlength="15" style="width:150px" type="text" readonly />
+										</div>
+									</div>
+
+									<!--admin status checkbox -->
+									<div class="d-flex align-items-center mb-3">
+										<label class="form-label text-nowrap me-1" style="width:115px;">Status Admin</label>
+										<input id="IsAdmin" name="IsAdmin" type="checkbox" />
+										<span id="spanStatusAdmin" class="status-label no" style="padding-left:5px"></span>
+									</div>
+									<!--Locked checkbox -->
+									<div class="d-flex align-items-center mb-3">
+										<label class="form-label text-nowrap me-1" style="width:115px;">Locked Status</label>
+										<input id="IsLocked" name="IsLocked" type="checkbox" />
+
+										<span id="spanLocked" class="status-label no" style="padding-left:5px"></span>
+									</div>
+
+									<!--password expired datepicker-->
+									<div class="d-flex align-items-center mb-3">
+										<label class="form-label text-nowrap me-1" style="width:115px;"> Password Expired</label>
+										@*  <input id="PasswordExpired" name="PasswordExpired" type="text" maxlength="15" class="form-control datepicker" autocomplete="off" /> *@
+										<div class="datepicker-wrapper">
+											<input id="PasswordExpired" name="PasswordExpired" type="text" maxlength="15" class="form-control datepicker" autocomplete="off" />
+											<span class="datepicker-icon">
+												<i class="fa fa-calendar"></i>
+											</span>
+										</div>
+									</div>
+
+
+
+								</form>
+							</div>
+							<div class="modal-footer">
+								@if (ViewBag.Permission.AllowUpdate == "0")
+								{
+									<button type="button" class="btn btn-primary w-80px me-15px fs-11px " id="InsertData" disabled="disabled">Save</button>
+									<button type="button" class="btn btn-primary w-80px me-15px fs-11px " id="UpdateData" disabled="disabled" style="display:none;">Update</button>
+								}
+								else
+								{
+									<button type="button" class="btn btn-primary w-80px me-15px fs-11px " id="InsertData">Save</button>
+									<button type="button" class="btn btn-primary w-80px me-15px fs-11px " id="UpdateData" style="display:none;">Update</button>
+								}
+
+								<button type="button" class="btn btn-default w-80px me-15px fs-11px" data-bs-dismiss="modal">Close</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal fade" id="MyModal" data-bs-backdrop="static" data-bs-keyboard="false">
+				<div class="modal-dialog modal-dialog-centered" style="--bs-modal-width:1000px !important;">
+					<div class="modal-content">
+						<div class="modal-header  theme-color">
+							<h5 class="modal-title" id="ModalTitle">Add New Unit</h5>
+							<button type="button" class="btn-close bg-white-200" data-bs-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<form id="form">
+								<div style="border:1px solid lightgray; padding:5px; margin-top:5px">
+									<div class="filter-row">
+										<div class="filter-item">
+											<label style="width:80px">User ID</label>
+											<input id="UserIDDetail" name="UserIDDetail" class="form-control" maxlength="15" autocomplete="off" readonly />
+											<input id="UserNameDetail" name="UserNameDetail" class="form-control" maxlength="50" autocomplete="off" readonly />
+
+										</div>
+
+									</div>
+
+
+
+								</div>
+								<div class="btn-common-panel">
+									<div style="display:flex; gap:10px;">
+										@if (ViewBag.Permission.AllowUpdate == "0")
+										{
+											<button type="button" class="btn btn-primary btn-submitdetail" disabled> <i class="fa fa-save"></i> Save Settings</button>
+										}
+										else
+										{
+											<button type="button" class="btn btn-primary btn-submitdetail"> <i class="fa fa-save"></i> Save Settings</button>
+
+										}
+									</div>
+
+								</div>
+								<div class="table-responsive" style="margin-top:15px;">
+									<table id="tableDetail" class="table table-striped table-bordered table-hover" style="font-family:'Trebuchet MS'; width:1000px">
+										<thead>
+											<tr>
+												<th style="text-align:center;width:60px"></th>
+												<th style="text-align:center;width:250px">Plant</th>
+												<th style="text-align:center;width:130px">Course Code</th>
+												<th style="text-align:center;width:350px">Title</th>
+											</tr>
+										</thead>
+										<tbody></tbody>
+									</table>
+								</div>
+							</form>
+
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<style>
+	.form-row {
+		margin-bottom: 15px;
+	}
+
+	.required {
+		color: #d9534f;
+	}
+
+	.validation-message {
+		display: none;
+		color: #d9534f;
+		font-size: 12px;
+		margin-top: 5px;
+	}
+
+	.form-control.is-invalid {
+		border-color: #d9534f;
+		box-shadow: 0 0 4px rgba(217, 83, 79, 0.3);
+	}
+
+	.form-control.is-valid {
+		border-color: #28a745;
+		box-shadow: 0 0 4px rgba(40, 167, 69, 0.3);
+	}
+
+	.form-row input, select {
+		border-radius: 5px !important;
+	}
+
+	.filter-row {
+		display: flex;
+		gap: 20px;
+	}
+
+		.filter-row.single {
+			flex-direction: column;
+		}
+
+	.filter-item {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		flex: 0 0 auto;
+	}
+
+		.filter-item input {
+			border-radius: 5px !important;
+		}
+
+
+	div.dataTables_scrollBody {
+		border: 1px solid lightgray !important;
+	}
+
+	.select2-selection__clear {
+		display: none !important;
+	}
+
+	.select2.select2-container .selection .select2-selection.select2-selection--multiple, .select2.select2-container .selection .select2-selection.select2-selection--single {
+		border-color: var(--bs-component-border-color);
+		border: 1px solid lightgray !important;
+		outline: 0;
+		height: calc(1.5em + .875rem + 2px);
+		display: flex;
+		align-items: center;
+		border-radius: 5px !important;
+	}
+
+</style>
+
+@section Scripts {
+	<script asp-append-version="true">
+		window.userPermission = {
+			statusAdmin: @(ViewBag.Permission?.StatusAdmin),
+			allowUpdate: @(ViewBag.Permission?.AllowUpdate),
+			allowDelete: @(ViewBag.Permission?.AllowDelete),
+			allowApprove: @(ViewBag.Permission?.AllowApprove)
+		};
+	</script>
+
+	<script src="~/assets/js/pages/SCUserSetup.js" asp-append-version="true"></script>
+}

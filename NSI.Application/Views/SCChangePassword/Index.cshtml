@@ -1,0 +1,158 @@
+﻿@{
+	Layout = "_Layout";
+
+}
+@using System.Security.Claims
+
+<div class="panel panel-inverse" style="min-height:86vh;">
+	<div class="panel-heading theme-color">
+		<h4 class="panel-title fs-5"><i class="bi bi-sign-stop"></i> [@ViewBag.Permission.MenuId] - @ViewBag.Permission.MenuName</h4>
+		<div class="panel-heading-btn">
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-default panel-border-white" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-success panel-border-white" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-warning panel-border-white" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+		</div>
+	</div>
+
+	<div class="panel-body">
+		<form id="ChangePassword">
+			<div class="row">
+				<div class="form-row">
+					<label for="UserID">User ID</label>
+					<input id="UserID" name="UserID" class="form-control" maxlength="15" autocomplete="off" value="@User.FindFirst(ClaimTypes.NameIdentifier)?.Value" readonly />
+				</div>
+
+				<div class="form-row">
+					<label for="Password">Password</label>
+					<input id="oldPassword" name="oldPassword" type="password" class="form-control" maxlength="15" autocomplete="off" required />
+					<i class="fa fa-eye toggle-password" toggle="#Password"></i>
+				</div>
+
+				<div class="form-row">
+					<label for="Password">New Password</label>
+					<input id="newPassword" name="newPassword" type="password" class="form-control" maxlength="15" autocomplete="off" required />
+
+
+				</div>
+				<div class="strength"><div id="strengthBar"></div></div>
+
+				<div class="form-row">
+					<label for="Password">Confirm Password</label>
+					<input id="confirmPassword" name="confirmPassword" type="password" class="form-control" maxlength="15" autocomplete="off" required />
+
+				</div>
+				<div style="height:30px;"></div>
+				<div class="form-row">
+					<label for="PasswordExpired">Password Expired</label>
+					<input id="PasswordExpired" name="PasswordExpired" type="text" maxlength="15" class="form-control datepicker" autocomplete="off" />
+
+				</div>
+
+				<div style="height:50px;"></div>
+				<div style="width:20%">
+					<div>
+						<hr style="margin-bottom:10px;margin-top:5px;" />
+						<h6 style="color:black;margin:0;font-weight:bold;padding:5px;">Password Policy</h6>
+						<hr style="margin-bottom:10px;margin-top:5px;" />
+					</div>
+					<div class="policy">
+						• Min 8 characters<br>
+						• Must include letters & numbers<br>
+						• Cannot be same as old password
+					</div>
+				</div>
+
+				<div class="form-row">
+				@if (ViewBag.Permission.AllowUpdate == "0")
+				{
+@* 					<button type="submit" class="btn btn-save" disabled>Update Password</button> *@
+						<button type="submit" class="btn btn-primary w-80px me-15px fs-11px btn-save" disabled>Update Password</button>
+				}
+				else
+				{
+						<button type="submit" class="btn btn-primary w-150px me-15px fs-11px btn-save">Update Password</button>
+
+				}
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+<style>
+
+	.card {
+		backdrop-filter: blur(15px);
+		/* border-radius: 20px; */
+		padding: 30px;
+		height: 30px;
+		/*  width: 400px;*/
+		color: black;
+		box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+		background: linear-gradient(135deg, lightgray, #ffff);
+	}
+
+		.card h1 {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+
+	.form-row input {
+		width: 100%;
+		border-radius: 5px !important;
+		color: black !important;
+	}
+
+	.strength {
+		width: 50%;
+		height: 6px;
+		border-radius: 5px;
+		background: #ccc;
+		overflow: hidden;
+		margin-bottom: 10px;
+	}
+
+		.strength div {
+			height: 100%;
+			width: 0%;
+			transition: 0.3s;
+		}
+
+	.policy {
+		font-size: 12px;
+		margin-top: 10px;
+		opacity: 0.8;
+	}
+
+	.btn {
+		width: 10%;
+		padding: 12px;
+		border: none;
+		border-radius: 10px;
+		background: #00c6ff;
+		background: linear-gradient(to right, #00c6ff, #0072ff);
+		color: white;
+		font-weight: bold;
+		cursor: pointer;
+		margin-top: 15px;
+		transition: 0.3s;
+	}
+
+		.btn:hover {
+			transform: scale(1.05);
+		}
+
+</style>
+@section Scripts {
+	<script asp-append-version="true">
+		window.userPermission = {
+			statusAdmin: @(ViewBag.Permission?.StatusAdmin),
+			allowUpdate: @(ViewBag.Permission?.AllowUpdate),
+			allowDelete: @(ViewBag.Permission?.AllowDelete),
+			allowApprove: @(ViewBag.Permission?.AllowApprove)
+		};
+	</script>
+	<script src="~/assets/js/pages/scchangepassword.js" asp-append-version="true"></script>
+}

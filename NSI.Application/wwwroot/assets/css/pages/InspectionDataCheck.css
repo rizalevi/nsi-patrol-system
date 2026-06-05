@@ -1,0 +1,202 @@
+﻿.filter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-row {
+    display: flex;
+    gap: 20px;
+}
+
+.filter-row.single {
+    flex-direction: column;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 auto;
+}
+
+#MyModal .filter-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 auto;
+    padding-bottom: 10px;
+}
+
+.filter-item label {
+    width: 100px;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.filter-item select {
+    width: 180px;
+    border-radius: 5px !important;
+}
+
+.filter-item input {
+    width: 220px;
+    border-radius: 5px !important;
+}
+
+.filter-item.full {
+    width: 100%;
+}
+
+.v-align {
+    vertical-align: middle !important;
+}
+
+
+/*
+.dataTables_scrollHead table.dataTable thead th {
+    padding: 5px 2px !important;
+    white-space: nowrap;
+}
+
+#tableID-Detail_wrapper .dataTables_scrollHead table.dataTable thead th {
+    padding: 2px 2px !important;
+    white-space: nowrap;
+}*/
+
+.row-abnormal {
+    background-color: yellow !important;
+}
+
+#tableID a {
+    color: #0035ff !important;
+    text-decoration: none;
+}
+
+.modal-datatable .dataTables_scrollBody {
+    height: 25vh !important;
+    margin-top: -20px;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    background-color: white;
+}
+
+/* khusus modal ke-2 */
+#modalSendBack .modal-dialog.modal-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+/* biar selalu di atas modal pertama */
+#modalSendBack {
+    z-index: 1060;
+}
+
+/* backdrop kedua biar ga ketutup */
+.modal-backdrop + .modal-backdrop {
+    z-index: 1055;
+}
+
+/*fixed columns style*/
+/*table.dataTable th,
+table.dataTable td {
+    white-space: nowrap;
+}
+
+.dtfc-fixed-start,
+.dtfc-fixed-left {
+    background-color: rgb(50, 118, 177) !important;
+    z-index: 3 !important;
+}*/
+
+/* Header fixed column tetap mengikuti warna header utama */
+/*table.dataTable thead .dtfc-fixed-start,
+table.dataTable thead .dtfc-fixed-left {
+    background-color: rgb(50, 118, 177) !important;
+    color: #fff;
+}*/
+
+/*Baris abnormal pada kolom fixed */
+/*table.dataTable tbody tr.row-abnormal .dtfc-fixed-start,
+table.dataTable tbody tr.row-abnormal .dtfc-fixed-left {
+    background-color: yellow !important;
+}*/
+
+/* Baris ganjil */
+/*table.dataTable tbody tr:nth-child(odd) .dtfc-fixed-start,
+table.dataTable tbody tr:nth-child(odd) .dtfc-fixed-left {
+    background-color: whitesmoke !important;
+}*/
+
+/* Baris genap */
+/*table.dataTable tbody tr:nth-child(even) .dtfc-fixed-start,
+table.dataTable tbody tr:nth-child(even) .dtfc-fixed-left {
+    background-color: white !important;
+}*/
+
+.filter-label {
+    width: 70px;
+    flex: 0 0 auto;
+}
+
+
+.input-desc {
+    flex: 1 1 250px;
+    max-width: 250px !important
+}
+
+.table > thead {
+    vertical-align: bottom;
+    line-height:1.5;
+}
+
+.table > :not(caption) > * > * {
+    padding: .2rem .1rem;
+    color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color)));
+    background-color: var(--bs-table-bg);
+    box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg)));
+    vertical-align: middle;
+    padding-left: 5px !important;
+}
+
+div.dataTables_scrollBody {
+    border: 1px solid lightgray !important;
+}
+
+.select2-selection__clear {
+    display: none !important;
+}
+
+.select2.select2-container .selection .select2-selection.select2-selection--multiple, .select2.select2-container .selection .select2-selection.select2-selection--single {
+    border-color: var(--bs-component-border-color);
+    border: 1px solid lightgray !important;
+    outline: 0;
+    height: calc(1.5em + .875rem + 2px);
+    display: flex;
+    align-items: center;
+    border-radius: 5px !important;
+}
+
+
+.sWidth-ddl {
+    width: 150px !important;
+}
+
+
+.dataTables_wrapper .dataTables_scroll tr.odd td {
+    /* background: var(--bs-table-striped-bg); */
+    border-color: var(--bs-component-table-border-color) !important;
+}
+
+.hidden {
+    display: none;
+}
+
+.text-abnormal td {
+    color: #ff4a56 !important;
+    font-weight: 800;
+    font-weight: bolder;
+}

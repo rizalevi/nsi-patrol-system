@@ -1,0 +1,110 @@
+﻿@{
+    Layout = "_Layout";
+
+}
+
+<div id="content">
+
+    <!-- MAIN PANEL -->
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="panel" style="border:1px solid #ddd; border-radius:6px;min-height:600px !important;">
+
+                <!-- PANEL HEADER -->
+                <div class="panel-heading" style="background-color:#1b1e24">
+                    <h5 class="panel-title" style="font-weight:500;color:white;">
+                        <i class="fa fa-home text-primary" style="color:white;"></i>
+                        Error Logger 
+                    </h5>
+                </div>
+                <div style="padding-bottom:10px" class="col-md-12"></div>
+                <div class="btn-common-panel">
+
+                   
+                    <!--search wajib-->
+                    <!-- RIGHT: SEARCH -->
+                    <div class="smart-search">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="dt-search" data-table="#tableID" placeholder="Search..." />
+                    </div>
+
+                </div>
+
+                <!-- PANEL BODY -->
+                <div class="panel-body">
+
+                    <div class="table-responsive">
+
+                        <table id="tableID" class="table table-striped table-bordered w-100" border="1">
+                            <thead >
+                                <tr role="row">
+                                    <th style="text-align:center;width:100px">Method</th>
+                                    <th style="text-align:center;width:200px">CreatedAt</th>
+                                    <th style="text-align:center;width:200px">User</th>
+                                    <th style="text-align:center;width:200px">Path</th>
+                                    <th style="text-align:center;width:350px">Message</th>
+                                    <th style="text-align:center;width:100px">Stack Trace</th>
+                                </tr>
+                            </thead>
+
+                            <tbody></tbody>
+                        </table>
+                        <div class="modal fade" id="MyModal" data-bs-backdrop="static" data-bs-keyboard="false">
+                            <div class="modal-dialog modal-dialog-centered" style="--bs-modal-width:500px !important; height:500px">
+                                <div class="modal-content" >
+                                    <div class="modal-header  theme-color">
+                                        <h5 class="modal-title" id="ModalTitle">Detail Error</h5>
+                                        <button type="button" class="btn-close bg-white-200" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <textarea class="form-control" id="StackTrace" style="resize:both;height:450px" autocomplete="false">
+                                        </textarea>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+           
+        </div>
+    </div>
+    
+</div>
+<style>
+   
+
+    #tableID td {
+        white-space: normal !important;
+        word-break: break-word;
+    }
+
+    #tableID th {
+        white-space: normal !important;
+    }
+
+    .table > thead {
+        vertical-align: bottom;
+        line-height: 2;
+    }
+
+    .table > :not(caption) > * > * {
+        padding: .3rem .1rem;
+        color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color)));
+        background-color: var(--bs-table-bg);
+        border-bottom-width: 1px;
+        box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg)));
+        vertical-align: middle;
+        padding-left: 5px !important;
+    }
+</style>
+@section Scripts{
+    <script src="~/assets/js/pages/ErrorLogger.js" asp-append-version="true"></script>
+
+}

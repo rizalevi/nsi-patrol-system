@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "NSI.Application": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:19290;http://localhost:19291;https://localhost:19277"
+    }
+  }
+}

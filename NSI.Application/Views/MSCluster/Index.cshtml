@@ -1,0 +1,188 @@
+﻿@{
+    Layout= "_Layout";
+
+}
+
+<div class="panel panel-inverse" style="min-height:86vh;">
+    <div class="panel-heading theme-color">
+        <h4 class="panel-title fs-5"><i class="bi bi-sign-stop"></i> [@ViewBag.Permission.MenuId] - @ViewBag.Permission.MenuName</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-default panel-border-white" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-success panel-border-white" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-warning panel-border-white" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="row mb-20px btn-common-panel">
+            <div class="col">
+				@if (ViewBag.Permission.AllowUpdate=="0")
+                {
+                    <button class="btn btn-success btn-sm  fs-13px btn-addnew" disabled><i class="fa fa-plus"></i> New</button>
+				}else{
+                    <button class="btn btn-success btn-sm  fs-13px btn-addnew"><i class="fa fa-plus"></i> New</button>
+				}
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table id="tableID" class="table table-striped table-bordered w-100" border="1">
+                <thead>
+                    <tr role="row">
+                        <th class="text-center text-nowrap" style="width:130px">
+                            Action
+                        </th>
+                        <th class="text-center text-nowrap"  style="width:200px">
+                            Cluster Code
+                        </th>
+                        <th class="text-center text-nowrap" >
+                            Cluster Name
+                        </th>
+                        <th class="text-center text-nowrap"  style="width:180px">
+                            Register Date
+                        </th>
+                        <th class="text-center text-nowrap"  style="width:180px">
+                            Register User
+                        </th>
+                        <th class="text-center text-nowrap"  style="width:180px">
+                            Last Update
+                        </th>
+                        <th class="text-center text-nowrap" style="width:180px">
+                            Last User
+                        </th>
+
+                    </tr>
+                </thead>
+
+                <tbody></tbody>
+
+            </table>
+        </div>
+
+        <div class="modal fade" id="MyModal" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" style="--bs-modal-width:500px !important;">
+                <div class="modal-content">
+                    <div class="modal-header  theme-color">
+                        <h5 class="modal-title" id="ModalTitle">Add New Cluster</h5>
+                        <button type="button" class="btn-close bg-white-200" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body" >
+                            <form id="form">
+                                <!--cluster code-->
+								<div class="d-flex align-items-center mb-2">
+									<label class="form-label col-form-label col-md-3 fs-13px">Cluster Code <small class="text-danger">*</small></label>
+                                    <input class="form-control fs-13px" id="ClusterCode" name="ClusterCode" maxlength="15" autocomplete="off" required />
+                                		
+								</div>
+                                <!--cluster name-->
+								<div class="d-flex align-items-center mb-2">
+                                    <label class="form-label col-form-label col-md-3 fs-13px">Cluster Name <small class="text-danger">*</small></label>
+                                    <input class="form-control fs-13px" id="ClusterName" name="ClusterName" maxlength="50" autocomplete="off" required />
+										
+								</div>
+
+                               
+                               
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        @if (ViewBag.Permission.AllowUpdate == "0")
+                        {
+                            <button type="button" class="btn btn-primary" id="InsertData" disabled="disabled">Save</button>
+                            <button type="button" class="btn btn-primary" id="UpdateData" disabled="disabled" style="display:none;">Update</button>
+                        }
+                        else
+                        {
+                            <button type="button" class="btn btn-primary" id="InsertData">Save</button>
+                            <button type="button" class="btn btn-primary" id="UpdateData" style="display:none;">Update</button>
+                        }
+
+                        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+              
+             
+    </div>
+</div>
+<style>
+    /*khusus screen2 tanpa filter*/
+    /* .dataTables_scrollBody {
+        min-height: 5vh !important;
+    } */
+    div.dataTables_scrollBody {
+        border: 1px solid lightgray !important;
+    }
+
+    .dataTables_scrollBody {
+        border:none !important;
+        overflow-x: auto !important;
+        overflow-y: auto !important;
+        height: calc(105vh - 398px) !important;
+        max-height: calc(105vh - 398px) !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    .form-row input , select {
+        border-radius:5px !important;
+    }
+
+    .dataTables_wrapper > .row:first-child {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+
+    #btn-placeholder {
+        width: auto;
+        text-align: left;
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1 !important;
+    }
+
+        #btn-placeholder .btn {
+            width: auto !important;
+            display: inline-block !important;
+            margin: 0 !important;
+            padding: 4px 12px !important;
+        }
+   
+
+
+    .table > thead {
+        vertical-align: bottom;
+        line-height: 2;
+    }
+
+    .table > :not(caption) > * > * 
+    {
+        padding: .3rem .1rem;
+        color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color)));
+        background-color: var(--bs-table-bg);
+        border-bottom-width: 1px;
+        box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg)));
+        vertical-align:middle;
+        padding-left:5px !important;
+
+    }
+</style>
+
+@section Scripts {
+    <script asp-append-version="true">
+        window.userPermission = {
+            statusAdmin: @(ViewBag.Permission?.StatusAdmin),
+            allowUpdate: @(ViewBag.Permission?.AllowUpdate),
+            allowDelete: @(ViewBag.Permission?.AllowDelete),
+            allowApprove: @(ViewBag.Permission?.AllowApprove)
+        };
+    </script>
+
+    
+    <script src="~/assets/js/pages/mscluster.js" asp-append-version="true"></script>
+
+}

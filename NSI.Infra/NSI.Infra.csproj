@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DapperExtension.cs" />
+    <Compile Remove="Helpers\EnvHelper.cs" />
+    <Compile Remove="Helpers\ExcelHelper.cs" />
+    <Compile Remove="Helpers\JqueryDataTableHelper.cs" />
+    <Compile Remove="Helpers\KeysHelper.cs" />
+    <Compile Remove="Helpers\MagerExcel2.cs" />
+    <Compile Remove="SqlConnections\AppDbConnection.cs" />
+    <Compile Remove="SqlConnections\DataService.cs" />
+    <Compile Remove="SqlConnections\LogDbConnection.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.66" />
+    <PackageReference Include="jose-jwt" Version="5.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.23" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.23" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NSI.Domain\NSI.Domain.csproj" />
+
+  </ItemGroup>
+ 
+
+</Project>

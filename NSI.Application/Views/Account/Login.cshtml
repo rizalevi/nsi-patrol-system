@@ -1,0 +1,104 @@
+﻿@model NSI.Domain.Models.Auth.Login
+@{
+    ViewData["Title"] = "Sign In";
+    Layout = null; 
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>NSI Patrol System</title>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    	
+    <link rel="shortcut icon" href="~/img/favicon/fav_nsi.ico" />
+	<link rel="shortcut icon" href="~/img/favicon/fav_nsi.ico" type="image/x-icon">
+	<link rel="icon" href="~/img/favicon/fav_nsi.ico" type="image/x-icon" />
+
+	<link href="~/css/toastr.min.css" rel="stylesheet" />
+    <link href="~/assets/css/pages/Login.css" rel="stylesheet" asp-append-version="true">
+   
+    <script type="text/javascript">
+        $(window).load(function () {
+            setTimeout(function () {
+                $('#loading').fadeOut(400, "linear");
+            }, 300);
+        });
+    </script>
+
+
+</head>
+<body>
+    
+    <div class="login-fullscreen">
+
+        <!-- LEFT SIDE -->
+        <div class="login-left">
+            <div class="brand-horizontal">
+                <img src="~/content/img/prodispatrol_header.png"
+                     alt="NSI Logo"
+                     class="login-logo" />
+
+
+                <div class="brand">
+                    <h1>NIPPON SHOKUBAI INDONESIA</h1>
+                    <p>Patrol System</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="login-right">
+            <h1 class="signin-title">Sign-In</h1>
+            <form id="loginForm">
+                
+                @Html.AntiForgeryToken()
+                <div class="input-group">
+                    <span class="icon">&#128100;</span>
+                    <input id="UserID" name="UserID"
+                           type="text" placeholder="User ID" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="icon">&#128274;</span>
+                    <input id="Password" name="Password"
+                           type="password" placeholder="Password" required>
+                </div>
+
+               @*  <div class="forgot-wrapper">
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div> *@
+                <div style="width:100%">
+                    <button type="submit" class="btn-login" id="login">
+                        Sign-in
+                    </button>
+                </div>
+            </form>
+
+            <div class="footer">
+                &copy; 2026 - PT. TOS INFORMATION SYSTEM INDONESIA<br>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!--end::Root-->
+
+    <!--begin::Javascript-->
+    <script>var hostUrl = "~/assets/";</script>
+    <script src="~/assets/js/scripts.bundle.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/js/toastr/toastr.min.js" asp-append-version="true"></script>
+    <script src="~/assets/js/pages/Login.js" asp-append-version="true"></script>
+    <!--end::Javascript-->
+   
+
+</body>
+</html>

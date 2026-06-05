@@ -1,0 +1,93 @@
+2026-06-01 20:58:12.657 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 613.8454 ms
+2026-06-01 20:58:52.912 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 2248.4560 ms
+2026-06-01 20:58:53.636 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 355.0242 ms
+2026-06-01 20:58:54.120 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 34.6085 ms
+2026-06-01 20:58:55.236 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 6.4275 ms
+2026-06-01 20:58:55.286 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 29.0904 ms
+2026-06-01 20:58:55.833 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 408.2391 ms
+2026-06-01 20:58:55.833 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 536.1359 ms
+2026-06-01 20:58:56.485 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 37.3721 ms
+2026-06-01 20:58:56.667 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 1326.5380 ms
+2026-06-01 20:58:56.899 +07:00 [INF] HTTP POST /api/tasklist/getusergroup responded 200 in 99.5209 ms
+2026-06-01 20:58:57.001 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.2159 ms
+2026-06-01 20:58:57.052 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.9976 ms
+2026-06-01 20:58:57.188 +07:00 [INF] HTTP POST /api/tasklist/summary responded 200 in 382.1493 ms
+2026-06-01 20:58:57.850 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 723.0540 ms
+2026-06-01 20:58:57.852 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 728.1638 ms
+2026-06-01 20:59:05.309 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 83.6380 ms
+2026-06-01 20:59:05.379 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 12.2071 ms
+2026-06-01 20:59:07.095 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 1582.3163 ms
+2026-06-01 20:59:07.236 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 25.4145 ms
+2026-06-01 20:59:07.267 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 10165.6109 ms
+2026-06-01 20:59:07.311 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 17.4549 ms
+2026-06-01 20:59:07.384 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.1007 ms
+2026-06-01 20:59:07.409 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 2.0167 ms
+2026-06-01 20:59:07.612 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 114.0131 ms
+2026-06-01 20:59:07.725 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 303.4543 ms
+2026-06-01 20:59:07.725 +07:00 [INF] HTTP POST /api/inspectiondata/frequency-ddl responded 200 in 320.9593 ms
+2026-06-01 20:59:08.020 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 153.2719 ms
+2026-06-01 20:59:08.143 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 59.4226 ms
+2026-06-01 20:59:08.266 +07:00 [INF] HTTP POST /api/inspectiondata/group-ddl responded 200 in 58.3780 ms
+2026-06-01 20:59:10.716 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 3355.3605 ms
+2026-06-01 20:59:10.718 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 3219.8308 ms
+2026-06-01 20:59:10.738 +07:00 [INF] HTTP POST /api/InspectionDataUpload/list responded 200 in 3177.8494 ms
+2026-06-01 20:59:11.915 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 30.6643 ms
+2026-06-01 20:59:11.967 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 14.7077 ms
+2026-06-01 20:59:22.099 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 10011.2666 ms
+2026-06-01 20:59:22.263 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 14840.0124 ms
+2026-06-01 20:59:22.358 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.2513 ms
+2026-06-01 20:59:22.374 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.9916 ms
+2026-06-01 20:59:22.424 +07:00 [INF] HTTP POST /api/inspectiondata/frequency-ddl responded 200 in 80.8849 ms
+2026-06-01 20:59:22.425 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 80.9934 ms
+2026-06-01 20:59:22.497 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 105.4992 ms
+2026-06-01 20:59:22.549 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 13.8653 ms
+2026-06-01 20:59:22.624 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 30.5506 ms
+2026-06-01 20:59:22.717 +07:00 [INF] HTTP POST /api/inspectiondata/group-ddl responded 200 in 46.1310 ms
+2026-06-01 20:59:26.103 +07:00 [ERR] HTTP POST /api/dashboard/overview responded 500 in 30677.7439 ms
+2026-06-01 20:59:27.444 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+   at NSI.Infra.Datas.DbExecutor.QueryListAsync[T](String sql, Object param, CommandType commandType) in D:\RizalFahlevi\Project\@NSI\NSI WebBase\Trial .NetCore\NSI Patrol System ColorAdmin\NSI.Infra\Datas\DbExecutor.cs:line 32
+   at NSI.Infra.Repositories.Tasklist.TaskListRemainingRepository.GetList(String pUserID) in D:\RizalFahlevi\Project\@NSI\NSI WebBase\Trial .NetCore\NSI Patrol System ColorAdmin\NSI.Infra\Repositories\Tasklist\TaskListRemainingRepository.cs:line 37
+   at NSI.Api.Controllers.TasklistRemainingController.GetList(String pUserID) in D:\RizalFahlevi\Project\@NSI\NSI WebBase\Trial .NetCore\NSI Patrol System ColorAdmin\NSI.Api\Controllers\TasklistRemainingController.cs:line 37
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-06-01 20:59:27.598 +07:00 [INF] HTTP POST /api/tasklist/list responded 302 in 30554.7197 ms
+2026-06-01 20:59:30.967 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 27.9443 ms
+2026-06-01 20:59:31.014 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 10.4086 ms
+2026-06-01 20:59:32.098 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 9719.2378 ms
+2026-06-01 20:59:32.101 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 1006.1491 ms
+2026-06-01 20:59:32.106 +07:00 [INF] HTTP POST /api/inspectiondatacheck/list responded 200 in 9633.7208 ms
+2026-06-01 20:59:32.309 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 9912.4509 ms
+2026-06-01 20:59:32.373 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.2430 ms
+2026-06-01 20:59:32.389 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 0.8714 ms
+2026-06-01 20:59:32.416 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 78.5905 ms
+2026-06-01 20:59:32.417 +07:00 [INF] HTTP POST /api/inspectiondata/frequency-ddl responded 200 in 71.5824 ms
+2026-06-01 20:59:32.442 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 52.5328 ms
+2026-06-01 20:59:32.442 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 23.6191 ms
+2026-06-01 20:59:32.535 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 8.9055 ms
+2026-06-01 20:59:32.611 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 13.4565 ms
+2026-06-01 20:59:32.719 +07:00 [INF] HTTP POST /api/inspectiondataapproval/list responded 200 in 211.0156 ms
+2026-06-01 20:59:38.855 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 23.0779 ms
+2026-06-01 20:59:38.897 +07:00 [INF] HTTP POST /api/userpermission/get-privilege responded 200 in 7.4405 ms
+2026-06-01 20:59:38.998 +07:00 [INF] HTTP POST /api/menu/list responded 200 in 22.2399 ms
+2026-06-01 20:59:39.173 +07:00 [INF] HTTP CONNECT /notificationHub responded 200 in 6731.0777 ms
+2026-06-01 20:59:39.240 +07:00 [INF] HTTP OPTIONS /notificationHub/negotiate responded 204 in 0.0945 ms
+2026-06-01 20:59:39.256 +07:00 [INF] HTTP POST /notificationHub/negotiate responded 200 in 5.4611 ms
+2026-06-01 20:59:39.286 +07:00 [INF] HTTP POST /api/inspectiondata/frequency-ddl responded 200 in 73.8932 ms
+2026-06-01 20:59:39.286 +07:00 [INF] HTTP POST /api/inspectiondata/cluster-ddl responded 200 in 73.8918 ms
+2026-06-01 20:59:39.306 +07:00 [INF] HTTP GET /api/notification/unread-count responded 200 in 33.4642 ms
+2026-06-01 20:59:39.383 +07:00 [INF] HTTP GET /api/notification/list responded 200 in 98.1756 ms
+2026-06-01 20:59:39.410 +07:00 [INF] HTTP POST /api/inspectiondata/plant-ddl responded 200 in 9.4036 ms
+2026-06-01 20:59:39.480 +07:00 [INF] HTTP POST /api/inspectiondata/course-ddl responded 200 in 11.4517 ms
+2026-06-01 20:59:39.487 +07:00 [INF] HTTP POST /api/inspectiondatainquiry/list responded 200 in 230.9805 ms

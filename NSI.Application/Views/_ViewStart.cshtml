@@ -1,0 +1,11 @@
+﻿﻿@using Microsoft.Extensions.Options
+﻿@using NSI.Domain.Models.Common
+@inject IOptions<AppSettingsModel> AppSettings
+
+@{
+    Layout = "_Layout";
+
+    ViewData["BaseUrl"] = AppSettings.Value.BaseUrl;
+    ViewData["ApiUrl"] = AppSettings.Value.ApiUrl;
+
+}

@@ -1,0 +1,77 @@
+﻿@using NSI.Domain.DTOs
+@model List<UserMenuDto>
+@{
+    var groups = Model
+        .GroupBy(x => new { x.MenuGroup, x.GroupIndex })
+        .OrderBy(g => g.Key.GroupIndex);
+}
+<!--UNUSED-->
+<aside id="left-panel">
+
+    <nav>
+        <ul>
+            @foreach (var group in groups)
+            {
+                if (group.Key.MenuGroup == "Home")
+                {
+                    <li>
+                        <a href="@Url.Action("Index","Home")">
+                            <i class="fafa-chart"></i>
+                            <span class="menu-item-parent">Dashboard</span>
+                        </a>
+                    </li>
+                }
+                else if (group.Key.MenuGroup == "Remaining Task")
+                {
+                    <li>
+                        <a href="@Url.Action("Index","TaskListRemaining")">
+                            <i class="fafa-chart"></i>
+                            <span class="menu-item-parent">Tasklist</span>
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="#">
+
+                            @if (group.Key.MenuGroup == "Master")
+                            {
+                                <i class="fa fa-lg fa-fw fa-database"></i>
+                            }
+                            else if (group.Key.MenuGroup == "Inspection Data")
+                            {
+                                <i class="fa fa-lg fa-fw fa-check-circle"></i>
+                            }
+                            else if (group.Key.MenuGroup == "Reports")
+                            {
+                                <i class="fa fa-lg fa-fw fa-book"></i>
+                            }
+                           
+                            else if (group.Key.MenuGroup == "Security System")
+                            {
+                                <i class="fa fa-lg fa-fw fa-wrench"></i>
+                            }
+
+                            <span class="menu-item-parent">@group.Key.MenuGroup</span>
+                        </a>
+
+                        <ul>
+                            @foreach (var menu in group.OrderBy(m => m.MenuID))
+                            {
+                                <li>
+                                    <a href="@menu.MenuName">
+                                        @menu.MenuDescription
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+            }
+        </ul>
+    </nav>
+    <span class="minifyme" data-action="minifyMenu">
+        <i class="fa fa-arrow-circle-left hit"></i>
+    </span>
+</aside>

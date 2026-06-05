@@ -1,0 +1,296 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@{
+    string appMode = "";
+
+    if (Context.Request.Cookies.TryGetValue("app-theme-dark-mode", out string appModeValue))
+    {
+        if (appModeValue == "dark-mode")
+        {
+            appMode = "dark";
+        }
+    }
+}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="@appMode">
+<head>
+    <meta charset="utf-8" />
+    <title>NSI Patrol System</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="@ViewData["MetaDescription"]" />
+    <meta name="author" content="@ViewData["MetaAuthor"]" />
+    <meta name="keywords" content="@ViewData["MetaKeywords"]" />
+    @RenderSection("MetaTag", required: false)
+    <link rel="icon" href="~/content/img/favicon/fav_nsi.ico" />
+
+    <!-- ================== BEGIN core-css ================== -->
+    <link href="~/css/vendor.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/default/app.min.css" rel="stylesheet" asp-append-version="true" />
+    @* <link href="~/css/bootstrap/bootstrap-select.min.css" rel="stylesheet" asp-append-version="true" /> *@
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/bootstrap/bootstrap-datepicker.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/menucontrols.css" rel="stylesheet" asp-append-version="true" />
+    <!-- ================== END core-css ================== -->
+
+     <!-- BASIC STYLES -->
+    @* <link href="~/css/bootstrap-select.min.css" rel="stylesheet" asp-append-version="true" />
+	<link href="~/css/bootstrap-datepicker.min.css" rel="stylesheet" asp-append-version="true" />
+ *@
+    <link href="~/css/datatables.net-bs5/datatables.bootstrap5.min.css" rel="stylesheet" asp-append-version="true" />
+	<link href="~/lib/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" />
+    <link href="~/lib/datatables.net-fixedcolumns-bs5/css/fixedcolumns.bootstrap5.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" asp-append-version="true" />
+    <link href="~/assets/css/customstyle.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/assets/css/pages/notification.css" rel="stylesheet" />
+
+    <link href="~/assets/plugin/sweetalert2/sweetalert2.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/toastr.min.css" rel="stylesheet" asp-append-version="true" />
+    <style type="text/css">
+        html body:not(.menu-on-top).desktop-detected {
+            min-height: 100vh !important;
+        }
+
+        .app-content{
+            padding:10px !important;
+
+        }
+
+        .app-header .navbar-brand img {
+            max-width: 100%;
+            max-height: 50px;
+
+        }
+        /* Footer mengikuti theme (light / dark) */
+     /*    .app-footer {
+            background-color: var(--bs-body-bg);
+            color: var(--bs-body-color);
+            border-top: 1px solid var(--bs-border-color);
+            padding: 12px 12px;
+            position:sticky;
+            bottom: 0 !important;
+           
+        } */
+
+    </style>
+    @RenderSection("Styles", required: false)
+</head>
+<body class="pace-top theme-lime">
+      <script>
+        
+        var BaseUrl = '@ViewData["BaseUrl"]';
+        var ApiUrl = '@ViewData["ApiUrl"]';
+       
+    </script>
+    <div id="loading" class="apploader">
+        <span class="loader"></span>
+    </div>
+    <div id="loader" class="apploader">
+        <span class="loader"></span>
+    </div>
+
+    <!-- BEGIN #app -->
+    <div id="app" class="app app-sidebar-fixed app-gradient-enabled">
+       @*  @if (ViewData["AppHeaderNone"] == null)
+        {
+            <partial name="_Header" />
+        } *@
+
+        @if (ViewData["AppTopMenu"] != null)
+        {
+            <partial name="_TopMenu" />
+        }
+
+        
+        @await Html.PartialAsync("_Header")
+
+        @await Component.InvokeAsync("Sidebar")
+
+@*         @if (ViewData["AppSidebarNone"] == null)
+        {
+            <partial name="_Sidebar" />
+        }
+ *@
+        @if (ViewData["AppSidebarTwo"] != null)
+        {
+            <partial name="_SidebarRight" />
+        }
+
+
+        <div id="content" class="app-content">
+            @RenderBody()
+            @await Html.PartialAsync("_Footer")
+
+          
+        </div>
+       
+        @await Html.PartialAsync("_ThemePanel")
+       @*  @await Html.PartialAsync("_Footer") *@
+      
+
+        @RenderSection("AppOutterContent", required: false)
+    </div>
+    <!-- END #app -->
+    <!-- ================== BEGIN core-js ================== -->
+   @*  <script>
+        window.paceOptions = {
+            ajax: { ignoreURLs: ['mainHub', '__browserLink', 'browserLinkSignalR'], trackWebSockets: false }
+        };
+    </script> *@
+    <script src="~/js/vendor.min.js" asp-append-version="true"></script>
+    <script src="~/js/app.min.js" asp-append-version="true"></script>
+    <script src="~/js/menucontrols.js" asp-append-version="true"></script>
+	@* <script src="~/lib/bootstrap-select/bootstrap-select.min.js" asp-append-version="true"></script> *@
+    <script src="~/lib/select2/js/select2.min.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap-datepicker/bootstrap-datepicker.min.js" asp-append-version="true"></script>
+     <!-- ========================== -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================== -->
+	<!-- jQuery (SATU KALI) -->
+	@* <script src="~/js/jquery-1.10.2.js"></script> *@
+    <!-- Bootstrap -->
+@*     <script src="~/js/bootstrap/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="~/js/bootstrap/bootstrap-datepicker.min.js" asp-append-version="true"></script>
+    <script src="~/js/plugin/bootstrap-waitingfor/bootstrap-waitingfor.min.js" asp-append-version="true"></script>
+ *@
+	<!--datatables-->
+
+@*     <script src="~/js/plugin/datatables/jquery.datatables.min.js" asp-append-version="true"></script> *@
+    <script src="~/lib/datatables.net/js/jquery.datatables.min.js" asp-append-version="true"></script>
+	<script src="~/lib/datatables.net-bs5/js/datatables.bootstrap5.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables.net-fixedcolumns-bs5/js/datatables.fixedcolumns.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables.net-fixedcolumns-bs5/js/fixedcolumns.bootstrap5.min.js" asp-append-version="true"></script>
+	@* <script src="~/lib/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script> *@
+   @*  <script src="~/js/plugin/datatable-responsive/datatables.responsive.min.js" asp-append-version="true"></script>
+ *@
+    <!--chart js 2.8.1-->
+    <script src="~/js/chart/chart.js" asp-append-version="true"></script>
+    <script src="~/js/chart/chartjs-plugin-datalabels.js" asp-append-version="true"></script>
+
+
+    <!--helpers-->
+    <script src="~/js/toastr/toastr.js" asp-append-version="true"></script>
+    <script src="~/assets/plugin/sweetalert2/sweetalert2.min.js" asp-append-version="true"></script>
+    <script src="~/assets/js/helpers/datatablehelper.js" asp-append-version="true"></script>
+    <script src="~/assets/js/helpers/formathelper.js" asp-append-version="true"></script>
+    <script src="~/assets/js/helpers/inputHelper.js" asp-append-version="true"></script>
+    <script src="~/assets/js/helpers/dropdownhelper.js" asp-append-version="true"></script>
+    <script src="~/assets/js/helpers/navigatorhelper.js" asp-append-version="true"></script>
+    <script src="~/assets/js/helpers/apirequesthelper.js" asp-append-version="true"></script>
+    <script src="~/assets/js/helpers/chartjsHelper.js" asp-append-version="true"></script>
+    <script src="~/js/plugin/signalr/signalr.min.js"></script>
+    <script src="~/assets/js/pages/notification-signalr.js" asp-append-version="true"></script>
+ 
+    @section Scripts {
+        <script>
+            $(document).ready(function () {
+                $("#menuSearch").on("keyup", function () {
+                    let value = $(this).val().toLowerCase();
+
+                    $(".menu-item").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                    });
+                });
+            });
+        </script>
+
+
+        <script>
+            //untuk auto recalculate ketika minify trigger
+            $(document).on('click', '[data-toggle="app-sidebar-minify"]', function () {
+
+                setTimeout(function () {
+
+                    let tables = $($.fn.dataTable.tables(true));
+
+                    tables.each(function () {
+
+                        let table = $(this).DataTable();
+
+                        table.columns.adjust();
+
+                        if (table.responsive) {
+                            table.responsive.recalc();
+                        }
+
+                    });
+
+                    $(window).trigger('resize');
+
+                }, 350);
+
+            });
+        </script>
+
+        <script>
+
+            $(document).ready(function () {
+                debugger
+                    $.ajax({
+                        url: buildServiceUrl("service/usersetup/get-profile"),
+                        type: "POST",
+                        contentType: "application/json",
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        data: JSON.stringify({
+                            UserID: $("#UserIDProfile").val()
+                        }),
+                        success: function (res) {
+                            
+                            if (res && res.data) {
+                               if (res.data.PicturePath &&
+                                    res.data.PicturePath.trim() !== '') {
+                                        debugger
+                                    $("#targetImgHeader")
+                                        .attr(
+                                            "src",
+                                            "/userpicture/" + res.data.PicturePath
+                                        );
+
+
+                                }
+                                else {
+                                    $("#targetImgHeader")
+                                        .attr(
+                                            "src",
+                                            "/content/img/avatar-icon.jpg"
+                                        );
+                                }
+                            }
+                        },
+                        error: function () {
+
+                            toastr.warning('Failed to load data.', 'Error', { timeOut: 3000, "closeButton": true });
+
+                        }
+                    });
+
+
+            });
+
+
+
+        </script>
+       
+    }
+@* 
+    <script>
+        var _SubDomain = '@ViewData["SubDomain"]';
+
+        window.paceOptions = {
+            ajax: { ignoreURLs: ['mainHub', '__browserLink', 'browserLinkSignalR'], trackWebSockets: false }
+        };
+
+        $("#logout").click(function () {
+            window.open("" + _SubDomain + "/Home/Login?LogOut=1", "_self");
+        })
+
+    </script>
+     *@
+   
+
+    <!-- ================== END core-js ================== -->
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

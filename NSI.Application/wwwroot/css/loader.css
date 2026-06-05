@@ -1,0 +1,50 @@
+﻿.apploader {
+    --bs-backdrop-zindex: 9999;
+    --bs-backdrop-bg: #20252a;
+    --bs-backdrop-opacity: 0.5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--bs-backdrop-bg);
+    z-index: var(--bs-backdrop-zindex);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: var(--bs-backdrop-opacity);
+}
+
+.loader {
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    display: flex;
+    position: relative;
+    background: linear-gradient(0deg, rgba(var(--bs-app-theme-rgb), 0.2) 33%, var(--bs-app-theme) 100%);
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+.loader::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: var(--bs-backdrop-bg);
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}

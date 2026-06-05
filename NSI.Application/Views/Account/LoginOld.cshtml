@@ -1,0 +1,96 @@
+﻿@inject IConfiguration Configuration
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+	<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+
+<body class="d-flex align-items-center justify-content-center bg-dark" style="min-height:100vh">
+
+    <div class="card shadow-lg" style="width:420px">
+        <div class="card-body p-4">
+            <h4 class="text-center mb-4">NSI Patrol System</h4>
+
+            <div class="mb-3">
+                <label>User ID</label>
+                <input id="userId" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label>Password</label>
+                <input id="password" type="password" class="form-control" />
+            </div>
+
+            <div id="errorBox" class="alert alert-danger d-none"></div>
+
+            <div class="d-grid">
+                <button class="btn btn-primary" onclick="login()">Login</button>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+        const API_BASE_URL = '@Configuration["ApiUrl"]';
+    </script>
+    <script>
+       
+
+        async function login(){
+            const userId = document.getElementById("userId").value;
+            const password = document.getElementById("password").value;
+
+             const payload = {
+                UserId: userId,
+                Password: password
+            };
+
+            $.ajax({
+                url: 'http://localhost:19278/api/auth/login',
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: JSON.stringify(payload),
+                //xhrFields: {
+                //    withCredentials: true
+                //},
+                success: function (data) {
+                   
+                    if (data.token && data.token.length > 0) {// kalo login berhasil, set user menu & privilegenya di localStorage
+                        payload.Password = ""; // ga perlu kirim password
+
+                        localStorage.setItem("jwt_token", data.token);
+                        localStorage.setItem("jwt_expired", data.expiredAt);
+                        // redirect ke Home/Index
+                        window.location.href = "/Home/Index";
+
+                       
+                    } else {
+                        document.getElementById("errorBox").innerText =data.Message;
+                    }
+                },
+                error: function (xhr) {
+                    let msg = "Login gagal";
+
+                    if (xhr.responseJSON && xhr.responseJSON.message) {
+                        msg = xhr.responseJSON.message;
+                    }
+
+                    $("#errorBox")
+                        .text(msg)
+                        .removeClass("d-none");
+                }
+            });
+        }
+
+     
+    </script>
+
+</body>
+</html>

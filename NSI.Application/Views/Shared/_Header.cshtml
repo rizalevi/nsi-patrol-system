@@ -1,0 +1,207 @@
+﻿@using System.Security.Claims
+@{
+    var picture =
+        User.FindFirst("PicturePath")?.Value;
+}
+<div id="app" class="app app-header-fixed app-sidebar-fixed">
+    <header id="header" class="app-header" data-bs-theme="dark">
+
+        <!-- LEFT -->
+        <div class="navbar-header">
+            <a href="javascript:;" class="navbar-brand">
+              @*   <img src="~/content/img/LogoNSI.png" height="30" class="me-2" /> *@
+                <img src="~/content/img/prodispatrol_header.png" height="50" class="me-1" />
+                <span class="navbar-brand fs-18px fw-bolder">NSI Patrol System</span>
+           
+            </a>
+
+            <!-- MOBILE TOGGLE -->
+          @*   <button type="button" class="navbar-mobile-toggler" data-toggle="app-sidebar-mobile">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button> *@
+        </div>
+
+        <!-- RIGHT -->
+        <div class="navbar-nav ms-auto align-items-center">
+
+            <!-- SIDEBAR TOGGLE -->
+           @*  <div class="nav-item">
+                <a href="javascript:;" class="nav-link" data-toggle="app-sidebar-minify">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div> *@
+
+            <!-- NOTIFICATION -->
+           
+            <div class="nav-item dropdown">
+                <a href="#" data-bs-toggle="dropdown" class="nav-link position-relative" id="btnNotification">
+                    <i class="fa fa-bell fs-5 text-white"></i>
+                    <span id="notifCount"
+                          class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle"
+                          style="font-size:10px;min-width:18px;">
+                        0
+                    </span>
+
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-end p-0 shadow-lg border-0 notif-dropdown" >
+
+                    <!-- HEADER -->
+                    <div class="notif-header theme-color">
+                        <div>
+                            <h6 class="mb-0 fw-bold">
+                                Notifications
+                            </h6>
+
+                        </div>
+                        @* <span class="badge bg-primary" >
+                            0
+                        </span>
+ *@
+                    </div>
+
+                    <!-- BODY -->
+                    <div id="notifList" class="notif-body">
+
+                        <div class="modal-body" id="notificationList" >
+                            <ul class="list-group">
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- FOOTER -->
+                    <div class="notif-footer">
+                        <a href="/TasklistRemaining/index"
+                           class="btn btn-primary btn-sm w-100">
+                            View All Tasks
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- USER DROPDOWN -->
+            <div class="nav-item dropdown" style="padding-left:30px;padding-right:20px;">
+                <a href="#"
+                   class="navbar-link dropdown-toggle d-flex align-items-center"
+                   data-bs-toggle="dropdown">
+
+                    <!-- ICON USER -->
+                    <div class="image image-icon bg-gray-800 text-gray-200">
+                        @*  <i class="fa fa-user"></i> src="~/content/img/avatar-icon.jpg"*@
+                        @* <img id="targetImgHeader" class="rounded-circle" width="30" /> *@
+                        <img id="targetImgHeader"
+                             class="rounded-circle"
+                             width="30"
+                             height="30"
+                             style="object-fit:cover;"
+                             src="@(string.IsNullOrEmpty(picture)
+             ? "/content/img/avatar-icon.jpg"
+             : picture)" />
+
+                    </div>
+
+                    <!-- USERNAME -->
+                    <span class="ms-2">
+                        <span class="d-none d-md-inline">@User.Identity.Name</span>
+                        <b class="caret ms-1"></b>
+                    </span>
+                </a>
+
+                <!-- DROPDOWN -->
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a href="/SCUserSetup/profile?ID=S01" class="dropdown-item">Profile</a>
+                    <div class="dropdown-divider"></div>
+
+                    <a href="javascript:;" id="logout" class="dropdown-item text-danger">
+                        Logout
+                    </a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <p></p>
+            </div>
+           @*  <div class="nav-item">
+                <a href="javascript:;" class="nav-link" data-toggle="app-sidebar-minify">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div> *@
+
+          
+
+        </div>
+
+    </header>
+</div>
+<style>
+ 
+    .app-header .navbar-nav .nav-link {
+        padding: 2px 2px !important;
+    }
+
+    .app-header .badge {
+        font-size: 12px;
+        padding: 4px 6px;
+    }
+
+    .app-header img.rounded-circle {
+        object-fit: cover;
+    }
+
+    /* ICON (bell, menu, dll) */
+    .app-header .navbar-nav .nav-link i {
+        font-size: 22px; /* default biasanya ~14px */
+    }
+
+    /* USER ICON (bulat) */
+    /* bikin user icon jadi bulat */
+    .app-header .image.image-icon {
+        width: 25px;
+        height: 25px;
+        border-radius: 50% !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* BADGE NOTIF */
+    .app-header .badge {
+        font-size: 11px;
+        padding: 4px 6px;
+    }
+/* 
+    #notifCount{
+        background-color:orangered;
+    } */
+</style>
+<script>
+    document.getElementById("logout").addEventListener("click", function(e) {
+        const btn = e.currentTarget;
+        const rect = btn.getBoundingClientRect();
+
+        Swal.fire({
+            icon: 'warning',
+            title: 'Logout',
+            text: 'Apakah kamu yakin ingin keluar?',
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
+            width: 350,
+            customClass: {
+                popup: 'swal-logout-popup'
+            },
+            didOpen: (popup) => {
+                popup.style.position = 'absolute';
+                popup.style.top = (rect.bottom + window.scrollY + 10) + 'px';
+                popup.style.left = (rect.right - popup.offsetWidth) + 'px';
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '@Url.Action("Logout", "Account")';
+            }
+        });
+    });
+
+</script>

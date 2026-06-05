@@ -1,0 +1,182 @@
+﻿@using NSI.Domain.DTOs
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>NSI Patrol System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="icon" href="~/content/img/favicon/fav_nsi.ico" />
+
+   
+    <!-- SMARTADMIN -->
+    <link rel="stylesheet" href="~/css/smartadmin-production.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/smartadmin-skins.min.css" asp-append-version="true" />
+    <!-- BASIC STYLES -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
+    <link href="~/css/bootstrap-select.min.css" rel="stylesheet" asp-append-version="true" />
+	<link href="~/css/bootstrap-datepicker.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/fixedcolumns.datatables.min.css" rel="stylesheet" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" asp-append-version="true" />
+	<link href="~/assets/css/customstyle.css" rel="stylesheet" />
+	<link href="~/assets/css/customdatatable.css" rel="stylesheet" />
+	<link href="~/assets/css/pages/notification.css" rel="stylesheet" />
+
+	<link href="~/assets/plugin/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+	<link href="~/css/toastr.min.css" rel="stylesheet" />
+    <style type="text/css">
+        html body:not(.menu-on-top).desktop-detected {
+            min-height: 100vh !important;
+        }
+
+    </style>
+
+    @RenderSection("Styles", required: false)
+</head>
+
+<body class="smart-style-1">
+    <script>
+        
+        var BaseUrl = '@ViewData["BaseUrl"]';
+        var ApiUrl = '@ViewData["ApiUrl"]';
+       
+    </script>
+    <!-- HEADER -->
+    @await Html.PartialAsync("_Header")
+
+    <!-- ASIDE -->
+    @await Component.InvokeAsync("Menu")
+    <!-- MAIN PANEL -->
+    <div id="main" role="main">
+        
+            @RenderBody()
+
+        <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-md modal-dialog-scrollable" role="document" style="width:500px !important">
+                <div class="modal-content">
+                    <div class="modal-header" style="background:#3276b1 !important; color:#fff;">
+                        <button type="button" class="close" data-dismiss="modal" style="color:#fff; opacity:1;">
+                            <span>&times;</span>
+                        </button>
+                        <h4 class="modal-title">
+                            <i class="fa fa-bell"></i> Task Notifications
+                        </h4>
+                    </div>
+
+                    <div class="modal-body" id="notificationList" style="width:500px !important">
+                        <ul class="list-group">
+                           
+                        </ul>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <a href="/TasklistRemaining/index" class="btn btn-primary">View All Tasks</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   @*  <script type="text/javascript">
+        $('body').addClass('minified');
+    </script>
+ *@
+
+    <!-- FOOTER -->
+    @await Html.PartialAsync("_Footer")
+
+    <!-- ========================== -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================== -->
+	<!-- jQuery (SATU KALI) -->
+	<script src="~/js/jquery-1.10.2.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/js/bootstrap/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="~/js/bootstrap/bootstrap-datepicker.min.js" asp-append-version="true"></script>
+    <script src="~/js/bootstrap/bootstrap-select.min.js" asp-append-version="true"></script>
+    <script src="~/js/plugin/bootstrap-waitingfor/bootstrap-waitingfor.min.js" asp-append-version="true"></script>
+
+	<!--datatables-->
+    <script src="~/js/plugin/datatables/jquery.datatables.min.js" asp-append-version="true"></script>
+    <script src="~/js/plugin/datatables/datatables.bootstrap.min.js" asp-append-version="true"></script>
+    <script src="~/js/plugin/datatables/dataTables.fixedColumns.min.js" asp-append-version="true"></script>
+    <script src="~/js/plugin/datatable-responsive/datatables.responsive.min.js" asp-append-version="true"></script>
+
+    <!--chart js 2.8.1-->
+	<script src="~/js/chart/chart.js"></script>
+	<script src="~/js/chart/chartjs-plugin-datalabels.js"></script>
+    <!-- SmartAdmin core -->
+    <script src="~/js/app.config.js"></script>
+    <script src="~/js/smartwidgets/jarvis.widget.min.js"></script>
+    <script src="~/js/app.min.js"></script>
+
+    <!--helpers-->
+	<script src="~/js/toastr/toastr.js"></script>
+    <script src="~/assets/plugin/sweetalert2/sweetalert2.min.js"></script>
+	<script src="~/assets/js/helpers/datatablehelper.js"></script>
+	<script src="~/assets/js/helpers/formathelper.js"></script>
+	<script src="~/assets/js/helpers/inputHelper.js"></script>
+	<script src="~/assets/js/helpers/dropdownhelper.js"></script>
+	<script src="~/assets/js/helpers/navigatorhelper.js"></script>
+	<script src="~/assets/js/helpers/apirequesthelper.js"></script>
+	<script src="~/assets/js/helpers/chartjsHelper.js"></script>
+    <script src="~/assets/js/helpers/loaderHelper.js"></script>
+	<script src="~/js/plugin/signalr/signalr.min.js"></script>
+	<script src="~/assets/js/pages/Notification-signalr.js"></script>
+    <script>
+        $(document).ready(function () {
+            pageSetUp();
+        });
+    </script>
+   @*  <script>
+        window.APP_CONFIG = {
+            baseUrl: '@AppSettings.Value.BaseUrl',
+            apiUrl: '@AppSettings.Value.ApiUrl'
+        };
+    </script> *@
+
+    <script>
+        $(document).ready(function () {
+
+            // cari menu aktif (biasanya ada class 'active')
+            var $active = $('nav ul li a.active');
+
+            if ($active.length > 0) {
+                $active.parents('li').addClass('open');
+                $active.parents('ul').css('display', 'block');
+            }
+
+        });
+    </script>
+
+    <script>
+
+        
+        //  $(function () {
+        //     $('#btnNotification').on('click', function (e) {
+        //         e.preventDefault();
+
+        //         const btn = $(this);
+        //         const offset = btn.offset();
+
+        //         $('#notificationModal').modal('show');
+
+        //         $('#notificationModal').one('shown.bs.modal', function () {
+        //             const modal = $(this).find('.modal-dialog');
+
+        //             modal.css({
+        //                 position: 'absolute',
+        //                 top: offset.top + btn.outerHeight() + 10,
+        //                 left: offset.left - modal.outerWidth() + btn.outerWidth(),
+        //                 margin: 0
+        //             });
+        //         });
+        //     });
+        // });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+

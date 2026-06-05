@@ -1,0 +1,408 @@
+﻿/**REWRITE STYLE*/
+.col-md-12, .col-md-6 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+.table th {
+    font-size: 12px;
+    font-weight: 700 !important;
+}
+
+.table td {
+    font-size: 11px;
+    font-weight: unset;
+}
+
+.tblDashboard thead th {
+    background-color: transparent !important;
+    color: inherit !important;
+    border: none !important;
+}
+
+/*REWRITE STYLE*/
+/**CARD PANEL STYLE*/
+.card-panel {
+    background: linear-gradient(135deg, #ffffff, #dfdfdf);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 10px;
+}
+
+.card-panel-table {
+    min-height: 10vh !important;
+}
+
+.card-dashboard {
+    background: linear-gradient(135deg, #ffffff, #dfdfdf);
+    border-radius: 10px;
+    padding: 20px;
+    padding-top: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+   /* min-height: 22vh !important;*/
+}
+
+/**PANEL STYLE*/
+
+/*TOP PANEL STYLE - SUMMARY PROCESS*/
+.stat-card.color-soft {
+    /*         background: linear-gradient(135deg, #ff6b6b, #ffa8a8); */
+    background: linear-gradient(135deg, #ffffff, #dfdfdf);
+    color: black;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.stat-col {
+    flex: 0 0 210px; /* lebar card */
+}
+
+/* tablet */
+@media (max-width:992px) {
+    .stat-col {
+        flex: 0 0 45%;
+    }
+}
+/* mobile */
+@media (max-width:676px) {
+    .stat-col {
+        flex: 0 0 80%;
+    }
+}
+/* mobile 2 */
+@media (max-width:576px) {
+    .stat-col {
+        flex: 0 0 100%;
+    }
+}
+/* STAT CARD */
+.stat-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+    transition: all .25s ease;
+}
+
+.stat-card:hover {
+    /*         transform: translateY(-3px); */
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-right: 10px;
+}
+
+
+.stat-card:hover .stat-icon {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.stat-card-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.stat-card-wrapper > div {
+    flex: 0 1 200px;
+}
+
+.card-value {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.uncomplete {
+    background: linear-gradient(135deg,#ff6b6b,#ff9a9e);
+}
+
+.sendback {
+    background: linear-gradient(135deg,#fffe49, #f5d646);
+}
+/* Un-Checked */
+.uncheck {
+    background: linear-gradient(135deg,#f7971e,#ffd200);
+}
+
+/* Un-Approved */
+.unapproved {
+    background: linear-gradient(135deg,#36d1dc,#5b86e5);
+    color: white;
+}
+
+/* Upload / Completed */
+.completed {
+    background: linear-gradient(135deg,#56ab2f,#a8e063);
+    color: white;
+}
+
+/*TOP PANEL STYLE DOUGNUT WITH CUSTOM LEGEND BOX*/
+
+
+/*CHART STYLE - TOP PLANT TROUBLE & TOP EQUIPMENT GROUP TROUBLE*/
+.legend-item {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.legend-item:hover {
+    transform: translateY(-2px);
+}
+
+.legend-item.inactive {
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
+
+.chart-container-left {
+    position: relative;
+    width: 100%;
+    height: clamp(380px, 70vh, 490px);
+}
+
+.chart-container-right {
+    position: relative;
+    width: 100%;
+    height: clamp(200px, 40vh, 310px);
+}
+
+.card-panel-chart-1 {
+    background: linear-gradient(135deg, #ffffff, #dfdfdf);
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 10px !important;
+}
+
+.card-panel-chart-2 {
+    background: linear-gradient(135deg, #ffffff, #dfdfdf);
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 10px !important;
+}
+
+.card-panel-chart-1,
+.card-panel-chart-2 {
+    padding: 15px 15px 5px 15px;
+}
+
+/*CHART STYLE - TOP PLANT TROUBLE & TOP EQUIPMENT GROUP TROUBLE*/
+
+
+/**TOP RIGHT PANEL STYLE*/
+.badge-box {
+    padding: 10px;
+    border-radius: 6px;
+    color: white;
+}
+
+.remaining {
+    background: linear-gradient(135deg,#f7971e,#ffd200);
+    color: white;
+    border: solid 1px;
+    border-color: #ffd501;
+    min-height: 10vh;
+}
+
+.uncomplete {
+    background: linear-gradient(135deg,#ff6b6b,#ff9a9e);
+    color: white;
+    border: solid 1px;
+    border-color: #f11111;
+}
+
+.complete-today {
+    background: linear-gradient(135deg, #00b894, #55efc4);
+    color: #fff;
+    border: 1px solid #00a37a;
+    box-shadow: 0 2px 8px rgba(0, 184, 148, 0.25);
+}
+
+.progress-box {
+    display: flex;
+    gap: 10px;
+}
+
+.progress-box .badge-box {
+    flex: 1;
+}
+
+.badge-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+#box-remain, #box-completed {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center horizontal */
+    justify-content: center; /* center vertical */
+}
+
+#box-remain {
+    cursor: pointer;
+}
+
+    #box-remain * {
+        pointer-events: none;
+    }
+
+
+#box-uncompleted {
+    cursor: pointer;
+}
+
+    #box-uncompleted * {
+        pointer-events: none;
+    }
+
+.view-all {
+    font-size: 12px;
+    font-weight: 600;
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+}
+
+/**TOP RIGHT PANEL STYLE*/
+
+
+/**JIKA MAU PAKE HEADTITLE DASHBOARD*/
+.unified-panel {
+    background: linear-gradient(135deg, #ffffff, #dfdfdf);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.unified-panel-tasklist {
+    background: var(--bs-component-bg);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* .unified-panel .col-md-4 {
+    border-right: 1px solid #eee;
+} */
+
+.unified-panel .col-md-4:last-child {
+    border-right: none;
+}
+
+.dashboard-header {
+    background: rgba(255, 255, 255, 0.08); /* transparan */
+    backdrop-filter: blur(10px); /* efek kaca */
+    -webkit-backdrop-filter: blur(10px);
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 0px;
+    border: none;
+    margin-bottom: 0px !important;
+}
+
+.dashboard-header-today {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px;
+  
+}
+
+.dashboard-header-h2 h4 {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-weight: 700;
+    font-size: 26px;
+    text-align: center;
+    color: #888989;
+}
+
+.header-right .badge-date {
+    background: #eef2ff;
+    color: #4e73df;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.badge-date {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.container, .container-fluid {
+    padding-left: 5px !important;
+}
+
+
+/*khusus screen2 tanpa filter*/
+.dataTables_scrollBody {
+    height: 55vh !important;
+}
+
+.chart-title {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 0px;
+    color: #333;
+}

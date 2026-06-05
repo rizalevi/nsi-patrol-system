@@ -1,0 +1,193 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<link href="~/assets/css/pages/dashboard.css" rel="stylesheet" asp-append-version="true"/>
+<div class="container-fluid mt-3">
+    
+    <div class="row">
+
+        <div class="col-md-12" style="padding-top:10px!important; padding-left:20px !important;">
+            <div class="card-panel unified-panel-tasklist">
+                <div class="row align-items-center">
+                     <!-- DETAIL -->
+                    <div class="col-md-12">
+                        <div class="row">
+
+                            <div class="col-md-2">
+                                <div class="stat-card color-soft legend-item" data-index="0" data-status="Uncompleted"  data-toggle="tooltip" data-placement="top" title="Filter data by Uncompleted">
+                                    <div class="stat-icon uncomplete">
+                                        <i class="fa-solid fa-spinner fa-spin"></i>
+                                    </div>
+                                    <div class="btn-search">
+                                        <div class="card-value" id="lblUncomplete"></div>
+                                        <div id="lblStatusUncompleted">Uncompleted</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="stat-card color-soft legend-item" data-index="1" data-status="Send Back"  data-toggle="tooltip" data-placement="top" title="Filter data by Send Back">
+                                    <div class="stat-icon sendback">
+                                        <i class="fa fa-reply"></i>
+                                    </div>
+                                    <div  class="btn-search">
+                                        <div class="card-value" id="Sendback"></div>
+                                            <div id="lblStatusSendback">Send Back</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="stat-card color-soft legend-item" data-index="2" data-status="Unchecked"  data-toggle="tooltip" data-placement="top" title="Filter data by Unchecked">
+                                    <div class="stat-icon uncheck">
+                                        <i class="fa fa-search"></i>
+                                    </div>
+                                    <div  class="btn-search">
+                                        <div class="card-value" id="lblUnchecked"></div>
+                                        <div id="lblStatusUnchecked">Unchecked</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="stat-card color-soft legend-item" data-index="3" data-status="Unapproved"  data-toggle="tooltip" data-placement="top" title="Filter data by Unapproved">
+                                    <div class="stat-icon unapproved">
+                                        <i class="fa fa-gavel"></i>
+                                    </div>
+                                    <div  class="btn-search">
+                                        <div class="card-value" id="lblUnapproved"></div>
+                                        <div id="lblUnapprove">Unapproved</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="stat-card color-soft legend-item" data-index="4" data-status="Completed"  data-toggle="tooltip" data-placement="top" title="Filter data by Completed">
+                                    <div class="stat-icon completed">
+                                        <i class="fa fa-check-circle"></i>
+                                    </div>
+                                    <div  class="btn-search">
+                                        <div class="card-value" id="lblCompleted"></div>
+                                        <div id="lblStatusCompleted">Completed</div>
+                                    </div>
+                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+     <!-- PANEL BODY -->
+    <div class="panel-body" >
+        
+        <div class="table-responsive" >
+            
+              <!-- RIGHT: SEARCH -->
+            <div class="btn-common-panel">
+                <div><h6 style="color:black;margin-top:10px;font-weight:bolder;">Remaining Task List   
+                        <span id="userGroupSetup"></span> 
+                         <span id="currentDateTime"></span>
+                     </h6>
+                </div>
+                <div class="smart-search">
+                    <i class="fa fa-search"></i>
+                    <input type="text" class="dt-search" data-table="#tableID"  placeholder="Search..." />
+                </div>
+            </div>
+          
+            <table id="tableID" class="table table-striped table-bordered w-100 fs-13px" style="min-width:1800px">
+                
+            </table>
+            
+                        
+        </div>
+    </div>
+</div>
+<style>
+   /*  
+    #tableID tbody tr td {
+        padding-top: 1px !important;
+        padding-bottom: 1px !important;
+        vertical-align: middle !important;
+        line-height: 1;
+    }
+
+    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+        padding: 8px;
+        line-height: 1.42857143;
+        vertical-align: middle !important;
+        border-top: 1px solid #ddd;
+        color: black;
+        font-weight: 500;
+    } */
+
+
+    /* =========================================
+        FIXED COLUMNS - BORDER DEFAULT
+        ========================================= */
+
+    /* Header fixed column */
+    table.dataTable thead th[class*="dtfc-fixed-left"],
+    table.dataTable thead th[class*="dtfc-fixed-start"] {
+        background-color: rgb(50, 118, 177) !important;
+        color: #fff !important;
+        border: 1px solid #ddd !important;
+    }
+
+
+
+    .legend-item {
+        cursor: pointer;
+        transition: all 0.25s ease;
+    }
+
+    .legend-item:hover {
+        transform: translateY(-3px);
+    }
+
+    .legend-item.active {
+        border: 2px solid #007bff;
+        box-shadow: 0 8px 20px rgba(0, 123, 255, 0.25);
+        transform: translateY(-4px);
+    }
+     .table > thead {
+            vertical-align: bottom;
+            line-height: 3;
+            background-color: #3276b1;
+            color: white;
+            border: 2px solid #ccc
+        }
+
+        .table > :not(caption) > * > * {
+            padding: .2rem .3rem;
+            color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color)));
+            background-color: var(--bs-table-bg);
+            box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg)));
+            vertical-align: middle;
+            padding-left: 5px !important;
+        }
+
+        div.dataTables_scrollBody {
+            border: 1px solid lightgray !important;
+        }
+
+
+</style>
+@section Scripts {
+   @*  <script asp-append-version="true">
+        window.userPermission = {
+            statusAdmin: @(ViewBag.Permission?.StatusAdmin),
+            allowUpdate: @(ViewBag.Permission?.AllowUpdate),
+            allowDelete: @(ViewBag.Permission?.AllowDelete),
+            allowApprove: @(ViewBag.Permission?.AllowApprove)
+        };
+    </script>
+
+    <script src="~/js/plugin/bootstrap-waitingfor/bootstrap-waitingfor.min.js" asp-append-version="true"></script>
+    *@
+	<script src="~/assets/js/pages/tasklist.js" asp-append-version="true"></script>
+}

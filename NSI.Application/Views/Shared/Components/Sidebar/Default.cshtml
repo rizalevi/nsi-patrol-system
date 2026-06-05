@@ -1,0 +1,110 @@
+﻿@using NSI.Domain.DTOs
+@model List<UserMenuDto>
+
+@{
+    var groups = Model
+        .GroupBy(x => new { x.MenuGroup, x.GroupIndex })
+        .OrderBy(g => g.Key.GroupIndex);
+
+    var currentUrl = Context.Request.Path.Value?.ToLower();
+}
+
+<!-- BEGIN #sidebar -->
+<div id="sidebar" class="app-sidebar active" data-bs-theme="dark">
+
+    <!-- BEGIN scrollbar -->
+    <div class="app-sidebar-content" data-scrollbar="true" data-height="100%">
+
+        <!-- BEGIN menu -->
+        <div class="menu">
+
+            <!-- SEARCH -->
+            <div class="menu-item p-3">
+                <input type="text" id="menuSearch" class="form-control menu-search-input" placeholder="Search menu..." />
+            </div>
+
+            <!-- DASHBOARD -->
+            <div class="menu-item">
+                <a href="@Url.Action("Index","Home")" class="menu-link">
+                    <div class="menu-icon"><i class="fa fa-dashboard"></i></div>
+                    <div class="menu-text">Dashboard</div>
+                </a>
+            </div>
+
+            <!-- TASKLIST -->
+            <div class="menu-item">
+                <a href="@Url.Action("Index","TasklistRemaining")" class="menu-link">
+                    <div class="menu-icon"><i class="fa fa-envelope"></i></div>
+                    <div class="menu-text">Tasklist</div>
+                </a>
+            </div>
+
+            <!-- DYNAMIC MENU -->
+            @foreach (var group in groups)
+            {
+                bool isGroupActive = group.Any(m => currentUrl.Contains(m.MenuName.ToLower()));
+
+                <div class="menu-item has-sub @(isGroupActive ? "active expand" : "")">
+
+                    <a href="javascript:;" class="menu-link">
+                        <div class="menu-icon">
+                            @if (group.Key.MenuGroup == "Master")
+                            {
+                                <i class="fa fa-database"></i>
+                            }
+                            else if (group.Key.MenuGroup == "Inspection Data")
+                            {
+                                <i class="fa fa-check-circle"></i>
+                            }
+                            else if (group.Key.MenuGroup == "Reports")
+                            {
+                                <i class="fa fa-book"></i>
+                            }
+                            else if (group.Key.MenuGroup == "Security System")
+                            {
+                                <i class="fa fa-wrench"></i>
+                            }
+                            else
+                            {
+                                <i class="fa fa-folder"></i>
+                            }
+                        </div>
+
+                        <div class="menu-text">@group.Key.MenuGroup</div>
+                        <div class="menu-caret"></div>
+                    </a>
+
+                    <div class="menu-submenu">
+                        @foreach (var menu in group.OrderBy(m => m.MenuID))
+                        {
+                            bool isActive = currentUrl.Contains(menu.MenuName.ToLower());
+
+                            <div class="menu-item @(isActive ? "active" : "")">
+                                <a href="@menu.MenuName?ID=@menu.MenuID" class="menu-link">
+                                    <div class="menu-text">@menu.MenuDescription</div>
+                                </a>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            }
+
+
+
+            <div class="menu-item d-flex">
+                <a href="javascript:;"
+                   class="app-sidebar-minify-btn ms-auto"
+                   data-toggle="app-sidebar-minify">
+                    <i class="fa fa-angle-double-left"></i>
+                </a>
+            </div>
+        </div>
+        <!-- END menu -->
+
+    </div>
+    <!-- END scrollbar -->
+    
+</div>
+
+<!-- END #sidebar -->

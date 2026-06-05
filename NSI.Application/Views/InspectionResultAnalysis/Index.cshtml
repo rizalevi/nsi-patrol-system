@@ -1,0 +1,149 @@
+﻿@{
+	Layout = "_Layout";
+
+}
+
+<div class="panel panel-inverse" style="min-height:86vh;">
+	<div class="panel-heading theme-color">
+		<h4 class="panel-title fs-5"><i class="bi bi-sign-stop"></i> [@ViewBag.Permission.MenuId] - @ViewBag.Permission.MenuName</h4>
+		<div class="panel-heading-btn">
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-default panel-border-white" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-success panel-border-white" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-warning panel-border-white" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+		</div>
+	</div>
+	<div class="panel-body">
+		<div class="panel-heading col-md-12">
+			<div class="filter-container">
+				<div class="filter-row single">
+					<div class="filter-item">
+						<label>Course</label>
+						<select id="CourseCode" name="CourseCode" class="form-select fs-13px">
+							<option value="">Fill a Course</option>
+						</select>
+						<input id="CourseName" class="form-control input-desc fs-13px" type="text" readonly />
+
+					</div>
+				</div>
+				<div class="filter-row single">
+					<div class="filter-item">
+						<label>Inspection Point</label>
+						<select id="InspectionPointCode" name="InspectionPointCode" class="form-select fs-13px">
+							<option value="">Fill a Inspection Point</option>
+						</select>
+						<input id="InspectionPointName" class="form-control input-desc fs-13px" type="text" readonly />
+						<!-- NAV PREV NEXT BUTTON -->
+						@Html.Partial("~/Views/PartialView/_NavButtons.cshtml")
+
+					</div>
+				</div>
+				<div class="filter-row single">
+					<!--inspection date -->
+					<div class="filter-item">
+						<label>Inspection Date</label>
+						<div class="datepicker-wrapper">
+							<input id="InspectionDateFrom" name="InspectionDateFrom" type="text" maxlength="13" class="form-control datepicker" autocomplete="off" />
+							<span class="datepicker-icon">
+								<i class="fa fa-calendar"></i>
+							</span>
+						</div>
+						<span>~</span>
+						<div class="datepicker-wrapper">
+							<input id="InspectionDateTo" name="InspectionDateTo" type="text" maxlength="13" class="form-control datepicker" autocomplete="off" />
+							<span class="datepicker-icon">
+								<i class="fa fa-calendar"></i>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div style="display:none;">
+					<input id="PlantCode" name="PlantCode" type="text" readonly />
+
+				</div>
+			</div>
+		</div>
+		<div class="btn-common-panel">
+			<div style="display:flex; gap:10px;">
+				<form id="formBack" method="post" action="/InspectionResultSummaryByItem/detail" style="display:inline;">
+					<input type="hidden" name="ID" value="C05" />
+					<input type="hidden" name="CourseCode" id="CourseCodeHdn" />
+					<input type="hidden" name="GroupCode" id="GroupCodeHdn" />
+					<input type="hidden" name="InspectionDateFrom" id="InspectionDateFromHdn" />
+					<input type="hidden" name="InspectionDateTo" id="InspectionDateToHdn" />
+
+					<button type="submit" class="btn btn-danger w-80px me-15px fs-11px btn-back hidden">
+						<i class="fa fa-arrow-left"></i> Back
+					</button>
+				</form>
+				<button class="btn btn-primary btn-sm fs-11px btn-search"><i class="fa fa-search"></i> Browse</button>
+				<button class="btn btn-secondary btn-sm fs-11px btn-clear"><i class="fa fa-refresh"></i> Clear</button>
+				<button class="btn btn-success btn-sm fs-11px btn-excel"><i class="fa fa-export"></i> Excel</button>
+			</div>
+
+		</div>
+
+		<div style="height:15px;"></div>
+		<div class="row col-md-12" style="border:1px solid lightgray !important;padding-left:10px;padding-top:15px;padding-right:10px;padding-bottom:10px !important">
+			<div class="col-md-5">
+				<div>
+					<div class="col-md-12">
+						<div style="display:flex; gap:10px;">
+							<div class="smart-search">
+								<i class="fa fa-search"></i>
+								<input type="text" id="tableSearch" class="dt-search" data-table="#tableID" placeholder="Search..." />
+							</div>
+						</div>
+						<table id="tableID" class="table table-striped table-bordered w-100 fs-13px">
+							<thead>
+								<tr role="row">
+									<th style="vertical-align:central;text-align:center !important;width:100px;">No</th>
+									<th style="vertical-align:central;text-align:center !important;width:350px;">Inspection Point</th>
+									<th style="vertical-align:central;text-align:center !important;width:200px;">Date</th>
+									<th style="vertical-align:central;text-align:center !important;width:200px;">Frequency</th>
+									<th style="vertical-align:central;text-align:center !important;width:150px;">Value</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-md-7">
+				<div class="linechart-wrapper">
+					<div class="card linechart-card">
+						<div id="chartTitle" class="chart-title"></div>
+						<div class="linechart-container">
+							<canvas id="lineChart" style="width:600px;height:400px"></canvas>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+		
+	</div>
+</div>
+
+<link href="~/assets/css/pages/inpectionresult.css" rel="stylesheet" asp-append-version="true" />
+@section Scripts {
+	<script>
+		var courseCode = '@ViewData["CourseCode"]';
+		var groupCode = '@ViewData["GroupCode"]';
+		var inspectionCode = '@ViewData["InspectionCode"]';
+		var inspectionDateFrom = '@ViewData["inspectionDateFrom"]';
+		var inspectionDateTo = '@ViewData["inspectionDateTo"]';
+	</script>
+	<script asp-append-version="true">
+		window.userPermission = {
+			statusAdmin: @(ViewBag.Permission?.StatusAdmin),
+			allowUpdate: @(ViewBag.Permission?.AllowUpdate),
+			allowDelete: @(ViewBag.Permission?.AllowDelete),
+			allowApprove: @(ViewBag.Permission?.AllowApprove)
+		};
+	</script>
+@* 	<script src="~/plugins/chartjs/chart.3.5.1.min.js"></script> *@
+	<script src="~/assets/js/pages/InspectionResultAnalysis.js" asp-append-version="true"></script>
+}

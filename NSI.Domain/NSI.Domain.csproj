@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Interfaces\IJwtService.cs" />
+    <Compile Remove="Models\Auth\JwtUserClaim.cs" />
+    <Compile Remove="Models\Auth\ResponseModelLogin.cs" />
+    <Compile Remove="Services\IRefreshTokenService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DTOs\Mobile\" />
+    <Folder Include="DTOs\Report\" />
+    <Folder Include="Interfaces\Mobile\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+</Project>

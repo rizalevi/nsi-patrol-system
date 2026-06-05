@@ -1,0 +1,193 @@
+﻿<header id="header">
+  
+    <div id="logo-group">
+        <span id="logo">
+            <img src="~/content/img/LogoNSI.png" width="30px" height="30px" alt="NSI" />
+            <span class="page-logo-text">NSI Patrol System</span>
+        </span>
+    </div>
+
+    <!-- RIGHT HEADER -->
+    <div class="pull-right">
+
+      
+        <!-- COLLAPSE MENU -->
+        <div class="btn-header transparent pull-right">
+            <span >
+                <a href="javascript:void(0);"
+                   data-action="toggleMenu"
+                   title="Toggle Menu">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </span>
+        </div>
+
+        <!-- LOGOUT -->
+        <div id="logout" class="btn-header transparent pull-right">
+            <span>
+                <a href="javascript:void(0);" title="Sign Out">
+                    <i class="fa fa-sign-out"></i>
+                </a>
+            </span>
+        </div>
+
+
+        <div class="btn-header transparent pull-right"><span style="margin:5px"></span></div>
+
+       
+        <!-- NOTIFICATION -->
+        <div class="btn-header transparent pull-right notif-wrapper">
+            <span>
+                <a href="javascript:void(0);" id="btnNotification">
+                    <i class="fa fa-bell"></i>
+                    <span class="notif-badge" id="notifCount">0</span>
+                </a>
+            </span>
+        </div>
+
+        <!-- USER NAME -->
+        <div class="btn-header transparent pull-right">
+            <span class="user-name">
+                Welcome, @User.Identity.Name
+            </span>
+        </div>
+    </div>
+
+
+
+@* 
+    <div class="pull-right">
+        <div id="logout" class="btn-header transparent pull-right">
+
+            <span>
+                <a href="/Account/Logout" title="Sign Out">
+                    <i class="fa fa-sign-out"></i>
+                </a>
+            </span>
+            <span style="padding:10px;background:#fb3c4a;">
+                <a style="color: #fff !important" href="javascript:void(0);"
+                   data-action="toggleMenu" >
+                    <i class="fa fa-bars"></i>
+                </a>
+            </span>
+        </div>
+      
+    </div>   *@
+
+  
+  
+
+</header>
+<style src="text/css">
+    /* body.swal2-toast-shown .swal2-container.swal2-top-end, body.swal2-toast-shown .swal2-container.swal2-top-right {
+        top: 50px !important;
+        right: 20px !important;
+        bottom: auto;
+        left: auto;
+    } */
+
+    .swal-logout-popup {
+        border-radius: 10px;
+    }
+    
+    .swal-logout-popup .swal2-title {
+        font-size: 20px;
+    }
+
+    
+
+    @@keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.2);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+   
+</style>
+<script>
+   
+
+        document.getElementById("logout").addEventListener("click", function(e) {
+            const btn = e.currentTarget;
+            const rect = btn.getBoundingClientRect();
+
+        Swal.fire({
+            icon: 'warning',
+            title: 'Logout',
+            html: '<p>Apakah kamu yakin ingin keluar?</p>',
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
+            focusCancel: true,
+            buttonsStyling: true,
+            width: 350,
+            height: 200,
+            customClass: {
+                popup: 'swal-logout-popup'
+            },
+            didOpen: (popup) => {
+                popup.style.position = 'absolute';
+                popup.style.top = (rect.bottom + window.scrollY + 20) + 'px';
+                popup.style.left = (rect.right - popup.offsetWidth) + 'px';
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redirect ke action logout
+                window.location.href = '@Url.Action("Logout", "Account")';
+            }
+        });
+    });
+  
+
+</script>
+
+
+@* 
+
+<header id="header" class="page-header" role="banner">
+
+<div class="page-logo">
+        <a href="/" class="page-logo-link">
+            <img src="~/img/LogoNSI.png" width="80px" height="50px" alt="NSI" />
+            <span class="page-logo-text">NSI Patrol</span>
+        </a>
+    </div>
+   <div id="logo-group">
+
+        <!-- PLACE YOUR LOGO HERE -->
+        <span id="logo"> <img src="~/img/LogoNSI.png" alt="Panasonic"> </span>
+        <!-- END LOGO PLACEHOLDER -->
+
+    </div> 
+
+    <div class="ml-auto d-flex">
+
+        <div class="dropdown">
+            <a href="#" class="header-icon d-flex align-items-center"
+               data-toggle="dropdown">
+                <img src="~/assets/media/avatars/proj.png"
+                     class="profile-image rounded-circle"
+                     alt="user" width="80px" height="80px" />
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="/Account/Profile">
+                    <i class="fal fa-user"></i> Profile
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/Account/Logout">
+                    <i class="fal fa-sign-out"></i> Logout
+                </a>
+            </div>
+        </div>
+
+    </div>
+</header> *@

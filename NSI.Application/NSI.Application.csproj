@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Auth\**" />
+    <Compile Remove="Views\InspectionResultSumByItem\**" />
+    <Compile Remove="Views\ReportInspection\**" />
+    <Content Remove="Auth\**" />
+    <Content Remove="Views\InspectionResultSumByItem\**" />
+    <Content Remove="Views\ReportInspection\**" />
+    <EmbeddedResource Remove="Auth\**" />
+    <EmbeddedResource Remove="Views\InspectionResultSumByItem\**" />
+    <EmbeddedResource Remove="Views\ReportInspection\**" />
+    <None Remove="Auth\**" />
+    <None Remove="Views\InspectionResultSumByItem\**" />
+    <None Remove="Views\ReportInspection\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\InspectionResultSumByItemController.cs" />
+    <Compile Remove="Services\AuthApiService.cs" />
+    <Compile Remove="Services\IAuthApiService.cs" />
+    <Compile Remove="Services\MenuService.cs" />
+    <Compile Remove="Services\RefreshTokenService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Account\LoginOld.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Middleware\" />
+    <Folder Include="wwwroot\attachment\" />
+    <Folder Include="wwwroot\Reports\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EPPlus" Version="8.5.1" />
+    <PackageReference Include="ReportViewerCore.NETCore" Version="15.1.33" />
+  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\NSI.Domain\NSI.Domain.csproj" />
+        <ProjectReference Include="..\NSI.Infra\NSI.Infra.csproj" />
+    		
+	</ItemGroup>
+
+
+</Project>

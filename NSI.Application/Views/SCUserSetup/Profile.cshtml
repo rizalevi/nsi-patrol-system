@@ -1,0 +1,256 @@
+﻿@{
+	Layout = "_Layout";
+}
+@using System.Security.Claims
+
+<div class="panel panel-inverse" style="min-height:86vh;">
+	<div class="panel-heading theme-color">
+		<h4 class="panel-title fs-5"><i class="bi bi-sign-stop"></i>User Profile</h4>
+		<div class="panel-heading-btn">
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-default panel-border-white" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-success panel-border-white" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-warning panel-border-white" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+		</div>
+	</div>
+
+	<div class="panel-body d-flex justify-content-center">
+
+		<div class="profile-container">
+			<form id="Profile" style="display:inline;">
+				<div class="row col-md-12">
+					<div class="form-row">
+						<label for="UserID">User ID</label>
+						<input id="UserID" name="UserID" class="form-control input-desc fs-13px" maxlength="15" autocomplete="off" value="@User.FindFirst(ClaimTypes.NameIdentifier)?.Value" readonly />
+					</div>
+
+					<div class="form-row">
+						<label for="UserID">User Name</label>
+						<input id="UserNameProfile" name="UserNameProfile" class="form-control input-desc fs-13px" maxlength="35" autocomplete="off" />
+					</div>
+
+
+					<div class="form-row">
+						<label for="Password">Password</label>
+						<input id="Password" name="Password" type="password" class="form-control input-desc fs-13px" maxlength="15" autocomplete="off" required />
+						<i class="fa fa-eye toggle-password" toggle="#Password"></i>
+					</div>
+
+					<div class="form-row">
+						<label for="PasswordExpired">Password Expired</label>
+						<input id="PasswordExpired" name="PasswordExpired" type="text" maxlength="15" class="form-control datepicker" autocomplete="off" />
+
+					</div>
+					<!-- USER EMAIL -->
+					<div class="form-row">
+
+						<label for="UserID">Email</label>
+						<input type="email" id="Email" name="Email" class="form-control input-desc fs-13px" maxlength="50" autocomplete="off" placeholder="user@nsi.co.id" />
+					</div>
+
+					<div class="form-row div-email hidden">
+						<small id="emailError" class="validation-message">
+							Please input valid email!
+						</small>
+					</div>
+
+					<div class="form-row">
+						<label for="UserID">Avatar</label>
+						<!-- PROFILE PICTURE -->
+						<div style="display:none">
+							<input id="PictureName" name="PictureName" />
+						</div>
+						<div class="col-md-6">
+
+							<div id="imgPreview" style="width:100%; height:320px; border:2px solid grey; border-radius:0px; display:block" align="center">
+								<img id="targetImg" style="width:100%; height:100%" src="~/content/img/avatar-icon.jpg" alt="Not found" title="Upload Picture" />
+								<input type="file" id="imageBrowse" accept="image/x-png,image/gif,image/jpeg" style="display: none;" />
+								<p style="text-align:left">*click avatar for upload</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<button type="submit" class="btn btn-primary w-150px me-15px fs-13px save-profile">Save Profile</button>
+					</div>
+
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<style>
+
+	.input-desc {
+		flex: 1 1 250px auto;
+		max-width: 250px !important
+	}
+	.card {
+		backdrop-filter: blur(15px);
+		/* border-radius: 20px; */
+		padding: 30px;
+		height: 30px;
+		/*  width: 400px;*/
+		color: black;
+		box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+		background: linear-gradient(135deg, lightgray, #ffff);
+	}
+
+		.card h1 {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+
+	.form-row input {
+		width: 100%;
+		border-radius: 5px !important;
+		color: black !important;
+	}
+
+	.profile-container {
+		width: 100%;
+		max-width: 700px;
+		padding: 20px;
+	}
+
+	/* FORM ROW */
+	.form-row {
+		display: flex;
+		flex-direction: row;
+		margin-bottom: 18px;
+	}
+
+		/* LABEL */
+		.form-row label {
+			font-weight: 600;
+			margin-bottom: 6px;
+			color: var(--bs-body-color);
+		}
+
+		/* INPUT */
+		.form-row input {
+			width: 100%;
+			border-radius: 6px !important;
+		}
+
+	/* PASSWORD ICON */
+	.password-wrapper {
+		position: relative;
+	}
+/* 
+	.toggle-password {
+		position: absolute;
+		right: 14px;
+		top: 50%;
+		transform: translateY(-50%);
+		cursor: pointer;
+		color: #888;
+	} */
+
+	/* BUTTON ROW */
+	.form-row.justify-content-center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 10px;
+	}
+
+	/* RESPONSIVE */
+	@@media(max - width:768px) {
+		.profile-container
+
+		{
+			max-width: 100%;
+			padding: 10px;
+		}
+
+	}
+
+	.validation-message {
+		display: none;
+		color: #d9534f;
+		font-size: 12px;
+		margin-top: 5px;
+	}
+
+	.form-control.is-invalid {
+		border-color: #d9534f;
+		box-shadow: 0 0 4px rgba(217, 83, 79, 0.3);
+	}
+
+	.form-control.is-valid {
+		border-color: #28a745;
+		box-shadow: 0 0 4px rgba(40, 167, 69, 0.3);
+	}
+
+
+	.profile-container {
+		width: 100%;
+		max-width: 700px;
+		padding: 25px;
+	}
+
+	
+	.profile-picture-wrapper {
+		position: relative;
+		width: 140px;
+		height: 140px;
+	}
+
+	.profile-picture {
+		width: 140px;
+		height: 140px;
+		border-radius: 50%;
+		object-fit: cover;
+		border: 4px solid var(--bs-border-color);
+		box-shadow: 0 4px 15px rgba(0,0,0,.15);
+		background: #fff;
+	}
+
+	/* CAMERA BUTTON */
+	.upload-btn {
+		position: absolute;
+		bottom: 5px;
+		right: 5px;
+		width: 38px;
+		height: 38px;
+		border-radius: 50%;
+		background: var(--bs-primary);
+		color: white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		transition: .2s;
+		border: 2px solid #fff;
+	}
+
+		.upload-btn:hover {
+			transform: scale(1.08);
+		}
+
+	.profile-picture-text {
+		margin-top: 10px;
+		font-size: 13px;
+		color: gray;
+	}
+
+
+	}
+</style>
+
+@section Scripts {
+	<script asp-append-version="true">
+		window.userProfile = {
+			userID: @(ViewBag.Profile?.UserID),
+			userName: @(ViewBag.Profile?.UserName),
+			password: @(ViewBag.Profile?.Password),
+			passwordExpired: @(ViewBag.Profile?.PasswordExpired),
+			email: @(ViewBag.Profile?.Email)
+
+		};
+	</script>
+
+	<script src="~/assets/js/pages/profile.js" asp-append-version="true"></script>
+}

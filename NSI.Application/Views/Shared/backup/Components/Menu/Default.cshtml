@@ -1,0 +1,75 @@
+﻿@using NSI.Domain.DTOs
+@model List<UserMenuDto>
+@{
+    var groups = Model
+        .GroupBy(x => new { x.MenuGroup, x.GroupIndex })
+        .OrderBy(g => g.Key.GroupIndex);
+}
+
+<aside id="left-panel">
+
+    <nav>
+        <ul>
+            <li>
+                <a href="@Url.Action("Index","Home")">
+                    <i class="fa fa-lg fa-fw fa-dashboard"></i>
+                    <span class="menu-item-parent">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index","TasklistRemaining")">
+                    <i class="fa fa-lg fa-fw fa-envelope"></i>
+                    <span class="menu-item-parent">Tasklist</span>
+                </a>
+            </li>
+            @{
+                var currentUrl = Context.Request.Path.Value?.ToLower();
+            }
+
+            @foreach (var group in groups)
+            {
+                bool isGroupActive = group.Any(m => currentUrl.Contains(m.MenuName.ToLower()));
+               
+                <li class="@(isGroupActive ? "open" : "")">
+                    <a href="#">
+                        @if (group.Key.MenuGroup == "Master")
+                        {
+                            <i class="fa fa-lg fa-fw fa-database"></i>
+                        }
+                        else if (group.Key.MenuGroup == "Inspection Data")
+                        {
+                            <i class="fa fa-lg fa-fw fa-check-circle"></i>
+                        }
+                        else if (group.Key.MenuGroup == "Reports")
+                        {
+                            <i class="fa fa-lg fa-fw fa-book"></i>
+                        }
+                        else if (group.Key.MenuGroup == "Security System")
+                        {
+                            <i class="fa fa-lg fa-fw fa-wrench"></i>
+                        }
+
+                        <span class="menu-item-parent">@group.Key.MenuGroup</span>
+                    </a>
+
+                    <ul style="@(isGroupActive ? "display:block;" : "")">
+                        @foreach (var menu in group.OrderBy(m => m.MenuID))
+                        {
+                            bool isActive = currentUrl.Contains(menu.MenuName.ToLower());
+                            
+                            <li class="@(isActive ? "active" : "")">
+                                <a href="@menu.MenuName?ID=@menu.MenuID">
+                                    @menu.MenuDescription
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+
+        </ul>
+    </nav>
+    <span class="minifyme" data-action="minifyMenu">
+        <i class="fa fa-arrow-circle-left hit"></i>
+    </span>
+</aside>

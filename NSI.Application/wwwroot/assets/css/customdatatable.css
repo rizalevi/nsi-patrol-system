@@ -1,0 +1,217 @@
+﻿
+.panel-body {
+    padding-top: 10px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.dataTables_scrollBody {
+    height: 40vh !important;
+    margin-top: -20px;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    background-color: white;
+    /*  min-width: 1650px;*/
+}
+
+.modal-datatable .dataTables_scrollBody {
+    height: 30vh !important;
+    margin-top: -20px;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    background-color: white;
+}
+
+/* override efek stripping */
+.dataTable tbody tr:nth-child(odd) {
+    background-color: whitesmoke ;
+   
+}
+
+/* override efek stripping */
+.dataTable tbody tr:nth-child(even) {
+    background-color: white;
+}
+
+/* override efek hover */
+.dataTable tbody tr:hover {
+    background-color: white !important;
+}
+
+.dataTables_scrollBody tr:hover {
+    background-color: white !important;
+    background: white !important;
+}
+/*
+table.dataTable tbody tr > .dtfc-fixed-left, table.dataTable tbody tr > .dtfc-fixed-right {
+    z-index: 1;
+    background-color: white !important;
+}*/
+
+.dataTable tbody .shown > td {
+    background-color: white !important;
+    background: white !important;
+}
+
+.dataTable tbody .shown {
+    background-color: white !important;
+    background: white !important;
+}
+
+.td-valid {
+    background-color: #90EE90 !important;
+    border: 1px solid #ddd !important;
+}
+
+.table > caption + thead > tr:first-child > td, .table > caption + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > th, .table > thead:first-child > tr:first-child > td, .table > thead:first-child > tr:first-child > th {
+    border-top: 0;
+    color: white;
+    background-color: #3276b1;
+    font-weight: 700;
+    vertical-align: middle !important;
+}
+
+
+.dt-toolbar {
+    display: none !important;
+    position: relative;
+    padding: 6px 7px 1px;
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #ccc;
+    background: #fafafa;
+}
+
+.smart-search {
+    position: relative;
+    display: inline-block;
+}
+
+.smart-search input {
+    width: 250px;
+    height: 36px;
+    padding-left: 35px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    transition: all 0.2s ease;
+}
+
+.smart-search input:focus {
+    border-color: #3276b1;
+    box-shadow: 0 0 5px rgba(50,118,177,.3);
+    outline: none;
+}
+
+.smart-search i {
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    color: #888;
+}
+.dataTables_filter {
+    float: left !important;
+    width: 300px;
+    margin-bottom: 10px;
+    display:none !important;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    float: right !important;
+    text-align: right !important;
+}
+
+
+/**sorting*/
+
+table.dataTable thead th {
+    position: relative;
+}
+
+.dataTables_scrollHead table.dataTable thead th {
+    position: relative;
+    padding-right: 22px !important;
+}
+
+.dataTables_scrollHead table.dataTable thead th {
+    position: relative;
+    padding-right: 22px !important;
+}
+
+    /* matikan default DataTables */
+    .dataTables_scrollHead table.dataTable thead th.sorting:after,
+    .dataTables_scrollHead table.dataTable thead th.sorting_asc:after,
+    .dataTables_scrollHead table.dataTable thead th.sorting_desc:after {
+        content: "" !important;
+    }
+
+    /* ⬇️ INI KUNCI FIXNYA (gabung semua class) */
+    .dataTables_scrollHead table.dataTable thead th.sorting::before,
+    .dataTables_scrollHead table.dataTable thead th.sorting::after,
+    .dataTables_scrollHead table.dataTable thead th.sorting_asc::before,
+    .dataTables_scrollHead table.dataTable thead th.sorting_asc::after,
+    .dataTables_scrollHead table.dataTable thead th.sorting_desc::before,
+    .dataTables_scrollHead table.dataTable thead th.sorting_desc::after {
+        content: "";
+        position: absolute;
+        right: 6px;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+    }
+
+    /* default (abu) */
+    .dataTables_scrollHead table.dataTable thead th::before {
+        top: 6px;
+        border-bottom: 5px solid rgba(255,255,255,0.6);
+    }
+
+    .dataTables_scrollHead table.dataTable thead th::after {
+        top: 12px;
+        border-top: 5px solid rgba(255,255,255,0.6);
+    }
+
+    /* ASC */
+    .dataTables_scrollHead table.dataTable thead th.sorting_asc::before {
+        border-bottom-color: #ffffff;
+    }
+
+    .dataTables_scrollHead table.dataTable thead th.sorting_asc::after {
+        border-top-color: rgba(255,255,255,0.3);
+    }
+
+    /* DESC */
+    .dataTables_scrollHead table.dataTable thead th.sorting_desc::before {
+        border-bottom-color: rgba(255,255,255,0.3);
+    }
+
+    .dataTables_scrollHead table.dataTable thead th.sorting_desc::after {
+        border-top-color: #ffffff;
+    }
+
+/*end override sorting*/
+
+.dataTables_info {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: middle !important;
+    border-top: 1px solid #ddd;
+    color: black;
+    font-weight: 500;
+}
+
+
+/*fixed columns style*/
+table.dataTable th,
+table.dataTable td {
+    white-space: nowrap;
+}
+
+/*.dtfc-fixed-start,
+.dtfc-fixed-left {
+    background-color: rgb(50, 118, 177) !important;
+    z-index: 3 !important;
+}*/

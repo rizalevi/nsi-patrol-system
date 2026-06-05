@@ -1,0 +1,355 @@
+﻿@{
+    Layout = "_Layout";
+}
+<link href="~/assets/css/pages/dashboard.css" rel="stylesheet" asp-append-version="true"/>
+<style>
+    /**common**/
+    body {
+        background: #f4f6f9;
+        font-family: Segoe UI;
+        background: linear-gradient(135deg,#a8c3cc,#d9e8ec);
+        min-height:30vh !important;
+    }
+
+    .back-color {
+        /*jika ingin biru soft gradasi transaparan*/
+        /*background: linear-gradient(135deg,#8fb8ad,#a7c7be); */
+        /*jika ingin hijau soft gradasi transaparan*/
+        background: linear-gradient(135deg,#8fb8ad,#a7c7be);
+    }
+
+    .modal-dialog {
+        pointer-events: all;
+        width: 90%;
+        margin: 30px auto;
+        width: 900px !important;
+    }
+
+    .modal-body {
+        max-height: 70vh;
+        overflow-y: auto;
+         width: 900px !important;
+    }
+
+
+
+</style>
+
+<div class="container-fluid mt-3">
+    <div  class="dashboard-header">
+        <div class="dashboard-header-today"> 
+            <div></div>
+            <div></div>
+            @* <h2 style="font-size:26px;font-weight:700;" >DASHBOARD - PATROL SYSTEM</h2> *@
+            <div class="header-right">
+               <span class="badge-date">
+                    <i class="fa fa-clock"></i>
+                    <span id="currentDateTime"></span>
+                </span>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-8" style="padding-top:10px!important; padding-left:20px !important;">
+            <div class="card-panel unified-panel">
+                <div class="row align-items-center">
+                   <h6 style="color:blue;font-weight:600;margin-top:0px;padding-left:5px;">⏳Summary Process </h6>
+                    <!-- CHAART PIE -->
+                    <div class="col-md-4">
+                        <canvas id="statusChart" style="min-height:8vh !important"></canvas>
+                    </div>
+                     <!-- DETAIL -->
+                    <div class="col-md-8">
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <div class="stat-card color-soft legend-item" data-index="0">
+                                    <div class="stat-icon uncomplete">
+                                        <i class="fa-solid fa-spinner fa-spin"></i>
+                                    </div>
+                                    <div>
+                                        <div class="card-value" id="lblStatusUncompleted"></div>
+                                        <div >Uncompleted</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="stat-card color-soft legend-item" data-index="1">
+                                    <div class="stat-icon sendback">
+                                        <i class="fa fa-reply"></i>
+                                    </div>
+                                    <div>
+                                        <div class="card-value" id="lblStatusSendback"></div>
+                                        <div >Send Back</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="stat-card color-soft legend-item" data-index="2">
+                                    <div class="stat-icon uncheck">
+                                        <i class="fa fa-search"></i>
+                                    </div>
+                                    <div>
+                                        <div class="card-value" id="lblStatusUnchecked"></div>
+                                        <div >Unchecked</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="stat-card color-soft legend-item" data-index="3">
+                                    <div class="stat-icon unapproved">
+                                        <i class="fa fa-gavel"></i>
+                                    </div>
+                                    <div>
+                                        <div class="card-value" id="lblUnapprove"></div>
+                                         <div >Unapproved</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @* <div class="col-md-4">
+                                <div class="stat-card color-soft legend-item" data-index="4">
+                                    <div class="stat-icon completed">
+                                        <i class="fa fa-check-circle"></i>
+                                    </div>
+                                    <div>
+                                        <div class="card-value" id="lblStatusCompleted"></div>
+                                        <div >Completed</div>
+                                    </div>
+                                </div>
+                            </div> *@
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHART ROW -->
+            <div style="padding-top:10px!important; padding-left:0px !important;">
+                <div class="row">
+                    <div class="col-md-12" >
+                            <div class="card-panel-chart-1 color-soft">
+                                <h6 style="color:red;margin-bottom:0px">Top Plan Abnormal By Plant</h6>
+                                <div class="chart-container-left">
+                                    <div id="chartTitle" class="chart-title">Period</div>
+                                    <canvas id="barChart" style="width:100%"></canvas>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT PANEL -->
+
+        <div class="col-md-4" style="padding-top:10px">
+
+            <div class="card-dashboard">
+
+                <h6 style="color:blue;font-weight:600;">⏳Progress Document Inspection Today</h6>
+                <hr style="margin-bottom:10px;margin-top:5px;" />
+                <div class="progress-box text-center">
+
+                    <div id="box-remain" class="badge-box remaining">
+                        <span style="font-size:2rem;font-weight:500">Remaining</span>
+                        <span style="font-size:2.2rem;font-weight:500" id="progress-remaining"></span>
+                            
+                    </div>
+
+                    <div id="box-completed" class="badge-box complete-today">
+                        <span style="font-size:2rem;font-weight:500">Complete</span>
+                        <span style="font-size:2.2rem;font-weight:500" id="progress-completed"></span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card-panel-chart-2 color-soft">
+                <h6 style="color:yellowgreen;margin-bottom:0px;">Top Plan Abnormal By Course</h6>
+                <div class="chart-container-right">
+                    <div id="chartTitle2" class="chart-title">Period</div>
+                    <canvas id="lineChart2" style="width:100%;"></canvas>
+                </div>
+            </div>
+
+            <div class="card-panel">
+                
+                <div class="row align-items-center">
+                    <div class="col-md-9">
+                        <h6 style="color:black;margin-top:10px;" id="lblrealtimeshiftPlant">🔔 Realtime Shift</h6>
+                        <hr style="margin-bottom:10px;margin-top:5px;" />
+
+                    </div>
+                    <div class="col-md-3" style="text-align:right;">
+                        <a href="#" data-bs-toggle="modal" class="view-all" id="viewAll-realtime">
+                            View All <i class="fa fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="card-panel-table">
+                    <table id="tableID1" class="table table-sm table-striped tblDashboard" >
+                        <thead style="border-bottom:1px solid lightgray">
+                            <tr role="row"  >
+                                <th style="vertical-align:central;text-align:center;">Shift</th>
+                                <th style="vertical-align:central;text-align:center;">Time</th>
+                                <th style="vertical-align:central;text-align:center;">Patrol Done</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="realtimeShiftBody">
+                          
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+	<div class="modal fade" id="modalRealtime" data-bs-backdrop="static" data-bs-keyboard="false">
+		<div class="modal-dialog modal-dialog-centered" style="--bs-modal-width:900px !important;">
+			<div class="modal-content">
+				<div class="modal-header  theme-color">
+					<h5 class="modal-title" id="ModalTitle" >Realtime Shift</h5>
+					<button type="button" class="btn-close bg-white-200" data-bs-dismiss="modal"></button>
+				</div>
+				<div class="modal-body" >
+					<div class="panel-body">
+						<table id="tableID1-det" class="table table-sm table-striped tblDashboard">
+							<thead style="border-bottom:1px solid lightgray">
+								<tr role="row">
+									<th style="vertical-align:central;text-align:center;">Shift</th>
+									<th style="vertical-align:central;text-align:center;">Time</th>
+									<th style="vertical-align:central;text-align:center;">Patrol Done</th>
+									<th style="vertical-align:central;text-align:center;">Problem</th>
+									<th style="vertical-align:central;text-align:center;">Overdue</th>
+									<th style="vertical-align:central;text-align:center;">Status</th>
+								</tr>
+							</thead>
+							<tbody id="realtimeShiftDetailBody">
+							</tbody>
+						</table>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modal fade" id="modalRemaining" data-bs-backdrop="static" data-bs-keyboard="false">
+		<div class="modal-dialog modal-dialog" style="--bs-modal-width:1100px !important;">
+			<div class="modal-content" >
+				<div class="modal-header  theme-color">
+					<h5 class="modal-title" id="ModalTitle2"></h5>
+					<button type="button" class="btn-close bg-white-200" data-bs-dismiss="modal"></button>
+				</div>
+				<div class="modal-body">
+					<div class="panel-body">
+                       
+						<!--search wajib-->
+						<div style="padding-bottom:5px;" class="smart-search">
+							<i class="fa fa-search"></i>
+							<input type="text" class="dt-search" data-table="#tableRemainDet" placeholder="Search..." />
+						</div>
+
+						<table id="tableRemainDet" class="table table-striped table-bordered w-100" border="1" style="min-width:1350px">
+							<thead>
+								<tr>
+									<th style="vertical-align:central;text-align:center;width:50px;">No</th>
+									<th style="vertical-align:central;text-align:center;width:150px;">Document No</th>
+									<th style="vertical-align:central;text-align:center;width:130px;">Course</th>
+									<th style="vertical-align:central;text-align:center;width:350px;">Title</th>
+									<th style="vertical-align:central;text-align:center;width:170px;">Group</th>
+									<th style="vertical-align:central;text-align:center;width:120px;">Date</th>
+									<th style="vertical-align:central;text-align:center;width:120px;">Frequency</th>
+									<th style="vertical-align:central;text-align:center;width:200px;">Inspector User</th>
+									<th style="vertical-align:central;text-align:center;width:120px;">Status</th>
+
+								</tr>
+							</thead>
+							<tbody id="allRemainInspection">
+							</tbody>
+						</table>
+
+					</div>
+					<div class="modal-footer">
+                      
+                            <a href="/TasklistRemaining/index"
+                               class="btn btn-primary btn-sm w-120">
+                                View All Tasks
+                            </a>
+
+
+						<button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+
+    <div class="modal fade" id="modalRealtimeshiftDetailAbnormal" data-bs-backdrop="static" data-bs-keyboard="false">
+		<div class="modal-dialog modal-dialog" style="--bs-modal-width:1100px !important;">
+			<div class="modal-content" >
+				<div class="modal-header  theme-color">
+					<h5 class="modal-title" id="ModalTitle3">Detail Abnormal Data</h5>
+					<button type="button" class="btn-close bg-white-200" data-bs-dismiss="modal"></button>
+				</div>
+				<div class="modal-body">
+					<div class="panel-body">
+                       
+						<!--search wajib-->
+						<div style="padding-bottom:5px;" class="smart-search">
+							<i class="fa fa-search"></i>
+							<input type="text" class="dt-search" data-table="#tableRemainDet" placeholder="Search..." />
+						</div>
+
+						<table id="tableAbnormalDet" class="table table-striped table-bordered w-100" border="1" style="min-width:1450px">
+							<thead>
+								<tr>
+									<th style="vertical-align:central;text-align:center;width:50px;">No</th>
+									<th style="vertical-align:central;text-align:center;width:130px;">Inspector User</th>
+                                    <th style="vertical-align:central;text-align:center;width:120px;">Date</th>
+									<th style="vertical-align:central;text-align:center;width:350px;">Course</th>
+									<th style="vertical-align:central;text-align:center;width:170px;">Group</th>
+									<th style="vertical-align:central;text-align:center;width:120px;">Frequency</th>
+									<th style="vertical-align:central;text-align:center;width:200px;">Inspection Point</th>
+									<th style="vertical-align:central;text-align:center;width:200px;">Insection No</th>
+									<th style="vertical-align:central;text-align:center;width:75px;">Min</th>
+                                    <th style="vertical-align:central;text-align:center;width:75px;">Max</th>
+                                    <th style="vertical-align:central;text-align:center;width:120px;">Result</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+<style>
+    .mt-3
+     {
+        margin-top: 0.2rem !important;
+    }
+</style>
+   
+@section Scripts {
+   
+	<script src="~/assets/js/pages/dashboard.js" asp-append-version="true"></script>
+}

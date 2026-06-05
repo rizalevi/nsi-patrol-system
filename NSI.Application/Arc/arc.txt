@@ -1,0 +1,37 @@
+﻿
+OVERVIEW ARSITEKTUR SIGNAL R
+
+[INSERT DATA]
+   ↓
+Repository (DB Write)
+   ↓
+Notification Service (Domain Logic)
+   ↓
+SignalR Service (Push Event)
+   ↓
+NotificationHub
+   ↓
+Browser JS (Toast + Badge + List Update)
+
+
+/*
+flow
+*/
+
+1. Submit data Inspection Upload / Check / Approval (sendback / approve)
+2. INSERT Notification & NotificationRecipient
+3. SignalR push
+4. UPDATE NotificationRecipient SET
+      IsDelivered = 1,
+      DeliveredRealtimeDate = GETDATE()
+
+
+/*push notification rule*/
+1. Inspection Data Upload (Inspector) when export data from mobile / input insp result web (sendback)
+2. Inspection Data Check (Leader) Approval (send notification )
+   1. leader approved -> notif data need approve supervisor (user approval supervisor) & this document has been approved by leader (username) time
+   2. leader sendback -> notif data sendback to inspector (user register)   & this document has been sendback by leader (username) time
+
+3. Inspection Data Approval (Supervisor)  (send notification )
+   1. supervisor approved -> notif data need approve supervisor (user approval supervisor) & this document has been approved by leader (username) time
+   

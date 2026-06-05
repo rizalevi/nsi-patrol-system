@@ -1,0 +1,125 @@
+﻿@{
+	Layout = "_Layout";
+}
+
+<div class="panel panel-inverse" style="min-height:86vh;">
+	<div class="panel-heading theme-color">
+		<h4 class="panel-title fs-5"><i class="bi bi-sign-stop"></i> [@ViewBag.Permission.MenuId] - @ViewBag.Permission.MenuName</h4>
+		<div class="panel-heading-btn">
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-default panel-border-white" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-success panel-border-white" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-warning panel-border-white" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+		</div>
+	</div>
+	<div class="panel-body">
+		<div class="panel-heading col-md-12">
+			<div class="filter-container">
+				<div class="filter-row single">
+					<div class="filter-item">
+						<label>Cluster</label>
+						<select id="ClusterCode" name="ClusterCode" class="form-select fs-13px">
+							<option value="">Fill a Cluster</option>
+						</select>
+						<input id="ClusterName" class="form-control input-desc fs-13px" type="text" readonly />
+					</div>
+				</div>
+				<div class="filter-row single">
+					<div class="filter-item">
+						<label>Plant</label>
+						<select id="PlantCode" name="PlantCode" class="form-select fs-13px" >
+							<option value="ALL">Fill a Plant</option>
+						</select>
+						<input id="PlantName" class="form-control input-desc fs-13px" type="text" readonly />
+					</div>
+				</div>
+				<div class="filter-row single">
+					<!--inspection date -->
+					<div class="filter-item">
+						<label>Inspection Date</label>
+						<div class="datepicker-wrapper">
+							<input id="InspectionDateFrom" name="InspectionDateFrom" type="text" maxlength="13" class="form-control datepicker" autocomplete="off" />
+							<span class="datepicker-icon">
+								<i class="fa fa-calendar"></i>
+							</span>
+						</div>
+						<span>~</span>
+						<div class="datepicker-wrapper">
+							<input id="InspectionDateTo" name="InspectionDateTo" type="text" maxlength="13" class="form-control datepicker" autocomplete="off" />
+							<span class="datepicker-icon">
+								<i class="fa fa-calendar"></i>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="btn-common-panel">
+			<div style="display:flex; gap:10px;">
+				<button class="btn btn-primary btn-sm btn-search"><i class="fa fa-search"></i> Browse</button>
+				<button id="btnExcel" class="btn btn-success btn-sm" type="button" onclick="DownloadExcel()"><i class="fa fa-file-excel-o"></i> Excel</button>
+				<button class="btn btn-secondary btn-sm btn-clear"><i class="fa fa-refresh"></i> Clear</button>
+			</div>
+		
+		</div>
+
+		<div style="height:15px;"></div>
+		<div class="row col-md-12" style="border:1px solid lightgray !important;padding-left:10px;padding-top:15px;padding-right:10px;padding-bottom:10px !important">
+			<div class="col-md-5">
+				<div>
+					<div class="col-md-12">
+						<div style="display:flex; gap:10px;">
+							<div class="smart-search">
+								<i class="fa fa-search"></i>
+								<input type="text" id="tableSearch" class="dt-search" data-table="#tableID" placeholder="Search..." />
+							</div>
+						</div>
+						<table id="tableID" class="table table-bordered w-100 fs-13px" border="1">
+							<thead>
+								<tr role="row">
+									<th style="vertical-align:middle;text-align:center !important;">No</th>
+									@* <th style="vertical-align:middle;text-align:center !important;width:100px;">Plant Code</th> *@
+									<th style="vertical-align:middle;text-align:center !important;">Plant Name</th>
+									<th style="vertical-align:middle;text-align:center !important;">Course Code</th>
+									<th style="vertical-align:middle;text-align:center !important;">Course Name</th>
+									<th style="vertical-align:middle;text-align:center !important;">Abnormal</th>
+								
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-7">
+				<div class="chart-wrapper">
+					<div class="card chart-card">
+							<div id="chartTitle" class="chart-title" style="text-align:center; margin-bottom: 15px;"></div>
+							<div class="chart-container" style="position: relative; height:40vh; width:100%">
+								<canvas id="barChart"></canvas>
+							</div>
+							<div class="chart-title" id="chartFooter" style="text-align:center; font-weight:bold; margin-top:10px;">Plant Areas</div>
+					</div>
+				</div>
+			</div>
+				
+		</div>
+		
+	</div>
+</div>
+
+<link href="~/assets/css/pages/inpectionresult.css" rel="stylesheet" asp-append-version="true" />
+@section Scripts {
+	
+	<script asp-append-version="true">
+		window.userPermission = {
+			statusAdmin: @(ViewBag.Permission?.StatusAdmin),
+			allowUpdate: @(ViewBag.Permission?.AllowUpdate),
+			allowDelete: @(ViewBag.Permission?.AllowDelete),
+			allowApprove: @(ViewBag.Permission?.AllowApprove)
+		};
+	</script>
+
+	<script src="~/assets/js/pages/TopPlanAbnormalityByPlant.js" asp-append-version="true"></script>
+}
