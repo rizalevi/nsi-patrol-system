@@ -65,8 +65,10 @@
 
                 <div class="input-group">
                     <span class="icon">&#128274;</span>
-                    <input id="Password" name="Password"
-                           type="password" placeholder="Password" required>
+                    <input id="Password" name="Password" type="password" placeholder="Password" required>
+                    <span class="toggle-password" data-target="#Password">
+                        <i class="fa fa-eye"></i>
+                    </span>
                 </div>
 
                @*  <div class="forgot-wrapper">
@@ -93,6 +95,8 @@
 
     <!--begin::Javascript-->
     <script>var hostUrl = "~/assets/";</script>
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" asp-append-version="true" />
+
     <script src="~/assets/js/scripts.bundle.js" asp-append-version="true"></script>
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/js/toastr/toastr.min.js" asp-append-version="true"></script>

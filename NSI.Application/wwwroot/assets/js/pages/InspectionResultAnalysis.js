@@ -64,7 +64,7 @@ $(document).on("change", "#CourseCode", function () {
         codeField: "Code",
         descField: "Description",
         descTextbox: "InspectionPointName",
-        width: "180px",
+        /*width: "180px",*/
         selectedValue: inspectionCode,
         //callback: function () {
 
@@ -375,7 +375,6 @@ function init() {
         const parsedTo = new Date(inspectionDateTo);
        
 
-
         $("#InspectionDateFrom").datepicker('setDate', formatDate(parsedFrom));
         $("#InspectionDateTo").datepicker('setDate', formatDate(parsedTo));
 
@@ -434,7 +433,6 @@ function init() {
         codeField: "Code",
         descField: "Description",
         descTextbox: "CourseName",
-        width: "180px",
         selectedValue:courseCode,
         callback: function () {
 

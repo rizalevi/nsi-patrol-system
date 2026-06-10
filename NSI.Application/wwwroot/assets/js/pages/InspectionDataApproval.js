@@ -49,7 +49,6 @@ $(document).on("change", "#PlantCode", function () {
         descField: "Description",
         descTextbox: "CourseName",
         selectedValue: courseCode,
-        width: "180px",
         callback: function () {
             if (courseCode == "" && ($("#PlantCode").val() != null && $("#PlantCode").val() != "")) {
                 let ddl = $("#CourseCode");
@@ -83,8 +82,6 @@ $(document).on("change", "#PlantCode", function () {
 
         }
     });
-
-    debugger
     if (!isRedirect) {
         clearTable()
     }
@@ -376,7 +373,7 @@ function init() {
         descField: "Description",
         descTextbox: "ClusterName",
         selectedValue: clusterCode,
-        width: "180px",
+        /*width: "180px",*/
         callback: function () {
 
             if (statusAdmin == "1" && (clusterCode != "" && clusterCode != null)) {
@@ -391,7 +388,6 @@ function init() {
                 codeField: "Code",
                 descField: "Description",
                 descTextbox: "PlantName",
-                width: "180px",
                 selectedValue:plantCode,
                 callback: function () {
 
@@ -415,7 +411,6 @@ function init() {
         dropdownId: "Frequency",
         codeField: "Code",
         descField: "Description",
-        width: "180px",
         selectedValue: frequency,
         callback: function () {
             if (frequency == "") {

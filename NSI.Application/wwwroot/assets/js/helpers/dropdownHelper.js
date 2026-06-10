@@ -53,7 +53,7 @@ function populateDDL(options) {
         descTextbox: null,
         autoDisable: true,
         placeholder: 'Fill a ',
-        width:"180px",
+        /*width:"180px",*/
         callback: null
 
     }, options);
@@ -273,7 +273,7 @@ function populateDDL(options) {
 
             ddl.select2({
                 theme: 'bootstrap-5',
-                width: config.width,
+               /* width: config.width,*/
                 placeholder: defOps,
                 allowClear: true,
                 dropdownParent: parentModal.length

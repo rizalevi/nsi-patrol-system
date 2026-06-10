@@ -12,65 +12,78 @@
 		</div>
 	</div>
 	<div class="panel-body">
-		<div class="panel-heading col-md-12">
-			<div class="filter-container">
-
-				<!-- Row 1 -->
-				<div class="filter-row">
-					<!-- Cluster -->
-					<div class="filter-item">
-						<label>Cluster</label>
-						<select id="ClusterCode" name="ClusterCode" class="form-select fs-13px">
-							<option value="">Fill a Cluster</option>
-						</select>
-						<input id="ClusterName" class="form-control input-desc fs-13px" type="text" readonly />
-					</div>
-					<!-- Frequency -->
-					<div class="filter-item">
-						<label>Frequency</label>
-						<select id="Frequency" name="Frequency" class="form-select fs-13px">
-							<option value="">Fill a Frequency</option>
-						</select>
-						<input id="FrequencyName" name="FrequencyName" class="form-control input-desc fs-13px" type="text" readonly />
+		<div class="panel-heading  col-md-12">
+			<div class="row">
+				<div class="row mb-2">
+					<div class="col-lg-4 col-md-12">
+						<!-- Cluster -->
+						<div class="filter-item">
+							<label>Cluster</label>
+							<select id="ClusterCode" name="ClusterCode" class="form-select">
+								<option value="">Fill a Cluster</option>
+							</select>
+							<input id="ClusterName" class="form-control input-desc" type="text" readonly />
+						</div>
+						
 					</div>
 
-					<div class="filter-item">
+					<div class="col-lg-4 col-md-12">
+						
+						<!-- Frequency -->
+						<div class="filter-item">
+							<label>Frequency</label>
+							<select id="Frequency" name="Frequency" class="form-select">
+								<option value="">Fill a Frequency</option>
+							</select>
+							<input id="FrequencyName" name="FrequencyName" class="form-control input-desc" type="text" readonly />
+						</div>
+						
+					</div>
 
-						<label>Inspection Date</label>
-						<div class="datepicker-wrapper">
-							<input id="InspectionDateFrom" name="InspectionDateFrom" type="text" maxlength="13" class="form-control datepicker" autocomplete="off" />
-							<span class="datepicker-icon">
-								<i class="fa fa-calendar"></i>
-							</span>
-						</div>
-						<span>~</span>
-						<div class="datepicker-wrapper">
-							<input id="InspectionDateTo" name="InspectionDateTo" type="text" maxlength="13" class="form-control datepicker" autocomplete="off" />
-							<span class="datepicker-icon">
-								<i class="fa fa-calendar"></i>
-							</span>
-						</div>
+					<div class="col-lg-4 col-md-12">
+						@* <div class="d-flex align-items-center"> *@
+							<div class="filter-item">
+
+								<label>Inspection Date</label>
+								<div class="datepicker-wrapper">
+									<input id="InspectionDateFrom" name="InspectionDateFrom" type="text" class="form-control datepicker" autocomplete="off" style="height:35px;" />
+									<span class="datepicker-icon">
+										<i class="fa fa-calendar"></i>
+									</span>
+								</div>
+								<div class="datepicker-wrapper">
+								<input id="InspectionDateTo" name="InspectionDateTo" type="text" class="form-control datepicker" autocomplete="off" style="height:35px;" />
+									<span class="datepicker-icon">
+										<i class="fa fa-calendar"></i>
+									</span>
+								</div>
+							</div>
+						
 					</div>
 
 				</div>
 
 				<!-- Row 2 -->
-				<div class="filter-row">
+				<div class="row mb-2">
+					<div class="col-lg-4">
 					<!-- Plant -->
-					<div class="filter-item">
-						<label>Plant</label>
-						<select id="PlantCode" name="PlantCode" class="form-select fs-13px">
-							<option value="">Fill a Plant</option>
-						</select>
-						<input id="PlantName" class="form-control input-desc fs-13px" type="text" readonly />
+						<div class="filter-item">
+							<label>Plant</label>
+							<select id="PlantCode" name="PlantCode" class="form-select">
+								<option value="">Fill a Plant</option>
+							</select>
+							<input id="PlantName" class="form-control input-desc" type="text" readonly />
+						</div>
 					</div>
-					<!--group-->
-					<div class="filter-item">
-						<label>Group</label>
-						<select id="GroupCode" name="GroupCode" class="form-select fs-13px">
-							<option value="">Fill a Group</option>
-						</select>
-						<input id="GroupName" class="form-control input-desc fs-13px" type="text" readonly />
+					<div class="col-lg-8">
+						<!--group-->
+						<div class="filter-item">
+							<label>Group</label>
+							<select id="GroupCode" name="GroupCode" class="form-select">
+								<option value="">Fill a Group</option>
+							</select>
+							<input id="GroupName" class="form-control input-desc" type="text" readonly />
+						</div>
 					</div>
 
 
@@ -78,46 +91,33 @@
 				</div>
 
 				<!-- Row 3 -->
-				<div class="filter-row">
-					<div class="filter-item">
-						<label>Course</label>
-						<select id="CourseCode" name="CourseCode" class="form-select fs-13px">
-							<option value="">Fill a Course</option>
-						</select>
-						<input id="CourseName" class="form-control input-desc fs-13px" type="text" readonly />
+				<div class="row mb-2">
+					<div class="col-lg-4 col-md-12">
+						<div class="filter-item">
+							<label>Course</label>
+							<select id="CourseCode" name="CourseCode" class="form-select">
+								<option value="">Fill a Course</option>
+							</select>
+							<input id="CourseName" class="form-control input-desc" type="text" readonly />
 
+						</div>
 					</div>
-
-					<!-- Inspection Point -->
-					<div class="filter-item">
-						<label>Inspection Point</label>
-						<select id="InspectionPointCode" name="InspectionPointCode" class="form-select fs-13px">
-							<option value="">Fill a Inspection Point</option>
-						</select>
-						<input id="InspectionPointName" class="form-control input-desc fs-13px" type="text" readonly />
+					<div class="col-lg-4 col-md-12">
+						<!-- Inspection Point -->
+						<div class="filter-item">
+							<label>Inspection Point</label>
+							<select id="InspectionPointCode" name="InspectionPointCode" class="form-select">
+								<option value="">Fill a Inspection Point</option>
+							</select>
+							<input id="InspectionPointName" class="form-control input-desc" type="text" readonly />
+							<!-- NAV PREV NEXT BUTTON -->
+							@Html.Partial("~/Views/PartialView/_NavButtons.cshtml")
+						</div>
 						
-					</div>
-					<div class="filter-item">
-						<!-- NAV PREV NEXT BUTTON -->
-						@Html.Partial("~/Views/PartialView/_NavButtons.cshtml")
 
 					</div>
-
+					
 				</div>
-
-
-				<!-- Row 4 -->
-				@*  <div class="filter-row single">
-
-                            <!--inspection date from-->
-                            <div class="filter-item">
-                                <label>Inspection Date</label>
-                                <input id="InspectionDateFrom" name="InspectionDateFrom" type="text" maxlength="11" class="form-control datepicker" autocomplete="off" />
-                                <span>~</span>
-                                <input id="InspectionDateTo" name="InspectionDateTo" type="text" maxlength="11" class="form-control datepicker" autocomplete="off" />
-
-                            </div>
-                        </div> *@
 
 			</div>
 
@@ -231,45 +231,297 @@
 	</div>
 </div>
 <style>
-	.filter-container {
-		display: flex;
-		flex-direction: column;
-		gap: 8px;
-	}
-
-	.filter-row {
-		display: flex;
-		gap: 20px;
-	}
-
-		.filter-row.single {
-			flex-direction: column;
-		}
-
 	.filter-item {
-		display: flex;
+		display: grid;
+		grid-template-columns: 100px 180px 230px 200px;
 		align-items: center;
-		gap: 10px;
-		flex: 0 0 auto; /* ✅ biar tidak melebar */
+		gap: 8px;
 	}
 
 		.filter-item label {
 			width: 100px;
+			min-width: 100px;
 			margin-bottom: 0;
-			font-weight: 500;
 		}
-
+	/*
 		.filter-item select {
 			width: 180px;
-		}
+		}*/
 
-		.filter-item input {
-			width: 220px;
-		}
+	.input-desc {
+		width: 100% !important;
+	}
 
-		.filter-item.full {
+	.datepicker-wrapper {
+		position: relative;
+		width: 180px !important;
+	}
+
+		.datepicker-wrapper input {
 			width: 100%;
 		}
+
+	.datepicker-icon {
+		position: absolute;
+		right: 10px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+
+	/* =======================================================
+		   1920+
+		======================================================= */
+	@@media (min-width: 1900px) {
+		.filter-item
+
+	{
+			grid-template-columns: 100px 180px 230px 200px;
+		gap: 10px;
+	}
+
+	.filter-item select, .filter-item .select2-container .datepicker-wrapper {
+		width: 180px !important;
+	}
+
+		.datepicker-wrapper {
+			position: relative;
+			width: 180px !important;
+		}
+	}
+	/* =======================================================
+		   1600 - 1899
+		======================================================= */
+	@@media (min-width: 1600px) and (max-width: 1899px) {
+		.filter-item
+
+	{
+			grid-template-columns: 80px 180px 180px 200px;
+		gap: 10px;
+	}
+
+	.filter-item select, .filter-item .select2-container .datepicker-wrapper {
+		width: 180px !important;
+	}
+
+		.datepicker-wrapper {
+			position: relative;
+			width: 180px !important;
+		}
+	.input-desc {
+		width: 100% !important;
+	}
+
+	}
+
+	/* =======================================================
+		   1360 - 1599
+		======================================================= */
+	@@media (min-width: 1360px) and (max-width: 1599px) {
+		.filter-item
+
+	{
+			grid-template-columns: 100px 150px 150px 200px;
+	}
+
+	.filter-item select,
+	.filter-item .select2-container
+	.datepicker-wrapper {
+		width: 150px !important;
+	}
+
+		.datepicker-wrapper {
+			position: relative;
+			width: 150px !important;
+		}
+	.input-desc {
+		width: 100% !important;
+	}
+
+	.smart-search {
+		width: 240px;
+	}
+
+	}
+
+	/* =======================================================
+		   1280 - 1359
+		======================================================= */
+	@@media (min-width: 1280px) and (max-width: 1359px) {
+		.filter-item
+
+	{
+			grid-template-columns: 80px 150px 180px 200px;
+	}
+
+	.filter-item select,
+	.filter-item .select2-container
+	.datepicker-wrapper {
+		width: 150px !important;
+	}
+
+		.datepicker-wrapper {
+			position: relative;
+			width: 150px !important;
+		}
+	.input-desc {
+		width: 100% !important;
+	}
+
+	.smart-search {
+		width: 220px;
+	}
+
+	.btn-common-panel .btn {
+		font-size: 11px;
+	}
+
+	}
+
+	/* =======================================================
+		   1024 - 1279
+		======================================================= */
+	@@media (min-width: 1024px) and (max-width: 1279px) {
+		.filter-item
+
+	{
+			grid-template-columns: 75px 140px 160px 200px;
+	}
+
+	.filter-row {
+		gap: 10px;
+	}
+
+	.filter-item label {
+		width: 75px;
+	}
+
+	.filter-item select,
+	.filter-item .select2-container
+	.datepicker-wrapper {
+		width: 140px !important;
+	}
+
+		.datepicker-wrapper {
+			position: relative;
+			width: 140px !important;
+		}
+	.input-desc {
+		width: 100% !important;
+	}
+
+	.smart-search {
+		width: 180px;
+	}
+
+	.btn-common-panel .btn {
+		font-size: 10px;
+		padding-left: .5rem;
+		padding-right: .5rem;
+	}
+
+	}
+
+	/* =======================================================
+		   800 - 1023
+		======================================================= */
+	@@media (max-width: 1023px) {
+		.filter-row
+
+	{
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.filter-item {
+		width: 100%;
+	}
+
+		.filter-item label {
+			width: 90px;
+		}
+
+		.filter-item select,
+		.filter-item .select2-container
+		.datepicker-wrapper {
+			width: 180px !important;
+		}
+
+		.datepicker-wrapper {
+			position: relative;
+			width: 180px !important;
+		}
+	.input-desc {
+		width: 100% !important;
+	}
+
+	.btn-common-panel {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.smart-search {
+		width: 100%;
+	}
+
+	}
+
+	/* =======================================================
+			800
+	======================================================= */
+	@@media (min-width: 768px) and (max-width: 1023px) {
+		.filter-item
+
+	{
+		grid-template-columns: 90px 140px !important 100%;
+	}
+
+	.filter-item label {
+		width: 90px;
+	}
+
+	.filter-item select,
+	.filter-item .select2-container
+	.datepicker-wrapper {
+		width: 140px !important;
+	}
+
+		.datepicker-wrapper {
+			position: relative;
+			width: 140px !important;
+		}
+	.input-desc {
+		width: 100% !important;
+	}
+
+	}
+
+	@@media (max-width: 767px) {
+		.filter-item
+
+	{
+		grid-template-columns: 90px 100px 1fr;
+	}
+
+	.filter-item label {
+		width: 90px;
+	}
+
+	.filter-item select,
+	.filter-item .select2-container
+	.datepicker-wrapper {
+		width: 100px !important;
+	}
+
+		.datepicker-wrapper {
+			position: relative;
+			width: 100px !important;
+		}
+	.input-desc {
+		width: 100% !important;
+	}
+
+	}
 
 	#tableID th, #tableID td {
 		white-space: nowrap !important;
@@ -316,16 +568,6 @@
 	} */
 
 
-	.filter-label {
-		width: 70px;
-		flex: 0 0 auto;
-	}
-
-
-	.input-desc {
-		flex: 1 1 250px;
-		max-width: 250px !important
-	}
 
 	.table > thead {
 		vertical-align: bottom;
@@ -357,11 +599,6 @@
 		display: flex;
 		align-items: center;
 		border-radius: 5px !important;
-	}
-
-
-	.sWidth-ddl {
-		width: 150px !important;
 	}
 
 

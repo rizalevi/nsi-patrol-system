@@ -1,4 +1,5 @@
-﻿using NSI.Domain.Interfaces;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using NSI.Domain.Interfaces;
 using NSI.Domain.Models.Auth;
 
 namespace NSI.Api.Auth
@@ -24,6 +25,14 @@ namespace NSI.Api.Auth
             if (attempt.IsLocked())
                 throw new UnauthorizedAccessException(
                     $"IP locked until {attempt.LockedUntil:HH:mm:ss}");
+
+            // lock sudah lewat -> reset
+            if (attempt.LockedUntil.HasValue &&
+                attempt.LockedUntil <= DateTime.UtcNow)
+            {
+                await _repo.ResetAsync(ip, userid);
+            }
+        
         }
 
         public async Task RegisterFailureAsync(string ip, string userid)

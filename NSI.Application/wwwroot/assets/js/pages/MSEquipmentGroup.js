@@ -36,7 +36,6 @@ $(document).on("change", "#PlantCodeFilter", function () {
         codeField: "Code",
         descField: "Description",
         descTextbox: "CourseTitleFilter",
-        width: "150px",
        
     });
 
@@ -58,7 +57,6 @@ $(document).on("change", "#CourseCodeFilter", function () {
         codeField: "Code",
         descField: "Description",
         descTextbox: "ModalCourseName",
-        width: "150px",
         selectedValue:$("#CourseCodeFilter").val()
     });
 
@@ -286,7 +284,6 @@ function init() {
         codeField: "Code",
         descField: "Description",
         descTextbox: "ClusterNameFilter",
-        width: "150px",
         callback: function () {
             populateDDL({
                 url: "service/inspectiondata/get-plant",
@@ -297,7 +294,6 @@ function init() {
                 codeField: "Code",
                 descField: "Description",
                 descTextbox: "PlantNameFilter",
-                width: "150px",
                 function() {
                     $("#PlantCodeFilter").trigger('changed.bs.select');
                 }
@@ -308,7 +304,6 @@ function init() {
 
     $("#CourseCodeFilter").select2({
         theme: 'bootstrap-5',
-        width: "150px",
         placeholder: "Fill a data"
     });
 

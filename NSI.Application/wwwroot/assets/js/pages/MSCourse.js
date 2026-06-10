@@ -241,7 +241,6 @@ function init() {
         codeField: "ClusterCode",
         descField: "ClusterDesc",
         descTextbox: "ClusterNameFilter",
-        width: "130px",
         callback: function () {
             populateDDL({
                 url: "service/inspectiondata/get-plant",
@@ -252,7 +251,6 @@ function init() {
                 codeField: "Code",
                 descField: "Description",
                 descTextbox: "PlantNameFilter",
-                width: "130px",
                 function() {
                     $("#PlantCodeFilter").trigger('changed.bs.select');
                 }
@@ -267,7 +265,6 @@ function init() {
                 codeField: "Code",
                 descField: "Description",
                 descTextbox: "PlantName",
-                width: "130px",
                 function() {
                     $("#PlantCode").trigger('changed.bs.select');
                 }
@@ -283,7 +280,6 @@ function init() {
         codeField: "FrequencyCode",
         descField: "FrequencyDesc",
         descTextbox: "Description",
-        width: "130px"
 
     });
 

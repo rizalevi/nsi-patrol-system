@@ -16,43 +16,34 @@
 
 	<div class="panel-body">
 		<div class="panel-heading col-12">
+			<div class="row">
+				<div class="row mb-2">
+					<div class="col-lg-12 col-md-12">
+						<div class="filter-item">
 
-			<div class="d-flex flex-column gap-2 w-50">
-
-				<!-- Cluster -->
-				<div class="filter-group">
-
-					<div class="d-flex align-items-center flex-wrap gap-2">
-
-						<label class="mb-0 text-dark text-nowrap filter-label">
-							Cluster
-						</label>
-
-						<div class="filter-ddl pe-3">
+							<label class="mb-0 text-dark text-nowrap filter-label">
+								Cluster
+							</label>
 							<select id="ClusterCodeFilter" name="ClusterCodeFilter" class="form-select fs-13px">
 							</select>
+							<input id="ClusterNameFilter" name="ClusterNameFilter" class="form-control input-desc fs-13px" type="text" readonly placeholder="Cluster Name" />
 						</div>
-						<input id="ClusterNameFilter" name="ClusterNameFilter" class="form-control input-desc fs-13px" type="text" readonly placeholder="Cluster Name" />
-
 					</div>
 
 				</div>
 
 				<!-- Plant -->
-				<div class="filter-group">
-					<div class="d-flex align-items-center flex-wrap gap-2">
-						<label class="mb-0 text-dark text-nowrap filter-label">
-							Plant
-						</label>
+				<div class="row mb-2">
+					<div class="col-lg-12 col-md-12">
+						<div class="filter-item">
 
-						<div class="filter-ddl pe-3">
+							<label class="mb-0 text-dark text-nowrap filter-label">
+								Plant
+							</label>
 							<select id="PlantCodeFilter" name="PlantCodeFilter" class="form-select fs-13px"></select>
+							<input id="PlantNameFilter" name="PlantNameFilter" class="form-control input-desc fs-13px" type="text" readonly placeholder="Plant Name" />
 						</div>
-
-						<input id="PlantNameFilter" name="PlantNameFilter" class="form-control input-desc fs-13px" type="text" readonly placeholder="Plant Name" />
-
 					</div>
-
 				</div>
 
 			</div>
@@ -109,61 +100,81 @@
 						<div class="modal-body" >
 							<div class="panel-body">
 								<form id="form">
+									<div class="row">
+										<div class="row mb-2">
+											<div class="col-lg-12 col-md-12">
+												<div class="filter-item">
 
-									<!-- PLANT -->
-									<div class="d-flex align-items-center mb-2">
+													<label class="form-label text-nowrap me-2" style="width:120px;">
+														Plant <span class="text-danger">*</span>
+													</label>
 
-										<label class="form-label text-nowrap me-2" style="width:120px;">
-											Plant <span class="text-danger">*</span>
-										</label>
-
-										<select id="PlantCode" name="PlantCode" class="form-select fs-13px me-42 sWidth-ddl"></select>
-										<input id="PlantName" name="PlantName" class="form-control input-desc  fs-13px" style="margin-left:10px;width:250px" type="text" readonly placeholder="Plant Name" />
+													<select id="PlantCode" name="PlantCode" class="form-select fs-13px me-42 sWidth-ddl"></select>
+													<input id="PlantName" name="PlantName" class="form-control input-desc  fs-13px" style="margin-left:10px;width:250px" type="text" readonly placeholder="Plant Name" />
+												</div>
+											</div>
+										</div>
 									
+
+										<!-- COURSE CODE -->
+										<div class="row mb-2">
+											<div class="col-lg-12 col-md-12">
+												<div class="filter-item">
+
+													<label class="form-label text-nowrap me-2" style="width:120px;">
+														Course Code <span class="text-danger">*</span>
+													</label>
+
+													<input id="CourseCode" name="CourseCode"  class="form-control fs-13px" style="width:150px;" maxlength="15" autocomplete="off"  placeholder="Course Code" required />
+									
+												</div>
+											</div>
+										</div>
+
+										<!-- TITLE (FULL ROW) -->
+										<div class="row mb-2">
+											<div class="col-lg-12 col-md-12">
+												<div class="filter-item">
+
+												<label class="form-label text-nowrap me-2" style="width:120px;">
+													Title <span class="text-danger">*</span>
+												</label>
+
+												<input id="Title" name="Title" class="form-control fs-13px" maxlength="50" autocomplete="off" placeholder="Course Title"  required />
+												</div>
+											</div>
+										</div>
+
+										<!-- DOC NO -->
+										<div class="row mb-2">
+											<div class="col-lg-12 col-md-12">
+												<div class="filter-item">
+
+													<label class="form-label text-nowrap me-2" style="width:120px;">
+														Document No <span class="text-danger">*</span>
+													</label>
+
+													<input id="DocNo" name="DocNo" class="form-control fs-13px"	maxlength="35" autocomplete="off" placeholder="DOC-XXX" required />
+												</div>
+											</div>
+										</div>
+
+
+										<!-- FREQUENCY -->
+										<div class="row mb-2">
+											<div class="col-lg-12 col-md-12">
+												<div class="filter-item">
+
+													<label class="form-label text-nowrap me-2" style="width:120px;">
+														Frequency<span class="text-danger">*</span>
+													</label>
+
+													<select id="FrequencyModal" name="Frequency" class="form-select fs-13px me-2 sWidth-ddl"></select>
+													<input id="Description" name="Description" class="form-control input-desc  fs-13px" style="margin-left:10px;width:250px" type="text" readonly placeholder="Frequency Name" />
+												</div>
+											</div>
+										</div>
 									</div>
-
-									<!-- COURSE CODE -->
-									<div class="d-flex align-items-center mb-2">
-
-										<label class="form-label text-nowrap me-2" style="width:120px;">
-											Course Code <span class="text-danger">*</span>
-										</label>
-
-										<input id="CourseCode" name="CourseCode"  class="form-control fs-13px" style="width:150px;" maxlength="15" autocomplete="off"  placeholder="Course Code" required />
-									</div>
-									<!-- TITLE (FULL ROW) -->
-									<div class="d-flex align-items-center mb-2">
-
-										<label class="form-label text-nowrap me-2" style="width:120px;">
-											Title <span class="text-danger">*</span>
-										</label>
-
-										<input id="Title" name="Title" class="form-control fs-13px" maxlength="50" autocomplete="off" placeholder="Course Title"  required />
-									</div>
-									<!-- DOC NO -->
-									<div class="d-flex align-items-center mb-2">
-
-										<label class="form-label text-nowrap me-2" style="width:120px;">
-											Document No <span class="text-danger">*</span>
-										</label>
-
-										<input id="DocNo" name="DocNo" class="form-control fs-13px"	maxlength="35" autocomplete="off" placeholder="DOC-XXX" required />
-									</div>
-
-
-									<!-- FREQUENCY -->
-									<div class="d-flex align-items-center mb-2">
-
-										<label class="form-label text-nowrap me-2" style="width:120px;">
-											Frequency<span class="text-danger">*</span>
-										</label>
-
-										<select id="FrequencyModal" name="Frequency" class="form-select fs-13px me-2 sWidth-ddl"></select>
-										<input id="Description" name="Description" class="form-control input-desc  fs-13px" style="margin-left:10px;width:250px" type="text" readonly placeholder="Frequency Name" />
-
-									</div>
-
-
 								</form>
 							</div>
 						</div>
@@ -191,18 +202,64 @@
 	</div>
 </div>
 <style>
-
-
-	.filter-label {
-		width: 70px;
-		flex: 0 0 auto;
+	.filter-item {
+		display: grid;
+		grid-template-columns: 100px 180px 250px 200px;
+		align-items: center;
+		gap: 10px;
 	}
 
+		.filter-item label {
+			width: 100px;
+			min-width: 100px;
+			margin-bottom: 0;
+		}
+	/*
+					.filter-item select {
+						width: 180px;
+					}*/
 
 	.input-desc {
-		flex: 1 1 250px auto;
-		max-width:250px !important
+		width: 100% !important;
 	}
+
+	.datepicker-wrapper {
+		position: relative;
+		width: 180px !important;
+	}
+
+		.datepicker-wrapper input {
+			width: 100%;
+		}
+
+	.datepicker-icon {
+		position: absolute;
+		right: 10px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+
+
+	/* =======================================================
+					   1920+
+			======================================================= */
+	@@media (min-width: 1900px) {
+		.filter-item {
+			grid-template-columns: 100px 180px 250px 200px;
+			gap: 10px;
+		}
+
+			.filter-item select, .filter-item .select2-container .datepicker-wrapper {
+				width: 180px !important;
+			}
+
+		.datepicker-wrapper {
+			position: relative;
+			width: 180px !important;
+		}
+	}
+
     .table > thead {
         vertical-align: bottom;
         line-height: 2;
@@ -237,10 +294,6 @@
 		min-width: 130px !important;
     }
 
-
-	.sWidth-ddl{
-		width: 130px !important;
-	}
 
    
    

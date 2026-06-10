@@ -89,7 +89,7 @@ public class AuthController : ControllerBase
         if (user.UserId  == null)
         {
             await _rateLimitService.RegisterFailureAsync(clientIp, userId);
-            return new ApiResponse<object> { Status = false, Message = "Invalid User", Data = null };
+            return new ApiResponse<object> { Status = false, Message = "Invalid User ID or Password", Data = null };
         }
         else
         {
@@ -105,7 +105,7 @@ public class AuthController : ControllerBase
         if (encryptedPassword == null)
         {
             await _rateLimitService.RegisterFailureAsync(clientIp, userId);
-            return new ApiResponse<object> { Status = false, Message = "Invalid Password", Data = null };
+            return new ApiResponse<object> { Status = false, Message = "Invalid User ID or Password", Data = null };
         }
 
         // decrypt password
@@ -118,14 +118,14 @@ public class AuthController : ControllerBase
         catch
         {
             await _rateLimitService.RegisterFailureAsync(clientIp, userId);
-            return new ApiResponse<object> { Status = false, Message = "Invalid Password", Data = null };
+            return new ApiResponse<object> { Status = false, Message = "Invalid User ID or Password", Data = null };
         }
 
         // compare password
         if (decryptedPassword != request.Password)
         {
             await _rateLimitService.RegisterFailureAsync(clientIp, userId);
-            return new ApiResponse<object> { Status = false, Message = "Invalid Password", Data = null };
+            return new ApiResponse<object> { Status = false, Message = "Invalid User ID or Password", Data = null };
         }
 
         // check exp password

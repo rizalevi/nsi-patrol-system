@@ -48,7 +48,6 @@ $(document).on("change", "#PlantCode", function () {
         descField: "Description",
         descTextbox: "CourseName",
         selectedValue: courseCode,
-        width: "180px",
         callback: function () {
 
 
@@ -62,7 +61,6 @@ $(document).on("change", "#PlantCode", function () {
                 codeField: "Code",
                 descField: "Description",
                 descTextbox: "GroupName",
-                width: "180px",
                 selectedValue: groupCode,
                 callback: function () {
 
@@ -150,7 +148,6 @@ $(document).on("change", "#CourseCode", function () {
         codeField: "Code",
         descField: "Description",
         descTextbox: "GroupName",
-        width: "180px",
         selectedValue: groupCode,
         callback: function () {
 
@@ -436,7 +433,6 @@ function init() {
         descField: "Description",
         descTextbox: "ClusterName",
         selectedValue: clusterCode,
-        width: "180px",
         callback: function () {
             
             populateDDL({
@@ -449,7 +445,6 @@ function init() {
                 descField: "Description",
                 descTextbox: "PlantName",
                 selectedValue: plantCode,
-                width: "180px",
                 callback: function () {
                     $("#PlantCode").trigger('change');
                     if (statusAdmin == "1" && (plantCode != "" && plantCode != null) ) {
@@ -473,7 +468,6 @@ function init() {
         dropdownId: "Frequency",
         codeField: "Code",
         descField: "Description",
-        width: "180px",
         selectedValue: frequency,
         callback: function () {
 
@@ -1118,7 +1112,7 @@ function fillResultOptions(unitCode, currentVal) {
         model: {UnitCode:unitCode},
         codeField: "OptionValue",
         descField: "OptionName",
-        width: "180px",
+/*        width: "180px",*/
         selectedValue: currentVal,
         callback: function () {
 

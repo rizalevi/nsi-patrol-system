@@ -125,7 +125,21 @@ input:-webkit-autofill:active {
 .input-group {
     position: relative;
     margin-bottom: 22px;
+    width:100%;
 }
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    cursor: pointer;
+    color: #b3b3b3;
+    z-index: 10;
+    margin-top:15px !important;
+}
+
+    .toggle-password:hover {
+        color: navajowhite !important;
+    }
 
 /*.input-group input {
                 width: 100%;

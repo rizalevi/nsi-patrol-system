@@ -1,4 +1,29 @@
 ﻿
+function toggle(id) {
+    
+    const input = document.getElementById(id);
+    input.type = input.type === 'password' ? 'text' : 'password';
+}
+
+$(document).on('click', '.toggle-password', function () {
+    debugger
+    var target = $(this).data('target');
+    var input = $(target);
+
+    if (input.attr('type') === 'password') {
+        input.attr('type', 'text');
+        $(this).find('i')
+            .removeClass('fa-eye')
+            .addClass('fa-eye-slash');
+    } else {
+        input.attr('type', 'password');
+        $(this).find('i')
+            .removeClass('fa-eye-slash')
+            .addClass('fa-eye');
+    }
+
+});
+
 $("#loginForm").on("submit", function (e) {
 
     e.preventDefault(); // 🔥 penting supaya tidak reload page

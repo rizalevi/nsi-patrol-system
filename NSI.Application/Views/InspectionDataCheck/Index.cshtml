@@ -13,69 +13,83 @@
 		</div>
 	</div>
 	<div class="panel-body">
-		<div class="panel-heading col-md-12">
-			<div class="filter-container">
-				<div class="filter-row">
-					<!--cluster-->
-					<div class="filter-item">
-						<label>Cluster</label>
-						<select id="ClusterCode" name="ClusterCode" class="form-select fs-13px">
-						</select>
-						<input id="ClusterName" class="form-control input-desc fs-13px" type="text" readonly placeholder="Cluster Name" />
-					</div>
-					<!--group-->
-					<div class="filter-item">
-						<label>Group</label>
-						<select id="GroupCode" name="GroupCode" class="form-select fs-13px" >
-							<option value="">Fill a Group</option>
-						</select>
-						<input id="GroupName" class="form-control input-desc fs-13px" type="text" readonly placeholder="Group Name" />
-					</div>
+		<div class="row">
+			<div class="panel-heading col-md-10">
+				<div class="row">
+					<div class="row mb-2">
+						<div class="col-lg-5 col-md-12">
+							<!--ClusterCode-->
+							<div class="filter-item">
+							<label>Cluster</label>
+							<select id="ClusterCode" name="ClusterCode" class="form-select">
+							</select>
+							<input id="ClusterName" class="form-control input-desc" type="text" readonly placeholder="Cluster Name" />
+							</div>
+						</div>
 
-				</div>
-				<div class="filter-row">
-					<!--plant-->
-					<div class="filter-item">
-						<label>Plant</label>
-						<select id="PlantCode" name="PlantCode" class="form-select fs-13px">
-							<option value="">Fill a Plant</option>
-						</select>
-						<input id="PlantName" class="form-control input-desc fs-13px" type="text" readonly placeholder="Plant Name" />
+						<div class="col-lg-5 col-md-12">
+							<!--GroupCode-->
+							<div class="filter-item">
+								<label>Group</label>
+								<select id="GroupCode" name="GroupCode" class="form-select" >
+									<option value="">Fill a Group</option>
+								</select>
+								<input id="GroupName" class="form-control input-desc" type="text" readonly placeholder="Group Name" />
+							</div>
+						</div>
 
 					</div>
-					<!--inspection date -->
-					<div class="filter-item">
-						<label>Inspection Date</label>
-						<div class="datepicker-wrapper">
-							<input id="InspectionDateFrom" name="InspectionDateFrom" type="text" maxlength="13" class="form-control datepicker" autocomplete="off" style="height:2.1rem" />
-							<span class="datepicker-icon">
-								<i class="fa fa-calendar"></i>
-							</span>
+					<div class="row mb-2">
+						<div class="col-lg-5 col-md-12">
+							<!--plant-->
+							<div class="filter-item">
+								<label>Plant</label>
+								<select id="PlantCode" name="PlantCode" class="form-select">
+									<option value="">Fill a Plant</option>
+								</select>
+								<input id="PlantName" class="form-control input-desc" type="text" readonly placeholder="Plant Name" />
+
+							</div>
+						</div>
+						<div class="col-lg-5 col-md-12">
+
+							<!--inspection date -->
+							<div class="filter-item">
+								<label>Inspection Date</label>
+								<div class="datepicker-wrapper">
+									<input id="InspectionDateFrom" name="InspectionDateFrom" type="text" class="form-control datepicker" autocomplete="off" style="height:2.1rem" />
+									<span class="datepicker-icon">
+										<i class="fa fa-calendar"></i>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row mb-2">
+						<div class="col-lg-5 col-md-12">
+							<!-- CourseCode -->
+							<div class="filter-item">
+								<label>Course</label>
+								<select id="CourseCode" name="CourseCode" class="form-select">
+								</select>
+								<input id="CourseName" class="form-control input-desc" type="text" readonly placeholder="Course Name" />
+							</div>
+						</div>
+						<div class="col-lg-5 col-md-12">
+							<!-- Frequency -->
+							<div class="filter-item">
+								<label>Frequency</label>
+								<select id="Frequency" name="Frequency" class="form-select">
+									<option value="">Fill a Frequency</option>
+								</select>
+
+							</div>
 						</div>
 					</div>
 
 				</div>
-				<div class="filter-row">
-
-					<div class="filter-item">
-						<label>Course</label>
-						<select id="CourseCode" name="CourseCode" class="form-select fs-13px">
-						</select>
-						<input id="CourseName" class="form-control input-desc fs-13px" type="text" readonly placeholder="Course Name" />
-					</div>
-
-					<!-- Frequency -->
-					<div class="filter-item">
-						<label>Frequency</label>
-						<select id="Frequency" name="Frequency" class="form-select fs-13px">
-							<option value="">Fill a Frequency</option>
-						</select>
-
-					</div>
-				</div>
 
 			</div>
-
 		</div>
 
 		<div class="btn-common-panel">
@@ -170,30 +184,37 @@
 
 					<div class="modal-body">
 						<div class="panel-body">
-						<div style="border:1px solid lightgray; padding:5px; margin-top:5px">
-							<div class="filter-row">
-								<div class="filter-item">
-									<label>Course</label>
-									<input id="Course" class="form-control" type="text" maxlength="18" readonly />
+						<div style="border:1px solid lightgray; padding:5px; margin-top:5px" class="row">
+							<div class="row mb-2">
+								<div class="col-lg-5 col-md-12">
+									<div class="filter-item">
+										<label>Course</label>
+										<input id="Course" class="form-control" type="text" maxlength="18" readonly />
 
+									</div>
 								</div>
-								<div class="filter-item">
-									<label>Title</label>
-									<input id="Title" class="form-control" type="text" maxlength="35" readonly />
+								<div class="col-lg-5 col-md-12">
+									<div class="filter-item">
+										<label>Title</label>
+										<input id="Title" class="form-control" type="text" maxlength="35" readonly />
+									</div>
 								</div>
-
 							</div>
 
-							<div class="filter-row">
-								<div class="filter-item">
-									<label> Group</label>
-									<input id="Group" name="Group" class="form-control" type="text" maxlength="18" readonly />
+							<div class="row mb-2">
+								<div class="col-lg-5 col-md-12">
+									<div class="filter-item">
+										<label> Group</label>
+										<input id="Group" name="Group" class="form-control" type="text" maxlength="18" readonly />
+									</div>
 								</div>
-								<div class="filter-item">
-									<label>Inspection Date</label>
-									<input id="InspectionDate" class="form-control" type="text" maxlength="15" readonly />
-									<span></span>
-									<input id="FrequencyName" class="form-control" type="text" maxlength="15" readonly />
+								<div class="col-lg-5 col-md-12">
+									<div class="filter-item">
+										<label>Inspection Date</label>
+										<input id="InspectionDate" class="form-control" type="text" maxlength="15" readonly />
+										<span></span>
+										<input id="FrequencyName" class="form-control" type="text" maxlength="15" readonly />
+									</div>
 								</div>
 							</div>
 							<div style="display:none;">
@@ -263,22 +284,22 @@
 
 
 						<div class="col-md-12" style="margin-top:50px;border-top:1px solid gainsboro;">
-							<div style="padding-top:5px;">
+							<div style="padding-top:3px;">
 								<label> Remarks inspector : </label>
 							</div>
 						</div>
 						<div class="col-md-12">
-							<textarea class="form-control" id="Remarks" rows="3" disabled style="resize: none;" autocomplete="false">
+							<textarea class="form-control" id="Remarks" rows="2" disabled style="resize: none;" autocomplete="false">
 							</textarea>
 						</div>
 
 							<div class="col-md-12" style="border-top:1px solid gainsboro;">
-								<div style="padding-top:5px;">
+								<div style="padding-top:1px;">
 									<label> Remarks leader : </label>
 								</div>
 							</div>
 							<div class="col-md-12">
-								<textarea class="form-control" id="RemarksLeader" rows="3"  style="resize: none;" autocomplete="false">
+								<textarea class="form-control" id="RemarksLeader" rows="2"  style="resize: none;" autocomplete="false">
 							</textarea>
 							</div>
 					</div>

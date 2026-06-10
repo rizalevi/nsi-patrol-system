@@ -63,7 +63,6 @@ $(document).on("change", "#CourseCode", function () {
         codeField: "Code",
         descField: "Description",
         descTextbox: "GroupName",
-        width: "180px",
         selectedValue: groupCode
     });
     clearTable();
@@ -405,7 +404,6 @@ function init() {
                 codeField: "Code",
                 descField: "Description",
                 descTextbox: "CourseName",
-                width: "180px",
                 selectedValue: courseCode,
                 callback: function () {
                     $("#CourseCode").trigger('change');

@@ -406,7 +406,7 @@ function init() {
         descField: "Description",
         descTextbox: "ClusterName",
         selectedValue: clusterCode,
-        width: "180px",
+        /*width: "180px",*/
         callback: function () {
             populateDDL({
                 url: "service/inspectiondata/get-plant",
@@ -418,7 +418,6 @@ function init() {
                 descField: "Description",
                 descTextbox: "PlantName",
                 selectedValue:plantCode,
-                width: "180px",
                 callback: function () {
                     $("#PlantCode").trigger('change');
                 }

@@ -32,7 +32,6 @@ $(document).on("change", "#PlantCode", function () {
         codeField: "Code",
         descField: "Description",
         descTextbox: "CourseName",
-        width: "150px",
 
     });
 
@@ -57,7 +56,6 @@ $(document).on("change", "#CourseCode", function () {
         codeField:"Code",
         descField:"Description",
         descTextbox:"GroupName",
-        width: "150px"
     });
     $("#tableID").dataTable().fnClearTable();
 
@@ -436,7 +434,6 @@ function init() {
         codeField: "Code",
         descField: "Description",
         descTextbox: "ClusterName",
-        width: "150px",
         callback: function () {
             populateDDL({
                 url: "service/inspectiondata/get-plant",
@@ -447,7 +444,6 @@ function init() {
                 codeField: "Code",
                 descField: "Description",
                 descTextbox: "PlantName",
-                width: "150px",
                 function() {
                     $("#PlantCode").trigger('change');
                 }
@@ -462,7 +458,6 @@ function init() {
         codeField: "UnitCode",
         descField: "UnitDescription",
         extraField: "MethodeDescription",
-        width: "150px"
         
     });
 
@@ -471,7 +466,6 @@ function init() {
         dropdownId: "ChartType",
         codeField: "ChartType",
         descField: "ChartType",
-        width: "150px"
     });
 
     //init table

@@ -38,7 +38,7 @@ $(document).on("change", "#PlantCode", function () {
         codeField: "Code",
         descField: "Description",
         descTextbox: "CourseName",
-        width: "180px",
+      
         //callback: function () {
             
         //    if (($("#PlantCode").val() != null && $("#PlantCode").val() != "")) {
@@ -87,7 +87,6 @@ $(document).on("change", "#CourseCode", function () {
         codeField: "Code",
         descField: "Description",
         descTextbox: "GroupName",
-        width: "180px",
         callback: function () {
             if ($("#CourseCode").val() != null) {
                
@@ -142,7 +141,6 @@ $(document).on("change", "#GroupCode", function () {
         codeField: "Code",
         descField: "Description",
         descTextbox: "InspectionPointName",
-        width: "180px",
         callback:function() {
 
             if ($("#GroupCode").val() != null) {
@@ -367,7 +365,7 @@ function init() {
         codeField: "Code",
         descField: "Description",
         descTextbox: "ClusterName",
-        width: "180px",
+        //width: "180px",
         callback: function () {
             populateDDL({
                 url: "service/inspectiondata/get-plant",
@@ -378,7 +376,6 @@ function init() {
                 codeField: "Code",
                 descField: "Description",
                 descTextbox: "PlantName",
-                width: "180px",
                 callback: function () {
 
                     $("#PlantCode").trigger('change');
@@ -395,7 +392,6 @@ function init() {
         dropdownId: "Frequency",
         codeField: "Code",
         descField: "Description",
-        width: "180px",
         callback: function () {
            
                 let ddl = $("#Frequency");

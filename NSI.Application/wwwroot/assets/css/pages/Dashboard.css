@@ -45,7 +45,16 @@
     margin-bottom: 20px;
    /* min-height: 22vh !important;*/
 }
+@media (max-width:768px) {
 
+    .card-panel,
+    .card-dashboard,
+    .card-panel-chart-1,
+    .card-panel-chart-2,
+    .unified-panel {
+        padding: 10px;
+    }
+}
 /**PANEL STYLE*/
 
 /*TOP PANEL STYLE - SUMMARY PROCESS*/
@@ -180,18 +189,58 @@
     filter: grayscale(100%);
 }
 
+
 .chart-container-left {
+    height: 450px;
+}
+
+.chart-container-right {
+    height: 280px;
+}
+@media (max-width:1366px) {
+
+    .chart-container-left {
+        height: 400px;
+    }
+
+    .chart-container-right {
+        height: 250px;
+    }
+}
+
+@media (max-width:1024px) {
+
+    .chart-container-left {
+        height: 350px;
+    }
+
+    .chart-container-right {
+        height: 220px;
+    }
+}
+@media (max-width:768px) {
+
+    .chart-container-left {
+        height: 300px;
+    }
+
+    .chart-container-right {
+        height: 250px;
+    }
+}
+/*.chart-container-left {
     position: relative;
     width: 100%;
     height: clamp(380px, 70vh, 490px);
-}
+}*/
 
+/*
 .chart-container-right {
     position: relative;
     width: 100%;
     height: clamp(200px, 40vh, 310px);
 }
-
+*/
 .card-panel-chart-1 {
     background: linear-gradient(135deg, #ffffff, #dfdfdf);
     padding-left: 15px;
@@ -264,6 +313,20 @@
     gap: 10px;
 }
 
+
+@media (max-width:768px) {
+
+    .progress-box {
+        flex-direction: column;
+        
+    }
+
+    .badge-box {
+        width: 100%;
+    }
+}
+
+
 .progress-box .badge-box {
     flex: 1;
 }
@@ -288,7 +351,18 @@
         pointer-events: none;
     }
 
+/*@media (max-width:1024px) {
 
+    #box-remain span:first-child,
+    #box-completed span:first-child {
+        font-size: 1.3rem !important;
+    }
+
+    #box-remain span:last-child,
+    #box-completed span:last-child {
+        font-size: 1.7rem !important;
+    }
+}*/
 #box-uncompleted {
     cursor: pointer;
 }
@@ -395,8 +469,21 @@
 
 
 /*khusus screen2 tanpa filter*/
+
 .dataTables_scrollBody {
-    height: 55vh !important;
+    max-height: 500px !important;
+}
+@media (max-width:1366px) {
+
+    .dataTables_scrollBody {
+        max-height: 420px !important;
+    }
+}
+@media (max-width:1024px) {
+
+    .dataTables_scrollBody {
+        max-height: 300px !important;
+    }
 }
 
 .chart-title {

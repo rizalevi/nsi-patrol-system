@@ -49,7 +49,6 @@ $(document).on("change", "#PlantCode", function () {
         descField: "Description",
         descTextbox: "CourseName",
         selectedValue: courseCode,
-        width: "180px",
         callback: function () {
 
 
@@ -106,7 +105,6 @@ $(document).on("change", "#CourseCode", function () {
         codeField: "Code",
         descField: "Description",
         descTextbox: "GroupName",
-        width: "180px",
         selectedValue: groupCode,
         callback: function () {
 
@@ -474,7 +472,7 @@ function init() {
         descField: "Description",
         descTextbox: "ClusterName",
         selectedValue: clusterCode,
-        width: "180px",
+        /*width: "180px",*/
         callback: function () {
 
             if (statusAdmin == "1" && (clusterCode != "" && clusterCode != null)) {
@@ -490,7 +488,6 @@ function init() {
                 codeField: "Code",
                 descField: "Description",
                 descTextbox: "PlantName",
-                width: "180px",
                 selectedValue: plantCode,
                 callback: function () {
                     $("#PlantCode").trigger('change');
@@ -516,7 +513,6 @@ function init() {
         dropdownId: "Frequency",
         codeField: "Code",
         descField: "Description",
-        width: "180px",
         selectedValue: frequency,
         callback: function () {
 

@@ -63,7 +63,6 @@ $(document).on("change", "#PlantCode", function () {
         codeField: "Code",
         descField: "Description",
         descTextbox: "CourseName",
-        width: "180px",
         callback: function () {
             $("#CourseCode").trigger('change');
 
@@ -89,7 +88,6 @@ $(document).on("change", "#CourseCode", function () {
         codeField: "Code",
         descField: "Description",
         descTextbox: "InspectionPointName",
-        width: "180px",
 
     });
 
@@ -160,7 +158,7 @@ function initPage() {
         codeField: "Code",
         descField: "Description",
         descTextbox: "ClusterName",
-        width: "180px",
+       /* width: "180px",*/
         callback: function () {
             populateDDL({
                 url: "service/inspectiondata/get-plant",
@@ -171,7 +169,6 @@ function initPage() {
                 codeField: "Code",
                 descField: "Description",
                 descTextbox: "PlantName",
-                width: "180px",
                 callback: function () {
                     $("#PlantCode").trigger('change');
                 }

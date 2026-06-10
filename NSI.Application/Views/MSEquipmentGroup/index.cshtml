@@ -15,57 +15,50 @@
 
     <div class="panel-body">
         <div class="panel-heading col-12">
-            <div class="d-flex flex-column gap-2 w-50">
-                <!-- Cluster -->
-                <div class="filter-group">
-
-                    <div class="d-flex align-items-center flex-wrap gap-2">
-                        <label class="mb-0 text-dark text-nowrap filter-label">
-                            Cluster
-                        </label>
-                        <div class="filter-ddl pe-2">
-                            <select id="ClusterCodeFilter" name="ClusterCodeFilter" class="form-select fs-13px" style="width:180px">
+            <div class="row">
+                <div class="row mb-2">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="filter-item">
+                            <label class="mb-0 text-dark text-nowrap filter-label">
+                                Cluster
+                            </label>
+                            <select id="ClusterCodeFilter" name="ClusterCodeFilter" class="form-select fs-13px">
                             </select>
+                            <input id="ClusterNameFilter" name="ClusterNameFilter" class="form-control input-desc fs-13px" type="text" readonly placeholder="Cluster Name" />
                         </div>
-                        <input id="ClusterNameFilter" name="ClusterNameFilter" class="form-control input-desc fs-13px" type="text" readonly placeholder="Cluster Name" />
-
                     </div>
 
                 </div>
 
                 <!-- Plant -->
-				<div class="filter-group">
-					<div class="d-flex align-items-center flex-wrap gap-2">
-						<label class="mb-0 text-dark text-nowrap filter-label">
-							Plant
-						</label>
+                <div class="row mb-2">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="filter-item">
+						    <label class="mb-0 text-dark text-nowrap filter-label">
+							    Plant
+						    </label>
+        				    <select id="PlantCodeFilter" name="PlantCodeFilter" class="form-select fs-13px"></select>
 
-						<div class="filter-ddl pe-2">
-							<select id="PlantCodeFilter" name="PlantCodeFilter" class="form-select fs-13px"></select>
-						</div>
-
-						<input id="PlantNameFilter" name="PlantNameFilter" class="form-control input-desc fs-13px" type="text" readonly placeholder="Plant Name" />
-
+						    <input id="PlantNameFilter" name="PlantNameFilter" class="form-control input-desc fs-13px" type="text" readonly placeholder="Plant Name" />
+                        </div>
 					</div>
 
 				</div>
 
                 <!--Course-->
-                <div class="filter-group">
-                    <div class="d-flex align-items-center flex-wrap gap-2">
-                        <label class="mb-0 text-dark text-nowrap filter-label">
-                            Course
-                        </label>
-
-                        <div class="filter-ddl pe-2" >
-                            <select id="CourseCodeFilter" name="CourseCodeFilter" class="form-select fs-13px" style="min-width:150px;">
-                              
+                <div class="row mb-2">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="filter-item">
+                            <label class="mb-0 text-dark text-nowrap filter-label">
+                                Course
+                            </label>
+                            <select id="CourseCodeFilter" name="CourseCodeFilter" class="form-select fs-13px" >
                             </select>
+
+                            <input id="CourseTitleFilter" name="CourseTitleFilter" class="form-control input-desc fs-13px" type="text" readonly placeholder="Course Name" />
+
+                            @Html.Partial("~/Views/PartialView/_NavButtons.cshtml")
                         </div>
-
-                        <input id="CourseTitleFilter" name="CourseTitleFilter" class="form-control input-desc fs-13px" type="text" readonly placeholder="Course Name" />
-
-                        @Html.Partial("~/Views/PartialView/_NavButtons.cshtml")
                     </div>
 
                 </div>
@@ -125,40 +118,51 @@
                         <div class="modal-body">
                             <div class="panel-body">
                                 <form id="form">
+                                    <div class="row">
+                                        <div class="row mb-2">
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="filter-item">
+                                                    <label class="form-label text-nowrap me-2" style="width:120px;">
+                                                        Course Code<span class="text-danger">*</span>
+                                                    </label>
 
-                                    <!-- Course -->
-                                    <div class="d-flex align-items-center flex-wrap mb-2">
-                                        <label class="form-label text-nowrap me-2" style="width:120px;">
-                                            Course Code<span class="text-danger">*</span>
-                                        </label>
+                                                    <select id="ModalCourseCode" name="ModalCourseCode" class="form-select fs-13px me-2"></select>
+                                                    <input id="ModalCourseName" name="ModalCourseName" class="form-control input-desc fs-13px" style="margin-left:10px" type="text" maxlength="50" readonly placeholder="Course Name" />
+                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="filter-item">
+                                                    <!-- GROUP CODE -->
+                                                     <label class="form-label text-nowrap me-2" style="width:120px;">
+                                                           Group Code <span class="text-danger">*</span>
+                                                     </label>
 
-                                        <select id="ModalCourseCode" name="ModalCourseCode" class="form-select fs-13px me-2"></select>
-                                        <input id="ModalCourseName" name="ModalCourseName" class="form-control input-desc fs-13px" style="margin-left:10px" type="text" maxlength="50" readonly placeholder="Course Name" />
+                                                     <input id="GroupCode" name="GroupCode" class="form-control fs-13px" maxlength="20" autocomplete="off" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <!-- DESCRIPTION -->
+                                        <div class="row mb-2">
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="filter-item">
 
+                                                    <label class="form-label text-nowrap me-2" style="width:120px;">
+                                                        Description <span class="text-danger">*</span>
+                                                    </label>
+
+                                                    <input id="Description" name="Description" class="form-control fs-13px" maxlength="50" autocomplete="off" required />
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <!-- GROUP CODE -->
-                                    <div class="d-flex align-items-center mb-2">
-
-                                        <label class="form-label text-nowrap me-2" style="width:120px;">
-                                            Group Code <span class="text-danger">*</span>
-                                        </label>
-
-                                        <input id="GroupCode" name="GroupCode" class="form-control fs-13px" maxlength="30" autocomplete="off" required />
-                                    </div>
-                                    <!-- DESCRIPTION -->
-                                    <div class="d-flex align-items-center mb-2">
-
-                                        <label class="form-label text-nowrap me-2" style="width:120px;">
-                                            Description <span class="text-danger">*</span>
-                                        </label>
-
-                                        <input id="Description" name="Description" class="form-control fs-13px" maxlength="50" autocomplete="off" required />
-                                    </div>
 
 
 
-                                    </form>
-                                </div>
+                                </form>
+                            </div>
 
                                 <div class="modal-footer">
                                     @if (ViewBag.Permission.AllowUpdate == "0")
@@ -192,17 +196,282 @@
         border-radius: 5px !important;
     }
 
-        .filter-label {
-            width: 70px;
-            flex: 0 0 auto;
+    .filter-item {
+        display: grid;
+        grid-template-columns: 100px 180px 250px 200px;
+        align-items: center;
+        gap: 10px;
+    }
+
+        .filter-item label {
+            width: 100px;
+            min-width: 100px;
+            margin-bottom: 0;
+        }
+    /*
+                .filter-item select {
+                    width: 180px;
+                }*/
+
+    .input-desc {
+        width: 100% !important;
+    }
+
+    .datepicker-wrapper {
+        position: relative;
+        width: 180px !important;
+    }
+
+        .datepicker-wrapper input {
+            width: 100%;
         }
 
+    .datepicker-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+
+
+    /* =======================================================
+                   1920+
+        ======================================================= */
+    @@media (min-width: 1900px) {
+        .filter-item {
+            grid-template-columns: 100px 180px 250px 200px;
+            gap: 10px;
+        }
+
+            .filter-item select, .filter-item .select2-container .datepicker-wrapper {
+                width: 180px !important;
+            }
+
+        .datepicker-wrapper {
+            position: relative;
+            width: 180px !important;
+        }
+    }
+    /* =======================================================
+                   1600 - 1899
+         ======================================================= */
+    @@media (min-width: 1600px) and (max-width: 1899px) {
+        .filter-item {
+            grid-template-columns: 100px 180px 180px 200px;
+            gap: 10px;
+        }
+
+            .filter-item select, .filter-item .select2-container .datepicker-wrapper {
+                width: 180px !important;
+            }
 
         .input-desc {
-            flex: 1 1 250px;
-            max-width: 250px !important
+            width: 100% !important;
         }
 
+        .datepicker-wrapper {
+            position: relative;
+            width: 180px !important;
+        }
+    }
+
+    /* =======================================================
+                   1360 - 1599
+         ======================================================= */
+    @@media (min-width: 1360px) and (max-width: 1599px) {
+        .filter-item {
+            grid-template-columns: 100px 150px 150px 200px;
+        }
+
+            .filter-item select,
+            .filter-item .select2-container
+            .datepicker-wrapper {
+                width: 150px !important;
+            }
+
+        .input-desc {
+            width: 100% !important;
+        }
+
+        .smart-search {
+            width: 240px;
+        }
+
+        .datepicker-wrapper {
+            position: relative;
+            width: 180px !important;
+        }
+    }
+
+    /* =======================================================
+                   1280 - 1359
+         ======================================================= */
+    @@media (min-width: 1280px) and (max-width: 1359px) {
+        .filter-item {
+            grid-template-columns: 80px 150px 180px 200px;
+        }
+
+            .filter-item select,
+            .filter-item .select2-container
+            .datepicker-wrapper {
+                width: 150px !important;
+            }
+
+        .input-desc {
+            width: 100% !important;
+        }
+
+        .datepicker-wrapper {
+            position: relative;
+            width: 180px !important;
+        }
+
+        .smart-search {
+            width: 220px;
+        }
+
+        .btn-common-panel .btn {
+            font-size: 11px;
+        }
+    }
+
+    /* =======================================================
+                   1024 - 1279
+        ======================================================= */
+    @@media (min-width: 1024px) and (max-width: 1279px) {
+        .filter-item {
+            grid-template-columns: 75px 140px 160px 180px;
+        }
+
+        .filter-row {
+            gap: 10px;
+        }
+
+        .filter-item label {
+            width: 75px;
+        }
+
+        .filter-item select,
+        .filter-item .select2-container
+        .datepicker-wrapper {
+            width: 140px !important;
+        }
+
+        .datepicker-wrapper {
+            position: relative;
+            width: 180px !important;
+        }
+
+        .input-desc {
+            width: 100% !important;
+        }
+
+        .smart-search {
+            width: 180px;
+        }
+
+        .btn-common-panel .btn {
+            font-size: 10px;
+            padding-left: .5rem;
+            padding-right: .5rem;
+        }
+    }
+
+    /* =======================================================
+                   800 - 1023
+        ======================================================= */
+    @@media (max-width: 1023px) {
+        .filter-row {
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-item {
+            width: 100%;
+        }
+
+            .filter-item label {
+                width: 90px;
+            }
+
+            .filter-item select,
+            .filter-item .select2-container
+            .datepicker-wrapper {
+                width: 180px !important;
+            }
+
+        .input-desc {
+            width: 100% !important;
+        }
+
+        .datepicker-wrapper {
+            position: relative;
+            width: 180px !important;
+        }
+
+        .btn-common-panel {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .smart-search {
+            width: 100%;
+        }
+    }
+
+    /* =======================================================
+                    800
+            ======================================================= */
+    @@media (min-width: 768px) and (max-width: 1023px) {
+        .filter-item {
+            grid-template-columns: 90px 100px !important 100%;
+        }
+
+            .filter-item label {
+                width: 90px;
+            }
+
+            .filter-item select,
+            .filter-item .select2-container
+            .datepicker-wrapper {
+                width: 140px !important;
+            }
+
+        .datepicker-wrapper {
+            position: relative;
+            width: 180px !important;
+        }
+
+        .input-desc {
+            width: 100% !important;
+        }
+    }
+
+    @@media (max-width: 767px) {
+        .filter-item {
+            grid-template-columns: 90px 100px 1fr;
+        }
+
+            .filter-item label {
+                width: 90px;
+            }
+
+            .filter-item select,
+            .filter-item .select2-container
+            .datepicker-wrapper {
+                width: 100px !important;
+            }
+
+        .datepicker-wrapper {
+            position: relative;
+            width: 180px !important;
+        }
+
+        .input-desc {
+            width: 100% !important;
+        }
+    }
         .table > thead {
             vertical-align: bottom;
             line-height: 2;

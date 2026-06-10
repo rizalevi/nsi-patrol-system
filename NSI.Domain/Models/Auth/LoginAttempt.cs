@@ -9,7 +9,7 @@ namespace NSI.Domain.Models.Auth
         public int FailedCount { get; private set; }
         public DateTime? LockedUntil { get; private set; }
         public DateTime? LastAttemptAt { get; private set; }
-        private static readonly TimeSpan MIN_INTERVAL = TimeSpan.FromMinutes(5);
+        private static readonly TimeSpan MIN_INTERVAL = TimeSpan.FromSeconds(2);
 
 
         // ✅ WAJIB untuk Dapper
@@ -41,8 +41,6 @@ namespace NSI.Domain.Models.Auth
 
         public void RegisterFailure(int maxAttempt, TimeSpan lockDuration)
         {
-            EnforceMinInterval();
-
             FailedCount++;
             LastAttemptAt = DateTime.UtcNow;
 
@@ -51,6 +49,19 @@ namespace NSI.Domain.Models.Auth
                 LockedUntil = DateTime.UtcNow.Add(lockDuration);
             }
         }
+
+        //public void RegisterFailure(int maxAttempt, TimeSpan lockDuration)
+        //{
+        //    EnforceMinInterval();
+
+        //    FailedCount++;
+        //    LastAttemptAt = DateTime.UtcNow;
+
+        //    if (FailedCount >= maxAttempt)
+        //    {
+        //        LockedUntil = DateTime.UtcNow.Add(lockDuration);
+        //    }
+        //}
         public void RegisterSuccess()
         {
             FailedCount = 0;
@@ -58,15 +69,17 @@ namespace NSI.Domain.Models.Auth
             LastAttemptAt = DateTime.UtcNow;
         }
 
-        private void EnforceMinInterval()
-        {
-            if (LastAttemptAt.HasValue &&
-                DateTime.UtcNow - LastAttemptAt < MIN_INTERVAL)
-            {
-                throw new InvalidOperationException(
-                    $"Too many attempts in short time. Try again later.");
-            }
-        }
+        //private void EnforceMinInterval()
+        //{
+        //    if (LastAttemptAt.HasValue &&
+        //        DateTime.UtcNow - LastAttemptAt < MIN_INTERVAL)
+        //    {
+        //        throw new InvalidOperationException(
+        //            $"Too many attempts in short time. Try again later.");
+        //    }
+        //}
+
+      
 
         public bool IsLocked()
             => LockedUntil.HasValue && LockedUntil > DateTime.UtcNow;
