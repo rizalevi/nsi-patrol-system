@@ -75,6 +75,8 @@ namespace NSI.Application.Services.Master
         public async Task<IActionResult> Delete([FromBody] MSDevice model)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+            model.IPAddress = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault() ?? HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+
             var result = await _htr.AsyncAsResponseModel<object>(
                 JsonSerializer.Serialize(model),
                 "api/msdevice/remove",

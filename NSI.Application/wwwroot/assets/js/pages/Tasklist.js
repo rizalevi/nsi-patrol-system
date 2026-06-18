@@ -108,42 +108,59 @@ function loadData(filter) {
 
             data: "DocumentNo",width:"180",
             render: function (data, type, row) {
-
                 if (type === "display") {
+
                     let actionUrl = "";
-                    let menuID = "";
-                    // 🔥 KONDISI STATUS
-                    if (row.Status=== "Unapproved") {
-                        actionUrl = "/InspectionDataApproval/Detail";
-                        menuID = "B03"
+
+                    if (row.Status === "Unapproved") {
+                        actionUrl = "/InspectionDataApproval/Task";
                     }
                     else if (row.Status === "Unchecked") {
-                        actionUrl = "/InspectionDataCheck/Detail";
-                        menuID = "B02"
+                        actionUrl = "/InspectionDataCheck/Task";
                     }
                     else {
-                        actionUrl = "/InspectionDataUpload/Detail";
-                        menuID = "B01"
-
+                        actionUrl = "/InspectionDataUpload/Task";
                     }
 
-                    return `
-                                <form method="post" action="${actionUrl}" style="display:inline;">
-                                    <input type="hidden" name="ID" value="${menuID}" />
-                                    <input type="hidden" name="ClusterCode" value="${row.ClusterCode}" />
-                                    <input type="hidden" name="PlantCode" value="${row.PlantCode}" />
-                                    <input type="hidden" name="CourseCode" value="${row.CourseCode}" />
-                                    <input type="hidden" name="GroupCode" value="${row.GroupCode}" />
-                                    <input type="hidden" name="InspectionDate" value="${row.InspectionDate}" />
-                                    <input type="hidden" name="Frequency" value="${row.Frequency}" />
-                                    <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
-                                        ${data}
-                                    </button>
-                                </form>
-                            `;
+                    return ` <a href="${actionUrl}?ID=${encodeURIComponent(row.RedirectKey)}">${data}</a>`;
                 }
 
                 return data;
+                //if (type === "display") {
+                //    let actionUrl = "";
+                //    let menuID = "";
+                //    // 🔥 KONDISI STATUS
+                //    if (row.Status=== "Unapproved") {
+                //        actionUrl = "/InspectionDataApproval/Detail";
+                //        menuID = "B03"
+                //    }
+                //    else if (row.Status === "Unchecked") {
+                //        actionUrl = "/InspectionDataCheck/Detail";
+                //        menuID = "B02"
+                //    }
+                //    else {
+                //        actionUrl = "/InspectionDataUpload/Detail";
+                //        menuID = "B01"
+
+                //    }
+
+                //    return `
+                //                <form method="post" action="${actionUrl}" style="display:inline;">
+                //                    <input type="hidden" name="ID" value="${menuID}" />
+                //                    <input type="hidden" name="ClusterCode" value="${row.ClusterCode}" />
+                //                    <input type="hidden" name="PlantCode" value="${row.PlantCode}" />
+                //                    <input type="hidden" name="CourseCode" value="${row.CourseCode}" />
+                //                    <input type="hidden" name="GroupCode" value="${row.GroupCode}" />
+                //                    <input type="hidden" name="InspectionDate" value="${row.InspectionDate}" />
+                //                    <input type="hidden" name="Frequency" value="${row.Frequency}" />
+                //                    <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
+                //                        ${data}
+                //                    </button>
+                //                </form>
+                //            `;
+                //}
+
+                //return data;
             }
         },
 

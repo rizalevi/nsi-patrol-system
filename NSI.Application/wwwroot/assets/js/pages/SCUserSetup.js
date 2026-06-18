@@ -577,7 +577,7 @@ $(document).on("click", ".btn-delete", function () {
 $(document).on("click", ".btn-setting", function () {
 
     $("#ModalSettings").modal("show");
-    var userID = $(this).attr("data-id");
+    var userID = $(this).attr("data-id").toString();
     var userName = $(this).attr("data-name");
 
     $("#ModalTitle2").html("Settings Course Per User");

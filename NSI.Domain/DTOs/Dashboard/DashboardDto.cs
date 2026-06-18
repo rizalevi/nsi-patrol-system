@@ -32,6 +32,7 @@ namespace NSI.Domain.DTOs.Dashboard
         public string? Frequency { get; set; }
         public string? InspectorUser { get; set; }
         public string? Status { get; set; }
+        public Guid RedirectKey { get; set; }
     }
 
     public class TopPlantAbnormalDto
@@ -67,7 +68,7 @@ namespace NSI.Domain.DTOs.Dashboard
         public string? Progress { get; set; }
 
         public int? Problem { get; set; }
-        public int? Overdue { get; set; }
+        public string? Overdue { get; set; }
         public string? Status { get; set; }
     }
 
@@ -92,9 +93,9 @@ namespace NSI.Domain.DTOs.Dashboard
         public string? GroupName { get; set; }
         public string? Frequency { get; set; }
         public string? InspectionPoint { get; set; }
-        public decimal? Min { get; set; }
-        public decimal? Max { get; set; }
-        public decimal? InspectionResult { get; set; }
+        public string? Min { get; set; }
+        public string? Max { get; set; }
+        public string? InspectionResult { get; set; }
     }
 
 }

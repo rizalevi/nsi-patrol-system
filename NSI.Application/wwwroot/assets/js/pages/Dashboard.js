@@ -330,43 +330,62 @@ function renderProgressInspectionDetails(sType) {
 
                     data: "DocumentNo", width: "150",
                     render: function (data, type, row) {
-                        debugger
+                        
                         if (sType == "remaining") {
                             if (type === "display") {
 
                                 let actionUrl = "";
-                                let menuID = "";
-                                // 🔥 KONDISI STATUS
-                                if (row.Status.toUpperCase() === "APPROVED" || row.Status.toUpperCase() === "UNAPPROVED") {
-                                    actionUrl = "/InspectionDataApproval/Detail";
-                                    menuID = "B03"
+
+                                if (row.Status === "Unapproved") {
+                                    actionUrl = "/InspectionDataApproval/Task";
                                 }
-
-                                else if (row.Status.toUpperCase() === "CHECKED" || row.Status.toUpperCase() === "UNCHECKED") {
-
-                                    actionUrl = "/InspectionDataCheck/Detail";
-                                    menuID = "B02"
+                                else if (row.Status === "Unchecked") {
+                                    actionUrl = "/InspectionDataCheck/Task";
                                 }
                                 else {
-                                    actionUrl = "/InspectionDataUpload/Detail";
-                                    menuID = "B01"
+                                    actionUrl = "/InspectionDataUpload/Task";
                                 }
 
-                                return `
-                                    <form method="post" action="${actionUrl}" style="display:inline;">
-                                        <input type="hidden" name="ID" value="${menuID}" />
-                                        <input type="hidden" name="ClusterCode" value="${row.ClusterCode}" />
-                                        <input type="hidden" name="PlantCode" value="${row.PlantCode}" />
-                                        <input type="hidden" name="CourseCode" value="${row.CourseCode}" />
-                                        <input type="hidden" name="GroupCode" value="${row.GroupCode}" />
-                                        <input type="hidden" name="InspectionDate" value="${row.InspectionDate}" />
-                                        <input type="hidden" name="Frequency" value="${row.Frequency}" />
-                                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
-                                            ${data}
-                                        </button>
-                                    </form>
-                                `;
+                                return ` <a href="${actionUrl}?ID=${encodeURIComponent(row.RedirectKey)}">${data}</a>`;
                             }
+
+                            return data;
+
+                            //if (type === "display") {
+
+                            //    let actionUrl = "";
+                            //    let menuID = "";
+                            //    // 🔥 KONDISI STATUS
+                            //    if (row.Status.toUpperCase() === "APPROVED" || row.Status.toUpperCase() === "UNAPPROVED") {
+                            //        actionUrl = "/InspectionDataApproval/Detail";
+                            //        menuID = "B03"
+                            //    }
+
+                            //    else if (row.Status.toUpperCase() === "CHECKED" || row.Status.toUpperCase() === "UNCHECKED") {
+
+                            //        actionUrl = "/InspectionDataCheck/Detail";
+                            //        menuID = "B02"
+                            //    }
+                            //    else {
+                            //        actionUrl = "/InspectionDataUpload/Detail";
+                            //        menuID = "B01"
+                            //    }
+
+                            //    return `
+                            //        <form method="post" action="${actionUrl}" style="display:inline;">
+                            //            <input type="hidden" name="ID" value="${menuID}" />
+                            //            <input type="hidden" name="ClusterCode" value="${row.ClusterCode}" />
+                            //            <input type="hidden" name="PlantCode" value="${row.PlantCode}" />
+                            //            <input type="hidden" name="CourseCode" value="${row.CourseCode}" />
+                            //            <input type="hidden" name="GroupCode" value="${row.GroupCode}" />
+                            //            <input type="hidden" name="InspectionDate" value="${row.InspectionDate}" />
+                            //            <input type="hidden" name="Frequency" value="${row.Frequency}" />
+                            //            <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
+                            //                ${data}
+                            //            </button>
+                            //        </form>
+                            //    `;
+                            //}
 
                         } else {
                             return `${data}`;
@@ -459,7 +478,7 @@ function renderRealtimeShift(shifts) {
                         ${s.Problem ?? 0}
                     </a>
                 </td>
-                <td style="text-align:center;">${s.Overdue ?? 0}</td>
+                <td style="text-align:center;">${s.Overdue ?? ''}</td>
                 <td style="text-align:center;">${s.Status ?? '-'}</td>
             </tr>`;
     });
@@ -1149,6 +1168,14 @@ function renderTopEquipmentGroupTrouble(items) {
 // ===============================
 // DETAIL ABNORMAL REALTIME SHIFT DATATABLE
 // ===============================
+$('#modalRealtimeshiftDetailAbnormal').on('shown.bs.modal', function () {
+
+    let tableDet = $('#tableAbnormalDet').DataTable();
+
+    tableDet.columns.adjust().draw();
+
+});
+
 function renderRealtimeShiftAbnormalDetails() {
     $("#tableAbnormalDet").DataTable({
         destroy: true,
@@ -1166,29 +1193,29 @@ function renderRealtimeShiftAbnormalDetails() {
 
         columns: [
             {
-                data: null, className: "v-align", "autoWidth": false, width: "50", className: "text-center",
+                data: null, className: "v-align", "autoWidth": false,  className: "text-center",
                 render: function (data, type, row, meta) {
                     return meta.row + 1;
                 }
             },
-            { data: "InspectorUser", "autoWidth": false, width: "130", },
+            { data: "InspectorUser", "autoWidth": false },
             {
-                data: "InspectionDate", class: "text-center", width: "120", "autoWidth": false, render: function (data) {
+                data: "InspectionDate", class: "text-center",  "autoWidth": false, render: function (data) {
 
                     if (!data || data === "0001-01-01T00:00:00") return "";
                     return formatDate(data);
 
                 },
             },
-            { data: "CourseName", "autoWidth": false, width: "350", },
-            { data: "GroupName", "autoWidth": false, width: "170", },
-            { data: "Frequency", "autoWidth": false, width: "120", },
-            { data: "InspectionPoint", "autoWidth": false, width: "200", },
-            { data: "InspectionNo", "autoWidth": false, width: "200", },
+            /*{ data: "CourseName", "autoWidth": false, width: "350", },*/
+            { data: "GroupName", "autoWidth": false, },
+           /* { data: "Frequency", "autoWidth": false, width: "120", },*/
+            { data: "InspectionPoint", "autoWidth": false,  },
+            { data: "InspectionNo", "autoWidth": false, },
 
-            { data: "Min", "autoWidth": false, width: "80" },
-            { data: "Max", "autoWidth": false, width: "80" },
-            { data: "InspectionResult", "autoWidth": false, width: "120" },
+            { data: "Min", "autoWidth": false },
+            { data: "Max", "autoWidth": false },
+            { data: "InspectionResult", "autoWidth": false},
 
            
         ],

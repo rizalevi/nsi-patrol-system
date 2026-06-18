@@ -9,5 +9,6 @@
         public DateTime Last_Update { get; set; }
         public string? Last_User { get; set; }
         public string? Status { get; set; }
+        public string? IPAddress { get; set; } = "";
     }
 }

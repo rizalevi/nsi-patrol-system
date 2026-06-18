@@ -73,10 +73,10 @@ namespace NSI.Api.Controllers.Master
             }
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            string? clientIp = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault() ?? HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+            //string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
 
             // Panggil _service
-            await _repo.Remove(payload.UnitCode, userId, clientIp);
+            await _repo.Remove(payload.UnitCode, userId, payload.IPAddress??"");
 
             return Success(null, "Data deleted successfully");
         }

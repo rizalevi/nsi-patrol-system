@@ -1,7 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NSI.Api.Auth;
+using NSI.Domain.DTOs;
+using NSI.Domain.DTOs.Email;
 using NSI.Domain.Interfaces;
 using NSI.Domain.Models.Auth;
+using NSI.Domain.Models.Master;
+
 //using NSI.Domain.Services;
 using NSI.Infra.Helpers;
 using NSI.Infra.Services;
@@ -38,17 +43,8 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<ApiResponse<object>> Login([FromBody] Login request)
     {
-        string? clientIp = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault() ?? HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
-
-        //var remoteIp = HttpContext.Connection.RemoteIpAddress?.ToString();
-
-        var forwarded =
-            Request.Headers["X-Forwarded-For"].FirstOrDefault();
-
-        var realIp =
-            Request.Headers["X-Real-IP"].FirstOrDefault();
-
-
+        //string? clientIp = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault() ?? HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+        string? clientIp = request.IPAddress ?? "";  //HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
 
         string userAgent = HttpContext?.Request?.Headers?.UserAgent.ToString() ?? "";
 
@@ -165,6 +161,58 @@ public class AuthController : ControllerBase
         //});
     }
 
+    [AllowAnonymous]
+    [HttpPost("email-login")]
+    public async Task<ApiResponse<object>> EmailLogin(
+    [FromBody] EmailLoginDto request)
+    {
+        var link = await _authRepository.GetByTokenAsync(request.Token,"0");
+
+        if (link == null)
+        {
+            return new ApiResponse<object>
+            {
+                Status = false,
+                Message = "Invalid token"
+            };
+        }
+
+        if (!link.IsValid)
+        {
+            return new ApiResponse<object>
+            {
+                Status = false,
+                Message = "Link expired"
+            };
+        }
+
+        var user = await _authRepository.GetByUserIdAsync(link.UserID);
+
+        var jwtToken =
+            _jwtService.GenerateToken(
+                link.UserID,
+                out DateTime expiredAt);
+
+        await _authRepository.MarkEmailLinkVisitedAsync(request.Token);
+
+        return new ApiResponse<object>
+        {
+            Status = true,
+            Message = "OK",
+            Data = new AuthModel
+            {
+                UserId = link.UserID,
+                UserName = user.UserName,
+                Email = user.Email,
+                PicturePath = user.PicturePath,
+                AccessToken = jwtToken,
+                ExpiredAt = expiredAt,
+                //link url from email
+                RedirectAction = link.RedirectAction,
+                Payload = link.Payload
+            }
+        };
+    }
 
 
     // =====================
@@ -260,6 +308,58 @@ public class AuthController : ControllerBase
 
 
         //return Ok(new { message = "Logged out" });
+    }
+
+
+    //buat email link redirect menu transaction
+
+    //[HttpPost("get-token-email")]
+    //public async Task<ApiResponse<object>> GetByTokenAsync([FromBody] Guid token)
+    //{
+    //    var result = await _authRepository.GetByTokenAsync(token);
+    //    return new ApiResponse<object>
+    //    {
+    //        Status = true,
+    //        Message = "OK",
+    //        Data = new AuthModel
+    //        {
+    //            Payload = result.Payload
+    //        }
+    //    };
+
+
+    //}
+
+    [HttpPost("redirect-key")]
+    public async Task<ApiResponse<EmailLoginInfoDto>>GetByTokenAsync([FromBody] RedirectKeyRequest request)
+    {
+        var result =
+            await _authRepository.GetByTokenAsync(request.Token, request.Type);
+
+        return new ApiResponse<EmailLoginInfoDto>
+        {
+            Status = true,
+            Message = "OK",
+            Data = result
+        };
+    }
+
+    [AllowAnonymous]
+    [HttpGet("ipaddress")]
+    public IActionResult MyIp()
+    {
+        return Ok(new
+        {
+
+            RemoteIp =
+                HttpContext.Connection.RemoteIpAddress?.ToString(),
+
+            XForwardedFor =
+                Request.Headers["X-Forwarded-For"].ToString(),
+
+            XRealIp =
+                Request.Headers["X-Real-IP"].ToString()
+        });
     }
 
 }

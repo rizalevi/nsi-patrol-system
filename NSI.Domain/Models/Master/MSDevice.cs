@@ -10,15 +10,16 @@ namespace NSI.Domain.Models.Master
         public string? Description { get; set; }
         public string? PlantCode { get; set; }
         public string? SerialNo { get; set; }
-       
+        public string? IPAddress { get; set; } = "";
+
     }
     public class MSDeviceDetail
     {
         public string? DeviceCode { get; set; }
         public string? PlantCode { get; set; }
         public string? CourseCode { get; set; }
-        
-      
+        public bool IsChecked { get; set; }
+
     }
 
     public class MSDeviceBatch

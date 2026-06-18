@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NSI.Application.Extensions;
 using NSI.Domain.DTOs.Master;
+using NSI.Domain.Models.Master;
 using NSI.Infra.Helpers;
 using System.Security.Claims;
 using System.Text.Json;
@@ -69,9 +70,11 @@ namespace NSI.Application.Services.Master
 
         //delete
         [Authorize, HttpPost, Route("delete")]
-        public async Task<IActionResult> Delete([FromBody] MSShiftDto model)
+        public async Task<IActionResult> Delete([FromBody] MSShift model)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+        
+            model.IPAddress = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault() ?? HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+
             var result = await _htr.AsyncAsResponseModel<object>(
                 JsonSerializer.Serialize(model),
                 "api/msshift/remove",

@@ -190,13 +190,24 @@ $(document).on("change", "#CourseCode", function () {
 //group
 $(document).on("change", "#GroupCode", function () {
 
+   
     let desc = $("#GroupCode option:selected").data("desc");
     $("#GroupName").val((desc || "").trim());
     if (!isRedirect) {
         clearTable()
+    } else {
+        $('.btn-search').first().trigger('click');
     }
 
 });
+
+$(document).on("change", "#Frequency", function () {
+   
+    $('.btn-search').first().trigger('click');
+    clearTable()
+});
+
+
 
 ////group
 //$(document).on("changed.bs.select", "#GroupCode", function () {
@@ -220,6 +231,7 @@ $(document).on("change", "#GroupCode", function () {
 //    }
 //});
 $(document).on("click", ".btn-search", function () {
+    
     if (!validateData()) return;
 
     table.ajax.reload(null, false);
@@ -242,7 +254,7 @@ $(document).on("click", ".btn-clear", function () {
 
     $("#InspectionDateFrom").datepicker('setDate', firstDay);
     $("#InspectionDateTo").datepicker('setDate', today);
-
+    $("#modalRemarksContent").val('');
     clearTable();
 
 });
@@ -376,20 +388,21 @@ $(document).on("click", ".btn-approve", function () {
 
 });
 
+//unused
 // View Leader Remarks Modal
-$(document).on("click", "#btnViewRemarks", function () {
-    let remarksText = $("#txtRemarks").val();
+//$(document).on("click", "#btnViewRemarks", function () {
+//    let remarksText = $("#txtRemarks").val();
 
-    // Cek apakah ada remarks atau tidak
-    if (!remarksText || remarksText.trim() === "") {
-        toastr.info("No remarks available from the leader.", "Info", { timeOut: 3000, "closeButton": true });
-        return;
-    }
+//    // Cek apakah ada remarks atau tidak
+//    if (!remarksText || remarksText.trim() === "") {
+//        toastr.info("No remarks available from the leader.", "Info", { timeOut: 3000, "closeButton": true });
+//        return;
+//    }
      
-    $("#modalRemarksContent").val(remarksText);
+//    $("#modalRemarksContent").val(remarksText);
      
-    $("#RemarksModal").modal("show");
-});
+//    $("#RemarksModal").modal("show");
+//});
 
 $(document).on('dblclick', '#tableID tbody tr', function () {
 
@@ -498,6 +511,8 @@ function init() {
                 $("#Frequency").prop("disabled", false).trigger('change.select2');
 
             }
+            
+
         }
     });
 
@@ -582,10 +597,11 @@ function init() {
             if (data.Status && data.Status.toLowerCase() === "abnormal") {
                 $(row).addClass("text-abnormal");
             }
-
-            $(row).off('click').on('click', function () {
-                checkRemarks(data);
-            });
+           
+            //checkRemarks(data);
+            //$(row).off('click').on('click', function () {
+            //    checkRemarks(data);
+            //});
         },
         columns: [
             //{
@@ -689,11 +705,10 @@ function init() {
                 }
                 
                 if (data.length > 0) {
-                    let firstRow = data[0];
-                    checkRemarks(firstRow);
-                    checkLastStatus(firstRow, "");
+                    $("#modalRemarksContent").val(data[0].Remarks_SendBack);
+                    checkLastStatus(data[0], "");
                 } else {
-                    $("#txtRemarks").val("");
+                    $("#modalRemarksContent").val('');
                     $("#divstatus").hide();
                 }
 
@@ -944,12 +959,13 @@ function checkRemarks(rowData) {
         dataType: "json",
         xhrFields: { withCredentials: true },
         success: function (result) {
+            
             let note = "";
             if (result.status && result.data && result.data.length > 0) {
                 note = result.data[0].Leader_SendBack || "";
             }
-            $("#txtRemarks").val(note);
-             
+            //$("#txtRemarks").val(note);
+            $("#modalRemarksContent").val(note);
 
             //if (note !== "") {
             //    $("#btnViewRemarks").removeClass("btn-info").addClass("btn-danger"); // Tombol jadi merah jika ada remarks/send back

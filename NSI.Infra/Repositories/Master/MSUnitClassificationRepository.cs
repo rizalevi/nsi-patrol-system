@@ -72,7 +72,8 @@ namespace NSI.Infra.Repositories.Master
             await _dbExecutor.ExecuteAsync(sql, new
             {
                 Unit_Code = unitCode,
-                UserID = userId
+                UserID = userId,
+                IPAddress=ipAddress
             });
         }
     }

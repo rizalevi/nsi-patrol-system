@@ -88,10 +88,12 @@ namespace NSI.Api.Controllers
         public async Task<IActionResult> Remove([FromBody] MSCluster payload)
         {
             //var before = await _addressRepository.Capture(id);
-            string? clientIp = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault() ?? HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+            //string? clientIp = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault() ?? HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+            //string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
             
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _service.Remove(payload.ClusterCode, userId, clientIp);
+            
+            await _service.Remove(payload.ClusterCode, userId, payload.IPAddress);
             //await _logger.SaveDataLog(new DataLogDto
             //{
             //    DocumentType = "Master Address",

@@ -74,6 +74,7 @@ namespace NSI.Application.Services.Master
         public async Task<IActionResult> Remove([FromBody] MSCourse payload)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+            payload.IPAddress = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault() ?? HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
             var result = await _htr.AsyncAsResponseModel<object>(
                 JsonSerializer.Serialize(payload),
                 "api/mscourse/remove",

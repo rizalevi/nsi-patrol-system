@@ -29,6 +29,8 @@ namespace NSI.Domain.DTOs.Inspection
         public DateTime? Register_Date { get; set; }
         public string? Register_User { get; set; }
         public DateTime? Last_Update { get; set; }
-        public string? Last_User { get; set; } 
+        public string? Last_User { get; set; }
+        //send back remarks
+        public string? Remarks_SendBack { get; set; }
     }
 }

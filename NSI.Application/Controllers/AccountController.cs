@@ -7,7 +7,7 @@ using NSI.Infra.Helpers;
 using System.Text.Json;
 //using NSI.Domain.Services;
 using Microsoft.AspNetCore.Authorization;
-using NSI.Domain.Models.Security;
+
 
 namespace NSI.Application.Controllers
 {
@@ -47,11 +47,12 @@ namespace NSI.Application.Controllers
             var result = new ApiResponse<object>();
             try
             {
+                model.IPAddress = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault()?? HttpContext.Connection.RemoteIpAddress?.ToString()?? "";
+
                 result = await _htr.AsyncAsResponseModel<object>(
                     JsonSerializer.Serialize(model),
                     "/api/auth/login",
                     method
-
                 );
 
                 if (!result.Status)
@@ -174,6 +175,227 @@ namespace NSI.Application.Controllers
             }
         }
 
+
+        //email 
+        [AllowAnonymous]
+        [HttpGet]
+        public async Task<IActionResult> EmailLogin(Guid token)
+        {
+                      
+            var result = await _htr.AsyncAsResponseModel<object>(
+            JsonSerializer.Serialize(new
+            {
+                Token = token
+            }),
+            "/api/auth/email-login",
+            HttpMethod.Post);
+
+            //if (!result.Status)
+            //{
+            //    return RedirectToAction("Login");
+            //}
+
+            var jsonElement = (JsonElement)result.Data;
+
+            var data =
+                JsonSerializer.Deserialize<AuthModel>(
+                    jsonElement.GetRawText(),
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+
+            if (data == null)
+            {
+                return RedirectToAction("Login");
+
+            }
+            else
+            {
+                Response.Headers.Remove("Cookie");
+                Response.Cookies.Delete(_config["AppSettings:ApplicationID"] + "AccessToken");
+
+            }
+
+            var claims = new List<Claim>
+            {
+                new Claim(
+                    ClaimTypes.NameIdentifier,  data.UserId),
+
+                new Claim(
+                    ClaimTypes.Name, data.UserName),
+
+                new Claim(
+                    "PicturePath",
+                    data.PicturePath ?? "")
+            };
+
+            var identity =
+                new ClaimsIdentity(
+                    claims,
+                    CookieAuthenticationDefaults.AuthenticationScheme);
+
+            var principal =
+                new ClaimsPrincipal(identity);
+
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                principal,
+                new AuthenticationProperties
+                {
+                    IsPersistent = true,
+                    ExpiresUtc = data.ExpiredAt
+                });
+
+            Response.Cookies.Append(
+                _config["AppSettings:ApplicationID"] + "AccessToken",
+                data.AccessToken,
+                new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = isHttpSecure,
+                    Expires = data.ExpiredAt,
+                    SameSite = isHttpSecure
+                        ? SameSiteMode.None
+                        : SameSiteMode.Lax
+                });
+
+            var Redirect = data.RedirectAction;
+
+            TempData["RedirectController"] = string.IsNullOrWhiteSpace(data.RedirectAction) ? "Home" : data.RedirectAction;
+            TempData["Token"] = token.ToString();
+
+            return RedirectToAction("EmailRedirect");
+            //return RedirectToAction(
+            //    (data.RedirectAction!="") ?"Email": "Index",
+            //    data.RedirectAction??"Home",
+            //    new { token = token }
+            //);
+
+        }
+
+
+        [AllowAnonymous]
+        [HttpGet]
+        public IActionResult EmailRedirect()
+        {
+            var controller = TempData["RedirectController"]?.ToString();
+            var token = TempData["Token"]?.ToString();
+
+            if (string.IsNullOrWhiteSpace(controller) ||
+                string.IsNullOrWhiteSpace(token))
+            {
+                return RedirectToAction("Login");
+            }
+
+            ViewBag.RedirectController = controller;
+            ViewBag.Token = token;
+
+            return View();
+        }
+
+        //HttpMethod method = HttpMethod.Post;
+
+        //var result = new ApiResponse<object>();
+
+        //try
+        //{   
+        //    result = await _htr.AsyncAsResponseModel<object>(
+        //        JsonSerializer.Serialize(
+        //            new EmailLoginDto
+        //            {
+        //                Token = token
+        //            }),
+        //        "/api/auth/email-login",
+        //        method
+        //    );
+
+        //    if (!result.Status)
+        //    {
+        //        return RedirectToAction("Login", "Account");
+        //    }
+
+        //    var jsonElement = (JsonElement)result.Data;
+        //    var rawJson = jsonElement.GetRawText();
+
+        //    var data = JsonSerializer.Deserialize<AuthModel>(
+        //        rawJson,
+        //        new JsonSerializerOptions
+        //        {
+        //            PropertyNameCaseInsensitive = true
+        //        });
+
+        //    if (data == null)
+        //    {
+        //        return RedirectToAction("Login", "Account");
+        //    }
+
+        //    // ============================
+        //    // SET AUTH COOKIE MVC
+        //    // ============================
+
+        //    var claims = new List<Claim>
+        //    {
+        //        new Claim(
+        //            ClaimTypes.NameIdentifier,
+        //            data.UserId ?? ""),
+
+        //        new Claim(
+        //            ClaimTypes.Name,
+        //            data.UserName ?? ""),
+
+        //        new Claim(
+        //            "PicturePath",
+        //            data.PicturePath ?? "")
+        //    };
+
+        //    var identity = new ClaimsIdentity(
+        //        claims,
+        //        CookieAuthenticationDefaults.AuthenticationScheme
+        //    );
+
+        //    var principal = new ClaimsPrincipal(identity);
+
+        //    await HttpContext.SignInAsync(
+        //        CookieAuthenticationDefaults.AuthenticationScheme,
+        //        principal,
+        //        new AuthenticationProperties
+        //        {
+        //            IsPersistent = true,
+        //            ExpiresUtc = data.ExpiredAt
+        //        }
+        //    );
+
+        //    Response.Cookies.Append(
+        //        _config["AppSettings:ApplicationID"] + "AccessToken",
+        //        data.AccessToken,
+        //        new CookieOptions
+        //        {
+        //            HttpOnly = true,
+        //            Secure = isHttpSecure,
+        //            Expires = data.ExpiredAt,
+        //            SameSite = isHttpSecure
+        //                ? SameSiteMode.None
+        //                : SameSiteMode.Lax
+        //        });
+
+
+        //    // ==================================================
+        //    // Redirect ke halaman yang disimpan di SendEmail_Url
+        //    // ==================================================
+
+        //    if (!string.IsNullOrWhiteSpace(data.RedirectUrl))
+        //    {
+        //        return Redirect(data.RedirectUrl);
+        //    }
+
+        //    return RedirectToAction("Index","Home");
+        //}
+        //catch
+        //{
+        //    return RedirectToAction("Login", "Account");
+        //}
+        //}
 
 
     }

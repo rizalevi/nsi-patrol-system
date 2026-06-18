@@ -10,6 +10,7 @@ namespace NSI.Domain.Models.Auth
         //public string? Email { get; set; }  
         //public string? PicturePath { get; set; }
         public string? ErrorMessage { get; set; }
+        public string? IPAddress { get; set; }
     }
 
     public class LoginResponse

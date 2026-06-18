@@ -18,5 +18,9 @@ namespace NSI.Domain.Models.Auth
         public string Locked { get; set; } = "";
         public string GroupUser { get; set; } = "";
         public string? PicturePath { get; set; }
+       
+        public string? RedirectAction { get; set; }//hanya untuk jika user klik url dari email
+
+        public string? Payload { get; set; }//hanya untuk jika user klik url dari email
     }
 }

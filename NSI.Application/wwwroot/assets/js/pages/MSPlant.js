@@ -68,7 +68,7 @@ $(document).on("click", ".btn-clear", function () {
 //POPUP MODAL GET DATA
 $(document).on("click", ".btn-edit", function () {
 
-    var code = $(this).data("id");
+    var code = $(this).data("id").toString();
 
     $.ajax({
         //url: BaseUrl + "service/msplant/detail",
@@ -199,8 +199,8 @@ $(document).on("click", "#UpdateData", function () {
 $(document).on("click", ".btn-delete", function () {
 
     let data = $(this).data("id").split("|");
-    let plantCode = data[0];
-    let clusterCode = data[1];
+    let plantCode = data[0].toString();;
+    let clusterCode = data[1].toString();;
 
     Swal.fire({
         title: 'Are you sure?',

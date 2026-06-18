@@ -58,11 +58,12 @@ namespace NSI.Api.Controllers.Master
         [HttpPost("remove")]
         public async Task<IActionResult> Remove([FromBody] MSCourse payload)
         {
-            string clientIp = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault()
-                              ?? HttpContext.Connection.RemoteIpAddress?.ToString()
-                              ?? string.Empty;
+            //string clientIp = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault()
+            //                  ?? HttpContext.Connection.RemoteIpAddress?.ToString()
+            //                  ?? string.Empty;
+           // string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
 
-            await service.RemoveAsync(payload.ClusterCode, payload.PlantCode, payload.CourseCode, CurrentUserId, clientIp);
+            await service.RemoveAsync(payload.ClusterCode, payload.PlantCode, payload.CourseCode, CurrentUserId, payload.IPAddress);
             return Success(null, "Data deleted successfully");
         }
 

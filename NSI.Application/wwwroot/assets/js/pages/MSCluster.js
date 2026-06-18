@@ -118,7 +118,7 @@ $(document).on("click", ".btn-addnew", function () {
 //POPUP MODAL GET DATA
 $(document).on("click", ".btn-edit", function () {
 
-    var code = $(this).data("id");
+    var code = $(this).data("id").toString();
 
     $.ajax({
         //url: BaseUrl + "service/mscluster/detail",
@@ -238,7 +238,7 @@ $(document).on("click", "#UpdateData", function () {
 // DELETE
 $(document).on("click", ".btn-delete", function () {
 
-    var id = $(this).data("id");
+    var id = $(this).data("id").toString();
 
     Swal.fire({
         title: 'Are you sure?',

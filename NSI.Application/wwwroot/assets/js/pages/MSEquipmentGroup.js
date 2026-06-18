@@ -153,7 +153,7 @@ function AddNewData() {
 }
 
 $(document).on("click", ".btn-edit", function () {
-    var code = $(this).data("id");
+    var code = $(this).data("id").toString();
 
     $.ajax({
         url: BaseUrl + "service/msEquipmentgroup/detail",
@@ -243,8 +243,8 @@ $(document).on("click", "#UpdateData", function () {
 
 // DELETE
 $(document).on("click", ".btn-delete", function () {
-    let groupCode = $(this).data("group");
-    let courseCode = $(this).data("course");
+    let groupCode = $(this).data("group").toString();
+    let courseCode = $(this).data("course").toString();
 
     Swal.fire({
         title: 'Are you sure?',

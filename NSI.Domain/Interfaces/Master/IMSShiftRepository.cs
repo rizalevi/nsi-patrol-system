@@ -9,6 +9,6 @@ namespace NSI.Domain.Interfaces.Master
         Task<MSShiftDto> GetData(string shiftCls); 
         Task Create(MSShiftDto model, string userId);
         Task Update(MSShiftDto payload, string userId);
-        Task Remove(string shiftCls, string userId);
+        Task Remove(string shiftCls, string userId, string ipAddress);
     }
 }

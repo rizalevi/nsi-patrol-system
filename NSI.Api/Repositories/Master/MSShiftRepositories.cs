@@ -75,9 +75,9 @@ namespace NSI.Api.Services.Master
             await _repo.Update(entity, userId);
         }
 
-        public async Task Remove(string shiftCls, string userID)
+        public async Task Remove(string shiftCls, string userID, string ipAddress)
         {
-            await _repo.Remove(shiftCls, userID);
+            await _repo.Remove(shiftCls, userID,ipAddress);
         }
     }
 }

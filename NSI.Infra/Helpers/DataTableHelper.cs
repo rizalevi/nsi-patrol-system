@@ -43,10 +43,11 @@ namespace NSI.Infra.Helpers
             dt.Columns.Add("@DeviceCode", typeof(string));
             dt.Columns.Add("@PlantCode", typeof(string));
             dt.Columns.Add("@CourseCode", typeof(string));
+            dt.Columns.Add("@IsChecked", typeof(bool));
 
             foreach (var item in list)
             {
-                dt.Rows.Add(item.DeviceCode, item.PlantCode, item.CourseCode);
+                dt.Rows.Add(item.DeviceCode, item.PlantCode, item.CourseCode , item.IsChecked);
             }
 
             return dt;

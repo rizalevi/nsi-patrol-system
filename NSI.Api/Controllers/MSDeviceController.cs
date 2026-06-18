@@ -58,11 +58,10 @@ namespace NSI.Api.Controllers
         [HttpPost("remove")]
         public async Task<IActionResult> Remove([FromBody] MSDevice payload)
         {
-            string? clientIp = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault()
-                ?? HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+            //string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _repo.Remove(payload.DeviceCode, userId, clientIp);
+            await _repo.Remove(payload.DeviceCode, userId, payload.IPAddress??"");
 
             return Success(null, "Data deleted successfully");
         }

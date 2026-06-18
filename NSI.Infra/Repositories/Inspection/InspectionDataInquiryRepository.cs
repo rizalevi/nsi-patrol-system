@@ -65,7 +65,8 @@ namespace NSI.Infra.Repositories.Inspection
                         CourseCode = model.CourseCode,
                         InspectionDate = model.InspectionDateFrom
                     },
-                    CommandType.StoredProcedure 
+                    CommandType.StoredProcedure
+                    
                 );
 
                 return result.ToList();

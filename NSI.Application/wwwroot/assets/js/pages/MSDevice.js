@@ -5,6 +5,9 @@ let statusAdmin = window.userPermission?.statusAdmin;
 
 var tableDetail;
 
+// simpan pilihan user
+let originalData = {};
+let changedData = {};
 
 //setInterval(
 //    waitingDialog.show("Please wait retrieving data...")
@@ -48,9 +51,9 @@ $(document).on("change", "#CodeSettings", function () {
 
     let code = $("#CodeSettings").val();
     var plantCode = $("#PlantCodeSettings").val();  
-    if (code && plantCode) {
+   /* if (code && plantCode) {*/
         loadDetailTable(code, plantCode);
-    }
+    
 });
 
 //ONCHANGE PLANT SETTINGS
@@ -61,7 +64,7 @@ $(document).on("change", "#PlantCodeSettings", function () {
     let code = $("#PlantCodeSettings").val();
     var htCode = $("#CodeSettings").val();
 
-    if (htCode && code) {
+    if (htCode != "" && code !="") {
         loadDetailTable(htCode, code);
     }
 });
@@ -73,7 +76,7 @@ $(document).on("click", ".btn-edit", function () {
 
     $("#MyModal").modal("show");
     // var code = $(this).data("id");
-    var code = $(this).attr("data-id");
+    var code = $(this).attr("data-id").toString();
     $.ajax({
         url: BaseUrl + "service/msdevice/detail",
         type: "POST",
@@ -123,9 +126,9 @@ $(document).on("click", ".btn-settings", function () {
 
     // var ht    = $(this).data("ht");
     // var plant = $(this).data("plant");
-    var ht = $(this).attr("data-ht");
-    var plant = $(this).attr("data-plant");
-  
+    var ht = $(this).attr("data-ht").toString();
+    var plant = $(this).attr("data-plant").toString();
+   
     //$("#ModalTitle").html("Detail Settings");
   
     populateDDL({
@@ -148,9 +151,12 @@ $(document).on("click", ".btn-settings", function () {
         width: "150px",
         selectedValue: plant,
         callback: function () {
-                $("#PlantCodeSettings").trigger('change');
+            $("#PlantCodeSettings").trigger('change');
+            loadDetailTable(ht, plant);
         }
     });
+
+
 
 });
 $('#ModalDeviceDetail').on('shown.bs.modal', function () {
@@ -284,7 +290,7 @@ $(document).on("click", "#UpdateData", function () {
 $(document).on("click", ".btn-delete", function () {
 
     // var HTCode = $(this).data("id"); 
-    var Code = $(this).attr("data-id");
+    var Code = $(this).attr("data-id").toString();
 
     if (!Code) {
         toastr.warning('No data to delete.', 'Warning', { timeOut: 3000, "closeButton": true });
@@ -333,63 +339,127 @@ $(document).on("click", ".btn-delete", function () {
 
 }); 
 
+
+$(document).on("change", ".chk-detail", function () {
+    let row = $(this).closest("tr");
+    let data = $('#tableDetail')
+        .DataTable()
+        .row(row)
+        .data();
+
+    let courseCode = data.CourseCode;
+    let currentValue = $(this).is(":checked");
+    let originalValue = originalData[courseCode] ?? false;
+
+    if (currentValue === originalValue) {
+        delete changedData[courseCode];
+    } else {
+        changedData[courseCode] = {
+            DeviceCode: $("#CodeSettings").val(),
+            PlantCode: $("#PlantCodeSettings").val(),
+            CourseCode: courseCode,
+            IsChecked: currentValue
+        };
+    }
+
+});
+
 //SUBMIT DETAIL SETTING BATCH
 $(document).on("click", ".btn-submitdetail", function () {
-    //let tableIDList = $('#tableDetail').DataTable();
-    let listData = [];
+    let listData = Object.values(changedData);
 
-    $('#tableDetail').DataTable().rows().every(function () {
-        let row = this.node();
-        let data = this.data();
-
-        let IsCheck = $(row).find('.chk-detail').is(':checked');
-
-        // 🔥 hanya push kalau ada yg dicentang
-        if (IsCheck) {
-            listData.push({
-                DeviceCode: $("#CodeSettings").val(),
-                PlantCode: $("#PlantCodeSettings").val(),
-                CourseCode: data.CourseCode
-            });
-        }
-    });
-
-    // 🔥 VALIDASI: tidak ada yg dicentang
     if (listData.length === 0) {
-        toastr.info("Please select data to submit data");
+        toastr.info("No change data detected!", "Info", { timeOut: 3000, "closeButton": true });
         return;
     }
 
-    // 🔥 final model
     let model = {
         SubmitBatch: listData
     };
-
 
     $.ajax({
         type: "POST",
         url: buildServiceUrl("service/msdevice/submit-batch"),
         data: JSON.stringify(model),
-        contentType: "application/json; charset=utf-8",
+        contentType: "application/json",
         dataType: "json",
         xhrFields: {
             withCredentials: true
         },
-        data: JSON.stringify(model),
         success: function (result) {
-
             if (!result.success) {
-                toastr.warning(result.message, 'Warning', { timeOut: 3000, "closeButton": true });
-            }
-            else {
-                toastr.success(result.message, 'Success', { timeOut: 3000, "closeButton": true });
-                $('#ModalDeviceDetail').modal('hide');
-                table.ajax.reload(null, false); // Reload tanpa mereset halaman (stay di page current datatable)
+                toastr.warning(result.message);
+                return;
             }
 
+            toastr.success(result.message, 'success', { timeOut: 3000, "closeButton": true });
+            $('#ModalDeviceDetail').modal('hide');
+
+            originalData = {};
+            changedData = {};
+
+            table.ajax.reload(null, false);
         }
     });
 });
+
+//SUBMIT DETAIL SETTING BATCH OLD
+//$(document).on("click", ".btn-submitdetail", function () {
+//    //let tableIDList = $('#tableDetail').DataTable();
+//    let listData = [];
+
+//    $('#tableDetail').DataTable().rows().every(function () {
+//        let row = this.node();
+//        let data = this.data();
+
+//        let IsCheck = $(row).find('.chk-detail').is(':checked');
+
+//        // 🔥 hanya push kalau ada yg dicentang
+//        if (IsCheck) {
+//            listData.push({
+//                DeviceCode: $("#CodeSettings").val(),
+//                PlantCode: $("#PlantCodeSettings").val(),
+//                CourseCode: data.CourseCode
+//            });
+//        }
+//    });
+
+//    // 🔥 VALIDASI: tidak ada yg dicentang
+//    if (listData.length === 0) {
+//        toastr.info("Please select data to submit data");
+//        return;
+//    }
+
+//    // 🔥 final model
+//    let model = {
+//        SubmitBatch: listData
+//    };
+
+
+//    $.ajax({
+//        type: "POST",
+//        url: buildServiceUrl("service/msdevice/submit-batch"),
+//        data: JSON.stringify(model),
+//        contentType: "application/json; charset=utf-8",
+//        dataType: "json",
+//        xhrFields: {
+//            withCredentials: true
+//        },
+//        data: JSON.stringify(model),
+//        success: function (result) {
+
+//            if (!result.success) {
+//                toastr.warning(result.message, 'Warning', { timeOut: 3000, "closeButton": true });
+//            }
+//            else {
+//                toastr.success(result.message, 'Success', { timeOut: 3000, "closeButton": true });
+//                $('#ModalDeviceDetail').modal('hide');
+//                table.ajax.reload(null, false); // Reload tanpa mereset halaman (stay di page current datatable)
+//            }
+
+//        }
+//    });
+//});
 
 function init() {
     populateDDL({
@@ -426,8 +496,7 @@ function loadData() {
             //    setTimeout(waitingDialog.hide(), 200);
             //},
             dataSrc: function (json) {
-                console.log(json);
-              
+             
                 return json.data; // atau json kalau array langsung
             }
         },
@@ -522,10 +591,10 @@ function loadData() {
 //});
 
 function loadDetailTable(Code, plantCode) {
-    if (tableDetail) {
-        table.ajax.reload(null, false);
-        return;
-    }
+    //if (tableDetail) {
+    //    table.ajax.reload(null, false);
+    //    return;
+    //}
 
     tableDetail = $("#tableDetail").DataTable({
         destroy: true,
@@ -542,6 +611,7 @@ function loadDetailTable(Code, plantCode) {
             xhrFields: { withCredentials: true },
             contentType: "application/json",
             dataSrc: function (json) {
+
                 return json.data ?? json;
             }
         },
@@ -550,6 +620,11 @@ function loadDetailTable(Code, plantCode) {
                 data: "Check",
                 className: "text-center",
                 render: function (data, type, row) {
+                    // untuk sorting
+                    if (type === 'sort' || type === 'type') {
+                        return data == "1" ? 1 : 0;
+                    }
+
                     //var isChecked = row.Check == 0 ? 'checked' : '';
                     return `<input  type="checkbox"
                                     class="chk-detail"
@@ -563,7 +638,17 @@ function loadDetailTable(Code, plantCode) {
             { data: "CourseCode" },
             { data: "Title" }
         ],
-       
+        order: [[0, "desc"]]  , // Check=1 di atas
+        drawCallback: function () {
+
+            this.api().rows().every(function () {
+
+                let data = this.data();
+
+                originalData[data.CourseCode] = data.Check;
+
+            });
+        },
         autoWidth: false,
         searching: true,
         ordering: true,

@@ -48,10 +48,10 @@ namespace NSI.Infra.Repositories.Master
             });
         }
 
-        public async Task Remove(string shiftCls, string userID)
+        public async Task Remove(string shiftCls, string userID, string ipAddress)
         {
             string sql = "[sp_Web_MSShift_DeleteShift]";
-            await _dbExecutor.ExecuteAsync(sql, new { Shift_Cls = shiftCls, UserID = userID });
+            await _dbExecutor.ExecuteAsync(sql, new { Shift_Cls = shiftCls, UserID = userID , IPAddress = ipAddress });
         }
 
     }

@@ -13,5 +13,6 @@
         public string? RegisterUser { get; set; }
         public string? LastUpdate { get; set; }
         public string? LastUser { get; set; }
+        public string? IPAddress { get; set; } = "";
     }
 }

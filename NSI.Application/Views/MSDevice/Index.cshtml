@@ -76,7 +76,7 @@
 			</table>
 
 			<div class="modal fade" id="MyModal" data-bs-backdrop="static" data-bs-keyboard="false">
-				<div class="modal-dialog modal-dialog-centered" style="--bs-modal-width:500px !important;">
+				<div class="modal-dialog modal-dialog-centered" style="--bs-modal-width:600px !important;">
 					<div class="modal-content" >
 						<div class="modal-header  theme-color">
 							<h5 class="modal-title" id="ModalTitle">Add New Device</h5>
@@ -85,36 +85,54 @@
 						<div class="modal-body">
 							<div class="panel-body">
 								<form id="form">
-									<div class="form-group row" style="margin-bottom:10px;">
-										<label for="DeviceCode" class="col-sm-3 col-form-label text-left">Device Code <span class="text-danger">*</span></label>
-										<div class="col-sm-9">
-											<input id="DeviceCode" name="DeviceCode" class="form-control fs-13px" maxlength="10" autocomplete="off" placeholder="Device Code" />
+									<div class="row">
+										<div class="row mb-2">
+											<div class="col-lg-12 col-md-12">
+												<div class="filter-item">
+													<label for="DeviceCode">Device Code <span class="text-danger">*</span></label>
+													<div class="col-sm-9">
+														<input id="DeviceCode" name="DeviceCode" class="form-control fs-13px" maxlength="10" autocomplete="off" placeholder="Device Code" />
+													</div>
+												</div>
+											</div>
+
 										</div>
-									</div>
-									<div class="form-group row" style="margin-bottom:10px;">
-										<label for="DeviceName" class="col-sm-3 col-form-label text-left">Device Name <span class="text-danger">*</span></label>
-										<div class="col-sm-9">
-											<input id="DeviceName" name="DeviceName" class="form-control fs-13px" maxlength="30" autocomplete="off" placeholder="Device Name" />
+										<div class="row mb-2">
+											<div class="col-lg-12 col-md-12">
+												<div class="filter-item">
+													<label for="DeviceName" >Device Name <span class="text-danger">*</span></label>
+													<div class="col-sm-9">
+														<input id="DeviceName" name="DeviceName" class="form-control fs-13px" maxlength="30" autocomplete="off" placeholder="Device Name" />
+													</div>
+												</div>
+											</div>
 										</div>
+										<div class="row mb-2">
+											<div class="col-lg-12 col-md-12">
+												<div class="filter-item">
+													<label for="PlantCode">
+														Plant <span class="text-danger">*</span>
+													</label>
+
+													<select id="PlantCode" name="PlantCode" class="form-select"></select>
+													<input id="PlantName" name="PlantName" class="form-control input-desc" style="margin-left:10px;width:250px" type="text" readonly placeholder="Plant Name" />
+
+												</div>
+											</div>
+										</div>
+										<div class="row mb-2">
+											<div class="col-lg-12 col-md-12">
+												<div class="filter-item">
+													<label for="SerialNo" >Serial No<span class="text-danger">*</span></label>
+													<div class="col-sm-9">
+														<input id="SerialNo" name="SerialNo" class="form-control fs-13px" maxlength="30" autocomplete="off" placeholder="Serial No" />
+													</div>
+												</div>
+											</div>
+										</div>
+
 									</div>
 									
-									<div class="d-flex align-items-center mb-2">
-
-										<label class="form-label text-nowrap me-2" style="width:140px;">
-											Plant <span class="text-danger">*</span>
-										</label>
-
-										<select id="PlantCode" name="PlantCode" class="form-select fs-13px me-2"></select>
-										<input id="PlantName" name="PlantName" class="form-control input-desc  fs-13px" style="margin-left:10px;width:250px" type="text" readonly placeholder="Plant Name" />
-									
-									</div>
-
-									<div class="form-group row" style="margin-bottom:10px;">
-										<label for="SerialNo" class="col-sm-3 col-form-label text-left">Serial No<span class="text-danger">*</span></label>
-										<div class="col-sm-9">
-											<input id="SerialNo" name="SerialNo" class="form-control fs-13px" maxlength="30" autocomplete="off" placeholder="Serial No" />
-										</div>
-									</div>
 								</form>
 							</div>
 							<div class="modal-footer">
@@ -284,6 +302,45 @@
 			border-radius: 5px !important;
 		}
 
+	.filter-item {
+		display: grid;
+		grid-template-columns: 100px 150px 250px;
+		align-items: center;
+		gap: 10px;
+	}
+
+		.filter-item label {
+			width: 100px;
+			min-width: 100px;
+			margin-bottom: 0;
+		}
+	/*
+						.filter-item select {
+							width: 180px;
+						}*/
+
+	.input-desc {
+		width: 100% !important;
+	}
+
+	
+
+
+
+	/* =======================================================
+						   1920+
+	======================================================= */
+	@@media (min-width: 1900px) {
+		.filter-item {
+			grid-template-columns: 100px 150px 250px;
+			gap: 10px;
+		}
+
+			.filter-item select, .filter-item .select2-container .datepicker-wrapper {
+				width: 150px !important;
+			}
+
+	}
 	</style>
 @section Scripts {
 	<script asp-append-version="true">

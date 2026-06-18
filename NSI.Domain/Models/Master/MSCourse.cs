@@ -11,8 +11,8 @@ namespace NSI.Domain.Models.Master
         public string? CheckType { get; set; }
         public string? ShiftCls { get; set; }
         public string? StatusShift { get; set; }
-        public string? RegisterUser { get; set; } 
-
+        public string? RegisterUser { get; set; }
+        public string? IPAddress { get; set; } = "";
     } 
     
 

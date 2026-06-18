@@ -8,6 +8,7 @@
         public string? CourseCode { get; set; }
         public string? RegisterUser { get; set; }
         public string? LastUser { get; set; }
+        public string? IPAddress { get; set; } = "";
     }
 
     public class MSGroupParameterDto

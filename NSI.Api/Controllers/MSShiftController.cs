@@ -56,11 +56,10 @@ namespace NSI.Api.Controllers
         [HttpPost("remove")]
         public async Task<IActionResult> Remove([FromBody] MSShift payload)
         {
-            string? clientIp = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault()
-                ?? HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+            //string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _repo.Remove(payload.Shift_Cls, userId);
+            await _repo.Remove(payload.Shift_Cls, userId, payload.IPAddress ?? "");
 
             return Success(null, "Data deleted successfully");
         }

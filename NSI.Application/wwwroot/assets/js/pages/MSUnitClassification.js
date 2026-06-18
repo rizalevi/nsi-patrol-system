@@ -255,7 +255,7 @@ $(document).on("click", "#UpdateData", function () {
 
 // DELETE
 $(document).on("click", ".btn-delete", function () {
-    var id = $(this).data("id");
+    var id = $(this).data("id").toString();
 
     Swal.fire({
         title: 'Are you sure?',

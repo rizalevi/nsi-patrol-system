@@ -126,7 +126,7 @@ $(document).on("click", ".btn-clear", function () {
 //POPUP MODAL GET DATA
 $(document).on("click", ".btn-edit", function () {
 
-    var code = $(this).data("id");
+    var code = $(this).data("id").toString();
 
     $.ajax({
         url: BaseUrl + "service/msinspectionpoint/detail",
@@ -368,7 +368,7 @@ $(document).on("click", "#UpdateData", function () {
 // DELETE
 $(document).on("click", ".btn-delete", function () {
 
-    var inspectionCode = $(this).data("id");
+    var inspectionCode = $(this).data("id").toString();
     var courseCode = $('#CourseCode').val();
     var groupCode = $('#GroupCode').val();
 

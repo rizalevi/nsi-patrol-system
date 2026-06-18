@@ -62,7 +62,7 @@ namespace NSI.Api.Controllers
         [HttpPost("update-detail")]
         public async Task<IActionResult> UpdateDetail([FromBody] InspectionDataUploadUpdateDto payload)
         {
-            string? clientIp = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault() ?? HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+            string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString()??"";
 
             // Panggil fungsi UpdateDetail di repository yang sudah kita buat sebelumnya
             var result = await _repo.UpdateDetail(payload,clientIp);

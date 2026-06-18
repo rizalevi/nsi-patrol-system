@@ -115,7 +115,7 @@ function loadData() {
 //POPUP MODAL GET DATA
 $(document).on("click", ".btn-edit", function () {
 
-    var code = $(this).data("id");
+    var code = $(this).data("id").toString();
 
     $.ajax({
         url: BaseUrl + "service/msShift/detail",
@@ -255,7 +255,7 @@ $(document).on("click", "#UpdateData", function () {
 // DELETE
 $(document).on("click", ".btn-delete", function () {
 
-    var ShiftCls = $(this).data("id");
+    var ShiftCls = $(this).data("id").toString();
     var courseCode = $('#CourseCodeFilter').val();
     var groupCode = $('#GroupCodeFilter').val();
 

@@ -56,8 +56,8 @@ namespace NSI.Infra.Repositories.Master
             {
                 Group_Code = groupCode,
                 Course_Code = courseCode,
-                UserID = userId
-                // IPAddress diabaikan jika SP asli di VB tidak menerimanya
+                UserID = userId,
+                IPAddress=ipAddress
             });
         }
 

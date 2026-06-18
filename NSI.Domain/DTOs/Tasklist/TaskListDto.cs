@@ -24,5 +24,6 @@ namespace NSI.Domain.DTOs.Tasklist
         public string? LeaderUser { get; set; }
         public DateTime? LeaderDate { get; set; }
         public string? Status { get; set; }
+        public Guid? RedirectKey {  get; set; }   
     }
 }

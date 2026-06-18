@@ -131,7 +131,7 @@ function AddNewData() {
 $(document).on("click", ".btn-edit", function () {
     var cluster = $("#ClusterCodeFilter").val();
     var plant = $("#PlantCodeFilter").val();
-    var course = $(this).data("course");
+    var course = $(this).data("course").toString();
 
     $.ajax({
         url: BaseUrl + `service/mscourse/detail`,
@@ -201,7 +201,7 @@ $(document).on("click", "#UpdateData", function () {
 $(document).on("click", ".btn-delete", function () {
     var cluster = $("#ClusterCodeFilter").val();
     var plant = $(this).data("plant");
-    var course = $(this).data("course");
+    var course = $(this).data("course").toString();
 
     Swal.fire({
         title: 'Are you sure?',

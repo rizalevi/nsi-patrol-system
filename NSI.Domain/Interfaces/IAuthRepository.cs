@@ -1,4 +1,5 @@
 ﻿using NSI.Domain.DTOs;
+using NSI.Domain.DTOs.Email;
 using NSI.Domain.Models.Auth;
 
 namespace NSI.Domain.Interfaces
@@ -15,5 +16,10 @@ namespace NSI.Domain.Interfaces
         string newPassword);
 
         Task<DateTime?> CheckExpiredPassword(string userId);
+
+        //email login auth
+        Task<EmailLoginInfoDto> GetByTokenAsync(Guid token,string type);
+
+        Task<bool?> MarkEmailLinkVisitedAsync(Guid token);
     }
 }

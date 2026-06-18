@@ -47,11 +47,12 @@ namespace NSI.Api.Controllers.Master
         [HttpPost("remove")]
         public async Task<IActionResult> Remove([FromBody] MSEquipmentGroup payload)
         {
-            string? clientIp = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault() ?? HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+            //string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
 
             // Melempar GroupCode dan CourseCode karena di SP Remove-nya membutuhkan itu
-            await _repo.RemoveAsync(payload.GroupCode, payload.CourseCode, userId, clientIp);
+            await _repo.RemoveAsync(payload.GroupCode, payload.CourseCode, userId, payload.IPAddress ?? "");
 
             return Success(null, "Data deleted successfully");
         }

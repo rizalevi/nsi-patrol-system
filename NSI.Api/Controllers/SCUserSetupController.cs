@@ -89,8 +89,8 @@ namespace NSI.Api.Controllers
         public async Task<IActionResult> Remove([FromBody] UserSetupInfo payload)
         {
             //var before = await _addressRepository.Capture(id);
-            string? clientIp = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault() ?? HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
-            
+            string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+
             var userLogin = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
             await _repo.Remove(payload.UserID, userLogin, clientIp);
             //await _logger.SaveDataLog(new DataLogDto

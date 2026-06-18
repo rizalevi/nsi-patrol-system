@@ -100,6 +100,8 @@ namespace NSI.Application.Services.Master
         [Authorize, HttpPost, Route("delete")]
         public async Task<IActionResult> Delete([FromBody] MSCluster payload)
         {
+            payload.IPAddress = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault() ?? HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
             var result = await _htr.AsyncAsResponseModel<object>(
                 JsonSerializer.Serialize(payload),

@@ -4,6 +4,7 @@ using System.Data;
 using NSI.Domain.DTOs;
 using NSI.Domain.Interfaces;
 using NSI.Domain.Models.Auth;
+using NSI.Domain.DTOs.Email;
 
 namespace NSI.Infra.Repositories
 {
@@ -174,6 +175,75 @@ namespace NSI.Infra.Repositories
             using var cn = _connectionFactory.CreateConnection();
             return await cn.ExecuteScalarAsync<DateTime?>(sql, new { UserId = userId });
         }
+
+
+        
+        public async Task<EmailLoginInfoDto?> GetByTokenAsync(Guid token, string type)
+        {
+            using var conn = _connectionFactory.CreateConnection();
+
+            return await conn.QueryFirstOrDefaultAsync<EmailLoginInfoDto>(
+                "sp_WEB_TaskListRemaining_Link",
+                new
+                {
+                    RedirectKey = token,
+                    Type = type
+                },
+                commandType: CommandType.StoredProcedure
+            );
+
+            //using var conn = _connectionFactory.CreateConnection();
+
+            //return await conn.QueryFirstOrDefaultAsync<EmailLoginInfoDto>(
+            //    @"
+            //        SELECT
+            //            EmailToken,
+            //            UserID,
+            //            RedirectAction,
+            //            Payload,
+            //            IsValid,
+            //            ISNULL(RedirectCount,0) AS RedirectCount,
+            //            RedirectDate
+            //        FROM SendEmail_Url
+            //        WHERE EmailToken = @Token
+            //        ",
+            //    new
+            //    {
+            //        Token = token
+            //    });
+        }
+
+        public async Task<bool?> MarkEmailLinkVisitedAsync(Guid token)
+        {
+            using var conn = _connectionFactory.CreateConnection();
+
+            //var affectedRows =
+            //    await conn.ExecuteAsync(
+            //    @"
+            //        UPDATE SendEmail_Url
+            //        SET
+            //            RedirectCount =
+            //                ISNULL(RedirectCount,0) + 1,
+            //            RedirectDate = GETDATE()
+            //        WHERE EmailToken = @Token
+            //        ",
+            //    new
+            //    {
+            //        Token = token
+            //    });
+
+            var affectedRows = await conn.ExecuteAsync(
+               "sp_WEB_SendEmail_UpdateCount",
+               new
+               {
+                   RedirectKey = token
+               },
+               commandType: CommandType.StoredProcedure);
+
+            return affectedRows > 0;
+        }
+
+       
     }
 
 }
