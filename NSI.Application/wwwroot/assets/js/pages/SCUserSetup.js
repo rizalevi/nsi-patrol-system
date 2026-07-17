@@ -131,7 +131,7 @@ function loadData() {
             { data: "UserID" },
             { data: "UserName" },
             { data: "UserGroupName" },
-            { data: "StatusEmail" },
+            { data: "EmailStatus" },
             { data: "Email" },
             { data: "ClusterName" },
             { data: "AdminStatus" },
