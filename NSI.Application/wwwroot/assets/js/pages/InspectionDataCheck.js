@@ -51,7 +51,6 @@ $(document).on("change", "#PlantCode", function () {
         selectedValue: courseCode,
         callback: function () {
 
-
             if (courseCode == "" && ($("#PlantCode").val() != null && $("#PlantCode").val() != "")) {
                 let ddl = $("#CourseCode");
 
@@ -69,8 +68,12 @@ $(document).on("change", "#PlantCode", function () {
                     code + ' - ' + desc +
                     '</option>'
                 );
+                // Default pilih ALL
+                ddl.val("ALL");
                 ddl.trigger('change');
                 //ddl.selectpicker('refresh');
+
+               
 
             }
             $("#CourseCode").trigger('change');
@@ -125,6 +128,7 @@ $(document).on("change", "#CourseCode", function () {
                     code + ' - ' + desc +
                     '</option>'
                 );
+                ddl.val("ALL");
                 ddl.trigger('change');
 
             }
@@ -534,7 +538,7 @@ function init() {
                     code +
                     '</option>'
                 );
-
+                ddl.val("ALL");
                 ddl.trigger('change');
             }
 

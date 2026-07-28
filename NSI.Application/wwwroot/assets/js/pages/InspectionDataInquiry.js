@@ -105,6 +105,7 @@ $(document).on("change", "#CourseCode", function () {
                     code + ' - ' + desc +
                     '</option>'
                 );
+                ddl.val("ALL");
                 ddl.trigger('change');
 
 
@@ -160,7 +161,7 @@ $(document).on("change", "#GroupCode", function () {
                     code + ' - ' + desc +
                     '</option>'
                 );
-
+                ddl.val("ALL");
                 ddl.trigger('change');
 
             }
@@ -411,7 +412,7 @@ function init() {
                     code + ' - ' + desc +
                     '</option>'
                 );
-
+                ddl.val("ALL");
                 ddl.trigger('change');
            
         }
@@ -535,6 +536,7 @@ function loadData() {
             }
         },
     });
+
 
 
     //new $.fn.dataTable.FixedColumns(table, {

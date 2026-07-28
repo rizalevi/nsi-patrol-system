@@ -67,6 +67,7 @@ $(document).on("change", "#PlantCode", function () {
                     code + ' - ' + desc +
                     '</option>'
                 );
+                ddl.val("ALL");
                 ddl.trigger('change');
 
                
@@ -431,7 +432,7 @@ function init() {
                     code +
                     '</option>'
                 );
-
+                ddl.val("ALL");
                 ddl.trigger('change');
             }
 

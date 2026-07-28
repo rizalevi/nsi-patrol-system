@@ -142,6 +142,7 @@ function initPage() {
                         code + ' - ' + desc +
                         '</option>'
                     );
+                    ddl.val("ALL");
                     ddl.trigger('change');
 
                     $("#PlantCode").trigger('change');
