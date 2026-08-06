@@ -48,19 +48,14 @@ namespace NSI.Infra.Repositories.Security
 
         public async Task Create(UserSetup model, string userLogin)
         {
-
+            var oldPassword = model.Password;
             model.Password = CryptHelper.PasswordEncrypt(model.Password, model.UserID.ToUpper());
             model.ConfirmPassword = CryptHelper.PasswordEncrypt(model.ConfirmPassword, model.UserID.ToUpper());
 
             //old methode encrypt on desktop
             var crypto = new DesktopVersionEncryptHelper("TOS");
-
-            string encrypted = crypto.EncryptData(model.UserID);
-         
-            model.PasswordOld = encrypted;
-
-            //string decrypted = crypto.DecryptData(encrypted);
-            //Console.WriteLine($"Decrypt : {decrypted}");
+                     
+            model.PasswordOld = crypto.EncryptData(oldPassword);
 
             string sql = @"sp_Web_SS_User_Insert";
             await _dbExecutor.ExecuteAsync(sql, new
@@ -82,6 +77,8 @@ namespace NSI.Infra.Repositories.Security
         
         public async Task Update(UserSetup model, string userLogin)
         {
+            var oldPassword = model.Password;
+
             model.Password = CryptHelper.PasswordEncrypt(model.Password, model.UserID.ToUpper());
             model.ConfirmPassword = CryptHelper.PasswordEncrypt(model.ConfirmPassword, model.UserID.ToUpper());
 
@@ -89,9 +86,8 @@ namespace NSI.Infra.Repositories.Security
             //old methode encrypt on desktop
             var crypto = new DesktopVersionEncryptHelper("TOS");
 
-            string encrypted = crypto.EncryptData(model.UserID);
-           
-            model.PasswordOld = encrypted;
+
+            model.PasswordOld = crypto.EncryptData(oldPassword); ;
 
             string sql = @"sp_Web_SS_User_Update";
             await _dbExecutor.ExecuteAsync(sql, new
