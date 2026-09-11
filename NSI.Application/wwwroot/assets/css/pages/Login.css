@@ -55,7 +55,7 @@ input:-webkit-autofill:active {
 /* FULL SCREEN WRAPPER */
 .login-fullscreen {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
 }
 
@@ -225,6 +225,228 @@ input:-webkit-autofill:active {
     text-align: center;
 }
 
+/* =========================================================
+   1600px - 1899px
+========================================================= */
+@media (min-width: 1600px) and (max-width: 1899px) {
+
+    .login-left {
+        padding: 50px;
+    }
+
+        .login-left h1 {
+            font-size: 38px;
+        }
+
+        .login-left p {
+            font-size: 20px;
+        }
+
+    .login-logo {
+        width: 260px;
+        height: 180px;
+    }
+
+    .login-right {
+        padding: 60px;
+    }
+
+    .signin-title {
+        font-size: 28px;
+    }
+
+    .input-group input {
+        height: 50px;
+    }
+
+    .btn-login {
+        height: 50px;
+    }
+
+    
+}
+
+
+/* =========================================================
+   1360px - 1599px
+========================================================= */
+@media (min-width: 1360px) and (max-width: 1599px) {
+
+    .login-left {
+        padding: 40px;
+    }
+
+        .login-left h1 {
+            font-size: 34px;
+        }
+
+        .login-left p {
+            font-size: 18px;
+        }
+
+    .brand-horizontal {
+        gap: 14px;
+    }
+
+    .login-logo {
+        width: 230px;
+        height: 160px;
+    }
+
+    .brand-desc {
+        margin-top: 30px;
+        font-size: 13px;
+    }
+
+    .login-right {
+        padding: 50px;
+    }
+
+    .signin-title {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    .input-group {
+        margin-bottom: 18px;
+    }
+
+        .input-group input {
+            height: 48px;
+            font-size: 14px;
+        }
+
+    .btn-login {
+        height: 48px;
+        font-size: 14px;
+    }
+
+    .footer {
+        margin-top: 35px;
+    }
+}
+
+
+/* =========================================================
+   1024px - 1359px
+========================================================= */
+@media (min-width: 1024px) and (max-width: 1359px) {
+
+    .login-left {
+        padding: 30px;
+    }
+
+        .login-left h1 {
+            font-size: 30px;
+        }
+
+        .login-left p {
+            font-size: 17px;
+        }
+
+    .brand-horizontal {
+        gap: 12px;
+    }
+
+    .login-logo {
+        width: 200px;
+        height: 140px;
+    }
+
+    .brand-desc {
+        margin-top: 25px;
+        font-size: 12px;
+    }
+
+    .login-right {
+        padding: 40px;
+    }
+
+    .signin-title {
+        font-size: 24px;
+        margin-bottom: 18px;
+    }
+
+    .input-group {
+        margin-bottom: 16px;
+    }
+
+        .input-group input {
+            height: 46px;
+            font-size: 14px;
+        }
+
+    .btn-login {
+        height: 46px;
+        margin-top: 14px;
+        font-size: 14px;
+    }
+
+    .footer {
+        margin-top: 30px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   769px - 1023px
+========================================================= */
+@media (min-width: 769px) and (max-width: 1023px) {
+
+    .login-fullscreen {
+        flex-direction: column;
+    }
+
+    .login-left {
+        flex: none;
+        height: 40%;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .login-right {
+        flex: none;
+        height: 60%;
+        padding: 30px;
+        justify-content: center;
+    }
+
+    .brand-horizontal {
+        justify-content: center;
+    }
+
+    .login-logo {
+        width: 180px;
+        height: 120px;
+    }
+
+    .login-left h1 {
+        font-size: 28px;
+    }
+
+    .login-left p {
+        font-size: 16px;
+    }
+
+    .brand-desc {
+        margin-top: 15px;
+        font-size: 12px;
+    }
+
+    .signin-title {
+        font-size: 24px;
+    }
+
+    .input-group input {
+        height: 48px;
+    }
+
+    .btn-login {
+        height: 48px;
+    }
+}
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -242,7 +464,11 @@ input:-webkit-autofill:active {
         height: 65%;
         padding: 30px;
     }
+   
+
 }
+
+
 
 .signin-title {
     font-size: 30px;

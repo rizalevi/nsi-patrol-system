@@ -7,9 +7,8 @@ namespace NSI.Domain.Interfaces
     public interface IAuthRepository
     {
         Task<AuthModel?> GetByUserIdAsync(string userId);
-        Task<string?> GetEncryptedPasswordAsync(string userId);
-        //Task<UserDto?> GetEncryptedPasswordAsync(string userId);
-        //Task<AuthModel> GetUserDataFromDBByIDAndPassword(Login param);
+        //Task<string?> GetEncryptedPasswordAsync(string userId);
+        
         Task<bool> ChangePasswordAsync(
         string userId,
         string oldPassword,

@@ -7,8 +7,9 @@ namespace NSI.Domain.DTOs.Security
         public string UserID { get; set; }
         public string UserName { get; set; }
         public string? UserGroupName { get; set; }
-        public string? Email {  get; set; }
         public string? EmailStatus { get; set; }
+        public string? Email { get; set; }
+
         public string? ClusterName { get; set; }
         public string? AdminStatus { get; set; }
         public string? LockedStatus { get; set; }

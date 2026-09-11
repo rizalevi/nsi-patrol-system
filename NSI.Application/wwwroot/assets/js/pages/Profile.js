@@ -109,7 +109,7 @@ $("#Profile").on("submit", function (e) {
     e.preventDefault(); // 🔥 WAJIB
 });
 $(document).on("click", ".save-profile", function () {
- debugger
+ 
     /*Maximum allowed size in bytes
                   1 MB Example
     */

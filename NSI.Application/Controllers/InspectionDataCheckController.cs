@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NSI.Application.Filters;
 using NSI.Domain.DTOs.Email;
 using NSI.Infra.Helpers;
-using System.Security.Claims;
 using System.Text.Json;
 
 namespace NSI.Application.Controllers

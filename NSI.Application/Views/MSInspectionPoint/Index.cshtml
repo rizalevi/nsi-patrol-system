@@ -4,7 +4,7 @@
 }
 
 
-<div class="panel panel-inverse" style="min-height:86vh;">
+<div class="panel panel-inverse" >
 	<div class="panel-heading theme-color">
 		<h4 class="panel-title fs-5"><i class="bi bi-sign-stop"></i> [@ViewBag.Permission.MenuId] - @ViewBag.Permission.MenuName</h4>
 		<div class="panel-heading-btn">
@@ -261,298 +261,7 @@
 </div>
 
 <style>
-	.filter-item {
-        display: grid;
-        grid-template-columns: 100px 180px 250px 200px;
-        align-items: center;
-        gap: 10px;
-    }
-
-        .filter-item label {
-            width: 100px;
-            min-width: 100px;
-            margin-bottom: 0;
-        }
-    /*
-            .filter-item select {
-                width: 180px;
-            }*/
-
-    .input-desc {
-        width: 100% !important;
-    }
-
-    .datepicker-wrapper {
-        position: relative;
-        width: 180px !important;
-    }
-
-        .datepicker-wrapper input {
-            width: 100%;
-        }
-
-    .datepicker-icon {
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-
-
-    /* =======================================================
-               1920+
-    ======================================================= */
-    @@media (min-width: 1900px) {
-        .filter-item
-
-    {
-            grid-template-columns: 100px 180px 250px 200px;
-        gap: 10px;
-    }
-
-    .filter-item select, .filter-item .select2-container .datepicker-wrapper {
-        width: 180px !important;
-    }
-
-        .datepicker-wrapper {
-            position: relative;
-            width: 180px !important;
-        }
-    }
-    /* =======================================================
-               1600 - 1899
-     ======================================================= */
-    @@media (min-width: 1600px) and (max-width: 1899px) {
-        .filter-item
-
-    {
-            grid-template-columns: 100px 180px 180px 200px;
-        gap: 10px;
-    }
-
-    .filter-item select, .filter-item .select2-container .datepicker-wrapper {
-        width: 180px !important;
-    }
-
-    .input-desc {
-        width: 100% !important;
-    }
-
-        .datepicker-wrapper {
-            position: relative;
-            width: 180px !important;
-        }
-    }
-
-    /* =======================================================
-               1360 - 1599
-     ======================================================= */
-    @@media (min-width: 1360px) and (max-width: 1599px) {
-        .filter-item
-
-    {
-            grid-template-columns: 100px 150px 150px 200px;
-    }
-
-    .filter-item select,
-    .filter-item .select2-container
-    .datepicker-wrapper {
-        width: 150px !important;
-    }
-
-    .input-desc {
-        width: 100% !important;
-    }
-
-    .smart-search {
-        width: 240px;
-    }
-
-        .datepicker-wrapper {
-            position: relative;
-            width: 180px !important;
-        }
-    }
-
-    /* =======================================================
-               1280 - 1359
-     ======================================================= */
-    @@media (min-width: 1280px) and (max-width: 1359px) {
-        .filter-item
-
-    {
-            grid-template-columns: 80px 150px 180px 200px;
-    }
-
-    .filter-item select,
-    .filter-item .select2-container
-    .datepicker-wrapper {
-        width: 150px !important;
-    }
-
-    .input-desc {
-        width: 100% !important;
-    }
-
-        .datepicker-wrapper {
-            position: relative;
-            width: 180px !important;
-        }
-    .smart-search {
-        width: 220px;
-    }
-
-    .btn-common-panel .btn {
-        font-size: 11px;
-    }
-
-    }
-
-    /* =======================================================
-               1024 - 1279
-    ======================================================= */
-    @@media (min-width: 1024px) and (max-width: 1279px) {
-        .filter-item
-
-    {
-            grid-template-columns: 75px 140px 160px 180px;
-    }
-
-    .filter-row {
-        gap: 10px;
-    }
-
-    .filter-item label {
-        width: 75px;
-    }
-
-    .filter-item select,
-    .filter-item .select2-container
-    .datepicker-wrapper {
-        width: 140px !important;
-    }
-
-        .datepicker-wrapper {
-            position: relative;
-            width: 180px !important;
-        }
-    .input-desc {
-        width: 100% !important;
-    }
-
-    .smart-search {
-        width: 180px;
-    }
-
-    .btn-common-panel .btn {
-        font-size: 10px;
-        padding-left: .5rem;
-        padding-right: .5rem;
-    }
-
-    }
-
-    /* =======================================================
-               800 - 1023
-    ======================================================= */
-    @@media (max-width: 1023px) {
-        .filter-row
-
-    {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .filter-item {
-        width: 100%;
-    }
-
-        .filter-item label {
-            width: 90px;
-        }
-
-        .filter-item select,
-        .filter-item .select2-container
-        .datepicker-wrapper {
-            width: 180px !important;
-        }
-
-    .input-desc {
-        width: 100% !important;
-    }
-
-        .datepicker-wrapper {
-            position: relative;
-            width: 180px !important;
-        }
-    .btn-common-panel {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .smart-search {
-        width: 100%;
-    }
-
-    }
-
-    /* =======================================================
-                800
-        ======================================================= */
-    @@media (min-width: 768px) and (max-width: 1023px) {
-        .filter-item
-
-    {
-        grid-template-columns: 90px 100px !important 100%;
-    }
-
-    .filter-item label {
-        width: 90px;
-    }
-
-    .filter-item select,
-    .filter-item .select2-container
-    .datepicker-wrapper {
-        width: 140px !important;
-    }
-
-        .datepicker-wrapper {
-            position: relative;
-            width: 180px !important;
-        }
-    .input-desc {
-        width: 100% !important;
-    }
-
-    }
-
-    @@media (max-width: 767px) {
-        .filter-item
-
-    {
-        grid-template-columns: 90px 100px 1fr;
-    }
-
-    .filter-item label {
-        width: 90px;
-    }
-
-    .filter-item select,
-    .filter-item .select2-container
-    .datepicker-wrapper {
-        width: 100px !important;
-    }
-
-        .datepicker-wrapper {
-            position: relative;
-            width: 180px !important;
-        }
-    .input-desc {
-        width: 100% !important;
-    }
-
-    }
+	
 
 	.auto-width {
 		width: calc(attr(maxlength number) * 1ch);
@@ -611,11 +320,427 @@
 		border-radius: 5px !important;
 	}
 
+	/* =========================================================
+	   FILTER ROW
+	========================================================= */
 
-	.sWidth-ddl {
-		width: 150px !important;
+	.filter-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		width: 100%;
+		min-width: 0;
 	}
 
+		.filter-row > * {
+			min-width: 0;
+		}
+
+
+	/* =========================================================
+	   COMMON BUTTON PANEL
+	========================================================= */
+
+	.btn-common-panel {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+		width: 100%;
+		min-width: 0;
+	}
+
+		.btn-common-panel > div:first-child {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			flex-wrap: wrap;
+			min-width: 0;
+		}
+
+		.btn-common-panel .btn {
+			white-space: nowrap;
+		}
+
+		.smart-search {
+			max-width: 100%;
+		}
+
+		.smart-search input {
+			max-width: 100%;
+		}
+
+
+	/* =========================================================
+	   >= 1900
+	   LARGE DESKTOP
+	========================================================= */
+
+
+	@@media (min-width: 1901px) {
+		.filter-item {
+			display: grid;
+			grid-template-columns: 100px 150px minmax(0, 200px);
+			align-items: center;
+			gap: 10px;
+			width: 100%;
+			min-width: 0;
+		}
+
+			.filter-item label {
+				width: 100px;
+			}
+
+			.filter-item select,
+			.filter-item .select2-container,
+			.datepicker-wrapper {
+				width: 150px !important;
+				max-width: 150px;
+			}
+
+		.smart-search {
+			width: 240px;
+			max-width: 100%;
+		}
+
+		/* =========================================
+		   GROUP + PREV/NEXT
+		========================================= */
+
+		.filter-item:has(#GroupCode) {
+			grid-template-columns: 100px 150px 150px auto;
+		}
+
+			.filter-item:has(#GroupCode) .btn-prev,
+			.filter-item:has(#GroupCode) .btn-next {
+				width: 80px;
+				height: 30px;
+				margin: 0;
+				border: 1px solid lightgray !important;
+				font-size: 11px !important;
+			}
+	}
+
+	/* =========================================================
+	   1360 - 1599
+	========================================================= */
+
+	@@media (min-width: 1360px) and (max-width: 1899px) {
+		.filter-item {
+			display: grid;
+			grid-template-columns: 100px 150px minmax(0, 150px);
+			align-items: center;
+			gap: 10px;
+			width: 100%;
+			min-width: 0;
+		}
+
+			.filter-item label {
+				width: 100px;
+			}
+
+			.filter-item select,
+			.filter-item .select2-container,
+			.datepicker-wrapper {
+				width: 150px !important;
+				max-width: 150px;
+			}
+
+		.smart-search {
+			width: 240px;
+			max-width: 100%;
+		}
+
+		/* =========================================
+			   GROUP + PREV/NEXT
+			========================================= */
+
+		.filter-item:has(#GroupCode) {
+			grid-template-columns: 100px 150px 150px auto;
+		}
+
+			.filter-item:has(#GroupCode) .btn-prev,
+			.filter-item:has(#GroupCode) .btn-next {
+				width: 80px;
+				height: 30px;
+				margin: 0;
+				border: 1px solid lightgray !important;
+				font-size: 11px !important;
+			}
+
+		
+	}
+
+	/* =========================================================
+	   1280 - 1359
+	========================================================= */
+
+	@@media (min-width: 1280px) and (max-width: 1359px) {
+		.filter-item {
+			grid-template-columns: 90px 150px minmax(0, 180px);
+		}
+
+			.filter-item label {
+				width: 90px;
+			}
+
+			.filter-item select,
+			.filter-item .select2-container,
+			.datepicker-wrapper {
+				width: 150px !important;
+				max-width: 150px;
+			}
+
+		.smart-search {
+			width: 220px;
+			max-width: 100%;
+		}
+
+		.btn-common-panel .btn {
+			font-size: 11px;
+		}
+
+		
+	}
+
+	/* =========================================================
+	   768 - 1023
+	   TABLET
+	========================================================= */
+
+	@@media (min-width: 768px) and (max-width: 1279px) {
+		.filter-item {
+			display: grid;
+			grid-template-columns: 90px minmax(0, 1fr);
+			grid-template-rows: auto auto;
+			column-gap: 8px;
+			row-gap: 5px;
+			width: 100%;
+			max-width: 100%;
+			min-width: 0;
+			box-sizing: border-box;
+		}
+
+			.filter-item label {
+				grid-column: 1;
+				grid-row: 1 / span 2;
+				width: 90px;
+				min-width: 0;
+				align-self: start;
+				margin-top: 7px;
+				white-space: nowrap;
+			}
+			/* SELECT */
+			.filter-item select,
+			.filter-item .select2-container {
+				grid-column: 2;
+				grid-row: 1;
+				width: 100% !important;
+				max-width: 100% !important;
+				min-width: 0;
+			}
+			/* DESCRIPTION */
+			.filter-item .input-desc {
+				grid-column: 2;
+				grid-row: 2;
+				width: 100% !important;
+				max-width: 100% !important;
+				min-width: 0;
+				box-sizing: border-box;
+			}
+		/* SEARCH */
+		.smart-search {
+			width: 180px;
+			max-width: 100%;
+		}
+	}
+
+	/* =========================================================
+	   MOBILE
+	   <= 767px
+	========================================================= */
+	@@media (max-width: 767px) {
+		.panel-body {
+			width: 100%;
+			max-width: 100%;
+			overflow-x: hidden;
+			box-sizing: border-box;
+		}
+
+			.panel-body > .row {
+				margin-left: 0;
+				margin-right: 0;
+			}
+
+			.panel-body .row {
+				max-width: 100%;
+				min-width: 0;
+			}
+
+		.filter-row {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			width: 100%;
+			max-width: 100%;
+		}
+
+		.panel-body .row.mb-2 {
+			margin-left: 0;
+			margin-right: 0;
+		}
+		/* FILTER */
+		.filter-item {
+			display: grid;
+			grid-template-columns: 90px minmax(0, 1fr);
+			column-gap: 8px;
+			row-gap: 6px;
+			width: 100%;
+			max-width: 100%;
+			min-width: 0;
+			box-sizing: border-box;
+		}
+
+			.filter-item label {
+				grid-column: 1;
+				width: 90px;
+				min-width: 0;
+				font-size: 12px;
+				line-height: 1.2;
+				white-space: nowrap;
+				margin: 0;
+			}
+			/* SELECT */
+			.filter-item select,
+			.filter-item .select2-container {
+				grid-column: 2;
+				width: 100% !important;
+				max-width: 100% !important;
+				min-width: 0;
+			}
+			/* DESCRIPTION */
+			.filter-item .input-desc {
+				grid-column: 2;
+				width: 100% !important;
+				max-width: 100% !important;
+				min-width: 0;
+				box-sizing: border-box;
+			}
+			/* DATE */
+			.filter-item .datepicker-wrapper {
+				grid-column: 2;
+				width: 100% !important;
+				max-width: 100% !important;
+				min-width: 0;
+				box-sizing: border-box;
+			}
+
+		.datepicker-wrapper input {
+			width: 100%;
+			max-width: 100%;
+		}
+		/* SEARCH */
+		.smart-search {
+			width: 100%;
+			max-width: 100%;
+			min-width: 0;
+			box-sizing: border-box;
+		}
+
+			.smart-search input {
+				width: 100%;
+				max-width: 100%;
+				min-width: 0;
+				box-sizing: border-box;
+			}
+		/* BUTTON */
+		.btn-common-panel {
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			width: 100%;
+			max-width: 100%;
+			gap: 8px;
+			box-sizing: border-box;
+		}
+
+			.btn-common-panel > div:first-child {
+				display: flex !important;
+				flex-wrap: wrap;
+				width: 100%;
+				max-width: 100%;
+				gap: 6px !important;
+				box-sizing: border-box;
+			}
+
+				.btn-common-panel > div:first-child .btn {
+					flex: 1 1 auto;
+					min-width: 0;
+					white-space: nowrap;
+				}
+		/* TABLE */
+		.table-responsive {
+			width: 100%;
+			max-width: 100%;
+			overflow-x: auto !important;
+			overflow-y: hidden;
+			box-sizing: border-box;
+			-webkit-overflow-scrolling: touch;
+		}
+
+			.table-responsive table {
+				max-width: none;
+			}
+
+		div.dataTables_scrollBody {
+			max-width: 100% !important;
+			overflow-x: auto !important;
+		}
+	}
+</style>
+<style>
+
+	.panel.panel-inverse {
+		min-height: 86vh !important;
+	}
+
+	@@media (min-width: 1900px) {
+		.panel.panel-inverse {
+			min-height: 86vh !important;
+		}
+
+		.dataTables_scrollBody, .dt-scroll-body {
+			height: calc(45vh) !important;
+			max-height: calc(45vh) !important;
+			min-height: calc(45vh) !important;
+		}
+	}
+
+	@@media (max-width: 1528px) {
+
+		.dataTables_scrollBody, .dt-scroll-body {
+			height: calc(35vh) !important;
+			max-height: calc(35vh) !important;
+			min-height: calc(35vh) !important;
+		}
+
+		.panel.panel-inverse {
+			height: 82vh !important;
+			min-height: 82vh !important;
+		}
+	}
+
+
+	/* =========================================================
+	   HIDE PREV / NEXT
+	   BELOW 1360px
+	========================================================= */
+
+	@@media (max-width: 1359px) {
+		.btn-prev, .btn-next {
+			display: none !important;
+		}
+	}
 </style>
 
 @section Scripts {

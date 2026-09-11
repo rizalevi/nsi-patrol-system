@@ -32,10 +32,16 @@ updateDateTime();
 setInterval(updateDateTime, 1000); //counting time every second
 
 //init 
-/*waitingDialog.show("Please wait retrieving data...");*/
+
 initializeEvents();
-loadDashboard();
-startAutoRefresh();
+onLoad();
+/*startAutoRefresh();*/
+
+
+function onLoad() {
+    $("#globalLoading").stop(true, true).css("display", "flex").show().fadeIn(150);
+    loadDashboard();
+}
 
 function startAutoRefresh() {
     if (startRT) clearInterval(startRT);
@@ -54,6 +60,7 @@ function delay(ms = 0) {
 }
 
 async function loadDashboard() {
+    $("#globalLoading").stop(true, true).css("display", "flex").show().fadeIn(150);
     try {
         const response = await $.ajax({
             url: buildServiceUrl("service/dashboard/overview"),
@@ -65,6 +72,7 @@ async function loadDashboard() {
 
         if (!response || !response.success || !response.data) {
             toastr.error("Failed to load dashboard data.");
+            //$("#globalLoading").stop(true, true).fadeOut(200);
             //waitingDialog.hide();
             return;
         }
@@ -90,10 +98,12 @@ async function loadDashboard() {
     catch (error) {
         console.log(error)
         toastr.error(error);
-       // waitingDialog.hide();
+        // waitingDialog.hide();
+        $("#globalLoading").stop(true, true).fadeOut(200);
     }
     finally {
-       // waitingDialog.hide();
+        // waitingDialog.hide();
+        $("#globalLoading").stop(true, true).fadeOut(200);
     }
 }
 
@@ -101,6 +111,7 @@ async function loadDashboard() {
 // EVENT HANDLERS
 // ===============================
 function initializeEvents() {
+
     //$(document).on('click', '#viewAll, #box-remain', function () {
     //    $('#modalRemaining').modal('show');
     //    renderProgressInspectionDetails

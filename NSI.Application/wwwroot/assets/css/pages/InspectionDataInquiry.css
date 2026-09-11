@@ -1,0 +1,880 @@
+﻿/* =========================================================
+   FILTER
+========================================================= */
+.filter-item {
+    display: grid;
+    grid-template-columns: 100px 180px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;   
+}
+
+    .filter-item label {
+        width: 100px;
+        min-width: 0;
+        margin-bottom: 0;
+        white-space: nowrap;
+    }
+
+    .filter-item select,
+    .filter-item .select2-container {
+        width: 180px !important;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+.input-desc {
+    width: 100% !important;
+    max-width: 100%;
+    min-width: 0;
+}
+
+
+/* =========================================================
+   DATEPICKER
+========================================================= */
+
+.datepicker-wrapper {
+    position: relative;
+    width: 180px;
+    max-width: 100%;
+    min-width: 0;
+}
+
+    .datepicker-wrapper input {
+        width: 100%;
+        max-width: 100%;
+    }
+
+.datepicker-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   FILTER ROW
+========================================================= */
+
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+}
+
+    .filter-row > * {
+        min-width: 0;
+    }
+
+
+/* =========================================================
+   COMMON BUTTON PANEL
+========================================================= */
+
+.btn-common-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+}
+
+    .btn-common-panel > div:first-child {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        min-width: 0;
+    }
+
+    .btn-common-panel .btn {
+        white-space: nowrap;
+    }
+
+.smart-search {
+    max-width: 100%;
+}
+
+    .smart-search input {
+        max-width: 100%;
+    }
+
+
+
+/* =========================================================
+   >= 1900
+   LARGE DESKTOP
+========================================================= */
+
+
+@media (min-width: 1901px) {
+
+    .filter-item {
+        display: grid;
+        grid-template-columns: 100px 150px minmax(0, 200px);
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        min-width: 0;
+    }
+
+        .filter-item label {
+            width: 100px;
+        }
+
+        .filter-item select,
+        .filter-item .select2-container,
+        .datepicker-wrapper {
+            width: 150px !important;
+            max-width: 150px;
+        }
+
+    .smart-search {
+        width: 240px;
+        max-width: 100%;
+    }
+
+    /* =========================================
+       INSPECTION POINT + PREV/NEXT
+    ========================================= */
+
+    .filter-item:has(#InspectionPointCode) {
+        grid-template-columns: 100px 150px 200px auto;
+    }
+
+        .filter-item:has(#InspectionPointCode) .btn-prev,
+        .filter-item:has(#InspectionPointCode) .btn-next {
+            width: 80px;
+            height: 30px;
+            margin: 0;
+            border: 1px solid lightgray !important;
+        }
+
+
+
+    /* Desktop besar */
+    #modalReport .modal-dialog {
+        width: 95vw;
+        max-width: 1500px !important;
+        height: 85vh;
+        margin: auto;
+    }
+
+    #modalReport .modal-content {
+        height: 100%;
+    }
+
+    #modalReport .modal-body {
+        padding: 0 !important;
+        overflow: hidden;
+    }
+
+    #modalReport #reportFrame {
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        border: none;
+        display: block;
+    }
+
+}
+
+/* =========================================================
+   1600 - 1899
+========================================================= */
+/*
+@media (min-width: 1600px) and (max-width: 1899px) {
+
+    .filter-item {
+        grid-template-columns: 80px 180px minmax(0, 180px);
+    }
+
+        .filter-item label {
+            width: 80px;
+        }
+
+        .filter-item select,
+        .filter-item .select2-container,
+        .datepicker-wrapper {
+            width: 180px !important;
+            max-width: 180px;
+        }
+
+    #modalReport .modal-dialog {
+        width: 94vw !important;
+        max-width: 1400px !important;
+        height: 82vh !important;
+    }
+
+    #modalReport #reportFrame {
+        height: 100% !important;
+    }
+}
+*/
+
+/* =========================================================
+   1360 - 1599
+========================================================= */
+
+@media (min-width: 1360px) and (max-width: 1899px) {
+
+    .filter-item {
+        display: grid;
+        grid-template-columns: 100px 150px minmax(0, 150px);
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        min-width: 0;
+    }
+
+        .filter-item label {
+            width: 100px;
+        }
+
+        .filter-item select,
+        .filter-item .select2-container,
+        .datepicker-wrapper {
+            width: 150px !important;
+            max-width: 150px;
+        }
+
+    .smart-search {
+        width: 240px;
+        max-width: 100%;
+    }
+
+    /* =========================================
+       INSPECTION POINT + PREV/NEXT
+    ========================================= */
+
+    .filter-item:has(#InspectionPointCode) {
+        grid-template-columns: 100px 150px 150px auto;
+    }
+
+        .filter-item:has(#InspectionPointCode) .btn-prev,
+        .filter-item:has(#InspectionPointCode) .btn-next {
+            width: 80px;
+            height: 30px;
+            margin: 0;
+            border:1px solid lightgray !important;
+        }
+
+    #modalReport .modal-dialog {
+        width: 94vw !important;
+        max-width: 1400px !important;
+        height: 82vh !important;
+    }
+
+    #modalReport #reportFrame {
+        height: 100% !important;
+    }
+}
+
+
+/* =========================================================
+   1280 - 1359
+========================================================= */
+
+@media (min-width: 1280px) and (max-width: 1359px) {
+
+    .filter-item {
+        grid-template-columns: 90px 150px minmax(0, 180px);
+    }
+
+        .filter-item label {
+            width: 90px;
+        }
+
+        .filter-item select,
+        .filter-item .select2-container,
+        .datepicker-wrapper {
+            width: 150px !important;
+            max-width: 150px;
+        }
+
+    .smart-search {
+        width: 220px;
+        max-width: 100%;
+    }
+
+    .btn-common-panel .btn {
+        font-size: 11px;
+    }
+
+    #modalReport .modal-dialog {
+        width: 94vw !important;
+        max-width: 1200px !important;
+        height: 80vh !important;
+    }
+
+    #modalReport #reportFrame {
+        height: 100% !important;
+    }
+}
+
+
+/* =========================================================
+   1024 - 1279
+========================================================= */
+
+/*@media (min-width: 1024px) and (max-width: 1279px) {*/
+
+    /* =========================================
+       FILTER ITEM
+    ========================================= */
+
+    /*.filter-item {
+        display: grid;*/
+        /* Label + area input */
+        /*grid-template-columns: 85px minmax(0, 1fr);*/
+        /* Combo/date + description */
+        /*grid-template-rows: auto auto;
+        column-gap: 10px;
+        row-gap: 6px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }*/
+
+
+        /* =========================================
+       LABEL
+    ========================================= */
+
+        /*.filter-item label {
+            grid-column: 1;
+            grid-row: 1 / span 2;
+            width: 85px;
+            min-width: 0;
+            align-self: start;
+            margin-top: 7px;
+            margin-bottom: 0;
+            white-space: nowrap;
+            font-size: 12px;
+        }*/
+
+
+        /* =========================================
+       SELECT / SELECT2
+    ========================================= */
+
+        /*.filter-item select,
+        .filter-item .select2-container {
+            grid-column: 2;
+            grid-row: 1;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0;
+            box-sizing: border-box;
+        }*/
+
+
+        /* =========================================
+       DESCRIPTION
+    ========================================= */
+
+        /*.filter-item .input-desc {
+            grid-column: 2;
+            grid-row: 2;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0;
+            box-sizing: border-box;
+        }*/
+
+
+        /* =========================================
+       DATEPICKER
+    ========================================= */
+
+        /*.filter-item .datepicker-wrapper {
+            grid-column: 2;
+            grid-row: 1;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+            .filter-item .datepicker-wrapper input {
+                width: 100%;
+                max-width: 100%;
+            }*/
+
+
+    /* =========================================
+       FILTER ROW
+    ========================================= */
+
+    /*.filter-row {
+        gap: 10px;
+    }*/
+
+
+    /* =========================================
+       SEARCH
+    ========================================= */
+
+    /*.smart-search {
+        width: 180px;
+        max-width: 100%;
+    }*/
+
+
+    /* =========================================
+       BUTTON
+    ========================================= */
+
+    /*.btn-common-panel .btn {
+        font-size: 10px;
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+}*/
+
+/* =========================================================
+   768 - 1023
+   TABLET
+========================================================= */
+
+@media (min-width: 768px) and (max-width: 1279px) {
+
+    .filter-item {
+        display: grid;
+        grid-template-columns: 90px minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        column-gap: 8px;
+        row-gap: 5px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+        .filter-item label {
+            grid-column: 1;
+            grid-row: 1 / span 2;
+            width: 90px;
+            min-width: 0;
+            align-self: start;
+            margin-top: 7px;
+            white-space: nowrap;
+        }
+
+        /* SELECT */
+        .filter-item select,
+        .filter-item .select2-container {
+            grid-column: 2;
+            grid-row: 1;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0;
+        }
+
+        /* DESCRIPTION */
+        .filter-item .input-desc {
+            grid-column: 2;
+            grid-row: 2;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+        /* =========================================
+           DATEPICKER
+        ========================================= */
+
+        .filter-item:has(.datepicker-wrapper) {
+            grid-template-columns: 90px minmax(0, 1fr);
+            grid-template-rows: auto;
+            column-gap: 8px;
+        }
+
+            .filter-item:has(.datepicker-wrapper) label {
+                grid-column: 1;
+                grid-row: 1;
+                width: 90px;
+                margin-top: 0;
+                align-self: center;
+            }
+
+            .filter-item:has(.datepicker-wrapper) .datepicker-wrapper {
+                width: 150px !important;
+                max-width: 150px !important;
+                min-width: 0;
+                box-sizing: border-box;
+            }
+
+                .filter-item:has(.datepicker-wrapper) .datepicker-wrapper:first-of-type {
+                    grid-column: 2;
+                    grid-row: 1;
+                }
+                 
+                .filter-item:has(.datepicker-wrapper) .datepicker-wrapper:last-of-type {
+                    grid-column: 2;
+                    grid-row: 1;
+                    margin-left: 158px;
+                }
+
+                .filter-item:has(.datepicker-wrapper) .datepicker-wrapper input {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                }
+
+    /* SEARCH */
+    .smart-search {
+        width: 180px;
+        max-width: 100%;
+    }
+
+    #modalReport .modal-dialog {
+        width: 94vw !important;
+        max-width: 900px !important;
+        height: 78vh !important;
+    }
+
+    #modalReport #reportFrame {
+        height: 100% !important;
+    }
+}
+/* =========================================================
+   MOBILE 
+   <= 767px
+========================================================= */
+@media (max-width: 767px) {
+
+    .panel-body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+
+        .panel-body > .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .panel-body .row {
+            max-width: 100%;
+            min-width: 0;
+        }
+
+    .filter-row {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .panel-body .row.mb-2 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* FILTER */
+    .filter-item {
+        display: grid;
+        grid-template-columns: 90px minmax(0, 1fr);
+        column-gap: 8px;
+        row-gap: 6px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+        .filter-item label {
+            grid-column: 1;
+            width: 90px;
+            min-width: 0;
+            font-size: 12px;
+            line-height: 1.2;
+            white-space: nowrap;
+            margin: 0;
+        }
+
+        /* SELECT */
+        .filter-item select,
+        .filter-item .select2-container {
+            grid-column: 2;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0;
+        }
+
+        /* DESCRIPTION */
+        .filter-item .input-desc {
+            grid-column: 2;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+        /* DATE */
+        .filter-item .datepicker-wrapper {
+            grid-column: 2;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+    .datepicker-wrapper input {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* SEARCH */
+    .smart-search {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+        .smart-search input {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+    /* BUTTON */
+    .btn-common-panel {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 100%;
+        gap: 8px;
+        box-sizing: border-box;
+    }
+
+        .btn-common-panel > div:first-child {
+            display: flex !important;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 100%;
+            gap: 6px !important;
+            box-sizing: border-box;
+        }
+
+            .btn-common-panel > div:first-child .btn {
+                flex: 1 1 auto;
+                min-width: 0;
+                white-space: nowrap;
+            }
+
+    /* TABLE */
+    .table-responsive {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto !important;
+        overflow-y: hidden;
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
+    }
+
+        .table-responsive table {
+            max-width: none;
+        }
+
+    div.dataTables_scrollBody {
+        max-width: 100% !important;
+        overflow-x: auto !important;
+    }
+
+    #modalReport .modal-dialog {
+        width: 96vw !important;
+        max-width: 96vw !important;
+        height: 90vh !important;
+        margin: 5vh auto;
+    }
+
+    #modalReport .modal-content {
+        height: 100%;
+    }
+
+    #modalReport .modal-header {
+        padding: 10px 12px;
+    }
+
+    #modalReport .modal-title {
+        font-size: 15px;
+    }
+
+    #modalReport .modal-body {
+        height: auto;
+        flex: 1 1 auto;
+        overflow: hidden;
+    }
+
+    #modalReport #reportFrame {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    #modalReport .modal-footer {
+        padding: 8px 12px;
+    }
+}
+
+
+
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-responsive {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table > thead {
+    vertical-align: bottom;
+    line-height: 1.5;
+}
+
+.table > :not(caption) > * > * {
+    padding: .2rem .1rem;
+    padding-left: 5px !important;
+    color: var( --bs-table-color-state, var( --bs-table-color-type, var(--bs-table-color) ) );
+    background-color: var(--bs-table-bg);
+    box-shadow: inset 0 0 0 9999px var( --bs-table-bg-state, var( --bs-table-bg-type, var(--bs-table-accent-bg) ) );
+    vertical-align: middle;
+}
+
+
+/* =========================================================
+   DATATABLE
+========================================================= */
+
+div.dataTables_scrollBody {
+    border: 1px solid lightgray !important;
+}
+
+.modal-datatable .dataTables_scrollBody {
+    height: 25vh !important;
+    margin-top: -20px;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    background-color: white;
+}
+
+.dataTables_wrapper .dataTables_scroll tr.odd td {
+    border-color: var(--bs-component-table-border-color) !important;
+}
+
+
+/* =========================================================
+   TABLE LINK
+========================================================= */
+
+#tableID a {
+    color: #0035ff !important;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   SELECT2
+========================================================= */
+
+.select2-selection__clear {
+    display: none !important;
+}
+
+.select2.select2-container
+.selection
+.select2-selection.select2-selection--multiple,
+.select2.select2-container
+.selection
+.select2-selection.select2-selection--single {
+    border-color: var(--bs-component-border-color);
+    border: 1px solid lightgray !important;
+    outline: 0;
+    height: calc(1.5em + .875rem + 2px);
+    display: flex;
+    align-items: center;
+    border-radius: 5px !important;
+}
+
+
+/* =========================================================
+   HIDDEN
+========================================================= */
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================================================
+   ABNORMAL ROW
+========================================================= */
+
+.row-abnormal {
+    background-color: yellow !important;
+}
+
+.text-abnormal td {
+    color: #ff4a56 !important;
+    font-weight: 800;
+    font-weight: bolder;
+}
+
+.panel.panel-inverse {
+    min-height: 86vh !important;
+}
+
+@media (min-width: 1900px) {
+
+
+    .dataTables_scrollBody, .dt-scroll-body {
+        height: calc(40vh) !important;
+        max-height: calc(40vh) !important;
+        min-height: calc(40vh) !important;
+    }
+}
+
+@media (max-width: 1528px) {
+
+    .panel.panel-inverse {
+        min-height: 82vh !important;
+    }
+
+    .dataTables_scrollBody, .dt-scroll-body {
+        height: calc(20vh) !important;
+        max-height: calc(20vh) !important;
+        min-height: calc(20vh) !important;
+    }
+}
+
+/* =========================================================
+   HIDE PREV / NEXT
+   BELOW 1360px
+========================================================= */
+
+@media (max-width: 1359px) {
+    .btn-prev,
+    .btn-next {
+        display: none !important;
+    }
+}

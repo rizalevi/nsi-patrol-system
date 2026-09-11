@@ -75,7 +75,7 @@ $(document).on("change", "#PlantCode", function () {
 
 //course
 $(document).on("change", "#CourseCode", function () {
-    debugger
+  
     let desc = $("#CourseCode option:selected").data("desc");
     $("#CourseName").val((desc || "").trim());
 

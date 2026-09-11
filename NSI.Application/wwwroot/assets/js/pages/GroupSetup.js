@@ -78,12 +78,19 @@ function loadData() {
         language: {
             lengthMenu: "Show _MENU_"
         },
-        dom:
+        dom: [
+            "rt",
+            "<'row mt-2 align-items-center data-table-footer'",
+            "<'col-12 col-md-5 mb-2 mb-md-0'i>",
+            "<'col-12 col-md-7 d-flex flex-wrap justify-content-md-end align-items-center gap-2'lp>",
+            ">"
+        ].join("")
+        //dom:
 
-            "rt" +
-            "<'row mt-2 align-items-center'\
-            <'col-sm-6'i>\
-            <'col-sm-6 d-flex justify-content-end align-items-center gap-3'lp>\ >"
+        //    "rt" +
+        //    "<'row mt-2 align-items-center'\
+        //    <'col-sm-6'i>\
+        //    <'col-sm-6 d-flex justify-content-end align-items-center gap-3'lp>\ >"
 
     });
 

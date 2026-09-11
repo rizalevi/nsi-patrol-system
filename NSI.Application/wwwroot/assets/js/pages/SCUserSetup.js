@@ -254,7 +254,7 @@ $(document).on("click", ".btn-edit", function () {
             UserID: userID
         }),
         success: function (res) {
-          debugger
+        
             if (res && res.data) {
                 $("#ModalTitle").html("User Setup");
 

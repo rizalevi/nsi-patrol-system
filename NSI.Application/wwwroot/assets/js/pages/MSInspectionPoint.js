@@ -81,6 +81,22 @@ $(document).on("change", "#UnitCode", function () {
     handleUnitMethode(methode);
 });
 
+//3 digit decimal place
+$("#MinimumRange , #MaximumRange").on("input", function () {
+    let value = this.value;
+
+    // Hanya angka dan titik
+    value = value.replace(/[^0-9.]/g, "");
+
+    // Hanya boleh ada 1 titik
+    value = value.replace(/(\..*)\./g, "$1");
+
+    // Maksimal 3 digit setelah titik
+    value = value.replace(/(\.\d{3})\d+/g, "$1");
+
+    this.value = value;
+});
+
 //search data
 $(document).on("click", ".btn-search", function () {
     if ($("#ClusterCode").val() == "" || $("#ClusterCode").val() == null) {
@@ -146,8 +162,12 @@ $(document).on("click", ".btn-edit", function () {
                 $("#InspectionCode").val(res.data.InspectionCode);
                 $("#InspectionPoint").val(res.data.InspectionPoint);
                 $("#UnitCode").val(res.data.UnitCode.trim()).trigger('change');
-                $("#MinimumRange").val(res.data.Minimum);
-                $("#MaximumRange").val(res.data.Maximum);
+                //$("#MinimumRange").val(res.data.Minimum);
+                //$("#MaximumRange").val(res.data.Maximum);
+                $("#MinimumRange").val(formatMinMax(res.data.Minimum));
+                $("#MaximumRange").val(formatMinMax(res.data.Maximum));
+
+
                 $("#ChartType").val(res.data.Chart.trim()).trigger('change');
 
                 // $("#StatusNonActive").val(res.data.Status);
@@ -156,11 +176,11 @@ $(document).on("click", ".btn-edit", function () {
 
                 $("#InspectionCode").prop("readonly", true);
 
-                $("#ClusterCode").prop("readonly", true);
-                $("#ClusterName").prop("readonly", true);
+                //$("#ClusterCode").prop("readonly", true);
+                //$("#ClusterName").prop("readonly", true);
 
-                $("#ClusterCode").val(res.data.ClusterCode);
-                $("#ClusterName").val(res.data.ClusterName);
+                //$("#ClusterCode").val(res.data.ClusterCode);
+                //$("#ClusterName").val(res.data.ClusterName);
 
                 $("#ModalTitle").html("Inspection Point Master");
 
@@ -675,8 +695,40 @@ function loadData() {
             { data: "InspectionCode", autoWidth: false },
             { data: "InspectionPoint", autoWidth: false },
             { data: "UnitDescription", autoWidth: false },
-            { data: "Minimum", autoWidth: false },
-            { data: "Maximum", autoWidth: false },
+            {
+                data: "Minimum",
+                autoWidth: false,
+                render: function (data, type, row) {
+                    if (data == null || data === "") return "";
+
+                    // Jika numeric
+                    if (!isNaN(data) && data.toString().trim() !== "") {
+                        return parseFloat(data)
+                            .toFixed(3)
+                            .replace(/\.?0+$/, "");
+                    }
+
+                    // Jika string seperti YES / NO
+                    return data;
+                }
+            },
+            {
+                data: "Maximum",
+                autoWidth: false,
+                render: function (data, type, row) {
+                    if (data == null || data === "") return "";
+
+                    // Jika numeric
+                    if (!isNaN(data) && data.toString().trim() !== "") {
+                        return parseFloat(data)
+                            .toFixed(3)
+                            .replace(/\.?0+$/, "");
+                    }
+
+                    // Jika string seperti YES / NO
+                    return data;
+                }
+            },
             { data: "Chart", autoWidth: false },
             {
                 data: "Status", autoWidth: false, render: function (data) {
@@ -771,3 +823,14 @@ $(document).on("click", ".btn-prev", function () {
     }
 });
 
+function formatMinMax(data) {
+    if (data == null || data === "") return "";
+
+    if (!isNaN(data) && data.toString().trim() !== "") {
+        return parseFloat(data)
+            .toFixed(3)
+            .replace(/\.?0+$/, "");
+    }
+
+    return data;
+}

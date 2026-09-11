@@ -1,232 +1,1063 @@
-﻿
+﻿    
+/* =========================================================
+   DATEPICKER
+========================================================= */
 
-/* CARD */
-.card {
-    background: white;
-/*    border-radius: 12px;*/
-    padding: 15px;
-    box-shadow: 0 2px 2px rgba(1, 1, 1, .20);
-    height:100%;
+.datepicker-wrapper {
+    position: relative;
+    width: 180px;
+    max-width: 100%;
+    min-width: 0;
 }
 
-.card-header-label {
-    padding: 2px;
-    box-shadow: 0 4px 12px rgba(1, 1, 1, .30);
-}
-
-/* BUTTON */
-.action-bar {
-    padding: 20px;
-    text-align: right;
-}
-
-
-.card-tab {
-    padding: 10px;
-    background: white;
-    border-radius: 5px;
-    padding: 15px;
-    box-shadow: 0 4px 12px rgba(1, 1, 1, .30);
-    min-width: 400px;
-}
-.chart-title {
-    text-align: center;
-    font-size: 13px;
-    font-weight: 400;
-    margin-bottom: 0px;
-    color: #333;
-}
-
-.chart-subtitle {
-    text-align: center;
-    font-size: 11px;
-    color: #666;
-    margin-bottom: 10px;
-}
-
-/* ANIMATION */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(5px);
+    .datepicker-wrapper input {
+        width: 100%;
+        max-width: 100%;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.datepicker-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
 }
 
 
-.chk-select {
-    transform: scale(1.2);
-    cursor: pointer;
-}
 
-.filter-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+/* =========================================================
+   FILTER ROW
+========================================================= */
 
 .filter-row {
     display: flex;
-    gap: 20px;
-}
-
-.filter-row.single {
-    flex-direction: column;
-}
-
-.filter-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex: 0 0 auto; /* ✅ biar tidak melebar */
-    padding-bottom:2px;
-}
-
-.filter-item label {
-    width: 100px;
-    margin-bottom: 0;
-    font-weight: 500;
-}
-
-.filter-item select {
-    width: 180px;
-}
-
-.filter-item input {
-    width: 220px;
-}
-
-.filter-item.full {
-    width: 100%;
-}
-
-#tableID th, #tableID td {
-    white-space: nowrap !important;
-}
-
-.panel-right {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 0px;
-    padding: 8px 20px;
-    height: 48px;
-}
-
-
-/**chart*/
-.chart-wrapper {
-    display: flex;
-    justify-content: center; /* 🔥 horizontal center */
-    align-items: center; /* 🔥 vertical center (optional) */
+    gap: 5px;
     width: 100%;
-    height: 100%;
+    min-width: 0;
 }
 
-.linechart-wrapper {
-    width: 100%;
-    height: 100%;
-    background-color: var(--bs-component-bg) !important;
-}
-
-/* Card biar ga full lebar */
-.chart-card {
-    width: 100%; /* 🔥 atur lebar chart */
-    background-color: var(--bs-component-bg) !important;
-    height:100%;
-}
-
-.linechart-card {
-    width: 100%; /* 🔥 atur lebar chart */
-    background-color: var(--bs-component-bg) !important;
-    height: 100%;
-    /* max-width: 1000px;*/
-}
-.linechart-container {
-    position: relative;
-    width: 100%;
-    background-color: var(--bs-component-bg) !important;
-    height: 40vh;
-    padding-left: 8%;
-    padding-right: 8%;
-}
-
-/* Container chart */
-.chart-container {
-    position: relative;
-    width: 100%;
-    background-color: var(--bs-component-bg) !important;
-    height: 40vh;
-}
-div.dataTables_wrapper div.dataTables_length,
-div.dataTables_wrapper div.dataTables_info,
-div.dataTables_wrapper div.dataTables_paginate {
-    font-size: 9px !important;
-}
-/* Responsive (biar mobile enak) */
-/*@media (max-width: 768px) {
-    .chart-container {
-        height: 280px;
+    .filter-row > * {
+        min-width: 0;
     }
+
+
+/* =========================================================
+   COMMON BUTTON PANEL
+========================================================= */
+
+.btn-common-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
 }
-*/
-/*.dataTables_scrollBody {*/
-    /*height: 30vh !important;
+
+    .btn-common-panel > div:first-child {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        min-width: 0;
+    }
+
+    .btn-common-panel .btn {
+        white-space: nowrap;
+    }
+
+.smart-search {
+    max-width: 100%;
+}
+
+    .smart-search input {
+        max-width: 100%;
+    }
+
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+    .card {
+        background: white;
+        /* border-radius: 12px; */
+        padding: 15px;
+        box-shadow: 0 2px 2px rgba(1, 1, 1, .20);
+        height: 100%;
+    }
+
+    .card-header-label {
+        padding: 2px;
+        box-shadow: 0 4px 12px rgba(1, 1, 1, .30);
+    }
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+    .action-bar {
+        padding: 20px;
+        text-align: right;
+    }
+
+
+/* =========================================================
+   CARD TAB
+========================================================= */
+
+    .card-tab {
+        padding: 10px;
+        background: white;
+        border-radius: 5px;
+        padding: 15px;
+        box-shadow: 0 4px 12px rgba(1, 1, 1, .30);
+        min-width: 400px;
+    }
+
+
+/* =========================================================
+   CHART TITLE
+========================================================= */
+
+    .chart-title {
+        text-align: center;
+        font-size: 13px;
+        font-weight: 400;
+        margin-bottom: 0px;
+        color: #333;
+    }
+
+    .chart-subtitle {
+        text-align: center;
+        font-size: 11px;
+        color: #666;
+        margin-bottom: 10px;
+    }
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(5px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+
+/* =========================================================
+   CHECKBOX
+========================================================= */
+
+    .chk-select {
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+
+
+/* =========================================================
+   FILTER CONTAINER
+========================================================= */
+
+    .filter-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .filter-row {
+        display: flex;
+        
+    }
+
+        .filter-row.single {
+            flex-direction: column;
+        }
+
+
+/* =========================================================
+   FILTER ITEM - DEFAULT
+========================================================= */
+
+    .filter-item {
+        display: grid;
+        /*
+       Label | Main Control | Description
+    */
+        grid-template-columns: 100px 180px 220px;
+        align-items: center;
+        column-gap: 10px;
+        row-gap: 6px;
+        flex: 0 0 auto;
+        width: auto;
+        min-width: 0;
+        padding-bottom: 2px;
+        box-sizing: border-box;
+    }
+
+
+/* =========================================================
+    FILTER LABEL
+    ========================================================= */
+
+        .filter-item label {
+            grid-column: 1;
+            width: 100px;
+            min-width: 0;
+            margin-bottom: 0;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+
+    /* =========================================================
+    SELECT
+    ========================================================= */
+
+        .filter-item select {
+            grid-column: 2;
+            width: 180px !important;
+            min-width: 0;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+
+    /* =========================================================
+    INPUT
+    ========================================================= */
+
+        .filter-item input {
+            grid-column: 3;
+            width: 220px !important;
+            min-width: 0;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+
+/* =========================================================
+   INPUT DESCRIPTION
+========================================================= */
+
+    .input-desc {
+        grid-column: 3;
+        width: 220px !important;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+
+/* =========================================================
+   DATEPICKER
+========================================================= */
+
+    .datepicker-wrapper {
+        grid-column: 2;
+        position: relative;
+        width: 180px !important;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+        .datepicker-wrapper input {
+            width: 100% !important;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+    .datepicker-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+
+/* =========================================================
+   FULL FILTER
+========================================================= */
+
+    .filter-item.full {
+        width: 100%;
+    }
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+    #tableID th,
+    #tableID td {
+        white-space: nowrap !important;
+    }
+
+
+/* =========================================================
+   PANEL RIGHT
+========================================================= */
+
+    .panel-right {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 0px;
+        padding: 8px 20px;
+        height: 48px;
+    }
+
+
+/* =========================================================
+   CHART
+========================================================= */
+
+    .chart-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .linechart-wrapper {
+        width: 100%;
+        height: 100%;
+        background-color: var(--bs-component-bg) !important;
+    }
+
+
+    /* Card biar ga full lebar */
+    .chart-card {
+        width: 100%;
+        background-color: var(--bs-component-bg) !important;
+        height: 100%;
+    }
+
+    .linechart-card {
+        width: 100%;
+        background-color: var(--bs-component-bg) !important;
+        height: 100%;
+        /* max-width: 1000px; */
+    }
+
+
+/* =========================================================
+   CHART CONTAINER
+========================================================= */
+
+    .linechart-container {
+        position: relative;
+        width: 100%;
+        background-color: var(--bs-component-bg) !important;
+        height: 40vh;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    .chart-container {
+        position: relative;
+        width: 100%;
+        background-color: var(--bs-component-bg) !important;
+        height: 40vh;
+    }
+
+
+/* =========================================================
+   DATATABLE FONT
+========================================================= */
+
+    div.dataTables_wrapper div.dataTables_length,
+    div.dataTables_wrapper div.dataTables_info,
+    div.dataTables_wrapper div.dataTables_paginate {
+        font-size: 9px !important;
+    }
+
+
+    /*
+.dataTables_scrollBody {
+    height: 30vh !important;
     margin-top: -20px;
-    
     background-color: white;
-      min-width: 1650px;*/
-    /*overflow-x: hidden !important;
+    min-width: 1650px;
+    overflow-x: hidden !important;
     overflow-y: hidden !important;
     width: 95% !important;
-}*/
+}
+*/
 
-.table > :not(caption) > * > * {
-    padding: .2rem .1rem;
-    color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color)));
-    background-color: var(--bs-table-bg);
-    box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg)));
-    vertical-align: middle;
-    padding-left: 5px !important;
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+    .table > :not(caption) > * > * {
+        padding: .2rem .1rem;
+        color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color)));
+        background-color: var(--bs-table-bg);
+        box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg)));
+        vertical-align: middle;
+        padding-left: 5px !important;
+    }
+
+
+/* =========================================================
+   DATATABLE SCROLL
+========================================================= */
+
+    div.dataTables_scrollBody {
+        border: 1px solid lightgray !important;
+        width: 100%;
+    }
+
+
+/* =========================================================
+   SELECT2
+========================================================= */
+
+    .select2-selection__clear {
+        display: none !important;
+    }
+
+    .select2.select2-container .selection .select2-selection.select2-selection--multiple,
+    .select2.select2-container .selection .select2-selection.select2-selection--single {
+        border-color: var(--bs-component-border-color);
+        border: 1px solid lightgray !important;
+        outline: 0;
+        height: calc(1.5em + .875rem + 2px);
+        display: flex;
+        align-items: center;
+        border-radius: 5px !important;
+    }
+
+
+/* =========================================================
+   CUSTOM WIDTH
+========================================================= */
+
+    .sWidth-ddl {
+        width: 150px !important;
+    }
+
+
+/* =========================================================
+   HIDDEN
+========================================================= */
+
+    .hidden {
+        display: none;
+    }
+
+
+/* =========================================================
+   TEXT RIGHT
+========================================================= */
+
+    .text-right {
+        text-align: right !important;
+        vertical-align: middle;
+    }
+
+
+
+
+/* =========================================================
+   >= 1900
+   LARGE DESKTOP
+========================================================= */
+
+
+@media (min-width: 1901px) {
+
+    .filter-item {
+        display: grid;
+        grid-template-columns: 100px 150px minmax(0, 200px);
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        min-width: 0;
+    }
+
+        .filter-item label {
+            width: 100px;
+        }
+
+        .filter-item select,
+        .filter-item .select2-container,
+        .datepicker-wrapper {
+            width: 150px !important;
+            max-width: 150px;
+        }
+
+    .smart-search {
+        width: 240px;
+        max-width: 100%;
+    }
+
+    /* =========================================
+       INSPECTION POINT + PREV/NEXT
+    ========================================= */
+
+    .filter-item:has(#InspectionPointCode) {
+        grid-template-columns: 100px 150px 200px auto;
+    }
+
+        .filter-item:has(#InspectionPointCode) .btn-prev,
+        .filter-item:has(#InspectionPointCode) .btn-next {
+            width: 80px;
+            height: 30px;
+            margin: 0;
+            border: 1px solid lightgray !important;
+            font-size: 11px !important;
+        }
+
+
+    /* =========================================
+       GROUP + PREV/NEXT
+    ========================================= */
+
+    .filter-item:has(#GroupCode) {
+        grid-template-columns: 100px 150px 200px auto;
+    }
+
+        .filter-item:has(#GroupCode) .btn-prev,
+        .filter-item:has(#GroupCode) .btn-next {
+            width: 80px;
+            height: 30px;
+            margin: 0;
+            border: 1px solid lightgray !important;
+            font-size: 11px !important;
+        }
 }
 
-div.dataTables_scrollBody {
-    border: 1px solid lightgray !important;
-    width: 100%;
-   
+
+/* =========================================================
+   1600 - 1899
+========================================================= */
+
+@media (min-width: 1600px) and (max-width: 1899px) {
+
+    .filter-item {
+        grid-template-columns: 80px 180px minmax(0, 180px);
+    }
+
+        .filter-item label {
+            width: 80px;
+        }
+
+        .filter-item select,
+        .filter-item .select2-container,
+        .datepicker-wrapper {
+            width: 180px !important;
+            max-width: 180px;
+        }
 }
 
-.select2-selection__clear {
-    display: none !important;
+
+/* =========================================================
+   1360 - 1599
+========================================================= */
+
+@media (min-width: 1360px) and (max-width: 1599px) {
+
+    .filter-item {
+        grid-template-columns: 100px 150px minmax(0, 150px);
+    }
+
+        .filter-item label {
+            width: 100px;
+        }
+
+        .filter-item select,
+        .filter-item .select2-container,
+        .datepicker-wrapper {
+            width: 150px !important;
+            max-width: 150px;
+        }
+
+    .smart-search {
+        width: 240px;
+        max-width: 100%;
+    }
+
+    /* =========================================
+       INSPECTION POINT + PREV/NEXT
+    ========================================= */
+
+    .filter-item:has(#InspectionPointCode) {
+        grid-template-columns: 100px 150px 150px auto;
+    }
+
+        .filter-item:has(#InspectionPointCode) .btn-prev,
+        .filter-item:has(#InspectionPointCode) .btn-next {
+            width: 80px;
+            height: 30px;
+            margin: 0;
+            border: 1px solid lightgray !important;
+            font-size: 11px !important;
+        }
+
+
+    /* =========================================
+       GROUP + PREV/NEXT
+    ========================================= */
+
+    .filter-item:has(#GroupCode) {
+        grid-template-columns: 100px 150px 150px auto;
+    }
+
+        .filter-item:has(#GroupCode) .btn-prev,
+        .filter-item:has(#GroupCode) .btn-next {
+            width: 80px;
+            height: 30px;
+            margin: 0;
+            border: 1px solid lightgray !important;
+            font-size: 11px !important;
+        }
 }
 
-.select2.select2-container .selection .select2-selection.select2-selection--multiple, .select2.select2-container .selection .select2-selection.select2-selection--single {
-    border-color: var(--bs-component-border-color);
-    border: 1px solid lightgray !important;
-    outline: 0;
-    height: calc(1.5em + .875rem + 2px);
-    display: flex;
-    align-items: center;
-    border-radius: 5px !important;
+
+/* =========================================================
+   1280 - 1359
+========================================================= */
+
+@media (min-width: 1280px) and (max-width: 1359px) {
+
+    .filter-item {
+        grid-template-columns: 80px 150px minmax(0, 180px);
+    }
+
+
+
+        .filter-item label {
+            width: 80px;
+        }
+
+        .filter-item select,
+        .filter-item .select2-container,
+        .datepicker-wrapper {
+            width: 150px !important;
+            max-width: 150px;
+        }
+
+    .smart-search {
+        width: 220px;
+        max-width: 100%;
+    }
+
+    .btn-common-panel .btn {
+        font-size: 11px;
+    }
+
+    /* =========================================
+       INSPECTION POINT + PREV/NEXT
+    ========================================= */
+
+    .filter-item:has(#InspectionPointCode) {
+        grid-template-columns: 80px 150px 180px auto;
+    }
+
+        .filter-item:has(#InspectionPointCode) .btn-prev,
+        .filter-item:has(#InspectionPointCode) .btn-next {
+            width: 80px;
+            height: 30px;
+            margin: 0;
+            border: 1px solid lightgray !important;
+            font-size: 11px !important;
+        }
+
+
+    /* =========================================
+       GROUP + PREV/NEXT
+    ========================================= */
+
+    .filter-item:has(#GroupCode) {
+        grid-template-columns: 80px 150px 180px auto;
+    }
+
+        .filter-item:has(#GroupCode) .btn-prev,
+        .filter-item:has(#GroupCode) .btn-next {
+            width: 80px;
+            height: 30px;
+            margin: 0;
+            border: 1px solid lightgray !important;
+            font-size: 11px !important;
+        }
 }
 
 
-.sWidth-ddl {
-    width: 150px !important;
+/* =========================================================
+   1024 - 1279
+========================================================= */
+
+@media (min-width: 768px) and (max-width: 1279px) {
+
+    /* =========================================
+       FILTER ITEM
+    ========================================= */
+
+    .filter-item {
+        display: grid;
+        /* Label + area input */
+        grid-template-columns: 90px 150px minmax(0, 150px) 200px;
+        /* Combo/date + description */
+        grid-template-rows: auto auto;
+        column-gap: 10px;
+        row-gap: 6px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+
+        /* =========================================
+           LABEL
+        ========================================= */
+
+        .filter-item label {
+            grid-column: 1;
+            grid-row: 1 / span 2;
+            width: 85px;
+            min-width: 0;
+            align-self: start;
+            margin-top: 7px;
+            margin-bottom: 0;
+            white-space: nowrap;
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+       SELECT / SELECT2
+    ========================================= */
+
+        .filter-item select,
+        .filter-item .select2-container {
+            grid-column: 2;
+            grid-row: 1;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =========================================
+       DESCRIPTION
+    ========================================= */
+
+        .filter-item .input-desc {
+            grid-column: 2;
+            grid-row: 2;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =========================================
+       DATEPICKER
+    ========================================= */
+
+        .filter-item .datepicker-wrapper {
+            grid-column: 2;
+            grid-row: 1;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+            .filter-item .datepicker-wrapper input {
+                width: 100%;
+                max-width: 100%;
+            }
+
+
+    /* =========================================
+       FILTER ROW
+    ========================================= */
+
+    .filter-row {
+        gap: 10px;
+    }
+
+
+    /* =========================================
+       SEARCH
+    ========================================= */
+
+    .smart-search {
+        width: 180px;
+        max-width: 100%;
+    }
+
+
+    /* =========================================
+       BUTTON
+    ========================================= */
+
+    .btn-common-panel .btn {
+        font-size: 10px;
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+
+    /* =========================================
+       INSPECTION POINT + PREV/NEXT
+    ========================================= */
+
+    .filter-item:has(#InspectionPointCode) {
+        grid-template-columns: 90px 200px minmax(0, 200px);
+        font-size:10px !important;
+    }
+
+        .filter-item:has(#InspectionPointCode) .btn-prev,
+        .filter-item:has(#InspectionPointCode) .btn-next {
+            width: 100px;
+            height: 30px;
+            margin: 0;
+            border: 1px solid lightgray !important;
+            font-size: 10px !important;
+        }
+
+    /* =========================================
+       GROUP + PREV/NEXT
+    ========================================= */
+
+    .filter-item:has(#GroupCode) {
+        grid-template-columns: 90px 150px 180px auto;
+    }
+
+        .filter-item:has(#GroupCode) .btn-prev,
+        .filter-item:has(#GroupCode) .btn-next {
+            width: 80px;
+            height: 30px;
+            margin: 0;
+            border: 1px solid lightgray !important;
+            font-size: 11px !important;
+        }
 }
 
 
-.hidden {
-    display: none;
+    /* =========================================================
+       600 - 767
+       FILTER FULL WIDTH
+    ========================================================= */
+    @media (min-width: 600px) and (max-width: 767px) {
+
+        .filter-row {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 8px !important;
+            width: 100% !important;
+        }
+
+        .filter-item {
+            display: grid !important;
+            grid-template-columns: 90px minmax(0, 1fr) !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 150px !important;
+            column-gap: 10px !important;
+            row-gap: 6px !important;
+            box-sizing: border-box !important;
+        }
+
+            .filter-item label {
+                grid-column: 1 !important;
+                width: 90px !important;
+                min-width: 90px !important;
+                font-size: 12px;
+                white-space: nowrap;
+            }
+
+            /* DDL */
+            .filter-item select,
+            .filter-item .select2-container {
+                grid-column: 2 !important;
+                width: 100% !important;
+                max-width: none !important;
+                min-width: 0 !important;
+                box-sizing: border-box !important;
+            }
+
+            /* Input */
+            .filter-item input,
+            .filter-item .input-desc {
+                grid-column: 2 !important;
+                width: 100% !important;
+                max-width: none !important;
+                min-width: 0 !important;
+                box-sizing: border-box !important;
+            }
+
+            /* Datepicker */
+            .filter-item .datepicker-wrapper {
+                grid-column: 2 !important;
+                width: 100% !important;
+                max-width: none !important;
+                min-width: 0 !important;
+                box-sizing: border-box !important;
+            }
+
+                .filter-item .datepicker-wrapper input {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                }
+
+        /* Search */
+        .smart-search {
+            width: 180px !important;
+            max-width: 100% !important;
+        }
+    }
+
+
+    /* =========================================================
+       <= 599
+       SINGLE COLUMN
+    ========================================================= */
+    @media (max-width: 599px) {
+
+        .filter-row {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .filter-item {
+            display: grid;
+            grid-template-columns: 90px minmax(0, 1fr);
+            width: 100%;
+            min-width: 0;
+            column-gap: 8px;
+        }
+
+            .filter-item label {
+                grid-column: 1;
+                width: 90px;
+                font-size: 12px;
+                white-space: nowrap;
+            }
+
+            .filter-item select,
+            .filter-item .select2-container,
+            .filter-item input,
+            .filter-item .input-desc,
+            .datepicker-wrapper {
+                grid-column: 2;
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0;
+            }
+
+                .datepicker-wrapper input {
+                    width: 100% !important;
+                }
+
+        .card {
+            padding: 10px;
+        }
+
+        .card-tab {
+            min-width: 0;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .action-bar {
+            padding: 10px;
+        }
+
+        .panel-right {
+            height: auto;
+            padding: 8px 10px;
+        }
+
+        .smart-search {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .chart-container {
+            height: 300px;
+        }
+
+        .linechart-container {
+            height: 300px;
+            padding-left: 3%;
+            padding-right: 3%;
+        }
+    }
+
+    /* =========================================================
+   HIDE PREV / NEXT ON MOBILE
+   ========================================================= */
+    @media (max-width: 767px) {
+        .btn-prev,
+        .btn-next {
+            display: none !important;
+        }
+    }
+
+.panel.panel-inverse {
+    min-height: 86vh !important;
 }
 
-.text-right{
-    text-align:right !important;
-    vertical-align:middle;
+@media (max-width: 1528px) {
+
+    .panel.panel-inverse {
+        min-height: 82vh !important;
+    }
+
+    .dataTables_scrollBody, .dt-scroll-body {
+        height: calc(29vh) !important;
+        max-height: calc(29vh) !important;
+        min-height: calc(29vh) !important;
+    }
 }
+
+/* =========================================================
+   DATE FROM & DATE TO - SIDE BY SIDE
+   ========================================================= */
+
+.filter-item:has(.datepicker-wrapper) {
+    grid-template-columns: 100px 150px 150px !important;
+    column-gap: 10px !important;
+}
+
+    /* Label */
+    .filter-item:has(.datepicker-wrapper) > label {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+    }
+
+    /* Date From */
+    .filter-item:has(.datepicker-wrapper) .datepicker-wrapper:nth-of-type(1) {
+        grid-column: 2 !important;
+        grid-row: 1 !important;
+    }
+
+    /* Date To */
+    .filter-item:has(.datepicker-wrapper) .datepicker-wrapper:nth-of-type(2) {
+        grid-column: 3 !important;
+        grid-row: 1 !important;
+    }

@@ -235,7 +235,7 @@ $(document).on("click", ".btn-delete", function () {
                     }
                 },
                 error: function (xhr) {
-                    debugger
+                  
                     const response = xhr.responseJSON;
 
                     toastr.warning(

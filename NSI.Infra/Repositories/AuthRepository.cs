@@ -21,33 +21,6 @@ namespace NSI.Infra.Repositories
             _hashService = hashService;
         }
 
-      
-
-        public async Task<UserDto?> LoginAsync(string userId, string password)
-        {
-            using var conn = _connectionFactory.CreateConnection();
-
-            return await conn.QueryFirstOrDefaultAsync<UserDto>(
-                "sp_SS_User_CheckUser",
-                new
-                {
-                    UserId = userId,
-                    Password = password
-                },
-                commandType: CommandType.StoredProcedure
-            );
-        }
-
-        //if (dbUserData.Count > 0)
-        //{
-        //    result.ApplicationID = param.ApplicationID;
-        //    result.UserID = dbUserData[0].UserID;
-        //    result.Password = dbUserData[0].Password;
-        //    result.UserName = dbUserData[0].FullName;
-        //    result.Email = dbUserData[0].Email;
-        //    result.Role = dbUserData[0].Role;
-        //}
-
         public async Task<AuthModel?> GetByUserIdAsync(string userId)
         {
             using var conn = _connectionFactory.CreateConnection();
@@ -61,43 +34,24 @@ namespace NSI.Infra.Repositories
                 commandType: CommandType.StoredProcedure
             );
 
-            //using var db = _connectionFactory.CreateConnection();
-            //return await db.QueryFirstOrDefaultAsync<AuthModel>(
-            //    "SELECT RTRIM(User_Id) as UserId,RTRIM(User_Name) UserName FROM User_Setup WHERE User_Id = @userId",
-            //    new { userId }
-            //);
+          
         }
 
 
-        //sp_WEB_GetEncryptedPassword
-        //public async Task<UserDto?> LoginAsync(string userId, string password)
+        //public async Task<string?> GetEncryptedPasswordAsync(string userId)
         //{
         //    using var conn = _connectionFactory.CreateConnection();
 
-        //    return await conn.QueryFirstOrDefaultAsync<UserDto>(
-        //        "sp_SS_User_CheckUser",
+        //    return await conn.QueryFirstOrDefaultAsync<string>(
+        //        "sp_WEB_GetEncryptedPassword",
         //        new
         //        {
-        //            UserId = userId,
-        //            Password = password
+        //            UserId = userId
         //        },
         //        commandType: CommandType.StoredProcedure
         //    );
         //}
 
-        public async Task<string?> GetEncryptedPasswordAsync(string userId)
-        {
-            using var conn = _connectionFactory.CreateConnection();
-
-            return await conn.QueryFirstOrDefaultAsync<string>(
-                "sp_WEB_GetEncryptedPassword",
-                new
-                {
-                    UserId = userId
-                },
-                commandType: CommandType.StoredProcedure
-            );
-        }
 
         //public async Task<string?> GetEncryptedPasswordAsync(string userId)
         //{

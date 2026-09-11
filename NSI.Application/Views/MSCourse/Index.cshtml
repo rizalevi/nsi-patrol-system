@@ -4,7 +4,7 @@
 }
 
 
-<div class="panel panel-inverse" style="min-height:86vh;">
+<div class="panel panel-inverse" >
 	<div class="panel-heading theme-color">
 		<h4 class="panel-title fs-5"><i class="bi bi-sign-stop"></i> [@ViewBag.Permission.MenuId] - @ViewBag.Permission.MenuName</h4>
 		<div class="panel-heading-btn">
@@ -298,6 +298,39 @@
    
    
 </style>
+<style>
+
+	.panel.panel-inverse {
+		min-height: 86vh !important;
+	}
+
+	@@media (min-width: 1900px) {
+		.panel.panel-inverse {
+			min-height: 86vh !important;
+		}
+
+		.dataTables_scrollBody, .dt-scroll-body {
+			height: calc(50vh) !important;
+			max-height: calc(50vh) !important;
+			min-height: calc(50vh) !important;
+		}
+	}
+
+	@@media (max-width: 1528px) {
+
+		.dataTables_scrollBody, .dt-scroll-body {
+			height: calc(38vh) !important;
+			max-height: calc(38vh) !important;
+			min-height: calc(38vh) !important;
+		}
+
+		.panel.panel-inverse {
+			height: 82vh !important;
+			min-height: 82vh !important;
+		}
+	}
+</style>
+
 @section Scripts {
     <script asp-append-version="true">
         window.userPermission = {

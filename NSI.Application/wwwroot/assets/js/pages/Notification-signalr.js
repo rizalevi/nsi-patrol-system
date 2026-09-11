@@ -227,7 +227,7 @@ $(function () {
 
     $('#btnNotification').on('click', function (e) {
         e.preventDefault();
-        debugger
+      
         const btn = $(this);
         const offset = btn.offset();
 

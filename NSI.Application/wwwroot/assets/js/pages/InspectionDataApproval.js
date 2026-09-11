@@ -173,10 +173,24 @@ $(document).on("click", ".btn-submit", function () {
 
     let tableIDList= $('#tableID').DataTable();
     let listApprove = [];
+    let hasData = false;
+    let hasNormal = false;
+    let hasAbnormal = false;
 
     $('#tableID').DataTable().rows().every(function () {
         let row = this.node();
         let data = this.data();
+
+       
+        hasData = true;
+        let status = data.Status ? data.Status.toLowerCase() : "";
+
+        if (status === "normal") {
+            hasNormal = true;
+        }
+        else if (status === "abnormal") {
+            hasAbnormal = true;
+        }
 
         let IsApprove = $(row).find('.chk-spv').is(':checked');
 
@@ -192,13 +206,45 @@ $(document).on("click", ".btn-submit", function () {
         }
     });
 
-    // 🔥 VALIDASI: tidak ada yg dicentang
+    // ==========================================
+    // TIDAK ADA YANG DICENTANG
+    // ==========================================
     if (listApprove.length === 0) {
-        toastr.info("Please select data to approve", 'Info', { timeOut: 3000, "closeButton": true });
+
+        // Semua data abnormal
+        if (hasData && !hasNormal && hasAbnormal) {
+            toastr.warning(
+                "Please approve abnormal data from detail",
+                "Warning",
+                {
+                    timeOut: 3000,
+                    closeButton: true
+                }
+            );
+        }
+        else {
+            toastr.info(
+                "Please select data to approve",
+                "Info",
+                {
+                    timeOut: 3000,
+                    closeButton: true
+                }
+            );
+        }
+
         return;
     }
 
-    // 🔥 final model
+       
+    //if (listApprove.length === 0) {
+    //    toastr.info("Please select data to approve", 'Info', { timeOut: 3000, "closeButton": true });
+    //    return;
+    //}
+
+    // ==========================================
+    // FINAL MODEL
+    // ==========================================
     let model = {
         ApproveBatch: listApprove
     };
@@ -332,14 +378,53 @@ $(document).on("click", ".btn-approve", function () {
 
 
 
-//check all access
-$(document).on("change", "#chk-all-spv", function () {
-    let checked = $(this).is(":checked");
+////check all access
+//$(document).on("change", "#chk-all-spv", function () {
+//    let checked = $(this).is(":checked");
 
-    $('#tableID').DataTable().rows({ search: 'applied' }).nodes().to$()
-        .find('.chk-spv')
-        .prop("checked", checked);
+//    $('#tableID').DataTable().rows({ search: 'applied' }).nodes().to$()
+//        .find('.chk-spv')
+//        .prop("checked", checked);
+//});
+
+// Check All Access - SPV
+$(document).on("change", "#chk-all-spv", function () {
+
+    let isChecked = $(this).is(":checked");
+    let table = $('#tableID').DataTable();
+
+    let hasAbnormal = false;
+
+    table.rows().every(function () {
+
+        let row = this.node();
+        let data = this.data();
+
+        let isNormal = data.Status &&
+            data.Status.toLowerCase() === "normal";
+
+        let checkbox = $(row).find('.chk-spv');
+        console.log(checkbox);
+        if (isNormal) {
+            checkbox.prop("checked", isChecked);
+        }
+        else {
+            // Abnormal selalu tidak boleh dicentang
+            checkbox.prop("checked", false);
+
+        }
+
+    });
+
+    //// Tampilkan toast jika terdapat data abnormal
+    //if (isChecked && hasAbnormal) {
+    //    showToast(
+    //        "Silahkan approve dari detail",
+    //        "warning"
+    //    );
+    //}
 });
+
 
 function init() {
   
@@ -534,6 +619,24 @@ function init() {
 
                     $(row).addClass("text-abnormal");
                 }
+
+
+                let isAbnormal = data.Status &&
+                    data.Status.toLowerCase() === "abnormal";
+
+                if (isAbnormal) {
+                    $(row).addClass("text-abnormal");
+
+                    // Abnormal tidak boleh approve
+                    $(row).find('.chk-spv')
+                        .prop('checked', false)
+                        .prop('disabled', true);
+                }
+                else {
+                    $(row).find('.chk-spv')
+                        .prop('disabled', false);
+                }
+
             },
             ajax: {
                 //url: BaseUrl + "service/inspectiondataapproval/list",

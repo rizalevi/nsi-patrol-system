@@ -91,6 +91,25 @@
 	.sWidth-ddl {
 		width: 150px !important;
 	}
+
+	.panel.panel-inverse {
+		min-height: 86vh !important;
+	}
+
+	@@media (max-width: 1528px) {
+		.panel.panel-inverse
+
+		{
+			min-height: 82vh !important;
+		}
+
+		.dataTables_scrollBody, .dt-scroll-body {
+			height: calc(29vh) !important;
+			max-height: calc(29vh) !important;
+			min-height: calc(29vh) !important;
+		}
+
+	}
 </style>
 
 <div class="panel panel-inverse" style="min-height:86vh;">

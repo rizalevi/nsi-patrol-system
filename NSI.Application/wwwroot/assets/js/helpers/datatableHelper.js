@@ -9,7 +9,7 @@
 let searchTimers = {};
 
 $(document).on("keyup", ".dt-search", function () {
-    debugger
+  
     let keyword = $(this).val();
 
     let tableId = $(this).data("table");

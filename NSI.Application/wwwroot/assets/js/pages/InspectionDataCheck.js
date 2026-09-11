@@ -239,8 +239,9 @@ $(document).on("click", ".btn-submit", function () {
         let data = this.data();
 
         let IsApprove = $(row).find('.chk-leader').is(':checked');
+        let IsNormal = data.Status && data.Status.toLowerCase() === "normal";
 
-        if (IsApprove) {
+        if (IsApprove && IsNormal) {
             listApprove.push({
                 InspectionNo: data.InspectionNo,
                 CourseCode: data.CourseCode,
@@ -439,11 +440,33 @@ $(document).on("click", ".btn-popupsendback", function (e) {
 
 //check all access
 $(document).on("change", "#chk-all-leader", function () {
-    let checked = $(this).is(":checked");
+    //let checked = $(this).is(":checked");
 
-    $('#tableID').DataTable().rows({ search: 'applied' }).nodes().to$()
-        .find('.chk-leader')
-        .prop("checked", checked);
+    //$('#tableID').DataTable().rows({ search: 'applied' }).nodes().to$()
+    //    .find('.chk-leader')
+    //    .prop("checked", checked);
+
+    let isChecked = $(this).is(":checked");
+    let table = $('#tableID').DataTable();
+
+    table.rows().every(function () {
+
+        let row = this.node();
+        let data = this.data();
+
+        let isNormal = data.Status &&
+            data.Status.toLowerCase() === "normal";
+
+        let checkbox = $(row).find('.chk-leader');
+
+        if (isNormal) {
+            checkbox.prop("checked", isChecked);
+        }
+        else {
+            // Abnormal selalu tidak boleh dicentang
+            checkbox.prop("checked", false);
+        }
+    });
 });
 
 function init() {
@@ -601,10 +624,26 @@ function init() {
         //    isFirstLoad = false;
         //},
         rowCallback: function (row, data, index) {
-            if (data.Status &&
-                data.Status.toLowerCase() === "abnormal") {
+            //if (data.Status &&
+            //    data.Status.toLowerCase() === "abnormal") {
 
+            //    $(row).addClass("text-abnormal");
+            //}
+
+            let isAbnormal = data.Status &&
+                data.Status.toLowerCase() === "abnormal";
+
+            if (isAbnormal) {
                 $(row).addClass("text-abnormal");
+
+                // Abnormal tidak boleh approve
+                $(row).find('.chk-leader')
+                    .prop('checked', false)
+                    .prop('disabled', true);
+            }
+            else {
+                $(row).find('.chk-leader')
+                    .prop('disabled', false);
             }
         },
         ajax: {

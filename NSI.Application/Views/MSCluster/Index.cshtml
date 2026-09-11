@@ -3,7 +3,7 @@
 
 }
 
-<div class="panel panel-inverse" style="min-height:86vh;">
+<div class="panel panel-inverse" >
     <div class="panel-heading theme-color">
         <h4 class="panel-title fs-5"><i class="bi bi-sign-stop"></i> [@ViewBag.Permission.MenuId] - @ViewBag.Permission.MenuName</h4>
         <div class="panel-heading-btn">
@@ -14,14 +14,21 @@
     </div>
 
     <div class="panel-body">
-        <div class="row mb-20px btn-common-panel">
-            <div class="col">
-				@if (ViewBag.Permission.AllowUpdate=="0")
+        <div class="btn-common-panel">
+            <div style="display:flex; gap:10px;">
+                @if (ViewBag.Permission.AllowUpdate == "0")
                 {
-                    <button class="btn btn-success btn-sm  fs-13px btn-addnew" disabled><i class="fa fa-plus"></i> New</button>
-				}else{
-                    <button class="btn btn-success btn-sm  fs-13px btn-addnew"><i class="fa fa-plus"></i> New</button>
-				}
+                    <button id="btnadd" class="btn btn-success btn-sm fs-13px btn-addnew" type="button" onclick="AddNewData(0)" disabled><i class="fa fa-plus"></i> New</button>
+                }
+                else
+                {
+                    <button id="btnadd" class="btn btn-success btn-sm fs-13px btn-addnew" type="button" onclick="AddNewData(0)"><i class="fa fa-plus"></i> New</button>
+                }
+            </div>
+
+            <div class="smart-search">
+                <i class="fa fa-search"></i>
+                <input type="text" class="dt-search" data-table="#tableID" placeholder="Search..." />
             </div>
         </div>
 
@@ -117,14 +124,14 @@
         border: 1px solid lightgray !important;
     }
 
-    .dataTables_scrollBody {
+   /*  .dataTables_scrollBody {
         border:none !important;
         overflow-x: auto !important;
         overflow-y: auto !important;
         height: calc(105vh - 398px) !important;
         max-height: calc(105vh - 398px) !important;
         -webkit-overflow-scrolling: touch;
-    }
+    } */
     .form-row input , select {
         border-radius:5px !important;
     }
@@ -171,7 +178,19 @@
 
     }
 </style>
+<style>
 
+    .panel.panel-inverse {
+        min-height: 86vh;
+    }
+
+    @@media (max-width: 1528px) {
+        .panel.panel-inverse {
+            height: 82vh;
+            min-height: 82vh;
+        }
+    }
+</style>
 @section Scripts {
     <script asp-append-version="true">
         window.userPermission = {

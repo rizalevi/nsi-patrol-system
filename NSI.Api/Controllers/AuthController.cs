@@ -18,12 +18,33 @@ namespace NSI.Api.Controllers;
 [Route("api/auth")]
 public class AuthController : ControllerBase
 {
-  
+
+    /*
+     LOGIN
+     │
+     ├── RateLimit Check       DB
+     │
+     ├── Get User              DB (ONE CALL)
+     │      ├── Password
+     │      ├── UserName
+     │      ├── Email
+     │      ├── Picture
+     │      └── ExpiredDate
+     │
+     ├── Decrypt Password      Memory
+     │
+     ├── Compare               Memory
+     │
+     ├── Reset RateLimit       DB
+     │
+     └── Generate JWT          Memory
+     */
+
     private readonly JwtService _jwtService;
     //private readonly RefreshTokenService _refreshTokenService;
     //private readonly IRefreshTokenService _refreshTokenService;
 
-    private readonly RateLimitService _rateLimitService;
+    //private readonly RateLimitService _rateLimitService;
 
     private static readonly ConcurrentDictionary<string, (int Count, DateTime WindowStart)>
             _loginAttempts = new();
@@ -36,7 +57,7 @@ public class AuthController : ControllerBase
     {
         _jwtService = jwtService;
         //_refreshTokenService = refreshTokenService; //matikan dulu
-        _rateLimitService = rateLimitService;
+        //_rateLimitService = rateLimitService;
         _authRepository = authRepository;
     }
 
@@ -52,15 +73,15 @@ public class AuthController : ControllerBase
         var now = DateTime.UtcNow;
 
 
-        try
-        {
-            await _rateLimitService.CheckAsync(clientIp, userId);
-        }
-        catch (UnauthorizedAccessException ex)
-        {
-            //return StatusCode(429, new { code = 429, message = ex.Message });
-            return new ApiResponse<object> { Status = false, Message = $"Too much failed login attempts. Try again after {PenaltyTimeInMinutes} minute(s)", Data = null };
-        }
+        //try
+        //{
+        //    await _rateLimitService.CheckAsync(clientIp, userId);
+        //}
+        //catch (UnauthorizedAccessException ex)
+        //{
+        //    //return StatusCode(429, new { code = 429, message = ex.Message });
+        //    return new ApiResponse<object> { Status = false, Message = $"Too much failed login attempts. Try again after {PenaltyTimeInMinutes} minute(s)", Data = null };
+        //}
 
 
         AuthModel dbUserData = new();
@@ -81,10 +102,12 @@ public class AuthController : ControllerBase
         var userName="";
         var email = "";
         var avatar = "";
+        var expiredDate = new DateTime();
+        var encryptedPassword = "";
+
 
         if (user.UserId  == null)
         {
-            await _rateLimitService.RegisterFailureAsync(clientIp, userId);
             return new ApiResponse<object> { Status = false, Message = "Invalid User ID or Password", Data = null };
         }
         else
@@ -92,52 +115,40 @@ public class AuthController : ControllerBase
             userName = user.UserName;
             avatar = user.PicturePath;
             email = user.Email;
+            encryptedPassword =  user.Password;
+            expiredDate = user.ExpiredPassword;
+           
         }
 
-        // ambil password terenkripsi dari DB
-        var encryptedPassword =
-                await _authRepository.GetEncryptedPasswordAsync(userId);
-
-        if (encryptedPassword == null)
-        {
-            await _rateLimitService.RegisterFailureAsync(clientIp, userId);
-            return new ApiResponse<object> { Status = false, Message = "Invalid User ID or Password", Data = null };
-        }
-
+      
         // decrypt password
         string decryptedPassword;
-        try
-        {
-            decryptedPassword =
-                CryptHelper.PasswordDecrypt(encryptedPassword, userId);
-        }
-        catch
-        {
-            await _rateLimitService.RegisterFailureAsync(clientIp, userId);
-            return new ApiResponse<object> { Status = false, Message = "Invalid User ID or Password", Data = null };
-        }
-
+        
+        decryptedPassword = CryptHelper.PasswordDecrypt(encryptedPassword??"", userId);
+        
         // compare password
         if (decryptedPassword != request.Password)
         {
-            await _rateLimitService.RegisterFailureAsync(clientIp, userId);
+           //Aug-2026 request NSI matikan fungsi rate limit 5x salah user/password
+           // await _rateLimitService.RegisterFailureAsync(clientIp, userId);
             return new ApiResponse<object> { Status = false, Message = "Invalid User ID or Password", Data = null };
         }
 
         // check exp password
-
-        var expPass =  await _authRepository.CheckExpiredPassword(userId);
-        if (expPass <= DateTime.Now.Date)
+        if(DateOnly.FromDateTime(expiredDate) <= DateOnly.FromDateTime(DateTime.Now))
         {
+           
             return new ApiResponse<object>
             {
                 Status = false,
                 Message = "Password expired! Please contact administrator",
                 Data = null
             };
+
+
         }
 
-        await _rateLimitService.ResetAsync(clientIp, userId);
+        //await _rateLimitService.ResetAsync(clientIp, userId);
 
 
         //var token = _jwtService.GenerateToken(request.UserId);

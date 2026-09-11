@@ -2,7 +2,7 @@
 	Layout = "_Layout";
 
 }
-<div class="panel panel-inverse" style="min-height:86vh;">
+<div class="panel panel-inverse">
 	<div class="panel-heading theme-color">
 		<h4 class="panel-title fs-5"><i class="bi bi-sign-stop"></i> [@ViewBag.Permission.MenuId] - @ViewBag.Permission.MenuName</h4>
 		<div class="panel-heading-btn">
@@ -238,8 +238,8 @@
 			border: none !important;
 			overflow-x: auto !important;
 			overflow-y: auto !important;
-			height: calc(105vh - 398px) !important;
-			max-height: calc(105vh - 398px) !important;
+			/* height: calc(105vh - 398px) !important;
+			max-height: calc(105vh - 398px) !important; */
 			-webkit-overflow-scrolling: touch;
 		}
 
@@ -341,6 +341,79 @@
 			}
 
 	}
+	</style>
+	<style>
+		.panel.panel-inverse {
+			min-height: 86vh;
+		}
+
+		@@media (max-width: 1528px) {
+			.panel.panel-inverse
+			{
+			height: 82vh;
+				min-height: 82vh;
+			}
+
+			#tableID th:nth-child(1),
+			#tableID td:nth-child(1) {
+				width: 100px !important;
+				min-width: 100px !important;
+			}
+
+			#tableID th:nth-child(2),
+			#tableID td:nth-child(2) {
+				width: 100px !important;
+				min-width: 100px !important;
+			}
+
+			#tableID th:nth-child(3),
+			#tableID td:nth-child(3) {
+				width: 160px !important;
+				min-width: 160px !important;
+			}
+
+			#tableID th:nth-child(4),
+			#tableID td:nth-child(4) {
+				width: 100px !important;
+				min-width: 100px !important;
+			}
+
+			#tableID th:nth-child(5),
+			#tableID td:nth-child(5) {
+				width: 280px !important;
+				min-width: 280px !important;
+			}
+
+			#tableID th:nth-child(6),
+			#tableID td:nth-child(6) {
+				width: 130px !important;
+				min-width: 130px !important;
+			}
+
+			#tableID th:nth-child(7),
+			#tableID td:nth-child(7) {
+				width: 130px !important;
+				min-width: 130px !important;
+			}
+
+			#tableID th:nth-child(8),
+			#tableID td:nth-child(8) {
+				width: 130px !important;
+				min-width: 130px !important;
+			}
+
+			#tableID th:nth-child(9),
+			#tableID td:nth-child(9) {
+				width: 130px !important;
+				min-width: 130px !important;
+			}
+
+			#tableID th:nth-child(10),
+			#tableID td:nth-child(10) {
+				width: 130px !important;
+				min-width: 130px !important;
+			}
+		}
 	</style>
 @section Scripts {
 	<script asp-append-version="true">

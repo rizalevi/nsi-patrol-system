@@ -1,4 +1,10 @@
-﻿
+﻿function showLoading() {
+    $("#globalLoading").stop(true, true).css("display", "flex").show().fadeIn(150);
+}
+
+function hideLoading() {
+    $("#globalLoading").stop(true, true).fadeOut(200);
+}
 function toggle(id) {
     
     const input = document.getElementById(id);
@@ -6,7 +12,7 @@ function toggle(id) {
 }
 
 $(document).on('click', '.toggle-password', function () {
-    debugger
+  
     var target = $(this).data('target');
     var input = $(target);
 
@@ -35,36 +41,53 @@ $("#loginForm").on("submit", function (e) {
         UserID: $("#UserID").val(),
         Password: $("#Password").val()
     };
+    // SHOW loading
+    showLoading();
 
     $.ajax({
         url: "/Account/Login",
         type: "POST",
         data: dataObject,
         success: function (result) {
-                
-                   debugger
+              
+            // Login gagal → hide loading
+            hideLoading();
             if (result.Status) {
                 window.location.href = "/Home/Index";
             } else {
-
-                toastr.warning(result.message || "Login failed", "Warning", {
+                debugger
+                toastr.warning(result.message || "Login failed. please try again in a few minutes", "Warning", {
                     timeOut: 3000,
                     closeButton: true
                 });
 
             }
+
         },
         error: function (xhr) {
-                  
-            if (xhr.status === 400) {
-                toastr.warning(xhr.responseJSON?.Message ?? "Invalid login", "Warning");
+            hideLoading();
+
+            //console.log("Status:", xhr.status);
+            //console.log("Status Text:", xhr.statusText);
+            //console.log("Response Text:", xhr.responseText);
+            //console.log("Response JSON:", xhr.responseJSON);
+            //console.log("Full XHR:", xhr);
+            console.log(xhr.responseJSON.Message);
+            if (xhr.responseJSON.Message != "Invalid User ID or Password") {
+                toastr.warning("Login failed. please try again in a few minutes", "Warning");
+            } else {
+                toastr.warning(xhr.responseJSON.Message, "Warning");
             }
-            else if (xhr.status === 401) {
-                toastr.warning("User ID or password incorrect", "Warning");
-            }
-            else {
-                toastr.error("Server error", "Error");
-            }
+
+            //if (xhr.status === 400) {
+            //toastr.warning("Login failed. please try again in a few minutes", "Warning");
+            //}
+            //else if (xhr.status === 401) {
+            //    toastr.warning("User ID or password incorrect", "Warning");
+            //}
+            //else {
+            //    toastr.error("Server error", "Error");
+            //}
 
         }
     });

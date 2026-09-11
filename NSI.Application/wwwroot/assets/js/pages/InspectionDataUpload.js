@@ -994,7 +994,7 @@ function checkLastStatus(rowData) {
         dataType: "json",
         xhrFields: { withCredentials: true },
         success: function (result) {
-            debugger
+           
             let currentStatus = "";
             if (result.status && result.data && result.data.length > 0) {
                 currentStatus = result.data[0].Status;
@@ -1047,7 +1047,7 @@ function checkLastStatus(rowData) {
  
 $(document).on("click", ".btn-open-modal", function (e) {
     e.preventDefault();
-    debugger
+  
     let table = $('#tableID').DataTable();
     let rowData = table.row($(this).closest('tr')).data();
 
@@ -1164,7 +1164,7 @@ function loadImageDetail(rowData) {
                     .attr("src", finalImageUrl)
                     .show();
             } else {
-                debugger
+             
                 $("#imgPreview-Detail").show();
                 //console.warn("Gambar tidak ada di DB.");
                 $("#imgPreview-Detail")

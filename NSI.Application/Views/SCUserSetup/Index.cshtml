@@ -3,7 +3,7 @@
 
 }
 
-<div class="panel panel-inverse" style="min-height:86vh;">
+<div class="panel panel-inverse" >
 	<div class="panel-heading theme-color">
 		<h4 class="panel-title fs-5"><i class="bi bi-sign-stop"></i> [@ViewBag.Permission.MenuId] - @ViewBag.Permission.MenuName</h4>
 		<div class="panel-heading-btn">
@@ -365,6 +365,24 @@
 		border-radius: 5px !important;
 	}
 
+	.panel.panel-inverse {
+		min-height: 86vh !important;
+	}
+
+	@@media (max-width: 1528px) {
+		.panel.panel-inverse
+
+	{
+		min-height: 82vh !important;
+	}
+
+	.dataTables_scrollBody, .dt-scroll-body {
+		height: calc(50vh) !important;
+			max-height: calc(50vh) !important;
+			min-height: calc(50vh) !important;
+	}
+
+	}
 </style>
 
 @section Scripts {
