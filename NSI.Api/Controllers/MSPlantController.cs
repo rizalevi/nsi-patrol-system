@@ -4,6 +4,7 @@ using NSI.Api.Services.Master;
 using NSI.Domain.DTOs.Master;
 using NSI.Domain.Models.Master;
 using NSI.Infra.Repositories.Master;
+using System.Data.SqlClient;
 using System.Security.Claims;
 
 namespace NSI.Api.Controllers
@@ -41,13 +42,23 @@ namespace NSI.Api.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> Create([FromBody] MSPlant payload)
         {
+            try
+            {
 
-           
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _service.Create(payload, userId);
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                await _service.Create(payload, userId);
 
-            return Success(null, "Data saved successfully");
-           
+                return Success(null, "Data saved successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
+
 
             //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)??"";
             //await _service.Create(model, userId);
@@ -69,9 +80,22 @@ namespace NSI.Api.Controllers
         [HttpPatch("update")]
         public async Task<IActionResult> Update([FromBody] MSPlant payload)
         {
-            //var before = await _addressRepository.Capture(model.AddressCode);
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _service.Update(payload, userId);
+            try
+            {
+                //var before = await _addressRepository.Capture(model.AddressCode);
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                await _service.Update(payload, userId);
+
+                return Success(null, "Data updated successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
             //var after = await _addressRepository.Capture(model.AddressCode);
 
             //await _logger.SaveDataLog(new DataLogDto
@@ -83,27 +107,37 @@ namespace NSI.Api.Controllers
             //    Before = before,
             //    After = after
             //});
-            return Success(null, "Data updated successfully");
+           
         }
 
         [HttpPost("remove")]
         public async Task<IActionResult> Remove([FromBody] MSPlant payload)
         {
             //var before = await _addressRepository.Capture(id);
-           // string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+            // string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+            try
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                await _service.Remove(payload.ClusterCode, payload.PlantCode, userId, payload.IPAddress);
+                //await _logger.SaveDataLog(new DataLogDto
+                //{
+                //    DocumentType = "Master Address",
+                //    EntityId = id,
+                //    ReferenceId = id,
+                //    Action = DataLogAction.Delete,
+                //    Before = before
+                //});
 
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _service.Remove(payload.ClusterCode,payload.PlantCode, userId, payload.IPAddress);
-            //await _logger.SaveDataLog(new DataLogDto
-            //{
-            //    DocumentType = "Master Address",
-            //    EntityId = id,
-            //    ReferenceId = id,
-            //    Action = DataLogAction.Delete,
-            //    Before = before
-            //});
-
-            return Success(null, "Data deleted successfully");
+                return Success(null, "Data deleted successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
 
     }

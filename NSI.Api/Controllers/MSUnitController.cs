@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using NSI.Api.Services.Master; // Tambahkan namespace ke Service layer Anda
 using NSI.Domain.Interfaces.Master;
 using NSI.Domain.Models.Master;
+using System.Data.SqlClient;
 using System.Security.Claims;
 
 namespace NSI.Api.Controllers.Master
@@ -39,46 +40,68 @@ namespace NSI.Api.Controllers.Master
         [HttpPost("save")]
         public async Task<IActionResult> Save([FromBody] MSUnitClassification payload)
         {
-            if (string.IsNullOrEmpty(payload.UnitCode))
+            try
             {
-                return BadRequest("Unit Code is required.");
+                if (string.IsNullOrEmpty(payload.UnitCode))
+                {
+                    return BadRequest("Unit Code is required.");
+                }
+
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+
+                // 1. Cek data via service
+                var existingData = await _repo.GetData(payload.UnitCode);
+
+                // 2. Eksekusi Insert atau Update via service
+                if (existingData == null)
+                {
+                    // New
+                    await _repo.Create(payload, userId);
+                    return Success(null, "Data saved successfully");
+                }
+                else
+                {
+                    // Update
+                    await _repo.Update(payload, userId);
+                    return Success(null, "Data updated successfully");
+                }
             }
-
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-
-            // 1. Cek data via service
-            var existingData = await _repo.GetData(payload.UnitCode);
-
-            // 2. Eksekusi Insert atau Update via service
-            if (existingData == null)
+            catch (SqlException ex)
             {
-                // New
-                await _repo.Create(payload, userId);
-                return Success(null, "Data saved successfully");
+                return Fail(null, ex.Message);
             }
-            else
+            catch (Exception ex)
             {
-                // Update
-                await _repo.Update(payload, userId);
-                return Success(null, "Data updated successfully");
+                return Fail(null, ex.Message);
             }
         }
 
         [HttpPost("remove")]
         public async Task<IActionResult> Remove([FromBody] MSUnitClassification payload)
         {
-            if (string.IsNullOrEmpty(payload.UnitCode))
+            try
             {
-                return BadRequest("Unit Code is required.");
+                if (string.IsNullOrEmpty(payload.UnitCode))
+                {
+                    return BadRequest("Unit Code is required.");
+                }
+
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                //string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+
+                // Panggil _service
+                await _repo.Remove(payload.UnitCode, userId, payload.IPAddress ?? "");
+
+                return Success(null, "Data deleted successfully");
             }
-
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            //string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
-
-            // Panggil _service
-            await _repo.Remove(payload.UnitCode, userId, payload.IPAddress??"");
-
-            return Success(null, "Data deleted successfully");
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
     }
 }

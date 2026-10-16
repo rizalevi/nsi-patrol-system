@@ -648,9 +648,35 @@ function init() {
                 }
             },
             { data: "Unit", className: "text-center" },
-            { data: "Minimum", className: "text-center" },
-            { data: "Maximum", className: "text-center" },
-            { data: "Inspection_Result", className: "text-center" },
+            //{ data: "Minimum", className: "text-center" },
+            //{ data: "Maximum", className: "text-center" },
+            {
+                data: "Minimum",
+                autoWidth: false,
+                render: function (data, type, row) {
+                    if (type !== "display") return data ?? "";
+
+                    return FormatInspectionResult(data);
+                }
+            },
+            {
+                data: "Maximum",
+                autoWidth: false,
+                render: function (data, type, row) {
+                    if (type !== "display") return data ?? "";
+
+                    return FormatInspectionResult(data);
+                }
+            },
+            {
+                data: "Inspection_Result",
+                autoWidth: false,
+                render: function (data, type, row) {
+                    if (type !== "display") return data ?? "";
+
+                    return FormatInspectionResult(data);
+                }
+            },
             { data: "Status", className: "text-center" },
             { data: "InspectionNo", className: "text-center" },
         ],
@@ -721,144 +747,6 @@ function init() {
     });
 }
 
-//function loadData() {
-//    isRedirect = false;
-//    if (table) {
-//        table.ajax.reload(null, false);
-//        return;
-//    }
-//    table = $("#tableID").DataTable({
-//        destroy: true,
-//        ajax: {
-//            url: buildServiceUrl("service/inspectiondataupload/list"),
-//            type: "POST",
-//            contentType: "application/json",
-//            xhrFields: { withCredentials: true },
-//            data: function (d) {
-//                return JSON.stringify({
-//                    PlantCode: (plantCode != "") ? plantCode : $("#PlantCode").val(),
-//                    CourseCode: (courseCode != "") ? courseCode : $("#CourseCode").val(),
-//                    GroupCode: (groupCode != "") ? groupCode : $("#GroupCode").val(),
-//                    Shift: (frequency != "") ? frequency : $("#Frequency").val(),
-//                    InspectionDate: (inspectionDate != "") ? inspectionDate : formatDateGeneral($('#InspectionDateFrom').val())
-
-//                });
-//            },
-//            dataSrc: function (json) {
-//                if (!json || !json.data) {
-//                    toastr.warning("Invalid response from server", 'Warning', { timeOut: 3000, "closeButton": true });
-//                    return [];
-//                }
-//                //if (json.data.length === 0) {
-//                //    toastr.info("No data available in table", 'Info', { timeOut: 3000, "closeButton": true });
-//                //    return []; 
-//                //}
-//                return json.data;
-//            }
-//        },
-//        drawCallback: function (settings) {
-//            let api = this.api();
-//            let data = api.rows().data();
-             
-//            if (data.length > 0) {
-//                let firstRow = data[0];
-//                checkRemarks(firstRow);
-//                checkLastStatus(firstRow, "");
-//            } else {
-//                $("#txtRemarks").val("");
-//                $("#lblStatus").hide();
-//            }
-//        },
-//        rowCallback: function (row, data, index) {
-//            if (data.Status && data.Status.toLowerCase() === "abnormal") {
-//                $(row).addClass("text-abnormal");
-//            }
-             
-//            $(row).off('click').on('click', function () {
-//                checkRemarks(data);
-//            });
-//        },
-//        columns: [
-//            //{
-//            //    data: null, 
-//            //    className: "text-center",
-//            //    render: function (data, type, row) {
-//            //        return `
-//            //        <button class="btn btn-xs theme-color btn-edit" data-inspectioncode="${row.Inspection_Code} data-inspectionno="${row.Inspectionno} data-group="${row.Group}">
-//            //            <i class="fa fa-edit"></i>
-//            //        </button>
-//            //        `; 
-//            //    }
-//            //},
-//            { data: "Group", className: "text-left" , autoWidth: false,
-//                render: function (data, type, row) {
-
-//                    if (type === "display") {
-//                        return `<a href="#" class="btn-open-modal"
-//                        data-inspectioncode="${row.Inspection_Code}"
-//                        data-inspectionno="${row.Inspectionno}"
-//                        data-group="${row.Group}">
-//                        ${data}
-//                    </a>`;
-//                    }
-
-//                    return data;
-//                }
-//            },
-//            {
-//                data: "Inspection_Point", className: "text-left", autoWidth: false,
-//                render: function (data, type, row) {
-
-//                    if (type === "display") {
-//                        return `<a href="#" class="btn-open-modal"
-//                        data-inspectioncode="${row.Inspection_Code}"
-//                        data-inspectionno="${row.Inspectionno}"
-//                        data-group="${row.Group}">
-//                        ${data}
-//                    </a>`;
-//                    }
-
-//                    return data;
-//                }
-//            },
-//            { data: "Unit",              className: "text-center" },
-//            { data: "Minimum",           className: "text-center" }, 
-//            { data: "Maximum",           className: "text-center" }, 
-//            { data: "Inspection_Result", className: "text-center" },
-//            { data: "Status",            className: "text-center" },
-//            { data: "InspectionNo",      className: "text-center" },
-//        ],
-//        autoWidth: false,
-//        searching: true,
-//        ordering: true,
-//        paging: true,
-//        info: true,
-//        bSort: true,
-//        bLengthChange: true,
-//        pageLength: 25,
-//        scrollX: true,
-//        scrollY: "calc(42vh)",
-//        processing: false,
-//        serverSide: false,
-//        responsive: true,
-//        "lengthMenu": [[25, 50, 100, -1], [25, 50, 100, "ALL"]],
-//        language: {
-//            lengthMenu: "Show _MENU_"
-//        },
-//        dom:
-//            "rt" +
-//            "<'row mt-2 align-items-center'\
-//            <'col-sm-6'i>\
-//            <'col-sm-6 d-flex justify-content-end align-items-center gap-3'lp>\ >"
-//        ,
-//        //rowCallback: function (row, data, index) {
-//        //    if (data.Status && data.Status.toLowerCase() === "abnormal") {
-//        //        $(row).css("background-color", "yellow");
-//        //    }
-//        //}
-//    });
-//}
-
 function loadDetail() {
     if (tableDetail) {
         tableDetail.ajax.reload(null, false);
@@ -898,9 +786,60 @@ function loadDetail() {
             { data: "Group", "autoWidth": true },
             { data: "InspectionPoint", "autoWidth": true },
             { data: "Unit", "autoWidth": true },
-            { data: "Minimum", "autoWidth": true },
-            { data: "Maximum", "autoWidth": true },
-            { data: "InspectionResult", "autoWidth": true },
+            //{ data: "Minimum", "autoWidth": true },
+            //{ data: "Maximum", "autoWidth": true },
+            {
+                data: "Minimum",
+                autoWidth: false,
+                render: function (data, type, row) {
+                    if (data == null || data === "") return "";
+
+                    // Jika numeric
+                    if (!isNaN(data) && data.toString().trim() !== "") {
+                        return parseFloat(data)
+                            .toFixed(3)
+                            .replace(/\.?0+$/, "");
+                    }
+
+                    // Jika string seperti YES / NO
+                    return data;
+                }
+            },
+            {
+                data: "Maximum",
+                autoWidth: false,
+                render: function (data, type, row) {
+                    if (data == null || data === "") return "";
+
+                    // Jika numeric
+                    if (!isNaN(data) && data.toString().trim() !== "") {
+                        return parseFloat(data)
+                            .toFixed(3)
+                            .replace(/\.?0+$/, "");
+                    }
+
+                    // Jika string seperti YES / NO
+                    return data;
+                }
+            },
+            //{ data: "InspectionResult", "autoWidth": true },
+            {
+                data: "InspectionResult",
+                autoWidth: false,
+                render: function (data, type, row) {
+                    if (data == null || data === "") return "";
+
+                    // Jika numeric
+                    if (!isNaN(data) && data.toString().trim() !== "") {
+                        return parseFloat(data)
+                            .toFixed(3)
+                            .replace(/\.?0+$/, "");
+                    }
+
+                    // Jika string seperti YES / NO
+                    return data;
+                }
+            },
             { data: "Status", "autoWidth": true },
             { data: "Remarks", "autoWidth": true } 
         ],
@@ -1266,11 +1205,16 @@ function openDetailModal(rowData) {
     $("#Group-Detail").val(rowData.Description || rowData.Group);
 
     $("#InspectionPoint-Detail").val(rowData.Inspection_Point);
-    $("#MinRange-Detail").val(rowData.Minimum);
-    $("#MaxRange-Detail").val(rowData.Maximum);
+    //$("#MinRange-Detail").val(formatNumeric3Digit(rowData.Minimum));
+    //$("#MaxRange-Detail").val(formatNumeric3Digit(rowData.Maximum));
+
+    $("#MinRange-Detail").val(FormatInspectionResult(rowData.Minimum));
+    $("#MaxRange-Detail").val(FormatInspectionResult(rowData.Maximum));
+
     $("#Unit-Detail").val(rowData.Unit);
 
     if (rowData.Methode === "01") {
+        //option 
         $("#divOptionResult").show();
         $("#divlblOptionResult").show();
 
@@ -1278,9 +1222,11 @@ function openDetailModal(rowData) {
         fillResultOptions(rowData.unitCode, rowData.Inspection_Result);
     }
     else if (rowData.Methode === "02") {
+        //numeric
         $("#divOptionResult").hide();
         $("#divlblOptionResult").hide();
-        $("#InspectionResult-Detail").val(rowData.Inspection_Result);
+        //$("#InspectionResult-Detail").val(formatNumeric3Digit(rowData.Inspection_Result));
+        $("#InspectionResult-Detail").val(FormatInspectionResult(rowData.Inspection_Result));
     }
 
     loadImageDetail(rowData);
@@ -1331,3 +1277,65 @@ function validateData() {
 
     return true;
 }
+
+//show format numeric only 3 digit after comma
+function formatNumeric3Digit(data) {
+    if (data == null || data === "") return "";
+
+    if (!isNaN(data) && data.toString().trim() !== "") {
+        return parseFloat(data)
+            .toFixed(3)
+            .replace(/\.?0+$/, "");
+    }
+
+    return data;
+}
+
+
+
+////3 digit decimal place
+//$("#InspectionResult-Detail").on("input", function () {
+//    let value = this.value;
+//    console.log(value);
+
+//    // Hanya angka dan titik
+//    value = value.replace(/[^0-9.]/g, "");
+
+//    // Hanya boleh ada 1 titik
+//    value = value.replace(/(\..*)\./g, "$1");
+
+//    // Maksimal 3 digit setelah titik
+//    value = value.replace(/(\.\d{3})\d+/g, "$1");
+
+//    this.value = value;
+//});
+
+
+$("#InspectionResult-Detail").on("input", function () {
+    let value = this.value;
+
+    // Hanya angka dan titik
+    value = value.replace(/[^0-9.]/g, "");
+
+    // Hanya boleh ada 1 titik
+    value = value.replace(/(\..*)\./g, "$1");
+
+    let parts = value.split(".");
+    let integerPart = parts[0];
+    let decimalPart = parts.length > 1 ? parts[1] : "";
+
+    // Bilangan bulat 4 digit atau lebih: tidak dibatasi desimal
+    if (integerPart.length >= 4) {
+        this.value = integerPart;
+        return;
+    }
+
+    // Maksimal digit desimal = 4 dikurangi digit angka utama
+    let maxDecimal = Math.max(0, 4 - integerPart.length);
+
+    decimalPart = decimalPart.substring(0, maxDecimal);
+
+    this.value = parts.length > 1
+        ? integerPart + "." + decimalPart
+        : integerPart;
+});

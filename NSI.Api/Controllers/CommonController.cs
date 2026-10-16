@@ -101,18 +101,19 @@ public class CommonController : ControllerBase
     //    };
     //}
 
-    protected ContentResult Fail(string message = null, int code = 400, object data = null)
+    protected ContentResult Fail(object data = null, string message = null, string code = null)
     {
         return new ContentResult
         {
-            StatusCode = code,
+            StatusCode = 200,
             ContentType = "application/json",
             Content = JsonConvert.SerializeObject(new
             {
-                Code = code,
+                Code = 400,
                 Status = false,
                 Message = message,
-                Data = data
+                Data = data,
+                Success = false
             })
         };
     }
@@ -129,6 +130,7 @@ public class CommonController : ControllerBase
                 Status = true,
                 Message = message,
                 Data = data,
+                Success = true
             })
         };
     }

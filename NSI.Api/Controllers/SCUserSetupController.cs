@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NSI.Domain.Interfaces.Security;
 using NSI.Domain.Models.Security;
+using System.Data.SqlClient;
 using System.Security.Claims;
 
 namespace NSI.Api.Controllers
@@ -41,12 +42,22 @@ namespace NSI.Api.Controllers
         public async Task<IActionResult> Create([FromBody] UserSetup payload)
         {
 
-           
-            var userLogin = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _repo.Create(payload, userLogin);
+            try
+            {
+                var userLogin = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                await _repo.Create(payload, userLogin);
 
-            return Success(null, "Data saved successfully");
-           
+                return Success(null, "Data saved successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
+
 
             //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)??"";
             //await _service.Create(model, userId);
@@ -68,41 +79,63 @@ namespace NSI.Api.Controllers
         [HttpPatch("update")]
         public async Task<IActionResult> Update([FromBody] UserSetup payload)
         {
-            //var before = await _addressRepository.Capture(model.AddressCode);
-            var userLogin = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _repo.Update(payload, userLogin);
-            //var after = await _addressRepository.Capture(model.AddressCode);
+            try
+            {
+                //var before = await _addressRepository.Capture(model.AddressCode);
+                var userLogin = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                await _repo.Update(payload, userLogin);
+                //var after = await _addressRepository.Capture(model.AddressCode);
 
-            //await _logger.SaveDataLog(new DataLogDto
-            //{
-            //    DocumentType = "Master Address",
-            //    EntityId = model.AddressCode,
-            //    ReferenceId = model.AddressCode,
-            //    Action = DataLogAction.Update,
-            //    Before = before,
-            //    After = after
-            //});
-            return Success(null, "Data updated successfully");
+                //await _logger.SaveDataLog(new DataLogDto
+                //{
+                //    DocumentType = "Master Address",
+                //    EntityId = model.AddressCode,
+                //    ReferenceId = model.AddressCode,
+                //    Action = DataLogAction.Update,
+                //    Before = before,
+                //    After = after
+                //});
+                return Success(null, "Data updated successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
 
         [HttpPost("remove")]
         public async Task<IActionResult> Remove([FromBody] UserSetupInfo payload)
         {
-            //var before = await _addressRepository.Capture(id);
-            string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+            try
+            {
+                //var before = await _addressRepository.Capture(id);
+                string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
 
-            var userLogin = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _repo.Remove(payload.UserID, userLogin, clientIp);
-            //await _logger.SaveDataLog(new DataLogDto
-            //{
-            //    DocumentType = "Master Address",
-            //    EntityId = id,
-            //    ReferenceId = id,
-            //    Action = DataLogAction.Delete,
-            //    Before = before
-            //});
+                var userLogin = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                await _repo.Remove(payload.UserID, userLogin, clientIp);
+                //await _logger.SaveDataLog(new DataLogDto
+                //{
+                //    DocumentType = "Master Address",
+                //    EntityId = id,
+                //    ReferenceId = id,
+                //    Action = DataLogAction.Delete,
+                //    Before = before
+                //});
 
-            return Success(null, "Data deleted successfully");
+                return Success(null, "Data deleted successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
 
         [HttpPost("list-setting-course")]
@@ -115,10 +148,21 @@ namespace NSI.Api.Controllers
         [HttpPost("submit-setting-course")]
         public async Task<IActionResult> SubmitBatch([FromBody] List<UserSettingCourse> payload)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _repo.SaveUserSettingCourse(payload, userId);
+            try
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                await _repo.SaveUserSettingCourse(payload, userId);
 
-            return Success(null, "Data submit successfully");
+                return Success(null, "Data submit successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
 
 
@@ -134,10 +178,21 @@ namespace NSI.Api.Controllers
         [HttpPatch("save-profile")]
         public async Task<IActionResult> SaveProfile([FromBody] UserSetup payload)
         {
-            var userLogin = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _repo.SaveProfile(payload, userLogin);
-            
-            return Success(null, "save profile successfully");
+            try
+            {
+                var userLogin = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                await _repo.SaveProfile(payload, userLogin);
+
+                return Success(null, "save profile successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
     }
 }

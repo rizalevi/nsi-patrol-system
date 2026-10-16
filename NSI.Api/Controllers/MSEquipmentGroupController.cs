@@ -4,6 +4,7 @@ using NSI.Api.Services.Master; // Asumsi tempat MSGroupRepositories berada
 using NSI.Domain.DTOs.Master;
 using NSI.Domain.Interfaces.Master;
 using NSI.Domain.Models.Master;
+using System.Data.SqlClient;
 using System.Security.Claims;
 
 namespace NSI.Api.Controllers.Master
@@ -29,32 +30,69 @@ namespace NSI.Api.Controllers.Master
         [HttpPost("create")]
         public async Task<IActionResult> Create([FromBody] MSEquipmentGroup payload)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _repo.CreateAsync(payload, userId);
+            try
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                await _repo.CreateAsync(payload, userId);
 
-            return Success(null, "Data saved successfully");
+                return Success(null, "Data saved successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
 
         [HttpPatch("update")]
         public async Task<IActionResult> Update([FromBody] MSEquipmentGroup payload)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _repo.UpdateAsync(payload, userId);
+            try
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                await _repo.UpdateAsync(payload, userId);
 
-            return Success(null, "Data updated successfully");
+                return Success(null, "Data updated successfully");
+
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
+
         }
 
         [HttpPost("remove")]
         public async Task<IActionResult> Remove([FromBody] MSEquipmentGroup payload)
         {
-            //string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
-
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
 
-            // Melempar GroupCode dan CourseCode karena di SP Remove-nya membutuhkan itu
-            await _repo.RemoveAsync(payload.GroupCode, payload.CourseCode, userId, payload.IPAddress ?? "");
+            try
+            {
+                await _repo.RemoveAsync(
+                    payload.GroupCode,
+                    payload.CourseCode,
+                    userId,
+                    payload.IPAddress ?? ""
+                );
 
-            return Success(null, "Data deleted successfully");
+                return Success(null, "Data deleted successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
 
         // --- Endpoints Khusus untuk Combo Box / Dropdown ---

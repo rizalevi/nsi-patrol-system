@@ -315,8 +315,40 @@ $(document).on("click", ".btn-excel", function () {
     });
 });
 
-$(document).on("click", ".btn-print", function () {
+//$(document).on("click", ".btn-print", function () {
     
+//    let courseCodes = [];
+//    let dates = [];
+//    let freqs = [];
+
+//    $(".chk-select:checked").each(function () {
+//        courseCodes.push($(this).val());
+//        dates.push($(this).data("inspectdate"));
+//        freqs.push($(this).data("frequency"));
+//    });
+
+//    //let frequency = $("#Frequency").val();
+
+//    // VALIDASI
+//    if (courseCodes.length === 0) {
+//        toastr.warning('Please select data to print preview', 'Info', { timeOut: 3000, "closeButton": true });
+
+//        return;
+//    }
+    
+//    // gabungkan jadi string
+//    let courseCode = courseCodes.join(",");
+//    let date = dates.join(",");
+//    let frequency = freqs.join(",");
+
+//    let url = `/Report/InspectionReport?courseCode=${courseCode}&inspectionDate=${date}&frequency=${frequency}`;
+
+//    $("#reportFrame").attr("src", url);
+//    $("#modalReport").modal("show");
+//});
+
+$(document).on("click", ".btn-print", function () {
+
     let courseCodes = [];
     let dates = [];
     let freqs = [];
@@ -327,25 +359,49 @@ $(document).on("click", ".btn-print", function () {
         freqs.push($(this).data("frequency"));
     });
 
-    //let frequency = $("#Frequency").val();
-
-    // VALIDASI
     if (courseCodes.length === 0) {
-        toastr.warning('Please select data to print preview', 'Info', { timeOut: 3000, "closeButton": true });
+        toastr.warning(
+            'Please select data to print preview',
+            'Info',
+            {
+                timeOut: 3000,
+                closeButton: true
+            }
+        );
 
         return;
     }
-    
-    // gabungkan jadi string
+
     let courseCode = courseCodes.join(",");
     let date = dates.join(",");
     let frequency = freqs.join(",");
 
-    let url = `/Report/InspectionReport?courseCode=${courseCode}&inspectionDate=${date}&frequency=${frequency}`;
+    let url =
+        `/Report/InspectionReport` +
+        `?courseCode=${encodeURIComponent(courseCode)}` +
+        `&inspectionDate=${encodeURIComponent(date)}` +
+        `&frequency=${encodeURIComponent(frequency)}`;
 
-    $("#reportFrame").attr("src", url);
+    // Show loading
+    $("#reportFrame").hide();
+
+    $("#reportLoading").css("display", "flex");
+
+    // Reset iframe
+    $("#reportFrame")
+        .off("load")
+        .on("load", function () {
+
+            $("#reportLoading").hide();
+            $("#reportFrame").show();
+
+        })
+        .attr("src", url);
+
     $("#modalReport").modal("show");
+
 });
+
 
 function init() {
    
@@ -485,9 +541,36 @@ function loadData() {
             { data: "Group", "autoWidth": false },
             { data: "InspectionPoint", "autoWidth": false },
             { data: "Unit", "autoWidth": false },
-            { data: "Minimum", "autoWidth": false },
-            { data: "Maximum", "autoWidth": false },
-            { data: "InspectionResult", "autoWidth": false },
+            //{ data: "Minimum", "autoWidth": false },
+            //{ data: "Maximum", "autoWidth": false },
+            //{ data: "InspectionResult", "autoWidth": false },
+            {
+                data: "Minimum",
+                autoWidth: false,
+                render: function (data, type, row) {
+                    if (type !== "display") return data ?? "";
+
+                    return FormatInspectionResult(data);
+                }
+            },
+            {
+                data: "Maximum",
+                autoWidth: false,
+                render: function (data, type, row) {
+                    if (type !== "display") return data ?? "";
+
+                    return FormatInspectionResult(data);
+                }
+            },
+            {
+                data: "InspectionResult",
+                autoWidth: false,
+                render: function (data, type, row) {
+                    if (type !== "display") return data ?? "";
+
+                    return FormatInspectionResult(data);
+                }
+            },
             { data: "Status", "autoWidth": false },
             { data: "GroupSelection", "autoWidth": false },
             { data: "InspectorUser", "autoWidth": false },

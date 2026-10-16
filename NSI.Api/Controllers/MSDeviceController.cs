@@ -4,6 +4,7 @@ using NSI.Domain.DTOs.Master;
 using NSI.Domain.Interfaces.Master;
 using NSI.Domain.Models.Inspection;
 using NSI.Domain.Models.Master;
+using System.Data.SqlClient;
 using System.Security.Claims;
 
 namespace NSI.Api.Controllers
@@ -40,19 +41,41 @@ namespace NSI.Api.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> Create([FromBody] MSDevice payload)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _repo.Create(payload, userId);
+            try
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                await _repo.Create(payload, userId);
 
-            return Success(null, "Data saved successfully");
+                return Success(null, "Data saved successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
 
         [HttpPatch("update")]
         public async Task<IActionResult> Update([FromBody] MSDevice payload)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _repo.Update(payload, userId);
+            try
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                await _repo.Update(payload, userId);
 
-            return Success(null, "Data updated successfully");
+                return Success(null, "Data updated successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
 
         [HttpPost("remove")]
@@ -60,10 +83,21 @@ namespace NSI.Api.Controllers
         {
             //string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
 
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _repo.Remove(payload.DeviceCode, userId, payload.IPAddress??"");
+            try
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                await _repo.Remove(payload.DeviceCode, userId, payload.IPAddress ?? "");
 
-            return Success(null, "Data deleted successfully");
+                return Success(null, "Data deleted successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
 
         [HttpPost("get-plant")]
@@ -92,10 +126,21 @@ namespace NSI.Api.Controllers
         [HttpPost("submit-detail")]
         public async Task<IActionResult> CreateHTDetail([FromBody] MSDeviceBatch payload)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _repo.SubmitBatch(payload, userId);
+            try
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                await _repo.SubmitBatch(payload, userId);
 
-            return Success(null, "Data submit successfully");
+                return Success(null, "Data submit successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
 
        

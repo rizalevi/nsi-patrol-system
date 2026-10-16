@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NSI.Api.Services.Master;
 using NSI.Domain.Models.Master;
+using System.Data.SqlClient;
 using System.Security.Claims;
 
 namespace NSI.Api.Controllers
@@ -39,13 +40,23 @@ namespace NSI.Api.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> Create([FromBody] MSCluster payload)
         {
+            try
+            {
 
-           
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _service.Create(payload, userId);
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                await _service.Create(payload, userId);
 
-            return Success(null, "Data saved successfully");
-           
+                return Success(null, "Data saved successfully");
+
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
 
             //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)??"";
             //await _service.Create(model, userId);
@@ -67,21 +78,32 @@ namespace NSI.Api.Controllers
         [HttpPatch("update")]
         public async Task<IActionResult> Update([FromBody] MSCluster payload)
         {
-            //var before = await _addressRepository.Capture(model.AddressCode);
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _service.Update(payload, userId);
-            //var after = await _addressRepository.Capture(model.AddressCode);
+            try
+            {
+                //var before = await _addressRepository.Capture(model.AddressCode);
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                await _service.Update(payload, userId);
+                //var after = await _addressRepository.Capture(model.AddressCode);
 
-            //await _logger.SaveDataLog(new DataLogDto
-            //{
-            //    DocumentType = "Master Address",
-            //    EntityId = model.AddressCode,
-            //    ReferenceId = model.AddressCode,
-            //    Action = DataLogAction.Update,
-            //    Before = before,
-            //    After = after
-            //});
-            return Success(null, "Data updated successfully");
+                //await _logger.SaveDataLog(new DataLogDto
+                //{
+                //    DocumentType = "Master Address",
+                //    EntityId = model.AddressCode,
+                //    ReferenceId = model.AddressCode,
+                //    Action = DataLogAction.Update,
+                //    Before = before,
+                //    After = after
+                //});
+                return Success(null, "Data updated successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
 
         [HttpPost("remove")]
@@ -90,20 +112,30 @@ namespace NSI.Api.Controllers
             //var before = await _addressRepository.Capture(id);
             //string? clientIp = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault() ?? HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
             //string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
-            
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            
-            await _service.Remove(payload.ClusterCode, userId, payload.IPAddress);
-            //await _logger.SaveDataLog(new DataLogDto
-            //{
-            //    DocumentType = "Master Address",
-            //    EntityId = id,
-            //    ReferenceId = id,
-            //    Action = DataLogAction.Delete,
-            //    Before = before
-            //});
+            try
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
 
-            return Success(null, "Data deleted successfully");
+                await _service.Remove(payload.ClusterCode, userId, payload.IPAddress);
+                //await _logger.SaveDataLog(new DataLogDto
+                //{
+                //    DocumentType = "Master Address",
+                //    EntityId = id,
+                //    ReferenceId = id,
+                //    Action = DataLogAction.Delete,
+                //    Before = before
+                //});
+
+                return Success(null, "Data deleted successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
 
     }

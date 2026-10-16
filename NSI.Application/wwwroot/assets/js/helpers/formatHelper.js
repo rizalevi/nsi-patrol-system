@@ -96,3 +96,28 @@ function formatCurrency(number, symbol = "Rp") {
     return `${symbol} ${formatted}`;
 }
 
+//new requirement from user (15 oct 2026) max total digit 4 if value decimal
+
+function FormatInspectionResult(value) {
+    if (value === null || value === undefined || value === "") {
+        return "";
+    }
+
+    var num = Number(value);
+
+    if (!Number.isFinite(num)) {
+        return value;
+    }
+
+    // Bilangan bulat ribuan atau lebih
+    if (Number.isInteger(num) && Math.abs(num) >= 1000) {
+        return num.toFixed(0);
+    }
+
+    var integerDigits = Math.abs(Math.trunc(num)).toString().length;
+    var decimalDigits = Math.max(0, 4 - integerDigits);
+
+    return num.toFixed(decimalDigits);
+}
+
+

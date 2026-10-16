@@ -4,6 +4,7 @@ using NSI.Api.Services.Security;
 using NSI.Domain.DTOs.Security;
 using NSI.Domain.Interfaces.Security;
 using NSI.Domain.Models.Security;
+using System.Data.SqlClient;
 using System.Security.Claims;
 
 namespace NSI.Api.Controllers
@@ -75,21 +76,32 @@ namespace NSI.Api.Controllers
         [HttpPost("remove")]
         public async Task<IActionResult> Remove([FromBody] GroupSetup payload)
         {
-            //var before = await _addressRepository.Capture(id);
-            string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+            try
+            {
+                //var before = await _addressRepository.Capture(id);
+                string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
 
-            var userLogin = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-            await _repo.Remove(payload.GroupID, userLogin, clientIp);
-            //await _logger.SaveDataLog(new DataLogDto
-            //{
-            //    DocumentType = "Master Address",
-            //    EntityId = id,
-            //    ReferenceId = id,
-            //    Action = DataLogAction.Delete,
-            //    Before = before
-            //});
+                var userLogin = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+                await _repo.Remove(payload.GroupID, userLogin, clientIp);
+                //await _logger.SaveDataLog(new DataLogDto
+                //{
+                //    DocumentType = "Master Address",
+                //    EntityId = id,
+                //    ReferenceId = id,
+                //    Action = DataLogAction.Delete,
+                //    Before = before
+                //});
 
-            return Success(null, "Data deleted successfully");
+                return Success(null, "Data deleted successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
 
         [HttpPost("privilege")]

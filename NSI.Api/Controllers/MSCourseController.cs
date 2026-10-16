@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NSI.Api.Services.Master; // Mengacu pada lokasi repository Anda
 using NSI.Domain.Models.Master;
+using System.Data.SqlClient;
 using System.Security.Claims;
 
 namespace NSI.Api.Controllers.Master
@@ -33,26 +34,48 @@ namespace NSI.Api.Controllers.Master
         [HttpPost("create")]
         public async Task<IActionResult> Create([FromBody] MSCourse payload)
         {
-            // Validasi sederhana sebelum memanggil service
-            if (string.IsNullOrEmpty(payload.ClusterCode) || string.IsNullOrEmpty(payload.PlantCode))
+            try
             {
-                return BadRequest("Cluster Code and Plant Code are required.");
-            }
+                // Validasi sederhana sebelum memanggil service
+                if (string.IsNullOrEmpty(payload.ClusterCode) || string.IsNullOrEmpty(payload.PlantCode))
+                {
+                    return BadRequest("Cluster Code and Plant Code are required.");
+                }
 
-            await service.CreateAsync(payload, CurrentUserId);
-            return Success(null, "Data saved successfully");
+                await service.CreateAsync(payload, CurrentUserId);
+                return Success(null, "Data saved successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
 
         [HttpPost("update")]
         public async Task<IActionResult> Update([FromBody] MSCourse payload)
         {
-            if (string.IsNullOrEmpty(payload.ClusterCode) || string.IsNullOrEmpty(payload.PlantCode))
+            try
             {
-                return BadRequest("Cluster Code and Plant Code are required.");
-            }
+                if (string.IsNullOrEmpty(payload.ClusterCode) || string.IsNullOrEmpty(payload.PlantCode))
+                {
+                    return BadRequest("Cluster Code and Plant Code are required.");
+                }
 
-            await service.UpdateAsync(payload, CurrentUserId);
-            return Success(null, "Data updated successfully");
+                await service.UpdateAsync(payload, CurrentUserId);
+                return Success(null, "Data updated successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
 
         [HttpPost("remove")]
@@ -61,10 +84,22 @@ namespace NSI.Api.Controllers.Master
             //string clientIp = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault()
             //                  ?? HttpContext.Connection.RemoteIpAddress?.ToString()
             //                  ?? string.Empty;
-           // string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+            // string? clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
 
-            await service.RemoveAsync(payload.ClusterCode, payload.PlantCode, payload.CourseCode, CurrentUserId, payload.IPAddress);
-            return Success(null, "Data deleted successfully");
+
+            try
+            {
+                await service.RemoveAsync(payload.ClusterCode, payload.PlantCode, payload.CourseCode, CurrentUserId, payload.IPAddress);
+                return Success(null, "Data deleted successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Fail(null, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Fail(null, ex.Message);
+            }
         }
 
         // --- FILTER SECTION ---

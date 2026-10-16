@@ -191,9 +191,18 @@ $(document).on("change", "#Frequency,#InspectionDateFrom", function () {
 $(document).on("click", ".btn-search", function () {
     if (!validateData()) return;
 
-    table.ajax.reload(null, false);
 
-    isRedirect = false;
+    if (table) {
+        table.ajax.reload(null, false);
+        isRedirect = false;
+    } else {
+        loadData();
+    }
+
+
+    //table.ajax.reload(null, false);
+
+    //isRedirect = false;
 
     //if (!validateData()) return;
 
@@ -290,6 +299,8 @@ $(document).on("click", ".btn-submit", function () {
                     }
                     else {
                         toastr.success(result.message, 'Success', { timeOut: 3000, "closeButton": true });
+                        // Uncheck Check All Leader
+                        $('#chk-all-leader').prop('checked', false);
                         table.ajax.reload(null, false);
                     }
 
@@ -981,9 +992,84 @@ function loadDetail() {
             { data: "Group", "autoWidth": false },
             { data: "InspectionPoint", "autoWidth": false },
             { data: "Unit", "autoWidth": false },
-            { data: "Minimum", "autoWidth": false },
-            { data: "Maximum", "autoWidth": false },
-            { data: "InspectionResult", "autoWidth": false },
+            {
+                data: "Minimum",
+                autoWidth: false,
+                render: function (data, type, row) {
+                    if (type !== "display") return data ?? "";
+
+                    return FormatInspectionResult(data);
+                }
+            },
+            {
+                data: "Maximum",
+                autoWidth: false,
+                render: function (data, type, row) {
+                    if (type !== "display") return data ?? "";
+
+                    return FormatInspectionResult(data);
+                }
+            },
+            {
+                data: "InspectionResult",
+                autoWidth: false,
+                render: function (data, type, row) {
+                    if (type !== "display") return data ?? "";
+
+                    return FormatInspectionResult(data);
+                }
+            },
+            //{
+            //    data: "Minimum",
+            //    autoWidth: false,
+            //    render: function (data, type, row) {
+            //        if (data == null || data === "") return "";
+
+            //        // Jika numeric
+            //        if (!isNaN(data) && data.toString().trim() !== "") {
+            //            return parseFloat(data)
+            //                .toFixed(3)
+            //                .replace(/\.?0+$/, "");
+            //        }
+
+            //        // Jika string seperti YES / NO
+            //        return data;
+            //    }
+            //},
+            //{
+            //    data: "Maximum",
+            //    autoWidth: false,
+            //    render: function (data, type, row) {
+            //        if (data == null || data === "") return "";
+
+            //        // Jika numeric
+            //        if (!isNaN(data) && data.toString().trim() !== "") {
+            //            return parseFloat(data)
+            //                .toFixed(3)
+            //                .replace(/\.?0+$/, "");
+            //        }
+
+            //        // Jika string seperti YES / NO
+            //        return data;
+            //    }
+            //},
+            //{
+            //    data: "InspectionResult",
+            //    autoWidth: false,
+            //    render: function (data, type, row) {
+            //        if (data == null || data === "") return "";
+
+            //        // Jika numeric
+            //        if (!isNaN(data) && data.toString().trim() !== "") {
+            //            return parseFloat(data)
+            //                .toFixed(3)
+            //                .replace(/\.?0+$/, "");
+            //        }
+
+            //        // Jika string seperti YES / NO
+            //        return data;
+            //    }
+            //},
             { data: "Status", "autoWidth": false }
 
         ],
@@ -1166,3 +1252,5 @@ function validateData() {
 
     return true;
 }
+
+

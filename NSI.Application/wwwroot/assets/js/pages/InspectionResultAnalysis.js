@@ -325,7 +325,36 @@ function loadData() {
                 },
             },
             { data: "Frequency", "autoWidth": true, className: "text-center"},
-            { data: "Value", "autoWidth": true, className: "text-right" },
+            {
+                data: "Value",
+                autoWidth: false,
+                render: function (data, type, row) {
+                    if (data == null || data === "") return "";
+
+                    // Format hanya untuk tampilan
+                    if (type !== "display") return data;
+
+                    return FormatInspectionResult(data);
+                }
+            }
+
+            //{
+            //    data: "Value",
+            //    autoWidth: false,
+            //    render: function (data, type, row) {
+            //        if (data == null || data === "") return "";
+
+            //        // Jika numeric
+            //        if (!isNaN(data) && data.toString().trim() !== "") {
+            //            return parseFloat(data)
+            //                .toFixed(3)
+            //                .replace(/\.?0+$/, "");
+            //        }
+
+            //        // Jika string seperti YES / NO
+            //        return data;
+            //    }
+            //}
 
         ],
         autoWidth: false,
@@ -675,8 +704,8 @@ function renderChart(data) {
      * supaya decimal asli tetap bagus
      */
 
-    const suggestedMin =Number( (minY - padding).toFixed(5) );
-    const suggestedMax =Number( (maxY + padding).toFixed(5) );
+    const suggestedMin =Number( (minY - padding).toFixed(3) );
+    const suggestedMax =Number( (maxY + padding).toFixed(3) );
 
     /**
      * ============================
@@ -752,7 +781,7 @@ function renderChart(data) {
      * CREATE CHART
      * ============================
      */
-
+    console.log(inspectionData);
     const ctx = document.getElementById('lineChart').getContext('2d');
 
     window.myChart = new Chart(ctx, {
@@ -881,10 +910,10 @@ function renderChart(data) {
                                 tooltipItem.datasetIndex
                             ].label || '';
 
-                        const value =
-                            Number(
-                                tooltipItem.yLabel
-                            ).toFixed(5);
+                        const value = FormatInspectionResult(tooltipItem.yLabel);
+                            //Number(
+                            //    tooltipItem.yLabel
+                            //).toFixed(3);
 
                         /**
                          * =========================
@@ -892,10 +921,7 @@ function renderChart(data) {
                          * =========================
                          */
 
-                        if (
-                            datasetLabel ===
-                            'Inspection Result'
-                        ) {
+                        if (datasetLabel ===  'Inspection Result') {
                             const index =
                                 tooltipItem.index;
                             const min =
@@ -964,8 +990,8 @@ function renderChart(data) {
                         suggestedMax: suggestedMax,
                         fontSize: 10,
                         callback: function (value) {
-                            return Number(value)
-                                .toFixed(5);
+                            return FormatInspectionResult(value);
+                            //return Number(value).toFixed(3);
                         }
                     },
                     gridLines: {
@@ -1248,3 +1274,15 @@ $(document).on("click", ".btn-prev", function () {
 
 /** ====== END PREV & NEXT BUTTON ======*/
 
+
+function format3Decimal(value) {
+    if (value == null || value === "") return "";
+
+    if (!isNaN(value) && value.toString().trim() !== "") {
+        return parseFloat(value)
+            .toFixed(3)
+            .replace(/\.?0+$/, "");
+    }
+
+    return value;
+}

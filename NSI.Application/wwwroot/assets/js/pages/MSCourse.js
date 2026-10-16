@@ -218,7 +218,7 @@ $(document).on("click", ".btn-delete", function () {
                 contentType: "application/json",
                 data: JSON.stringify({ ClusterCode: cluster, PlantCode: plant, CourseCode: course }),
                 success: function (result) {
-                    if (result.status === false || result.status === "false") {
+                    if (!result.success) {
                         toastr.warning(result.message, 'Warning');
                     } else {
                         toastr.success(result.message, 'Success');
